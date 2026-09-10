@@ -109,7 +109,11 @@ prev/next — read the prefix from `data-base-path` on `<body>`. See
 the contract underneath the prefix.
 
 `.github/workflows/pages.yml` does this automatically, taking the prefix from
-`actions/configure-pages`.
+`actions/configure-pages`. It publishes
+[jonmorris.github.io/ca-experimental](https://jonmorris.github.io/ca-experimental/)
+on every push to `main` — the `github-pages` environment only permits
+deployments from that branch, so `main` is the published branch. Every branch
+still gets the full build and verification from `ci.yml`.
 
 ## Documentation
 
