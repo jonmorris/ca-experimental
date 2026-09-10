@@ -1,4 +1,7 @@
+import { HtmlBasePlugin } from "@11ty/eleventy";
+
 import { slugify } from "./lib/slugify.js";
+import { basePath, withBasePath } from "./lib/base-path.js";
 import { buildGames } from "./lib/registry.js";
 import { cleanHeadingText, explicitHeadingId } from "./lib/headings.js";
 import { enhanceHeadings } from "./lib/heading-tools.js";
@@ -43,6 +46,20 @@ function escapeHtml(value) {
 
 export default function (eleventyConfig) {
   eleventyConfig.setTemplateFormats(["njk", "md"]);
+
+  const prefix = basePath();
+
+  /*
+   * Rewrites every href/src in the output when the site is served from a
+   * subpath. Authored URLs stay root-absolute either way, so nothing in a
+   * template or a content file has to know where the site is hosted.
+   */
+  eleventyConfig.addPlugin(HtmlBasePlugin);
+
+  // Exposed to templates and, via a body attribute, to the client modules that
+  // build URLs themselves — those are out of the plugin's reach.
+  eleventyConfig.addGlobalData("basePath", prefix);
+  eleventyConfig.addFilter("basePath", (url) => withBasePath(url, prefix));
 
   // Raw source material and working drafts are never read as templates and
   // never published.
@@ -97,7 +114,9 @@ export default function (eleventyConfig) {
    * Rendering this here rather than in the markdown pipeline keeps the decision
    * with the layout that knows whether a page's headings are bookmarkable.
    */
-  eleventyConfig.addFilter("enhanceHeadings", enhanceHeadings);
+  eleventyConfig.addFilter("enhanceHeadings", (content, options = {}) =>
+    enhanceHeadings(content, { ...options, basePath: prefix }),
+  );
 
   // ------------------------------------------------------------- shortcodes
 
@@ -249,5 +268,6 @@ export default function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     templateFormats: ["njk", "md"],
+    pathPrefix: prefix,
   };
 }

@@ -16,7 +16,7 @@
     aria-label="Rulebook section navigation"
     data-rulebook-nav
     data-pagefind-ignore
-    data-rulebook-base="{{ contentType.url }}">
+    data-rulebook-base="{{ contentType.url | basePath }}">
     <a class="prev-next__link prev-next__link--prev" href="{{ contentType.url }}#{{ first.slug }}" data-rulebook-prev>
       <span class="prev-next__direction">Prev</span>
       <span class="prev-next__label" data-rulebook-prev-label>{{ first.title }}</span>

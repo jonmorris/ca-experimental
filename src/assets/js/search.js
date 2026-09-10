@@ -14,7 +14,9 @@
  * rather than failing silently.
  */
 
-const PAGEFIND_URL = "/pagefind/pagefind.js";
+import { BASE_PATH, withBasePath } from "./base-path.js";
+
+const PAGEFIND_URL = withBasePath("/pagefind/pagefind.js");
 const DEBOUNCE_MS = 180;
 const MAX_RESULTS = 8;
 
@@ -25,7 +27,14 @@ function loadPagefind() {
   if (!pagefindPromise) {
     pagefindPromise = import(PAGEFIND_URL)
       .then(async (pagefind) => {
-        await pagefind.options({ excerptLength: 24 });
+        await pagefind.options({
+          excerptLength: 24,
+          // Two different paths: `basePath` is where the Pagefind bundle and
+          // its index chunks live, `baseUrl` is the site root that result URLs
+          // are built from. Both move when the site is served from a subpath.
+          basePath: withBasePath("/pagefind/"),
+          baseUrl: BASE_PATH,
+        });
         await pagefind.init();
         return pagefind;
       })

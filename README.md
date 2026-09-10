@@ -80,7 +80,7 @@ nav automatically.
 
 ## Deployment
 
-Cloudflare Pages, static.
+### Cloudflare Pages (the target in the requirements)
 
 | Setting | Value |
 | --- | --- |
@@ -88,7 +88,28 @@ Cloudflare Pages, static.
 | Output directory | `_site` |
 | Node version | `20` (or newer) |
 
-No `wrangler.toml` — Pages serves the output directly.
+No `wrangler.toml` — Pages serves the output directly. Cloudflare serves from
+a root domain, so no extra configuration is needed: every URL in the site is
+root-absolute, exactly as the URL contract describes.
+
+### Hosting under a subpath
+
+A GitHub project Pages site is served from `/{repo}/` rather than a root
+domain. Set `PATH_PREFIX` and the build adjusts the output for it:
+
+```bash
+PATH_PREFIX=/ca-experimental npm run build
+```
+
+No authored URL changes. Eleventy's `HtmlBasePlugin` rewrites every `href` and
+`src`, and the handful of URLs the client builds at runtime — the Pagefind
+bundle, the URLs Pagefind returns, stored bookmark links and rulebook
+prev/next — read the prefix from `data-base-path` on `<body>`. See
+`lib/base-path.js`. `npm run verify:links` honours the same variable and checks
+the contract underneath the prefix.
+
+`.github/workflows/pages.yml` does this automatically, taking the prefix from
+`actions/configure-pages`.
 
 ## Documentation
 

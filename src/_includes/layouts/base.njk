@@ -44,6 +44,7 @@
     class="{{ bodyClass or 'page' }}"
     {% if game %}data-pagefind-filter="game:{{ game.slug }}" data-game="{{ game.slug }}"{% endif %}
     data-content-type="{{ contentTypeSlug or 'site' }}"
+    data-base-path="{{ basePath }}"
   >
     <a class="skip-link" href="#main">Skip to content</a>
 

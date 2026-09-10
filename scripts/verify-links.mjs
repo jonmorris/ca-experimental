@@ -19,8 +19,21 @@ import { readdirSync, readFileSync, statSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 
 import { buildGames } from "../lib/registry.js";
+import { basePath } from "../lib/base-path.js";
 
 const SITE_DIR = join(process.cwd(), "_site");
+
+/*
+ * When the site is built for a subpath, every URL in the output carries that
+ * prefix. The contract is checked against the URL underneath it, so the same
+ * patterns hold whether the site is hosted at a root domain or under /repo/.
+ */
+const PREFIX = basePath();
+
+function stripPrefix(url) {
+  if (PREFIX === "/" || !url.startsWith(PREFIX)) return url;
+  return `/${url.slice(PREFIX.length)}`;
+}
 
 /**
  * The URL contract. Anything published under /games/ must match one of these.
@@ -89,7 +102,7 @@ function main() {
   // --- URL contract -------------------------------------------------------
   for (const url of pages.keys()) {
     if (url === "/404.html") continue;
-    if (!URL_PATTERNS.some((pattern) => pattern.re.test(url))) {
+    if (!URL_PATTERNS.some((pattern) => pattern.re.test(stripPrefix(url)))) {
       fail(`${url} — does not match any URL in the contract`);
     }
   }
@@ -100,7 +113,9 @@ function main() {
       if (!href.startsWith("/")) continue; // external, mailto, or in-page below
 
       const [path, fragment] = href.split("#");
-      const targetUrl = path || url;
+      // Links carry the deploy prefix; the page map is keyed by output path,
+      // which is what the prefix resolves to on the host.
+      const targetUrl = path ? stripPrefix(path) : url;
       const target = pages.get(targetUrl);
 
       if (!target) {
