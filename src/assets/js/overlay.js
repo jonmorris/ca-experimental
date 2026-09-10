@@ -91,24 +91,25 @@ export function createOverlay({ panel, trigger, onOpen, onClose } = {}) {
     });
   }
 
-  /*
-   * Clicking the backdrop closes. For a modal <dialog> the backdrop is part of
-   * the dialog's own box, so a click is "outside" when it lands beyond the
-   * element's rectangle.
-   */
-  panel.addEventListener("click", (event) => {
-    if (event.target !== panel) return;
-    const box = panel.getBoundingClientRect();
-    const outside =
-      event.clientX < box.left ||
-      event.clientX > box.right ||
-      event.clientY < box.top ||
-      event.clientY > box.bottom;
-    if (outside || !isDialog) close();
-  });
+  // Any explicit close control inside the overlay.
+  for (const button of panel.querySelectorAll("[data-overlay-close]")) {
+    button.addEventListener("click", close);
+  }
 
-  // Following a link inside an overlay should leave it closed behind you.
   panel.addEventListener("click", (event) => {
+    /*
+     * Clicking away closes. These dialogs fill the viewport and the visible
+     * surface is a child element, so a click that lands on the dialog itself —
+     * rather than on any descendant — is a click on the dimmed area around the
+     * panel. Comparing against the dialog's own bounding box does not work
+     * here: the box covers the whole screen, so nothing is ever outside it.
+     */
+    if (event.target === panel) {
+      close();
+      return;
+    }
+
+    // Following a link inside an overlay should leave it closed behind you.
     if (event.target.closest("a[href]")) close();
   });
 

@@ -41,6 +41,17 @@ export function initMenu() {
     if (event.target.closest("a")) setOpen(false);
   });
 
+  /*
+   * Tapping anywhere else closes it. The dropdown is not a <dialog> — it sits
+   * in the header's flow so the page stays scrollable behind it — so there is
+   * no backdrop to catch the tap, and it has to be caught on the document.
+   */
+  document.addEventListener("pointerdown", (event) => {
+    if (toggle.getAttribute("aria-expanded") !== "true") return;
+    if (menu.contains(event.target) || toggle.contains(event.target)) return;
+    setOpen(false);
+  });
+
   // Crossing into the desktop layout hides the dropdown; leave it collapsed so
   // it does not reappear open when the viewport narrows again.
   const desktop = window.matchMedia(DESKTOP_QUERY);

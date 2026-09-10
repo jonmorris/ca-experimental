@@ -3,7 +3,20 @@
   The three overlays, plus the section jump list. All are <dialog> elements, so
   focus trapping, inertness and Escape come from the browser rather than from
   hand-written key handling. overlay.js wires them.
+
+  Every one closes three ways: the close button, a tap on the dimmed area
+  around it, and Escape. Keyboard users get all three; a phone user tapping
+  away from a sheet gets the one they expect.
 #}
+
+{% macro closeButton(label) %}
+  <button type="button" class="overlay-close" data-overlay-close aria-label="Close {{ label }}">
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false">
+      <path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+{% endmacro %}
 
 {# ------------------------------------------------ command palette / search #}
 <dialog class="palette" data-palette aria-label="Search and jump to">
@@ -26,7 +39,7 @@
         aria-controls="palette-results"
         aria-autocomplete="list"
         data-palette-input>
-      <kbd class="palette__hint" aria-hidden="true">esc</kbd>
+      {{ closeButton("search") }}
     </div>
 
     <p class="palette__empty" data-palette-empty></p>
@@ -43,9 +56,12 @@
   <div class="drawer__inner">
     <header class="drawer__header">
       <h2 class="drawer__title" id="drawer-title">Bookmarks</h2>
-      <button type="button" class="drawer__scope" data-drawer-scope aria-pressed="false">
-        Show all games
-      </button>
+      <div class="drawer__actions">
+        <button type="button" class="drawer__scope" data-drawer-scope aria-pressed="false">
+          Show all games
+        </button>
+        {{ closeButton("bookmarks") }}
+      </div>
     </header>
 
     <p class="drawer__empty" data-drawer-empty hidden></p>
@@ -58,7 +74,10 @@
   <div class="prefs__inner">
     <header class="drawer__header">
       <h2 class="drawer__title" id="prefs-title">Reading</h2>
-      <button type="button" class="drawer__scope" data-preferences-reset>Reset</button>
+      <div class="drawer__actions">
+        <button type="button" class="drawer__scope" data-preferences-reset>Reset</button>
+        {{ closeButton("reading preferences") }}
+      </div>
     </header>
 
     <div class="prefs__body" data-preferences-body></div>
@@ -73,8 +92,13 @@
     <div class="jump-sheet__inner">
       <header class="drawer__header">
         <h2 class="drawer__title">{{ contentType.title }}</h2>
+        <div class="drawer__actions">
+          {{ closeButton("section list") }}
+        </div>
       </header>
-      {{ sectionList(contentType, "jump-list jump-list--sheet") }}
+      <div class="jump-sheet__body">
+        {{ sectionList(contentType, "jump-list jump-list--sheet") }}
+      </div>
     </div>
   </dialog>
 {% endif %}
