@@ -189,6 +189,42 @@ shortcodes:
 
 ---
 
+## 4b. Design system
+
+Everything visual is a token in `src/assets/css/tokens.css`. No component
+stylesheet hard-codes a colour, size or space value.
+
+Five attributes on `<html>` drive the whole cascade, so no script ever writes a
+style property:
+
+| Attribute | Values | Set by |
+| --- | --- | --- |
+| `data-design` | `editorial`, `precision` | `site.json` |
+| `data-theme` | `light`, `dark` (absent = follow the OS) | reader |
+| `data-density` | `compact`, `comfortable`, `spacious` | reader |
+| `data-face` | `serif`, `sans` (absent = the design's default) | reader |
+| `data-measure` | `narrow`, `default`, `wide` | reader |
+
+Colours are declared once as `light-dark()` pairs, with a plain light value
+first as a fallback. Never define a colour in only one theme, and never put a
+palette in a media query — an explicit theme is a `color-scheme` flip.
+
+A design direction is a **token overlay** (`theme-editorial.css`,
+`theme-precision.css`) scoped to `:root[data-design="…"]`. A direction may not
+introduce a component or restructure a layout; if it needs to, that belongs in
+the shared stylesheet driven by a token.
+
+A design nominates `--font-body-default`, never `--font-body`: the two
+selectors have equal specificity and the design file loads later, so setting
+`--font-body` there would silently beat the reader's choice.
+
+Type and space are fluid (`clamp`) between a phone and a large laptop, so
+nothing steps at a breakpoint. Density scales the whole type ramp through
+`--scale` rather than by overriding individual sizes.
+
+Fonts are self-hosted and openly licensed, fetched by `scripts/fetch-fonts.mjs`
+which also pulls each family's OFL. Latin subset only.
+
 ## 5. Bookmarks
 
 H2-level anchors on bookmarkable content types only — currently the rulebook,
@@ -198,9 +234,18 @@ Storage is versioned JSON in `localStorage` under one key. The shape is
 record-based rather than keyed so it can be posted to an API unchanged.
 
 `BookmarkStore` — `list`, `has`, `add`, `remove` — is the only surface any UI
-touches. Nothing else in the codebase reads or writes `localStorage`. Swapping
-`src/assets/js/bookmark-store.js` for a remote implementation is the whole job
-of adding synced bookmarks.
+touches. Swapping `src/assets/js/bookmark-store.js` for a remote implementation
+is the whole job of adding synced bookmarks.
+
+`preferences.js` follows the same pattern for reading preferences, under its
+own key. Between them they are the only code that reads or writes
+`localStorage`, with one deliberate exception: the inline script in
+`base.njk` applies stored preferences before first paint, because a module
+would run after the page had already been drawn in the wrong theme.
+
+Bookmarks surface in three places, all reading the same store — the toggle
+beside every bookmarkable H2, the drawer in the header (reachable from any
+page), and the fuller panel on a game's landing page.
 
 ---
 

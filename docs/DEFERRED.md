@@ -65,20 +65,6 @@ so tags can be authored now and the shape is settled when filtering arrives.
 
 ---
 
-## Dark mode
-
-**Why deferred:** out of scope for phase 1.
-
-**What already helps:** every colour in the site is a custom property in
-`src/assets/css/tokens.css`, declared once on `:root`. No component hard-codes
-a colour. A dark theme is a second block of token values plus a
-`prefers-color-scheme` query — the components would not change.
-
-The contrast annotations in `tokens.css` are per-pair and would need redoing
-for a dark palette; that is the actual work.
-
----
-
 ## An authoring UI
 
 **Why deferred:** content is Markdown plus frontmatter, committed to git, and
@@ -90,27 +76,31 @@ is a different product.
 
 ---
 
-## Per-user preferences beyond bookmarks
+## Further reading preferences
 
-Reading position, font size, collapsed sections.
+Reading position, collapsed sections, justification. Theme, text size, body
+typeface and line width are **built** — see `preferences.js`.
 
-**Why deferred:** out of scope for phase 1.
+**Why deferred:** each control is one more thing to design, persist and test,
+and the four that shipped cover the complaints that actually come up.
 
-**What already helps:** the storage-key namespace (`cardboard-appendix:…`) and
-the pattern in `bookmark-store.js` — versioned payload, defensive reads, a
-narrow interface — are the shape any further preference store should copy
-rather than invent.
+**What already helps:** `PREFERENCES` in `src/assets/js/preferences.js` is a
+table. Adding one is an entry there plus the tokens it drives — the panel, the
+persistence, the cross-tab sync and the no-flash boot script all read from the
+same table and need no changes.
 
 ---
 
-## Global search on every page
+## Collapsible sections and inline glossary popovers
 
-Currently the global surface is the homepage only; in-game pages search their
-own game.
+Folding H2 sections to skim a rulebook as an outline, and showing a glossary
+definition in place rather than navigating to it.
 
-**Why deferred:** it is the behaviour the requirements ask for, and per-game
-scoping is the point — a search on Indonesia's page must not surface Arcs.
+**Why deferred:** both were considered for the at-the-table redesign and cut.
+Collapsing needs care so that print and deep links still expand correctly;
+popovers duplicate a destination that already exists as a page.
 
-**What already helps:** the widget takes its scope from a `data-search-game`
-attribute and applies no filter when it is absent. A global widget anywhere is
-a call to the same macro with an empty scope.
+**What already helps:** every H2 already carries a stable anchor and is
+addressable, and `section-tracker.js` already knows the document's outline.
+Glossary terms already resolve through one shortcode, so a popover would be a
+change to how `{% term %}` renders and nothing else.

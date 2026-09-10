@@ -3,19 +3,11 @@ layout: layouts/game.njk
 ---
 {% from "partials/prev-next.njk" import prevNext %}
 
-{% if contentType.sections.length %}
-  <nav class="toc" id="rulebook-toc" aria-labelledby="rulebook-toc-title" data-pagefind-ignore>
-    <h2 class="toc__title" id="rulebook-toc-title">Contents</h2>
-    <ol class="toc__list">
-      {% for section in contentType.sections %}
-        <li><a href="#{{ section.slug }}">{{ section.title }}</a></li>
-      {% endfor %}
-    </ol>
-  </nav>
-
-  {{ prevNext(contentType, "inline") }}
-{% endif %}
-
+{#
+  No inline table of contents any more: the section list lives in the sidebar
+  at wide viewports and in the sticky bar below that, so it is available the
+  whole way down the page rather than only at the top.
+#}
 <div class="prose">
   {{ content | enhanceHeadings({
     bookmarkable: true,
@@ -26,5 +18,4 @@ layout: layouts/game.njk
 
 {% if contentType.sections.length %}
   {{ prevNext(contentType, "inline") }}
-  {{ prevNext(contentType, "fixed") }}
 {% endif %}

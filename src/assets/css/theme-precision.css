@@ -1,0 +1,107 @@
+/*
+ * Direction: Precision reference.
+ *
+ * A reference tool rather than a book. One superfamily throughout, tight
+ * vertical rhythm, hairline structure, and rule numbers set in mono so they
+ * line up and read as identifiers. Cooler and flatter than editorial — the
+ * page recedes and the structure is what you see.
+ *
+ * Everything here is a token override.
+ */
+
+:root[data-design="precision"] {
+  --font-serif: "IBM Plex Serif", var(--fallback-serif);
+  --font-sans: "IBM Plex Sans", var(--fallback-sans);
+  --font-mono: "IBM Plex Mono", var(--fallback-mono);
+  --font-display: "IBM Plex Sans", var(--fallback-sans);
+  --font-ui: var(--font-sans);
+
+  /* The default body face; a reader preference overrides it. */
+  --font-body-default: var(--font-sans);
+
+  --body-weight: 400;
+  --display-weight: 600;
+  --display-tracking: -0.021em;
+  --ui-weight: 500;
+
+  --leading-normal: 1.58;
+  --leading-snug: 1.35;
+
+  /* Cool, near-neutral. Almost no warmth in either theme. */
+  --surface: #fcfcfb;
+  --surface: light-dark(#fcfcfb, #121315);
+  --surface-raised: #ffffff;
+  --surface-raised: light-dark(#ffffff, #1a1c1f);
+  --surface-sunken: #f1f2f3;
+  --surface-sunken: light-dark(#f1f2f3, #0d0e10);
+  --surface-inset: #e4e6e8;
+  --surface-inset: light-dark(#e4e6e8, #24272b);
+  --surface-inverse: #17181a;
+  --surface-inverse: light-dark(#17181a, #eff1f3);
+
+  --ink: #16181a;
+  --ink: light-dark(#16181a, #e6e9ec);
+  --ink-muted: #4f545a;                            /* 8.0:1 light · 7.3:1 dark */
+  --ink-muted: light-dark(#4f545a, #a2a8af);
+  --ink-faint: #676d74;                            /* 5.3:1 light · 5.0:1 dark */
+  --ink-faint: light-dark(#676d74, #848a92);
+
+  --line: #e0e3e6;
+  --line: light-dark(#e0e3e6, #2a2d31);
+  --line-strong: #a9aeb4;
+  --line-strong: light-dark(#a9aeb4, #4e5359);
+
+  /* Crisper corners than editorial — this direction is drawn, not printed. */
+  --radius-sm: 2px;
+  --radius: 4px;
+  --radius-lg: 8px;
+
+  --header-height: 3rem;
+}
+
+:root[data-design="precision"][data-density="compact"] {
+  --scale: 0.92;
+  --leading-normal: 1.48;
+}
+
+:root[data-design="precision"][data-density="spacious"] {
+  --scale: 1.08;
+  --leading-normal: 1.68;
+}
+
+/* Figures line up everywhere in a reference tool. */
+[data-design="precision"] {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/*
+ * Structural labels are set as small caps rather than uppercase-with-tracking:
+ * it keeps them quiet at small sizes and stays legible in dark.
+ */
+[data-design="precision"] .eyebrow,
+[data-design="precision"] .sidebar__heading,
+[data-design="precision"] .site-menu__heading,
+[data-design="precision"] .toc__title,
+[data-design="precision"] .game-facts dt {
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+}
+
+/* Anchors and rule references read as identifiers. */
+[data-design="precision"] .heading-permalink,
+[data-design="precision"] .index-list__refs,
+[data-design="precision"] .search-result__url {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+/* Hairline structure instead of the editorial rule. */
+[data-design="precision"] .section-heading {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--space-2);
+}
+
+[data-design="precision"] .card,
+[data-design="precision"] .game-card {
+  box-shadow: none;
+}

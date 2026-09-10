@@ -2,23 +2,34 @@
 layout: layouts/base.njk
 ---
 {#
-  Shared chrome for every in-game content page. Individual content-type
-  layouts extend this rather than repeating breadcrumbs, page header and the
-  Pagefind body wrapper.
+  Shared chrome for every in-game content page.
+
+  The shell is a two-column grid at wide viewports — sidebar beside content —
+  collapsing to a single column with a sticky section bar below that. Content
+  layouts extend this rather than repeating breadcrumbs, the page header and
+  the Pagefind body wrapper.
 #}
-{% include "partials/breadcrumbs.njk" %}
+{% include "partials/section-bar.njk" %}
 
-<article class="article" data-pagefind-body>
-  <header class="page-header">
-    {% if expansion %}
-      <p class="page-header__eyebrow">
-        <a href="{{ game.url }}">{{ game.title }}</a>
-        <span aria-hidden="true">·</span> {{ expansion.title }}
-      </p>
-    {% endif %}
-    <h1 class="page-header__title">{{ title }}</h1>
-    {% if subhead %}<p class="page-header__subhead">{{ subhead }}</p>{% endif %}
-  </header>
+<div class="shell">
+  {% include "partials/sidebar.njk" %}
 
-  {{ content | safe }}
-</article>
+  <main id="main" class="main" tabindex="-1">
+    {% include "partials/breadcrumbs.njk" %}
+
+    <article class="article" data-pagefind-body>
+      <header class="page-header">
+        {% if expansion %}
+          <p class="eyebrow">
+            <a href="{{ game.url }}">{{ game.title }}</a>
+            <span aria-hidden="true">·</span> {{ expansion.title }}
+          </p>
+        {% endif %}
+        <h1 class="page-title">{{ title }}</h1>
+        {% if subhead %}<p class="page-subhead">{{ subhead }}</p>{% endif %}
+      </header>
+
+      {{ content | safe }}
+    </article>
+  </main>
+</div>

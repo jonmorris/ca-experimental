@@ -1,34 +1,54 @@
 ---
-layout: layouts/base.njk
+layout: layouts/page.njk
 permalink: /
 bodyClass: page page--home
 ---
-{% from "partials/nav-macros.njk" import searchWidget %}
-
 <div class="home" data-pagefind-body>
   <header class="home__hero">
-    <h1 class="home__title">{{ site.title }}</h1>
-    <p class="home__tagline">{{ site.description }}</p>
-    {{ searchWidget("global-search", "", "Search all games") }}
+    <p class="eyebrow">{{ site.title }}</p>
+    <h1 class="home__title">{{ site.tagline }}</h1>
+    <p class="home__lede">{{ site.description }}</p>
   </header>
 
   <section class="home__section" aria-labelledby="games-title">
-    <h2 class="home__section-title" id="games-title">Games</h2>
+    <h2 class="section-title" id="games-title">
+      Games
+      <span class="section-title__count">{{ games | length }}</span>
+    </h2>
+
     <ul class="game-grid">
       {% for slug, item in games %}
-        <li class="game-card">
-          {% if item.meta.box_art %}
-            <img class="game-card__art" src="{{ item.meta.box_art }}" alt="" width="320" height="320" loading="lazy">
-          {% endif %}
-          <div class="game-card__body">
-            <h3 class="game-card__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
-            <p class="game-card__meta">
-              {{ item.meta.designer }}{% if item.meta.year_published %} · {{ item.meta.year_published }}{% endif %}
-            </p>
-            <p class="game-card__description">{{ item.meta.description }}</p>
-            <ul class="game-card__links">
+        <li class="game-tile">
+          {#
+            One image per game at an unpredictable aspect ratio, so the art is
+            cropped to a fixed box and a scrim carries the title over it. The
+            same image is blurred behind the crop, which fills the box for art
+            that does not match the ratio instead of letterboxing it.
+          #}
+          <a class="game-tile__link" href="{{ item.url }}">
+            <span class="game-tile__art">
+              {% if item.meta.box_art %}
+                <img class="game-tile__backdrop" src="{{ item.meta.box_art }}" alt="" aria-hidden="true" loading="lazy">
+                <img class="game-tile__image" src="{{ item.meta.box_art }}" alt="" loading="lazy">
+              {% endif %}
+              <span class="game-tile__scrim" aria-hidden="true"></span>
+              <span class="game-tile__heading">
+                <span class="game-tile__title">{{ item.title }}</span>
+                <span class="game-tile__meta">
+                  {{ item.meta.designer }}{% if item.meta.year_published %} · {{ item.meta.year_published }}{% endif %}
+                </span>
+              </span>
+            </span>
+          </a>
+
+          <div class="game-tile__body">
+            <p class="game-tile__description">{{ item.meta.description }}</p>
+            <ul class="chip-row">
               {% for type in item.contentTypes %}
-                <li><a href="{{ type.url }}">{{ type.label }}</a></li>
+                <li><a class="chip" href="{{ type.url }}">{{ type.label }}</a></li>
+              {% endfor %}
+              {% for expansion in item.expansions %}
+                <li><a class="chip chip--muted" href="{{ expansion.contentTypes[0].url }}">{{ expansion.title }}</a></li>
               {% endfor %}
             </ul>
           </div>

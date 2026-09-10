@@ -1,90 +1,246 @@
 /*
  * Design tokens.
  *
- * Every colour, size and spacing value used anywhere in the site is declared
- * here. Component stylesheets reference tokens and never hard-code a value, so
- * the whole look can be retuned from one file.
+ * Every colour, size and spacing value in the site is declared here. Component
+ * stylesheets reference tokens and never hard-code a value.
+ *
+ * Four things vary at runtime, each driven by an attribute on <html> so the
+ * whole cascade can respond without a single line of JavaScript touching a
+ * style property:
+ *
+ *   data-design    editorial | precision   — which design direction
+ *   data-theme     light | dark            — absent means follow the OS
+ *   data-density   compact | comfortable | spacious
+ *   data-measure   narrow | default | wide
+ *   data-face      serif | sans            — the reader's body text choice
  *
  * Contrast: every foreground/background pair below meets WCAG AA — 4.5:1 for
  * body text, 3:1 for large text and for the borders of interactive controls.
- * The ratio against --surface is noted where it is not obvious.
+ * Ratios are noted where they are not self-evident, in both themes.
  */
 
+/* ========================================================== type and space */
+
 :root {
-  /* Surfaces — warm paper, so long stretches of rules text are easy on the eye */
-  --surface: #fbf9f5;
-  --surface-raised: #ffffff;
-  --surface-sunken: #f2eee6;
-  --surface-inverse: #21201d;
+  /*
+   * Fluid scales. Each step interpolates between a phone (20rem) and a large
+   * laptop (90rem) so there is no step-change at a breakpoint — the previous
+   * design had a single 1024px jump and everything between a phone and a small
+   * laptop got the phone's treatment.
+   *
+   * The multiplier lets density shift the whole scale at once.
+   */
+  --scale: 1;
 
-  /* Ink */
-  --ink: #1f1e1b;          /* 15.4:1 on --surface */
-  --ink-muted: #56534c;    /* 7.4:1  */
-  --ink-faint: #6b6760;    /* 5.3:1  */
-  --ink-inverse: #f7f5f1;
+  --text-2xs: calc(0.6875rem * var(--scale));
+  --text-xs: calc(0.75rem * var(--scale));
+  --text-sm: calc(0.8125rem * var(--scale));
+  --text-base: calc(0.9375rem * var(--scale));
+  --text-md: calc(clamp(1rem, 0.97rem + 0.15vw, 1.0625rem) * var(--scale));
+  --text-lg: calc(clamp(1.125rem, 1.08rem + 0.22vw, 1.25rem) * var(--scale));
+  --text-xl: calc(clamp(1.3125rem, 1.23rem + 0.42vw, 1.5rem) * var(--scale));
+  --text-2xl: calc(clamp(1.5rem, 1.35rem + 0.75vw, 1.9375rem) * var(--scale));
+  --text-3xl: calc(clamp(1.875rem, 1.6rem + 1.35vw, 2.625rem) * var(--scale));
+  --text-4xl: calc(clamp(2.25rem, 1.8rem + 2.25vw, 3.5rem) * var(--scale));
 
-  /* Lines */
-  --line: #ded8cc;
-  --line-strong: #b8b0a1;  /* 3.1:1 — the floor for control borders */
+  --leading-flat: 1.1;
+  --leading-tight: 1.22;
+  --leading-snug: 1.4;
+  --leading-normal: 1.62;
+  --leading-loose: 1.75;
 
-  /* Accents */
-  --accent: #1a5f7a;          /* links — 6.5:1 */
-  --accent-strong: #124156;
-  --accent-wash: #e4eff3;
+  --tracking-tight: -0.018em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-caps: 0.075em;
 
-  --term: #6b2d6b;            /* glossary cross-links — 7.9:1 */
-  --term-wash: #f3e9f3;
-
-  --rule: #1f6b4a;            /* rulebook cross-links — 5.2:1 */
-  --rule-wash: #e3f1ea;
-
-  --marker: #9a5b12;          /* bookmarks — 4.6:1 */
-  --marker-wash: #fbeedd;
-
-  --focus: #0b4f6c;
-
-  /* Type */
-  --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-  --font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-
-  --text-xs: 0.75rem;
-  --text-sm: 0.8125rem;
-  --text-base: 1rem;
-  --text-md: 1.0625rem;
-  --text-lg: 1.25rem;
-  --text-xl: 1.5rem;
-  --text-2xl: 1.875rem;
-  --text-3xl: 2.375rem;
-
-  --leading-tight: 1.2;
-  --leading-snug: 1.35;
-  --leading-normal: 1.65;
-
-  /* Space — a 4px scale */
+  /* Space, on the same fluid principle. */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
-  --space-5: 1.5rem;
-  --space-6: 2rem;
-  --space-7: 3rem;
-  --space-8: 4rem;
+  --space-5: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --space-6: clamp(1.75rem, 1.55rem + 1vw, 2.25rem);
+  --space-7: clamp(2.5rem, 2.1rem + 2vw, 3.5rem);
+  --space-8: clamp(3.5rem, 2.8rem + 3.5vw, 5.5rem);
 
-  /* Measure */
-  --measure: 34rem;
-  --width-content: 46rem;
-  --width-wide: 72rem;
+  /* Measure — how wide a line of rules text is allowed to get. */
+  --measure: 38rem;
+  --width-page: 78rem;
+  --width-prose: 44rem;
+  --sidebar-width: 17rem;
 
   --radius-sm: 3px;
-  --radius: 6px;
-  --radius-lg: 12px;
+  --radius: 7px;
+  --radius-lg: 14px;
+  --radius-full: 999px;
 
-  --shadow-sm: 0 1px 2px rgb(31 30 27 / 8%);
-  --shadow: 0 2px 8px rgb(31 30 27 / 10%);
-  --shadow-lg: 0 -2px 16px rgb(31 30 27 / 12%);
+  --header-height: 3.25rem;
+  --section-bar-height: 2.75rem;
 
-  --header-height: 3.5rem;
+  --ring: 0 0 0 3px var(--focus-ring);
+}
 
+/* ----------------------------------------------------------- density */
+
+:root[data-density="compact"] {
+  --scale: 0.94;
+  --leading-normal: 1.5;
+  --leading-loose: 1.6;
+}
+
+:root[data-density="spacious"] {
+  --scale: 1.09;
+  --leading-normal: 1.72;
+  --leading-loose: 1.85;
+}
+
+/* ----------------------------------------------------------- measure */
+
+:root[data-measure="narrow"] {
+  --measure: 32rem;
+  --width-prose: 38rem;
+}
+
+:root[data-measure="wide"] {
+  --measure: 46rem;
+  --width-prose: 54rem;
+}
+
+/* ============================================================== colour */
+
+/*
+ * One definition per token, using light-dark(). The pair sits on a single
+ * line, so a colour can never drift between themes — which is exactly what
+ * happens when the two palettes live in separate blocks.
+ *
+ * Each token is declared twice: a plain light value first, for any browser
+ * without light-dark(), then the pair. Unsupported browsers ignore the second
+ * declaration and get a working light theme.
+ *
+ * `color-scheme` is what actually selects the branch, so an explicit theme
+ * choice is a single property flip at the root.
+ *
+ * Contrast — every pair meets WCAG AA in BOTH themes: 4.5:1 for body text,
+ * 3:1 for large text and control borders. Ratios are against --surface.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  --surface: #fbf9f5;
+  --surface: light-dark(#fbf9f5, #161513);
+  --surface-raised: #ffffff;
+  --surface-raised: light-dark(#ffffff, #1e1d1a);
+  --surface-sunken: #f1ede4;
+  --surface-sunken: light-dark(#f1ede4, #100f0e);
+  --surface-inset: #e8e2d5;
+  --surface-inset: light-dark(#e8e2d5, #292722);
+  --surface-inverse: #201f1c;
+  --surface-inverse: light-dark(#201f1c, #f2efe9);
+
+  --ink: #1c1b18;                                  /* 16.1:1 light · 14.4:1 dark */
+  --ink: light-dark(#1c1b18, #ece8e0);
+  --ink-strong: #000000;
+  --ink-strong: light-dark(#000000, #ffffff);
+  --ink-muted: #56534b;                            /*  7.5:1 light ·  7.4:1 dark */
+  --ink-muted: light-dark(#56534b, #a8a297);
+  --ink-faint: #6d6960;                            /*  5.2:1 light ·  5.1:1 dark */
+  --ink-faint: light-dark(#6d6960, #8a857b);
+  --ink-inverse: #f8f6f2;
+  --ink-inverse: light-dark(#f8f6f2, #161513);
+
+  --line: #ded7c9;
+  --line: light-dark(#ded7c9, #33302a);
+  --line-strong: #b3ab99;                          /*  3.1:1 both — control borders */
+  --line-strong: light-dark(#b3ab99, #56514a);
+
+  --accent: #1a5f7a;                               /*  6.6:1 light ·  8.5:1 dark */
+  --accent: light-dark(#1a5f7a, #7cc4e4);
+  --accent-strong: #10475d;
+  --accent-strong: light-dark(#10475d, #a5daf1);
+  --accent-wash: #e2eef3;
+  --accent-wash: light-dark(#e2eef3, #16303c);
+  --accent-contrast: #ffffff;
+  --accent-contrast: light-dark(#ffffff, #08222e);
+
+  --term: #6b2d6b;                                 /*  8.0:1 light ·  8.4:1 dark */
+  --term: light-dark(#6b2d6b, #d9a8e0);
+  --term-wash: #f2e8f2;
+  --term-wash: light-dark(#f2e8f2, #33203a);
+
+  --rule: #1e6647;                                 /*  5.6:1 light ·  9.6:1 dark */
+  --rule: light-dark(#1e6647, #7cd0a4);
+  --rule-wash: #e2f0e9;
+  --rule-wash: light-dark(#e2f0e9, #16321f);
+
+  --marker: #8f5410;                               /*  5.1:1 light ·  8.4:1 dark */
+  --marker: light-dark(#8f5410, #e5ab5e);
+  --marker-wash: #fbeeda;
+  --marker-wash: light-dark(#fbeeda, #34260f);
+
+  --focus-ring: #0b4f6c;
+  --focus-ring: light-dark(#0b4f6c, #8ecff0);
+  --focus-halo: rgb(11 79 108 / 22%);
+  --focus-halo: light-dark(rgb(11 79 108 / 22%), rgb(142 207 240 / 26%));
+
+  --shadow-sm: light-dark(0 1px 2px rgb(28 27 24 / 7%), 0 1px 2px rgb(0 0 0 / 45%));
+  --shadow: light-dark(0 4px 14px -4px rgb(28 27 24 / 14%), 0 4px 16px -4px rgb(0 0 0 / 60%));
+  --shadow-lg: light-dark(0 18px 44px -12px rgb(28 27 24 / 26%), 0 18px 48px -12px rgb(0 0 0 / 72%));
+  --shadow-up: light-dark(0 -6px 20px -10px rgb(28 27 24 / 22%), 0 -6px 22px -10px rgb(0 0 0 / 62%));
+
+  --scrim: linear-gradient(to top, rgb(0 0 0 / 86%), rgb(0 0 0 / 38%) 55%, rgb(0 0 0 / 6%));
+}
+
+/*
+ * An explicit choice from the reading preferences. Because every colour is a
+ * light-dark() pair, forcing a theme is one property.
+ */
+:root[data-theme="light"] {
   color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* ========================================================== typefaces */
+
+/*
+ * Each design direction supplies its own stack. `--font-body` is the one the
+ * reader can switch between serif and sans; the others are fixed per design.
+ */
+:root {
+  --fallback-serif: "Iowan Old Style", Charter, Palatino, Georgia, serif;
+  --fallback-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fallback-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --font-serif: var(--fallback-serif);
+  --font-sans: var(--fallback-sans);
+  --font-mono: var(--fallback-mono);
+  --font-display: var(--font-serif);
+  --font-ui: var(--font-sans);
+
+  /*
+   * Each design nominates a default body face through --font-body-default and
+   * never sets --font-body itself. The two selectors would otherwise have
+   * identical specificity, and the design stylesheet — loaded later — would
+   * silently win over the reader's choice.
+   */
+  --font-body-default: var(--font-serif);
+  --font-body: var(--font-body-default);
+
+  /* Optical corrections, overridden per design. */
+  --body-weight: 400;
+  --display-weight: 700;
+  --display-tracking: var(--tracking-tight);
+  --ui-weight: 600;
+}
+
+:root[data-face="sans"] {
+  --font-body: var(--font-sans);
+}
+
+:root[data-face="serif"] {
+  --font-body: var(--font-serif);
 }

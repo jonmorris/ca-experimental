@@ -1,79 +1,57 @@
 {#
   Shared navigation fragments.
 
-  The inline game-nav bar (>= 1024px) and the hamburger dropdown (< 1024px)
-  show the same items, so they are defined once here and called from both.
+  The sidebar (wide viewports) and the header dropdown (narrow ones) show the
+  same items, so they are defined once here and called from both.
 #}
 
-{% macro sectionTabs(game, currentUrl, listClass) %}
-  <ul class="{{ listClass }}">
+{% macro gameSections(game, currentUrl) %}
+  <ul class="nav-list">
     <li>
       <a href="{{ game.url }}"
-         class="nav-tab{% if currentUrl == game.url %} is-current{% endif %}"
+         class="nav-link{% if currentUrl == game.url %} is-current{% endif %}"
          {% if currentUrl == game.url %}aria-current="page"{% endif %}>Overview</a>
     </li>
     {% for type in game.contentTypes %}
       <li>
         <a href="{{ type.url }}"
-           class="nav-tab{% if currentUrl == type.url %} is-current{% endif %}"
+           class="nav-link{% if currentUrl == type.url %} is-current{% endif %}"
            {% if currentUrl == type.url %}aria-current="page"{% endif %}>{{ type.label }}</a>
       </li>
     {% endfor %}
   </ul>
 
   {% for expansion in game.expansions %}
-    <div class="nav-expansion">
-      <p class="nav-expansion__title" id="exp-{{ game.slug }}-{{ expansion.slug }}{{ '-menu' if listClass == 'nav-tabs nav-tabs--stacked' else '' }}">{{ expansion.title }}</p>
-      <ul class="{{ listClass }}" aria-labelledby="exp-{{ game.slug }}-{{ expansion.slug }}{{ '-menu' if listClass == 'nav-tabs nav-tabs--stacked' else '' }}">
-        {% for type in expansion.contentTypes %}
-          <li>
-            <a href="{{ type.url }}"
-               class="nav-tab{% if currentUrl == type.url %} is-current{% endif %}"
-               {% if currentUrl == type.url %}aria-current="page"{% endif %}>{{ type.label }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+    <p class="nav-subheading">{{ expansion.title }}</p>
+    <ul class="nav-list">
+      {% for type in expansion.contentTypes %}
+        <li>
+          <a href="{{ type.url }}"
+             class="nav-link{% if currentUrl == type.url %} is-current{% endif %}"
+             {% if currentUrl == type.url %}aria-current="page"{% endif %}>{{ type.label }}</a>
+        </li>
+      {% endfor %}
+    </ul>
   {% endfor %}
 {% endmacro %}
 
 {#
-  The H2 list for the page being read. Lets a reader jump between sibling
-  sections without scrolling — shown under the nav bar on desktop and inside
-  the dropdown on mobile.
+  The H2 list for the page being read. `data-jump-anchor` is what
+  `section-nav.js` uses to mark the entry the reader is currently inside.
 #}
-{% macro sectionJumpList(contentType, listClass) %}
+{% macro sectionList(contentType, listClass) %}
   {% if contentType and contentType.sections.length %}
-    <ul class="{{ listClass }}">
+    <ol class="{{ listClass }}">
       {% for section in contentType.sections %}
-        <li><a class="section-jump" href="{{ contentType.url }}#{{ section.slug }}">{{ section.title }}</a></li>
+        <li>
+          <a class="jump-link"
+             href="{{ contentType.url }}#{{ section.slug }}"
+             data-jump-anchor="{{ section.slug }}">
+            <span class="jump-link__index" aria-hidden="true">{{ loop.index }}</span>
+            <span class="jump-link__title">{{ section.title }}</span>
+          </a>
+        </li>
       {% endfor %}
-    </ul>
+    </ol>
   {% endif %}
-{% endmacro %}
-
-{#
-  Search widget. `scope` is a game slug for per-game search, or empty for the
-  global surface. `id` disambiguates the two instances on a page.
-#}
-{% macro searchWidget(id, scope, label) %}
-  <search class="search" data-search{% if scope %} data-search-game="{{ scope }}"{% endif %}>
-    <form class="search__form" role="search" action="#" novalidate>
-      <label class="search__label" for="{{ id }}">{{ label }}</label>
-      <input
-        class="search__input"
-        id="{{ id }}"
-        type="search"
-        name="q"
-        autocomplete="off"
-        placeholder="{{ 'Search this game' if scope else 'Search all games' }}"
-        aria-describedby="{{ id }}-status"
-        data-search-input>
-      <button type="button" class="search__clear" data-search-clear hidden aria-label="Clear search">
-        <span aria-hidden="true">×</span>
-      </button>
-    </form>
-    <p class="search__status" id="{{ id }}-status" role="status" aria-live="polite" data-search-status></p>
-    <ol class="search__results" data-search-results aria-label="Search results"></ol>
-  </search>
 {% endmacro %}

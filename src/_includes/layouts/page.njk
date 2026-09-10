@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+---
+{#
+  The simple shell: a centred main column, no sidebar. Used by the homepage,
+  About, 404 and glossary term pages — anything that has no section list to
+  navigate.
+#}
+<main id="main" class="main main--plain" tabindex="-1">
+  {{ content | safe }}
+</main>

@@ -1,0 +1,24 @@
+{% from "partials/nav-macros.njk" import gameSections, sectionList %}
+{#
+  The persistent sidebar, shown at wide viewports only.
+
+  It holds the game's pages and — when the page has sections — the section
+  list, which tracks the reader's position. Putting it here rather than in a
+  bar across the top means the whole outline is visible while reading, which
+  is what makes a long rulebook navigable.
+#}
+<aside class="sidebar" aria-label="{{ game.title }} navigation">
+  <nav class="sidebar__block" aria-label="{{ game.title }} pages">
+    <p class="sidebar__heading">{{ game.title }}</p>
+    {{ gameSections(game, page.url) }}
+  </nav>
+
+  {% if contentType and contentType.sections.length %}
+    <nav class="sidebar__block sidebar__block--sections"
+         aria-label="Sections in {{ contentType.title }}"
+         data-sidebar-sections>
+      <p class="sidebar__heading">{{ contentType.title }}</p>
+      {{ sectionList(contentType, "jump-list") }}
+    </nav>
+  {% endif %}
+</aside>

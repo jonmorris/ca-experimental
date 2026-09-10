@@ -1,39 +1,55 @@
 ---
 layout: layouts/base.njk
 ---
-{% include "partials/breadcrumbs.njk" %}
+<div class="shell shell--landing">
+  {% include "partials/sidebar.njk" %}
 
-<div class="landing" data-pagefind-body>
-  <header class="landing__hero">
-    <div class="landing__intro">
-      <h1 class="landing__title">{{ game.title }}</h1>
-      <p class="landing__description">{{ game.meta.description }}</p>
+  <main id="main" class="main" tabindex="-1">
+    {% include "partials/breadcrumbs.njk" %}
+
+    <div class="landing" data-pagefind-body>
+      {#
+        The hero fills its box with the game's own art regardless of the
+        image's aspect ratio: a blurred copy behind, the real image contained
+        on top, a scrim under the text.
+      #}
+      <header class="landing__hero">
+        {% if game.meta.box_art %}
+          <img class="landing__backdrop" src="{{ game.meta.box_art }}" alt="" aria-hidden="true">
+        {% endif %}
+        <span class="landing__scrim" aria-hidden="true"></span>
+
+        <div class="landing__hero-body">
+          {% if game.meta.box_art %}
+            <img class="landing__cover" src="{{ game.meta.box_art }}"
+                 alt="Box art for {{ game.title }}" width="320" height="320">
+          {% endif %}
+
+          <div class="landing__intro">
+            <h1 class="landing__title">{{ game.title }}</h1>
+            <p class="landing__description">{{ game.meta.description }}</p>
+            {% if game.hasRulebook %}
+              <a class="button button--primary" href="{{ game.url }}rulebook/">Open the rulebook</a>
+            {% endif %}
+          </div>
+        </div>
+      </header>
 
       <dl class="game-facts">
         {% if game.meta.designer %}
-          <div class="game-facts__item">
-            <dt>Designer</dt><dd>{{ game.meta.designer }}</dd>
-          </div>
+          <div class="game-facts__item"><dt>Designer</dt><dd>{{ game.meta.designer }}</dd></div>
         {% endif %}
         {% if game.meta.publisher %}
-          <div class="game-facts__item">
-            <dt>Publisher</dt><dd>{{ game.meta.publisher }}</dd>
-          </div>
+          <div class="game-facts__item"><dt>Publisher</dt><dd>{{ game.meta.publisher }}</dd></div>
         {% endif %}
         {% if game.meta.players %}
-          <div class="game-facts__item">
-            <dt>Players</dt><dd>{{ game.meta.players }}</dd>
-          </div>
+          <div class="game-facts__item"><dt>Players</dt><dd>{{ game.meta.players }}</dd></div>
         {% endif %}
         {% if game.meta.time %}
-          <div class="game-facts__item">
-            <dt>Play time</dt><dd>{{ game.meta.time }}</dd>
-          </div>
+          <div class="game-facts__item"><dt>Play time</dt><dd>{{ game.meta.time }}</dd></div>
         {% endif %}
         {% if game.meta.year_published %}
-          <div class="game-facts__item">
-            <dt>Published</dt><dd>{{ game.meta.year_published }}</dd>
-          </div>
+          <div class="game-facts__item"><dt>Published</dt><dd>{{ game.meta.year_published }}</dd></div>
         {% endif %}
         {% if game.meta.bgg_id %}
           <div class="game-facts__item">
@@ -42,48 +58,44 @@ layout: layouts/base.njk
           </div>
         {% endif %}
       </dl>
-    </div>
 
-    {% if game.meta.box_art %}
-      <img class="landing__box-art" src="{{ game.meta.box_art }}" alt="Box art for {{ game.title }}" width="360" height="360">
-    {% endif %}
-  </header>
+      <section class="landing__section" aria-labelledby="contents-title">
+        <h2 class="section-title" id="contents-title">Contents</h2>
+        <ul class="card-grid">
+          {% for type in game.contentTypes %}
+            <li class="card">
+              <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
+              {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
+              {% if type.sections.length %}
+                <p class="card__meta">{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</p>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
 
-  <section class="landing__section" aria-labelledby="contents-title">
-    <h2 class="landing__section-title" id="contents-title">Contents</h2>
-    <ul class="card-grid">
-      {% for type in game.contentTypes %}
-        <li class="card">
-          <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
-          {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
-          {% if type.sections.length %}
-            <p class="card__meta">{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</p>
-          {% endif %}
-        </li>
+      {% for expansion in game.expansions %}
+        <section class="landing__section" aria-labelledby="exp-title-{{ expansion.slug }}">
+          <h2 class="section-title" id="exp-title-{{ expansion.slug }}">{{ expansion.title }}</h2>
+          <ul class="card-grid">
+            {% for type in expansion.contentTypes %}
+              <li class="card">
+                <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
+                {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
+                {% if type.sections.length %}
+                  <p class="card__meta">{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</p>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
       {% endfor %}
-    </ul>
-  </section>
 
-  {% for expansion in game.expansions %}
-    <section class="landing__section" aria-labelledby="exp-title-{{ expansion.slug }}">
-      <h2 class="landing__section-title" id="exp-title-{{ expansion.slug }}">{{ expansion.title }}</h2>
-      <ul class="card-grid">
-        {% for type in expansion.contentTypes %}
-          <li class="card">
-            <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
-            {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
-            {% if type.sections.length %}
-              <p class="card__meta">{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</p>
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    </section>
-  {% endfor %}
+      {% include "partials/bookmarks-panel.njk" %}
 
-  {% include "partials/bookmarks-panel.njk" %}
-
-  {% if content | stripHtml %}
-    <div class="prose">{{ content | safe }}</div>
-  {% endif %}
+      {% if content | stripHtml %}
+        <div class="prose">{{ content | safe }}</div>
+      {% endif %}
+    </div>
+  </main>
 </div>

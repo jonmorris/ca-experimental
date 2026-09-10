@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ site.lang }}">
+<html lang="{{ site.lang }}" data-design="{{ design or site.design }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,38 @@
     </title>
     <meta name="description" content="{{ pageDescription or subhead or (game.meta.description if game) or site.description }}">
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+    {#
+      Reading preferences are applied before first paint. This has to be inline
+      and synchronous — a module would run after the page has already been
+      drawn in the wrong theme, and a reader in a dim room would get a flash of
+      white. It is the one place storage is read outside preferences.js, and it
+      is deliberately tiny.
+    #}
+    <script>
+      (function () {
+        try {
+          var raw = localStorage.getItem("cardboard-appendix:preferences");
+          if (!raw) return;
+          var stored = JSON.parse(raw);
+          if (!stored || Number(stored.schemaVersion) > 1) return;
+          var prefs = stored.preferences || {};
+          var map = { theme: "data-theme", density: "data-density", face: "data-face", measure: "data-measure" };
+          var implicit = { theme: "system", density: "comfortable", face: "default", measure: "default" };
+          for (var key in map) {
+            var value = prefs[key];
+            if (value && value !== implicit[key]) document.documentElement.setAttribute(map[key], value);
+          }
+        } catch (error) {
+          /* No stored preferences, or storage is unavailable. Defaults apply. */
+        }
+      })();
+    </script>
+
+    <link rel="stylesheet" href="/assets/css/fonts.css">
     <link rel="stylesheet" href="/assets/css/tokens.css">
+    <link rel="stylesheet" href="/assets/css/theme-editorial.css">
+    <link rel="stylesheet" href="/assets/css/theme-precision.css">
     <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="/assets/css/layout.css">
     <link rel="stylesheet" href="/assets/css/components.css">
@@ -28,21 +59,23 @@
     <script type="module" src="/assets/js/site.js"></script>
     <noscript>
       {#
-        Without scripting the menu button cannot work and search has no index
-        to query, so the button and the search widgets are dropped and the
-        dropdown is rendered open — the per-game nav stays reachable on a
-        phone rather than disappearing.
+        Without scripting the overlays cannot open and search has no index, so
+        the controls that would do nothing are removed and the menu is rendered
+        open — the per-game nav stays reachable on a phone.
       #}
       <style>
-        .menu-toggle { display: none !important; }
+        .menu-toggle, .icon-button, .search, .section-bar { display: none !important; }
         .site-menu[hidden] { display: block !important; }
-        .search { display: none !important; }
       </style>
     </noscript>
   </head>
   <body
     class="{{ bodyClass or 'page' }}"
-    {% if game %}data-pagefind-filter="game:{{ game.slug }}" data-game="{{ game.slug }}"{% endif %}
+    {% if game %}
+      data-pagefind-filter="game:{{ game.slug }}"
+      data-game="{{ game.slug }}"
+      data-game-title="{{ game.title }}"
+    {% endif %}
     data-content-type="{{ contentTypeSlug or 'site' }}"
     data-base-path="{{ basePath }}"
   >
@@ -50,12 +83,12 @@
 
     {% include "partials/header.njk" %}
 
-    {% if game %}{% include "partials/game-nav.njk" %}{% endif %}
-
-    <main id="main" class="main" tabindex="-1">
-      {{ content | safe }}
-    </main>
+    {{ content | safe }}
 
     {% include "partials/footer.njk" %}
+
+    {% include "partials/overlays.njk" %}
+
+    <script type="application/json" data-palette-index>{{ paletteIndex | dump | safe }}</script>
   </body>
 </html>

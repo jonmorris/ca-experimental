@@ -1,9 +1,15 @@
 /*
- * Page frame: header, game nav, main column, footer.
+ * Page frame: header, shell, sidebar, main column, footer.
  *
- * The single breakpoint is 1024px. Below it the inline game-nav bar is
- * replaced by the header dropdown, and rulebook prev/next moves to a bar
- * pinned to the bottom of the viewport.
+ * Three breakpoints rather than the single 1024px jump the first design had,
+ * which gave a phone's layout to everything up to a small laptop:
+ *
+ *   < 46rem   phone — single column, sticky section bar, menu in the header
+ *   >= 46rem  tablet — wider gutters, two-up card grids, still no sidebar
+ *   >= 64rem  laptop — persistent sidebar, section bar retires
+ *   >= 88rem  wide — the content column stops growing and centres
+ *
+ * Between them nothing steps: type and space are fluid in tokens.css.
  */
 
 /* --------------------------------------------------------------- header */
@@ -11,16 +17,17 @@
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 30;
-  background: var(--surface-raised);
+  z-index: 40;
+  background: color-mix(in srgb, var(--surface-raised) 88%, transparent);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
 
 .site-header__inner {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
-  max-width: var(--width-wide);
+  gap: var(--space-3);
+  max-width: var(--width-page);
   min-height: var(--header-height);
   margin-inline: auto;
   padding-inline: var(--space-4);
@@ -30,93 +37,63 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  margin-right: auto;
   color: var(--ink);
   font-family: var(--font-ui);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tracking-tight);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .site-logo__mark {
   display: grid;
   place-items: center;
-  width: 1.75rem;
-  height: 1.75rem;
-  background: var(--surface-inverse);
-  color: var(--ink-inverse);
-  border-radius: var(--radius-sm);
-  font-size: var(--text-xs);
-  letter-spacing: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--accent);
 }
 
-.site-nav {
-  display: none;
+.site-header__divider {
+  width: 1px;
+  height: 1.1rem;
+  background: var(--line-strong);
 }
 
-.site-nav__list {
-  display: flex;
-  gap: var(--space-5);
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.site-header__game {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--ink-muted);
   font-family: var(--font-ui);
   font-size: var(--text-sm);
-}
-
-.site-nav__list a {
-  color: var(--ink-muted);
+  font-weight: var(--ui-weight);
   text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.site-nav__list a:hover,
-.site-nav__list a[aria-current] {
+.site-header__game:hover {
   color: var(--ink);
-  text-decoration: underline;
 }
 
-/* ------------------------------------------------------- menu (< 1024px) */
-
-.menu-toggle {
-  display: inline-flex;
+.site-header__actions {
+  display: flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-3);
-  background: var(--surface-raised);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  cursor: pointer;
+  margin-left: auto;
 }
 
-.menu-toggle:hover {
-  background: var(--surface-sunken);
+/* The site title collapses to its mark on the narrowest screens. */
+@media (max-width: 26rem) {
+  .site-logo__text {
+    display: none;
+  }
 }
 
-.menu-toggle__bars {
-  display: grid;
-  gap: 3px;
-  width: 1rem;
-}
-
-.menu-toggle__bars span {
-  display: block;
-  height: 2px;
-  background: currentcolor;
-  border-radius: 1px;
-}
-
-.menu-toggle[aria-expanded="true"] {
-  background: var(--surface-inverse);
-  color: var(--ink-inverse);
-  border-color: var(--surface-inverse);
-}
+/* ---------------------------------------------------------- menu (narrow) */
 
 .site-menu {
-  max-height: calc(100vh - var(--header-height));
+  max-height: calc(100dvh - var(--header-height));
   overflow-y: auto;
   background: var(--surface-raised);
   border-top: 1px solid var(--line);
@@ -126,164 +103,200 @@
 .site-menu__inner {
   display: grid;
   gap: var(--space-5);
-  max-width: var(--width-wide);
+  max-width: var(--width-page);
   margin-inline: auto;
   padding: var(--space-5) var(--space-4);
 }
 
-.site-menu__heading {
+.site-menu__heading,
+.sidebar__heading {
   margin-bottom: var(--space-2);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-xs);
+  font-size: var(--text-2xs);
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
 }
 
-/* ------------------------------------------------------ game nav bar */
+/* --------------------------------------------------------- section bar */
 
-.game-nav {
-  display: none;
+/*
+ * Sticky under the header, below the sidebar breakpoint. Answers "where am I"
+ * continuously in a long rulebook, which was the main thing missing on a
+ * phone.
+ */
+.section-bar {
   position: sticky;
   top: var(--header-height);
-  z-index: 20;
+  z-index: 30;
   background: var(--surface-sunken);
   border-bottom: 1px solid var(--line);
 }
 
-.game-nav__bar {
+.section-bar__button {
   display: flex;
   align-items: center;
-  gap: var(--space-5);
-  max-width: var(--width-wide);
+  gap: var(--space-3);
+  width: 100%;
+  max-width: var(--width-page);
+  min-height: var(--section-bar-height);
   margin-inline: auto;
   padding: var(--space-2) var(--space-4);
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
 }
 
-.game-nav__identity {
+.section-bar__meta {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-3) var(--space-4);
+  align-items: baseline;
+  gap: var(--space-2);
   min-width: 0;
+  flex: 1;
 }
 
-.game-nav__title {
+.section-bar__label {
+  overflow: hidden;
   color: var(--ink);
   font-family: var(--font-ui);
-  font-size: var(--text-base);
-  font-weight: 700;
-  letter-spacing: -0.015em;
-  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: var(--ui-weight);
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.game-nav__title:hover {
-  text-decoration: underline;
-}
-
-.game-nav__search {
-  margin-left: auto;
-  min-width: 16rem;
-}
-
-.game-nav__sections {
-  max-width: var(--width-wide);
-  margin-inline: auto;
-  padding: 0 var(--space-4) var(--space-3);
-}
-
-.game-nav__sections-label {
-  margin-bottom: var(--space-2);
+.section-bar__position {
+  flex: none;
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: var(--text-2xs);
+  font-variant-numeric: tabular-nums;
 }
 
-/* ------------------------------------------------------------- main */
+.section-bar__chevron {
+  flex: none;
+  color: var(--ink-faint);
+}
+
+/* ------------------------------------------------------------- shell */
+
+.shell {
+  max-width: var(--width-page);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+.sidebar {
+  display: none;
+}
 
 .main {
-  max-width: var(--width-wide);
-  margin-inline: auto;
-  padding: var(--space-6) var(--space-4) var(--space-8);
+  min-width: 0;
+  padding-block: var(--space-6) var(--space-8);
 }
 
-/* Room for the pinned prev/next bar. */
-body[data-content-type="rulebook"] .main {
-  padding-bottom: calc(var(--space-8) + 4rem);
+.main:focus {
+  outline: none;
+}
+
+.main--plain {
+  max-width: var(--width-page);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
 }
 
 .article,
 .landing,
 .home {
-  max-width: var(--width-content);
-  margin-inline: auto;
+  min-width: 0;
 }
 
-.home,
-.landing {
-  max-width: var(--width-wide);
+.article {
+  max-width: var(--width-prose);
 }
+
+/* ------------------------------------------------------- page header */
 
 .page-header {
   margin-bottom: var(--space-6);
-  padding-bottom: var(--space-4);
-  border-bottom: 2px solid var(--line);
 }
 
-.page-header__eyebrow {
+.eyebrow {
   margin-bottom: var(--space-2);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: var(--tracking-wide);
 }
 
-.page-header__eyebrow a {
+.eyebrow a {
   color: inherit;
 }
 
-.page-header__title {
+.page-title {
+  font-family: var(--font-display);
   font-size: var(--text-3xl);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  line-height: var(--leading-flat);
+  text-wrap: balance;
 }
 
-.page-header__subhead {
-  margin-top: var(--space-3);
+.page-subhead {
   max-width: var(--measure);
+  margin-top: var(--space-3);
   color: var(--ink-muted);
   font-size: var(--text-lg);
   line-height: var(--leading-snug);
+  text-wrap: pretty;
+}
+
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+}
+
+.section-title__count {
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
 }
 
 /* ----------------------------------------------------------- footer */
 
 .site-footer {
   margin-top: var(--space-8);
-  background: var(--surface-inverse);
-  color: var(--ink-inverse);
+  border-top: 1px solid var(--line);
+  background: var(--surface-sunken);
 }
 
 .site-footer__inner {
-  max-width: var(--width-wide);
+  max-width: var(--width-page);
   margin-inline: auto;
   padding: var(--space-6) var(--space-4);
 }
 
 .site-footer__title {
   font-family: var(--font-ui);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   font-weight: 700;
 }
 
 .site-footer__note {
   max-width: var(--measure);
   margin-top: var(--space-2);
-  color: #cdc8bf;
+  color: var(--ink-muted);
   font-size: var(--text-sm);
 }
 
@@ -298,31 +311,70 @@ body[data-content-type="rulebook"] .main {
   font-size: var(--text-sm);
 }
 
-.site-footer__links a {
-  color: #e8e3da;
+/* ==================================================== >= 46rem (tablet) */
+
+@media (min-width: 46rem) {
+  .shell,
+  .main--plain,
+  .site-header__inner,
+  .site-footer__inner,
+  .site-menu__inner,
+  .section-bar__button {
+    padding-inline: var(--space-6);
+  }
 }
 
-/* ------------------------------------------------------- >= 1024px */
+/* ==================================================== >= 64rem (sidebar) */
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
+  /* The section bar's job is taken over by the sidebar. */
+  .section-bar {
+    display: none !important;
+  }
+
   .menu-toggle,
   .site-menu {
     display: none !important;
   }
 
-  .site-nav {
-    display: block;
+  .shell {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    gap: var(--space-7);
+    align-items: start;
   }
 
-  .game-nav {
+  .sidebar {
     display: block;
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-5));
+    max-height: calc(100dvh - var(--header-height) - var(--space-7));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-block: var(--space-6);
+    padding-right: var(--space-3);
+  }
+
+  .sidebar__block + .sidebar__block {
+    margin-top: var(--space-5);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--line);
   }
 
   .main {
-    padding-block: var(--space-7) var(--space-8);
+    padding-block: var(--space-6) var(--space-8);
   }
 
-  body[data-content-type="rulebook"] .main {
-    padding-bottom: var(--space-8);
+  /* A landing page is art-led and wants the full width. */
+  .shell--landing {
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  }
+}
+
+/* ====================================================== >= 88rem (wide) */
+
+@media (min-width: 88rem) {
+  .shell {
+    gap: var(--space-8);
   }
 }

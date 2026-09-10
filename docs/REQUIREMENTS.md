@@ -21,12 +21,13 @@ A static web platform for board game rules. Each game gets a set of authored con
 - Print as a first-class output for every content type
 - Static hosting on Cloudflare Pages
 
+- Dark mode, and a reading-preferences panel (theme, text size, body typeface, line width)
+
 **Deferred (documented, not built):**
 
 - Text-highlight annotations
 - User accounts / server-synced bookmarks (storage shape must be forward-compatible)
 - Cross-game similarity / recommendations
-- Dark mode
 - Any authoring UI (content is git-committed)
 
 ## 3. Content model
@@ -115,6 +116,10 @@ Behavior:
 
 ## 6. Navigation
 
+Optimised for lookup at the table: a phone in hand, mid-game, finding one rule
+while everyone waits. Chrome above the fold is chrome between the reader and
+the rule, so the header carries identity and four controls and nothing else.
+
 ### Global
 
 - Site title / logo, always linked home
@@ -122,16 +127,45 @@ Behavior:
 
 ### Per-game
 
-Every in-game page shows navigation for its game: rulebook, summary, glossary, index (plus any game-specific content types), with the current section highlighted.
+Every in-game page shows navigation for its game: rulebook, summary, glossary,
+index (plus any game-specific content types and any expansions), with the
+current section highlighted.
 
 ### Responsive
 
-- **≥ 1024px:** inline game-nav bar with title + section tabs on the left, search right-aligned. On rulebook pages, the section list appears below the bar for quick jumps between H2s.
-- **< 1024px:** hamburger button in header opens a dropdown menu containing All games (global) + game title + section tabs + full sibling-section list (on rulebook pages) + search widget. Inline game-nav bar is hidden at this breakpoint.
+A single breakpoint gave a phone's layout to everything up to a small laptop.
+Three are used instead, and type and space are fluid between them so nothing
+steps.
 
-### Rulebook prev/next
+- **< 46rem** — single column. Header controls collapse to icons.
+- **>= 46rem** — wider gutters, multi-column card grids, overlays become
+  centred dialogs and side panels rather than bottom sheets.
+- **>= 64rem** — a persistent sidebar carries the game's pages and the section
+  list; the sticky section bar retires.
+- **>= 88rem** — the content column stops growing.
 
-On rulebook section anchors (or between sibling rulebook sections), a **fixed-position `Prev | Rulebook TOC | Next` bar pinned to the viewport bottom** appears below 1024px. Desktop keeps inline prev/next above and below the content.
+### Finding your place
+
+- **Sticky section bar** (below 64rem): names the section being read and its
+  position in the document, and opens the full jump list on tap.
+- **Sidebar section list** (64rem and up): the whole outline, with the current
+  section marked and scrolled into view.
+- **Prev / next** between sibling rulebook sections, at the foot of the page.
+
+Both the bar and the sidebar are driven from one scroll position, so they can
+never disagree.
+
+### Command palette
+
+Cmd-K / Ctrl-K opens a single search surface, scoped to the current game;
+typing `>` widens it to every game. It resolves navigation targets instantly
+from an index embedded at build time, and appends Pagefind full-text results
+as they arrive. Bookmarked sections are pinned to the top.
+
+### Bookmarks
+
+Reachable from any page through a drawer in the header, not only from the
+game's landing page.
 
 ### Breadcrumbs
 
@@ -142,8 +176,8 @@ Present on every in-game page. `Home > {Game Name} > {Section}`.
 - Powered by Pagefind (or equivalent static-site search). Index built as a post-build step; not available in dev mode without an explicit rebuild.
 - Every page tagged with `data-pagefind-filter="game:{slug}"` on `<body>`. Main content wrapped in `data-pagefind-body`.
 - **Per-game search** on every in-game page: filter results by `{ game: [slug] }` so a search on Indonesia's page cannot surface Arcs results.
-- **Global search** (optional, added later) on the homepage: no filter applied, results span all games.
-- Search widget must handle empty state, provide keyboard access, and clear results when the input is emptied.
+- **Global search** on the homepage, and from any page by typing `>` in the palette: no filter applied, results span all games.
+- The palette is the only search interface. It must handle empty state, be fully keyboard operable, and clear when the input is emptied.
 - Dev-mode caveat is expected: the widget silently fails when the index doesn't exist yet. Optionally surface a "search unavailable — run `npm run build`" fallback.
 
 ## 8. Bookmarks
@@ -209,6 +243,7 @@ Every page and component must meet this floor. No exceptions.
 - **SSG:** Eleventy 3.x
 - **Templating:** Nunjucks
 - **CSS:** vanilla, no framework, no preprocessor
+- **Type:** self-hosted, openly licensed webfonts, latin subset only
 - **Search:** Pagefind
 - **Client JS:** vanilla ES modules, no bundler
 - **Storage:** `localStorage`
@@ -230,7 +265,30 @@ Applies to every change regardless of who is making it.
 
 ## 14. Out of scope (intentionally)
 
-Accounts, comments, authoring UI, bookmarks sync in phase 1, dark mode, text highlights, cross-game similarity, per-user preferences beyond bookmarks.
+Accounts, comments, authoring UI, bookmarks sync in phase 1, text highlights,
+cross-game similarity.
+
+---
+
+## Amendments
+
+This document is the specification of record and has been amended as the
+product changed. Three departures from the original:
+
+1. **Navigation (§6) was reopened.** The original pinned an inline nav bar
+   above 1024px, a hamburger below, and a bottom-pinned prev/next bar. The
+   brief became at-the-table lookup, which the sidebar, sticky section bar and
+   command palette serve better. Two fixed bars competing for one phone screen
+   was the wrong trade.
+2. **Dark mode was brought into scope.** A rules site is read in dim rooms.
+3. **Reading preferences were brought into scope** — theme, text size, body
+   typeface and line width — which lifts "per-user preferences beyond
+   bookmarks" from the out-of-scope list. They reuse the bookmark store's
+   versioned-storage pattern.
+
+Everything else — the URL contract, the content model, cross-link semantics,
+the bookmark storage schema, print as a first-class output and the
+accessibility floor — is unchanged.
 
 ---
 

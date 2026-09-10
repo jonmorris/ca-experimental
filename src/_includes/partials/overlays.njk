@@ -1,0 +1,80 @@
+{% from "partials/nav-macros.njk" import sectionList %}
+{#
+  The three overlays, plus the section jump list. All are <dialog> elements, so
+  focus trapping, inertness and Escape come from the browser rather than from
+  hand-written key handling. overlay.js wires them.
+#}
+
+{# ------------------------------------------------ command palette / search #}
+<dialog class="palette" data-palette aria-label="Search and jump to">
+  <div class="palette__inner">
+    <div class="palette__field">
+      <svg class="palette__icon" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false">
+        <circle cx="9" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M13.2 13.2 17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <label class="visually-hidden" for="palette-input">Search and jump to</label>
+      <input
+        class="palette__input"
+        id="palette-input"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Jump to a section, term or rule…"
+        role="combobox"
+        aria-expanded="true"
+        aria-controls="palette-results"
+        aria-autocomplete="list"
+        data-palette-input>
+      <kbd class="palette__hint" aria-hidden="true">esc</kbd>
+    </div>
+
+    <p class="palette__empty" data-palette-empty></p>
+
+    <ul class="palette__results" id="palette-results" role="listbox"
+        aria-label="Results" data-palette-results></ul>
+
+    <p class="palette__scope" data-palette-scope aria-live="polite"></p>
+  </div>
+</dialog>
+
+{# ------------------------------------------------------- bookmarks drawer #}
+<dialog class="drawer" data-bookmarks-drawer aria-labelledby="drawer-title">
+  <div class="drawer__inner">
+    <header class="drawer__header">
+      <h2 class="drawer__title" id="drawer-title">Bookmarks</h2>
+      <button type="button" class="drawer__scope" data-drawer-scope aria-pressed="false">
+        Show all games
+      </button>
+    </header>
+
+    <p class="drawer__empty" data-drawer-empty hidden></p>
+    <div class="drawer__body" data-drawer-body></div>
+  </div>
+</dialog>
+
+{# --------------------------------------------------- reading preferences #}
+<dialog class="prefs" data-preferences-panel aria-labelledby="prefs-title">
+  <div class="prefs__inner">
+    <header class="drawer__header">
+      <h2 class="drawer__title" id="prefs-title">Reading</h2>
+      <button type="button" class="drawer__scope" data-preferences-reset>Reset</button>
+    </header>
+
+    <div class="prefs__body" data-preferences-body></div>
+
+    <p class="prefs__note">Saved in this browser only.</p>
+  </div>
+</dialog>
+
+{# ------------------------------- section jump list, opened by the sticky bar #}
+{% if contentType and contentType.sections.length %}
+  <dialog class="jump-sheet" data-section-jump aria-label="Jump to a section in {{ contentType.title }}">
+    <div class="jump-sheet__inner">
+      <header class="drawer__header">
+        <h2 class="drawer__title">{{ contentType.title }}</h2>
+      </header>
+      {{ sectionList(contentType, "jump-list jump-list--sheet") }}
+    </div>
+  </dialog>
+{% endif %}

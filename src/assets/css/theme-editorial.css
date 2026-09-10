@@ -1,0 +1,85 @@
+/*
+ * Direction: Refined editorial.
+ *
+ * A rulebook that has been properly typeset. Warm paper, a text serif built
+ * for screen reading, and a display face with enough character that a page
+ * title is memorable. Colour is rationed: it marks cross-references and
+ * bookmarks and does nothing else.
+ *
+ * Everything here is a token override — no component knows which direction is
+ * running.
+ */
+
+:root[data-design="editorial"] {
+  --font-serif: "Literata", var(--fallback-serif);
+  --font-sans: "Public Sans", var(--fallback-sans);
+  --font-mono: var(--fallback-mono);
+  --font-display: "Fraunces", "Literata", var(--fallback-serif);
+  --font-ui: var(--font-sans);
+
+  /* The default body face; a reader preference overrides it. */
+  --font-body-default: var(--font-serif);
+
+  --body-weight: 400;
+  --display-weight: 600;
+  --display-tracking: -0.014em;
+  --ui-weight: 600;
+
+  /* Literata runs large for its point size; ease the scale back a little. */
+  --scale: 0.97;
+  --leading-normal: 1.66;
+
+  /* Paper, warmed further. */
+  --surface: #fcfaf6;
+  --surface: light-dark(#fcfaf6, #17150f);
+  --surface-sunken: #f2ede1;
+  --surface-sunken: light-dark(#f2ede1, #100e0a);
+  --surface-inset: #e9e2d0;
+  --surface-inset: light-dark(#e9e2d0, #2a2619);
+
+  --line: #e0d8c6;
+  --line: light-dark(#e0d8c6, #342f22);
+
+  --radius: 8px;
+  --radius-lg: 16px;
+}
+
+:root[data-design="editorial"][data-density="compact"] {
+  --scale: 0.91;
+}
+
+:root[data-design="editorial"][data-density="spacious"] {
+  --scale: 1.06;
+}
+
+/*
+ * Fraunces carries optical-size and weight axes. Set them explicitly so a
+ * heading is drawn at the right optical size rather than a scaled-up text cut.
+ */
+[data-design="editorial"] .page-title,
+[data-design="editorial"] .section-heading h2,
+[data-design="editorial"] .display {
+  font-variation-settings: "opsz" 96, "SOFT" 0, "WONK" 0;
+}
+
+[data-design="editorial"] .page-title {
+  font-variation-settings: "opsz" 144, "SOFT" 8, "WONK" 1;
+}
+
+/* An old-style figure set suits running rules text; the UI wants lining. */
+[data-design="editorial"] .prose {
+  font-variant-numeric: oldstyle-nums proportional-nums;
+}
+
+[data-design="editorial"] .prose table,
+[data-design="editorial"] .nav-tab,
+[data-design="editorial"] .toc,
+[data-design="editorial"] .sidebar {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* The editorial direction earns a rule under section headings. */
+[data-design="editorial"] .section-heading {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--space-3);
+}

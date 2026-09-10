@@ -27,25 +27,37 @@ body {
 /* --- chrome that has no business on paper -------------------------------- */
 
 .site-header,
-.game-nav,
 .site-menu,
 .menu-toggle,
+.icon-button,
+.search-trigger,
+.section-bar,
+.sidebar,
 .site-footer,
 .skip-link,
-.search,
 .prev-next,
 .alpha-jump,
 .heading-tools,
 .bookmark-toggle,
 .heading-permalink,
 .bookmarks-item__remove,
-.breadcrumbs {
+.breadcrumbs,
+.chip-row,
+dialog,
+[data-palette-index] {
   display: none !important;
 }
 
 /* --- the page itself ----------------------------------------------------- */
 
-.main {
+.shell {
+  display: block !important;
+  max-width: none;
+  padding: 0;
+}
+
+.main,
+.main--plain {
   max-width: none;
   margin: 0;
   padding: 0;
@@ -68,13 +80,14 @@ body[data-content-type="rulebook"] .main {
   border-bottom: 1pt solid #000;
 }
 
-.page-header__title,
+.page-title,
 .landing__title,
 .home__title {
   font-size: 22pt;
+  color: #000;
 }
 
-.page-header__subhead,
+.page-subhead,
 .landing__description {
   font-size: 11pt;
   color: #333;
@@ -100,6 +113,45 @@ h4 {
 .section-heading h2,
 .prose h2 {
   font-size: 14pt;
+}
+
+/*
+ * The landing hero is a full-bleed image treatment on screen; on paper it
+ * becomes a plain masthead. The blurred backdrop and scrim would waste ink and
+ * put white text on a grey field.
+ */
+.landing__hero {
+  background: none;
+  border-radius: 0;
+  border-bottom: 1pt solid #000;
+}
+
+.landing__backdrop,
+.landing__scrim,
+.landing__cover,
+.game-tile__art {
+  display: none !important;
+}
+
+.landing__hero-body {
+  display: block;
+  padding: 0 0 8pt;
+}
+
+.game-tile,
+.game-tile__body {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.game-tile__title {
+  color: #000;
+  font-size: 14pt;
+}
+
+.game-grid {
+  display: block;
 }
 
 .prose h3 {
@@ -155,21 +207,6 @@ a {
 }
 
 /* --- components ---------------------------------------------------------- */
-
-.toc {
-  margin-bottom: 12pt;
-  padding: 8pt 10pt;
-  background: none;
-  border: 1pt solid #999;
-}
-
-.toc__list {
-  columns: 2;
-}
-
-.toc a {
-  text-decoration: none;
-}
 
 .callout {
   background: none;

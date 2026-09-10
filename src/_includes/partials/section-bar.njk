@@ -1,0 +1,23 @@
+{#
+  The sticky section bar, shown below the sidebar breakpoint.
+
+  Answers "where am I in this rulebook" without scrolling, and opens the full
+  jump list on tap. Rendered hidden and revealed by section-nav.js, so it never
+  appears as a control that cannot work.
+#}
+<div class="section-bar" data-section-bar hidden>
+  <button
+    type="button"
+    class="section-bar__button"
+    data-section-bar-toggle
+    aria-haspopup="dialog"
+    aria-expanded="false">
+    <span class="section-bar__meta">
+      <span class="section-bar__label" data-section-bar-label>{{ contentType.sections[0].title }}</span>
+      <span class="section-bar__position" data-section-bar-position></span>
+    </span>
+    <svg class="section-bar__chevron" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+      <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+</div>
