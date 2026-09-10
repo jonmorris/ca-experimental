@@ -1,0 +1,17 @@
+---
+layout: layouts/game.njk
+---
+{#
+  The generic content-type layout.
+
+  Anything without a dedicated layout — summary, and any game-specific type
+  such as a strategy primer or scenario guide — renders through here. Adding a
+  new content type is a new markdown file, not new code.
+#}
+<div class="prose">
+  {{ content | enhanceHeadings({
+    bookmarkable: contentType.bookmarkable if contentType else false,
+    pageUrl: page.url,
+    anchorAliases: contentType.anchorAliases if contentType else []
+  }) | safe }}
+</div>

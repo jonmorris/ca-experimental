@@ -1,0 +1,32 @@
+{#
+  Prev / TOC / Next control for rulebook sections.
+
+  Rendered three times on a rulebook page — inline above and below the content
+  for desktop, and once as a bar pinned to the viewport bottom below 1024px.
+  All three are wired to the same scroll-spy in `rulebook-nav.js`, which keeps
+  their targets pointed at the sections either side of the one being read.
+
+  Server-rendered with the first and last sections as sensible no-JS targets.
+#}
+{% macro prevNext(contentType, variant) %}
+  {% set first = contentType.sections[0] %}
+  {% set last = contentType.sections[contentType.sections.length - 1] %}
+  <nav
+    class="prev-next prev-next--{{ variant }}"
+    aria-label="Rulebook section navigation"
+    data-rulebook-nav
+    data-pagefind-ignore
+    data-rulebook-base="{{ contentType.url }}">
+    <a class="prev-next__link prev-next__link--prev" href="{{ contentType.url }}#{{ first.slug }}" data-rulebook-prev>
+      <span class="prev-next__direction">Prev</span>
+      <span class="prev-next__label" data-rulebook-prev-label>{{ first.title }}</span>
+    </a>
+    <a class="prev-next__link prev-next__link--toc" href="{{ contentType.url }}#rulebook-toc">
+      <span class="prev-next__label">Rulebook TOC</span>
+    </a>
+    <a class="prev-next__link prev-next__link--next" href="{{ contentType.url }}#{{ last.slug }}" data-rulebook-next>
+      <span class="prev-next__direction">Next</span>
+      <span class="prev-next__label" data-rulebook-next-label>{{ last.title }}</span>
+    </a>
+  </nav>
+{% endmacro %}

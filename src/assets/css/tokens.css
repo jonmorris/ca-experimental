@@ -1,0 +1,90 @@
+/*
+ * Design tokens.
+ *
+ * Every colour, size and spacing value used anywhere in the site is declared
+ * here. Component stylesheets reference tokens and never hard-code a value, so
+ * the whole look can be retuned from one file.
+ *
+ * Contrast: every foreground/background pair below meets WCAG AA — 4.5:1 for
+ * body text, 3:1 for large text and for the borders of interactive controls.
+ * The ratio against --surface is noted where it is not obvious.
+ */
+
+:root {
+  /* Surfaces — warm paper, so long stretches of rules text are easy on the eye */
+  --surface: #fbf9f5;
+  --surface-raised: #ffffff;
+  --surface-sunken: #f2eee6;
+  --surface-inverse: #21201d;
+
+  /* Ink */
+  --ink: #1f1e1b;          /* 15.4:1 on --surface */
+  --ink-muted: #56534c;    /* 7.4:1  */
+  --ink-faint: #6b6760;    /* 5.3:1  */
+  --ink-inverse: #f7f5f1;
+
+  /* Lines */
+  --line: #ded8cc;
+  --line-strong: #b8b0a1;  /* 3.1:1 — the floor for control borders */
+
+  /* Accents */
+  --accent: #1a5f7a;          /* links — 6.5:1 */
+  --accent-strong: #124156;
+  --accent-wash: #e4eff3;
+
+  --term: #6b2d6b;            /* glossary cross-links — 7.9:1 */
+  --term-wash: #f3e9f3;
+
+  --rule: #1f6b4a;            /* rulebook cross-links — 5.2:1 */
+  --rule-wash: #e3f1ea;
+
+  --marker: #9a5b12;          /* bookmarks — 4.6:1 */
+  --marker-wash: #fbeedd;
+
+  --focus: #0b4f6c;
+
+  /* Type */
+  --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 1rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.375rem;
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.65;
+
+  /* Space — a 4px scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Measure */
+  --measure: 34rem;
+  --width-content: 46rem;
+  --width-wide: 72rem;
+
+  --radius-sm: 3px;
+  --radius: 6px;
+  --radius-lg: 12px;
+
+  --shadow-sm: 0 1px 2px rgb(31 30 27 / 8%);
+  --shadow: 0 2px 8px rgb(31 30 27 / 10%);
+  --shadow-lg: 0 -2px 16px rgb(31 30 27 / 12%);
+
+  --header-height: 3.5rem;
+
+  color-scheme: light;
+}

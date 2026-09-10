@@ -1,0 +1,265 @@
+/*
+ * Print.
+ *
+ * Print is a first-class output: every page and every component has to come
+ * out right in print preview. All print overrides live here — no `@media
+ * print` blocks anywhere else — so what happens on paper can be read in one
+ * file.
+ *
+ * Loaded with media="print", so the whole file is already print-scoped.
+ */
+
+@page {
+  margin: 18mm 16mm;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: #fff;
+  color: #000;
+  font-size: 11pt;
+  line-height: 1.45;
+}
+
+/* --- chrome that has no business on paper -------------------------------- */
+
+.site-header,
+.game-nav,
+.site-menu,
+.menu-toggle,
+.site-footer,
+.skip-link,
+.search,
+.prev-next,
+.alpha-jump,
+.heading-tools,
+.bookmark-toggle,
+.heading-permalink,
+.bookmarks-item__remove,
+.breadcrumbs {
+  display: none !important;
+}
+
+/* --- the page itself ----------------------------------------------------- */
+
+.main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+body[data-content-type="rulebook"] .main {
+  padding-bottom: 0;
+}
+
+.article,
+.landing,
+.home,
+.prose {
+  max-width: none;
+}
+
+.page-header {
+  margin-bottom: 12pt;
+  padding-bottom: 6pt;
+  border-bottom: 1pt solid #000;
+}
+
+.page-header__title,
+.landing__title,
+.home__title {
+  font-size: 22pt;
+}
+
+.page-header__subhead,
+.landing__description {
+  font-size: 11pt;
+  color: #333;
+}
+
+/* --- headings and page breaks -------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4 {
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.section-heading {
+  display: block;
+  margin: 16pt 0 6pt;
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.section-heading h2,
+.prose h2 {
+  font-size: 14pt;
+}
+
+.prose h3 {
+  font-size: 12pt;
+}
+
+p,
+li,
+blockquote,
+figure,
+.callout,
+.term-list__item,
+.index-list__item {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  orphans: 3;
+  widows: 3;
+}
+
+/* --- links --------------------------------------------------------------- */
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/*
+ * Cross-references still have to be distinguishable on paper, where colour may
+ * not survive. Glossary terms keep a dotted rule, rulebook sections a dashed
+ * one — the same distinction the screen makes, in black.
+ */
+.term-link {
+  border-bottom: 1px dotted #000;
+}
+
+.rule-link {
+  border-bottom: 1px dashed #000;
+}
+
+/* Rulebook cross-references print with the section they point at. */
+.rule-link::after {
+  content: " (§" attr(href) ")";
+  font-size: 8pt;
+  color: #444;
+}
+
+.prose > p > a[href^="http"]::after,
+.prose li > a[href^="http"]::after {
+  content: " <" attr(href) ">";
+  font-size: 8pt;
+  color: #444;
+  word-break: break-all;
+}
+
+/* --- components ---------------------------------------------------------- */
+
+.toc {
+  margin-bottom: 12pt;
+  padding: 8pt 10pt;
+  background: none;
+  border: 1pt solid #999;
+}
+
+.toc__list {
+  columns: 2;
+}
+
+.toc a {
+  text-decoration: none;
+}
+
+.callout {
+  background: none;
+  border-left: 2pt solid #999;
+}
+
+.callout--inline {
+  padding-left: 0;
+  border: 0;
+  font-style: italic;
+}
+
+.figure img {
+  border: 1pt solid #999;
+  /* Keep an illustration on one page rather than splitting it. */
+  max-height: 9cm;
+  object-fit: contain;
+}
+
+.table-scroll {
+  overflow: visible;
+}
+
+.prose table {
+  font-size: 9.5pt;
+}
+
+.prose th {
+  background: #eee;
+}
+
+.prose th,
+.prose td {
+  border-bottom: 0.5pt solid #999;
+}
+
+/* --- landing / home ------------------------------------------------------ */
+
+.landing__hero {
+  border-bottom: 1pt solid #000;
+}
+
+.landing__box-art,
+.game-card__art {
+  display: none;
+}
+
+.card-grid,
+.game-grid {
+  display: block;
+}
+
+.card,
+.game-card {
+  padding: 0 0 8pt;
+  margin-bottom: 8pt;
+  background: none;
+  border: 0;
+  border-bottom: 0.5pt solid #999;
+  break-inside: avoid;
+}
+
+.game-facts {
+  display: block;
+  columns: 2;
+}
+
+.game-facts__item {
+  break-inside: avoid;
+  margin-bottom: 4pt;
+}
+
+/*
+ * Bookmarks are a reader's own annotations — they print with the landing page
+ * so a printed game pack carries them, but plainly.
+ */
+.bookmarks-panel {
+  padding: 8pt 0 0;
+  background: none;
+  border: 0;
+  border-top: 1pt solid #000;
+}
+
+.bookmarks-item {
+  padding: 2pt 0;
+  background: none;
+}
+
+.term-group__letter,
+.index-group__letter {
+  font-size: 13pt;
+  border-bottom: 0.5pt solid #999;
+}

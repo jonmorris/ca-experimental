@@ -1,0 +1,64 @@
+{% from "partials/nav-macros.njk" import sectionTabs, sectionJumpList, searchWidget %}
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="/">
+      <span class="site-logo__mark" aria-hidden="true">CA</span>
+      <span class="site-logo__text">{{ site.title }}</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Site">
+      <ul class="site-nav__list">
+        <li><a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>All games</a></li>
+        <li><a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a></li>
+      </ul>
+    </nav>
+
+    <button
+      type="button"
+      class="menu-toggle"
+      data-menu-toggle
+      hidden
+      aria-expanded="false"
+      aria-controls="site-menu">
+      <span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="menu-toggle__text">Menu</span>
+    </button>
+  </div>
+
+  {#
+    The < 1024px dropdown. Carries everything the inline game-nav bar carries,
+    plus the global "all games" link, so nothing is unreachable on a phone.
+  #}
+  <div class="site-menu" id="site-menu" data-menu hidden>
+    <div class="site-menu__inner">
+      {% if game %}
+        {{ searchWidget("menu-search", game.slug, "Search " + game.title) }}
+      {% else %}
+        {{ searchWidget("menu-search", "", "Search all games") }}
+      {% endif %}
+
+      <nav class="site-menu__section" aria-label="Site">
+        <p class="site-menu__heading">Site</p>
+        <ul class="nav-tabs nav-tabs--stacked">
+          <li><a class="nav-tab{% if page.url == '/' %} is-current{% endif %}" href="/">All games</a></li>
+          <li><a class="nav-tab{% if page.url == '/about/' %} is-current{% endif %}" href="/about/">About</a></li>
+        </ul>
+      </nav>
+
+      {% if game %}
+        <nav class="site-menu__section" aria-label="{{ game.title }}">
+          <p class="site-menu__heading">{{ game.title }}</p>
+          {{ sectionTabs(game, page.url, "nav-tabs nav-tabs--stacked") }}
+        </nav>
+
+        {% if contentType and contentType.sections.length %}
+          <nav class="site-menu__section" aria-label="Sections in {{ contentType.title }}">
+            <p class="site-menu__heading">{{ contentType.title }} sections</p>
+            {{ sectionJumpList(contentType, "nav-tabs nav-tabs--stacked") }}
+          </nav>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</header>

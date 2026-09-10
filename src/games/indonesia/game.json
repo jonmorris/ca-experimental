@@ -1,0 +1,18 @@
+{
+  "title": "Indonesia",
+  "year_published": 2005,
+  "designer": "Jeroen Doumen and Joris Wiersinga",
+  "publisher": "Splotter Spellen",
+  "players": "2–5",
+  "time": "180–240 minutes",
+  "bgg_id": 19777,
+  "box_art": "/games/indonesia/images/indonesia-cover.jpg",
+  "description": "An economic and logistics game of shipping, mergers and expansion across the Indonesian archipelago, from 1900 through the 1950s.",
+  "tags": [
+    { "slug": "economic", "label": "Economic" },
+    { "slug": "auction-bidding", "label": "Auction / Bidding" },
+    { "slug": "network-building", "label": "Network Building" },
+    { "slug": "pick-up-and-deliver", "label": "Pick-up and Deliver" },
+    { "slug": "heavy-euro", "label": "Heavy Euro" }
+  ]
+}

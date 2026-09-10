@@ -1,0 +1,26 @@
+{% from "partials/nav-macros.njk" import sectionTabs, sectionJumpList, searchWidget %}
+
+{#
+  The inline game-nav bar. Shown at >= 1024px only; below that the same
+  content lives in the header dropdown.
+#}
+<nav class="game-nav" aria-label="{{ game.title }}">
+  <div class="game-nav__bar">
+    <div class="game-nav__identity">
+      <a class="game-nav__title" href="{{ game.url }}">{{ game.title }}</a>
+      {{ sectionTabs(game, page.url, "nav-tabs") }}
+    </div>
+    <div class="game-nav__search">
+      {{ searchWidget("game-search", game.slug, "Search " + game.title) }}
+    </div>
+  </div>
+
+  {% if contentType and contentType.sections.length > 1 %}
+    <div class="game-nav__sections">
+      <p class="game-nav__sections-label" id="section-jump-label">{{ contentType.title }} sections</p>
+      <div class="game-nav__sections-list" aria-labelledby="section-jump-label">
+        {{ sectionJumpList(contentType, "nav-tabs nav-tabs--wrap") }}
+      </div>
+    </div>
+  {% endif %}
+</nav>

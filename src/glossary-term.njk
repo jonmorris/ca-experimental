@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: glossaryTerms
+  size: 1
+  alias: term
+---
+{#
+  One page per glossary term, so every glossary cross-link has a stable,
+  deep-linkable destination of its own. Permalink and game context are
+  computed in glossary-term.11tydata.js.
+#}
+{% include "partials/breadcrumbs.njk" %}
+
+<article class="article article--term" data-pagefind-body>
+  <header class="page-header">
+    <p class="page-header__eyebrow">
+      <a href="{{ game.url }}">{{ game.title }}</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ game.url }}glossary/">Glossary</a>
+    </p>
+    <h1 class="page-header__title">{{ term.term }}</h1>
+    {% if term.short %}<p class="page-header__subhead">{{ term.short }}</p>{% endif %}
+  </header>
+
+  {% if term.long %}
+    <div class="prose"><p>{{ term.long }}</p></div>
+  {% endif %}
+
+  <nav class="term-footer" aria-label="Glossary">
+    <a class="term-footer__back" href="{{ game.url }}glossary/#{{ term.slug }}">
+      All {{ game.title }} terms
+    </a>
+  </nav>
+</article>

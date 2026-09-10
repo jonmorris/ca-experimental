@@ -1,0 +1,42 @@
+{#
+  Your bookmarks.
+
+  Populated by `bookmarks-panel.js` from localStorage, filtered to this game.
+  Both states ship in the markup so there is no layout jump; the script
+  unhides whichever applies. With JS off, the panel stays hidden rather than
+  showing an empty shell that can never fill.
+#}
+<section
+  class="bookmarks-panel"
+  aria-labelledby="bookmarks-panel-title"
+  data-bookmarks-panel
+  data-bookmarks-game="{{ game.slug }}"
+  data-pagefind-ignore
+  hidden>
+  <h2 class="bookmarks-panel__title" id="bookmarks-panel-title">Your bookmarks</h2>
+
+  <p class="bookmarks-panel__empty" data-bookmarks-empty hidden>
+    No bookmarks yet — tap the icon next to any heading in the
+    {% if game.hasRulebook %}<a href="{{ game.url }}rulebook/">rulebook</a>{% else %}rulebook{% endif %}
+    to save it here.
+  </p>
+
+  <div class="bookmarks-panel__groups" data-bookmarks-groups hidden></div>
+
+  <template data-bookmarks-group-template>
+    <section class="bookmarks-group">
+      <h3 class="bookmarks-group__title"><a data-group-link></a></h3>
+      <ul class="bookmarks-group__list" data-group-list></ul>
+    </section>
+  </template>
+
+  <template data-bookmarks-item-template>
+    <li class="bookmarks-item">
+      <a class="bookmarks-item__link" data-item-link></a>
+      <button type="button" class="bookmarks-item__remove" data-item-remove>
+        <span aria-hidden="true">×</span>
+        <span class="visually-hidden" data-item-remove-label>Remove bookmark</span>
+      </button>
+    </li>
+  </template>
+</section>

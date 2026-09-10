@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+permalink: /about/
+title: About
+---
+<div class="article" data-pagefind-body>
+  <header class="page-header">
+    <h1 class="page-header__title">About</h1>
+    <p class="page-header__subhead">{{ site.tagline }}</p>
+  </header>
+
+  <div class="prose">
+    <p>
+      {{ site.title }} is a reading companion for board game rules. Each game has
+      a set of authored pages — a rulebook, a summary, a glossary and a book
+      index — cross-linked to each other and searchable within that game.
+    </p>
+
+    <h2 id="how-it-works">How it works</h2>
+    <ul>
+      <li>Every section has a permanent anchor, so a link you save keeps working.</li>
+      <li>Search on a game’s page only ever returns results from that game.</li>
+      <li>Bookmarks are stored in your browser. No account, no server, no tracking.</li>
+      <li>Every page is laid out for print as carefully as it is for screen.</li>
+    </ul>
+
+    <h2 id="content">Content</h2>
+    <p>
+      Rules text belongs to its publishers and designers and is reproduced here
+      as a reading aid. Corrections are welcome via
+      <a href="{{ site.repo }}">the repository</a>.
+    </p>
+  </div>
+</div>

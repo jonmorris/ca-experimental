@@ -1,0 +1,30 @@
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol class="breadcrumbs__list">
+    <li><a href="/">Home</a></li>
+    {% if game %}
+      <li>
+        {% if page.url == game.url %}
+          <span aria-current="page">{{ game.title }}</span>
+        {% else %}
+          <a href="{{ game.url }}">{{ game.title }}</a>
+        {% endif %}
+      </li>
+    {% endif %}
+    {% if expansion %}
+      <li><span>{{ expansion.title }}</span></li>
+    {% endif %}
+    {% if breadcrumbSection %}
+      <li>
+        {% if breadcrumbSectionUrl %}
+          <a href="{{ breadcrumbSectionUrl }}">{{ breadcrumbSection }}</a>
+        {% else %}
+          <span aria-current="page">{{ breadcrumbSection }}</span>
+        {% endif %}
+      </li>
+    {% elif contentType %}
+      <li><span aria-current="page">{{ contentType.label }}</span></li>
+    {% elif breadcrumb %}
+      <li><span aria-current="page">{{ breadcrumb }}</span></li>
+    {% endif %}
+  </ol>
+</nav>

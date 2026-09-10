@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {#
+      A game's landing page is titled with the game itself, so naming the game
+      again would only repeat it.
+    #}
+    <title>
+      {%- if not title -%}
+        {{ site.title }} · {{ site.tagline }}
+      {%- elif game and contentTypeSlug != "landing" -%}
+        {{ title }} · {{ game.title }} · {{ site.title }}
+      {%- else -%}
+        {{ title }} · {{ site.title }}
+      {%- endif -%}
+    </title>
+    <meta name="description" content="{{ pageDescription or subhead or (game.meta.description if game) or site.description }}">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <link rel="stylesheet" href="/assets/css/tokens.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/layout.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/content.css">
+    <link rel="stylesheet" href="/assets/css/print.css" media="print">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <script type="module" src="/assets/js/site.js"></script>
+    <noscript>
+      {#
+        Without scripting the menu button cannot work and search has no index
+        to query, so the button and the search widgets are dropped and the
+        dropdown is rendered open — the per-game nav stays reachable on a
+        phone rather than disappearing.
+      #}
+      <style>
+        .menu-toggle { display: none !important; }
+        .site-menu[hidden] { display: block !important; }
+        .search { display: none !important; }
+      </style>
+    </noscript>
+  </head>
+  <body
+    class="{{ bodyClass or 'page' }}"
+    {% if game %}data-pagefind-filter="game:{{ game.slug }}" data-game="{{ game.slug }}"{% endif %}
+    data-content-type="{{ contentTypeSlug or 'site' }}"
+  >
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    {% include "partials/header.njk" %}
+
+    {% if game %}{% include "partials/game-nav.njk" %}{% endif %}
+
+    <main id="main" class="main" tabindex="-1">
+      {{ content | safe }}
+    </main>
+
+    {% include "partials/footer.njk" %}
+  </body>
+</html>

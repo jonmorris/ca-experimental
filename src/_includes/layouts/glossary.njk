@@ -1,0 +1,43 @@
+---
+layout: layouts/game.njk
+---
+{#
+  The full glossary. Terms come from the file's `terms` frontmatter; each also
+  gets its own deep-linkable page under `/glossary/{term-slug}/`.
+#}
+{% if content | stripHtml %}
+  <div class="prose prose--intro">{{ content | safe }}</div>
+{% endif %}
+
+{% set groups = contentType.glossary | groupByInitial("term") %}
+
+{% if groups.length %}
+  <nav class="alpha-jump" aria-label="Jump to letter" data-pagefind-ignore>
+    <ul class="alpha-jump__list">
+      {% for group in groups %}
+        <li><a href="#letter-{{ group.letter | slug }}">{{ group.letter }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  {% for group in groups %}
+    <section class="term-group" aria-labelledby="letter-{{ group.letter | slug }}">
+      <h2 class="term-group__letter" id="letter-{{ group.letter | slug }}">{{ group.letter }}</h2>
+      <dl class="term-list">
+        {% for term in group.items %}
+          <div class="term-list__item" id="{{ term.slug }}">
+            <dt class="term-list__term">
+              <a href="{{ game.url }}glossary/{{ term.slug }}/">{{ term.term }}</a>
+            </dt>
+            <dd class="term-list__definition">
+              {% if term.short %}<p class="term-list__short">{{ term.short }}</p>{% endif %}
+              {% if term.long %}<p class="term-list__long">{{ term.long }}</p>{% endif %}
+            </dd>
+          </div>
+        {% endfor %}
+      </dl>
+    </section>
+  {% endfor %}
+{% else %}
+  <p class="empty-state">No glossary terms have been written for {{ game.title }} yet.</p>
+{% endif %}

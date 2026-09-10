@@ -1,0 +1,89 @@
+---
+layout: layouts/base.njk
+---
+{% include "partials/breadcrumbs.njk" %}
+
+<div class="landing" data-pagefind-body>
+  <header class="landing__hero">
+    <div class="landing__intro">
+      <h1 class="landing__title">{{ game.title }}</h1>
+      <p class="landing__description">{{ game.meta.description }}</p>
+
+      <dl class="game-facts">
+        {% if game.meta.designer %}
+          <div class="game-facts__item">
+            <dt>Designer</dt><dd>{{ game.meta.designer }}</dd>
+          </div>
+        {% endif %}
+        {% if game.meta.publisher %}
+          <div class="game-facts__item">
+            <dt>Publisher</dt><dd>{{ game.meta.publisher }}</dd>
+          </div>
+        {% endif %}
+        {% if game.meta.players %}
+          <div class="game-facts__item">
+            <dt>Players</dt><dd>{{ game.meta.players }}</dd>
+          </div>
+        {% endif %}
+        {% if game.meta.time %}
+          <div class="game-facts__item">
+            <dt>Play time</dt><dd>{{ game.meta.time }}</dd>
+          </div>
+        {% endif %}
+        {% if game.meta.year_published %}
+          <div class="game-facts__item">
+            <dt>Published</dt><dd>{{ game.meta.year_published }}</dd>
+          </div>
+        {% endif %}
+        {% if game.meta.bgg_id %}
+          <div class="game-facts__item">
+            <dt>BoardGameGeek</dt>
+            <dd><a href="https://boardgamegeek.com/boardgame/{{ game.meta.bgg_id }}/" rel="noopener">#{{ game.meta.bgg_id }}</a></dd>
+          </div>
+        {% endif %}
+      </dl>
+    </div>
+
+    {% if game.meta.box_art %}
+      <img class="landing__box-art" src="{{ game.meta.box_art }}" alt="Box art for {{ game.title }}" width="360" height="360">
+    {% endif %}
+  </header>
+
+  <section class="landing__section" aria-labelledby="contents-title">
+    <h2 class="landing__section-title" id="contents-title">Contents</h2>
+    <ul class="card-grid">
+      {% for type in game.contentTypes %}
+        <li class="card">
+          <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
+          {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
+          {% if type.sections.length %}
+            <p class="card__meta">{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  {% for expansion in game.expansions %}
+    <section class="landing__section" aria-labelledby="exp-title-{{ expansion.slug }}">
+      <h2 class="landing__section-title" id="exp-title-{{ expansion.slug }}">{{ expansion.title }}</h2>
+      <ul class="card-grid">
+        {% for type in expansion.contentTypes %}
+          <li class="card">
+            <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
+            {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
+            {% if type.sections.length %}
+              <p class="card__meta">{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+
+  {% include "partials/bookmarks-panel.njk" %}
+
+  {% if content | stripHtml %}
+    <div class="prose">{{ content | safe }}</div>
+  {% endif %}
+</div>

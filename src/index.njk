@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+permalink: /
+bodyClass: page page--home
+---
+{% from "partials/nav-macros.njk" import searchWidget %}
+
+<div class="home" data-pagefind-body>
+  <header class="home__hero">
+    <h1 class="home__title">{{ site.title }}</h1>
+    <p class="home__tagline">{{ site.description }}</p>
+    {{ searchWidget("global-search", "", "Search all games") }}
+  </header>
+
+  <section class="home__section" aria-labelledby="games-title">
+    <h2 class="home__section-title" id="games-title">Games</h2>
+    <ul class="game-grid">
+      {% for slug, item in games %}
+        <li class="game-card">
+          {% if item.meta.box_art %}
+            <img class="game-card__art" src="{{ item.meta.box_art }}" alt="" width="320" height="320" loading="lazy">
+          {% endif %}
+          <div class="game-card__body">
+            <h3 class="game-card__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+            <p class="game-card__meta">
+              {{ item.meta.designer }}{% if item.meta.year_published %} · {{ item.meta.year_published }}{% endif %}
+            </p>
+            <p class="game-card__description">{{ item.meta.description }}</p>
+            <ul class="game-card__links">
+              {% for type in item.contentTypes %}
+                <li><a href="{{ type.url }}">{{ type.label }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
