@@ -1164,7 +1164,6 @@ dialog::backdrop {
   border-radius: var(--radius);
   color: var(--ink-faint);
   text-decoration: none;
-  opacity: 0;
 }
 
 .heading-permalink__icon {
@@ -1180,26 +1179,36 @@ dialog::backdrop {
   font-weight: var(--ui-weight);
 }
 
-.section-heading:hover .heading-permalink,
-.heading-permalink:focus-visible {
-  opacity: 1;
-}
-
 .heading-permalink:hover {
   color: var(--accent);
 }
 
-/* Held open while the confirmation shows, so it cannot fade mid-message. */
 .heading-permalink[data-copied] {
-  opacity: 1;
   color: var(--accent);
 }
 
-/* No hover to reveal it with, so it stays out. */
-@media (hover: none) {
-  .heading-permalink {
-    opacity: 1;
-  }
+/*
+ * Both controls are icon-only at every width, and both are always there.
+ *
+ * They used to differ by device: the copy link appeared on hover on a desktop
+ * and sat permanently on a phone, and the labels dropped away only on a narrow
+ * screen. Two behaviours for one pair of controls meant the heading looked like
+ * a different thing depending on where you read it, and a control that appears
+ * on hover is a control most readers never discover. The phone's treatment was
+ * the better one, so it is now the only one.
+ */
+.bookmark-toggle__label,
+.heading-permalink__label {
+  display: none;
+}
+
+/*
+ * Except to confirm a copy. There is no hover state and no cursor change to
+ * carry it, so the word is the only unambiguous signal that the press did
+ * anything — and a silent action reads as a broken one.
+ */
+.heading-permalink[data-copied] .heading-permalink__label {
+  display: inline;
 }
 
 .bookmark-toggle {
@@ -1240,21 +1249,6 @@ dialog::backdrop {
   fill: currentcolor;
 }
 
-@media (max-width: 46rem) {
-  .bookmark-toggle__label,
-  .heading-permalink__label {
-    display: none;
-  }
-
-  /*
-   * Except to confirm. A phone has no hover and no cursor change, so the word
-   * is the only unambiguous signal that the tap did anything — and this is the
-   * screen where a silent action is most easily read as a broken one.
-   */
-  .heading-permalink[data-copied] .heading-permalink__label {
-    display: inline;
-  }
-}
 
 /* ==================================================== bookmarks panel */
 
@@ -1463,16 +1457,6 @@ dialog::backdrop {
   font-family: var(--font-ui);
   font-size: var(--text-base);
   font-weight: 700;
-}
-
-/*
- * Icon only here. A rulebook carries a dozen headings down a long page, where
- * the word "Bookmark" reads as a label; a glossary carries thirty-odd terms in
- * a dense column, where the same word repeated becomes texture and the term
- * itself is what should be scannable.
- */
-.term-list__term .bookmark-toggle__label {
-  display: none;
 }
 
 .term-list__term .bookmark-toggle {
