@@ -131,15 +131,21 @@
  * The wordmark collapses to its mark wherever a game is open, up to the
  * sidebar breakpoint: in that range the header is carrying two names and the
  * game's is the one worth reading. The mark still links home.
+ *
+ * The divider goes with it. It is there to separate two names, and once the
+ * wordmark is gone there is only one — a rule floating between the mark and
+ * the game reads as a piece of the wordmark that failed to load.
  */
 @media (max-width: 64rem) {
-  body[data-game] .site-logo__text {
+  body[data-game] .site-logo__text,
+  body[data-game] .site-header__divider {
     display: none;
   }
 }
 
 @media (max-width: 26rem) {
-  .site-logo__text {
+  .site-logo__text,
+  .site-header__divider {
     display: none;
   }
 }

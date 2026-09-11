@@ -357,8 +357,7 @@ dialog::backdrop {
  */
 .palette__inner,
 .drawer__inner,
-.prefs__inner,
-.jump-sheet__inner {
+.prefs__inner {
   position: fixed;
   inset: auto 0 0;
   max-height: 82dvh;
@@ -384,13 +383,32 @@ dialog::backdrop {
     border-right: 0;
   }
 
-  .jump-sheet__inner {
-    inset: 8vh 50% auto auto;
-    translate: 50% 0;
-    width: min(32rem, 92vw);
-    max-height: 70dvh;
-    border-radius: var(--radius-lg);
-  }
+}
+
+/*
+ * The jump list is the exception: it is not a tool reached from the header
+ * like the three above, it is the sticky section bar's own list. So it drops
+ * from the bar — full width, top corners square, no top border of its own
+ * against the bar's bottom one — instead of rising from the bottom of the
+ * screen or floating in the middle of it. Nothing between the bar and the
+ * list, which is what makes the two read as one control.
+ */
+.jump-sheet__inner {
+  position: fixed;
+  inset: calc(var(--header-height) + var(--section-bar-height)) 0 auto;
+  max-height: calc(100dvh - var(--header-height) - var(--section-bar-height) - var(--space-6));
+  overflow-y: auto;
+  border-top: 0;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+/*
+ * And the bar it drops from stays lit. Dimming the control you just used
+ * reads as "the page is gone"; leaving it means the list is attached to
+ * something still on screen.
+ */
+.jump-sheet::backdrop {
+  top: calc(var(--header-height) + var(--section-bar-height));
 }
 
 /* --------------------------------------------------------- the palette */

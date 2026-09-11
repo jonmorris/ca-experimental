@@ -39,8 +39,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* An open overlay must not scroll the page behind it. */
-html.has-overlay,
+/*
+ * An open overlay must not scroll the page behind it. The lock goes on the
+ * body alone: the viewport takes its overflow from the body while the root's
+ * own overflow is visible, so this stops the scroll either way — but locking
+ * the root as well makes it a scroll container, and a scroll container kills
+ * `position: sticky` in everything inside it. That dropped the header and the
+ * section bar out of view the moment the jump list opened, which is half of
+ * why the list read as a free-floating overlay rather than a menu hanging off
+ * the bar that opened it.
+ */
 html.has-overlay body {
   overflow: hidden;
 }
