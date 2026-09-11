@@ -1,7 +1,7 @@
 {
   "title": "Cardboard Appendix",
-  "tagline": "Board game rules, indexed and cross-linked.",
-  "description": "Rulebooks, summaries, glossaries and indexes for board games \u2014 searchable, deep-linkable and built for print.",
+  "tagline": "Resources for Learning, Teaching, & Playing Board Games",
+  "description": "A rulebook is written to be read once. This is built for every time after that.",
   "url": "https://cardboard-appendix.pages.dev",
   "lang": "en",
   "repo": "https://github.com/jonmorris/ca-experimental",
