@@ -50,14 +50,17 @@
 /*
  * The mark: a rulebook seen face-on, its tabbed spine to the right.
  *
- * No plate behind it. The favicon keeps one because it lands on browser chrome
- * nobody controls, but here the surface is known, and a filled tile in the
- * corner of a light header reads as a sticker rather than a mark.
+ * The favicon's drawing exactly, minus the plate behind it. The favicon keeps
+ * that plate because it lands on browser chrome nobody controls; here the
+ * surface is known, and a filled tile in the corner of a light header reads as
+ * a sticker stuck on rather than a mark drawn in.
  *
- * Which means the drawing has to answer to the theme: the page is an outline
- * in the text colour rather than a cream fill, and the rules inside it follow.
- * The spine is the one colour that stays a colour, lightened in dark mode so it
- * does not close up against the surface.
+ * Take the plate away and two of its fills have nothing to sit against: the
+ * page was cream and the rules a grey that only worked on cream. They become
+ * the surface's own two tones instead, which inverts the drawing in light mode
+ * — a dark page with its rules cut out of it — and leaves dark mode looking as
+ * it always did. The spine is the one colour that stays a colour, lightened in
+ * dark so it does not close up.
  */
 .site-logo__mark {
   display: grid;
@@ -65,8 +68,6 @@
 
   --logo-spine: #9a5b12;
   --logo-spine: light-dark(#9a5b12, #c98430);
-  --logo-rule: #6b6760;
-  --logo-rule: light-dark(#6b6760, #8d8880);
 }
 
 .site-logo__svg {
@@ -76,9 +77,7 @@
 }
 
 .site-logo__page {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 1.7;
+  fill: var(--ink);
 }
 
 .site-logo__spine {
@@ -87,8 +86,8 @@
 
 .site-logo__rules {
   fill: none;
-  stroke: var(--logo-rule);
-  stroke-width: 1.6;
+  stroke: var(--surface);
+  stroke-width: 1.5;
   stroke-linecap: round;
 }
 
