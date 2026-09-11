@@ -20,28 +20,25 @@ bodyClass: page page--home
       {% for slug, item in games %}
         <li class="game-tile">
           {#
-            One image per game at an unpredictable aspect ratio, so the art is
-            cropped to a fixed box and a scrim carries the title over it. The
-            same image is blurred behind the crop, which fills the box for art
-            that does not match the ratio instead of letterboxing it.
+            The box art is shown as itself: contained in a fixed-ratio frame on
+            a quiet ground, so covers of different proportions still line up
+            across the grid without being cropped. Nothing is laid over the
+            art — the title sits below it, where it can be set in the same type
+            as the rest of the site.
           #}
           <a class="game-tile__link" href="{{ item.url }}">
-            <span class="game-tile__art">
-              {% if item.meta.box_art %}
-                <img class="game-tile__backdrop" src="{{ item.meta.box_art }}" alt="" aria-hidden="true" loading="lazy">
+            {% if item.meta.box_art %}
+              <span class="game-tile__art">
                 <img class="game-tile__image" src="{{ item.meta.box_art }}" alt="" loading="lazy">
-              {% endif %}
-              <span class="game-tile__scrim" aria-hidden="true"></span>
-              <span class="game-tile__heading">
-                <span class="game-tile__title">{{ item.title }}</span>
-                <span class="game-tile__meta">
-                  {{ item.meta.designer }}{% if item.meta.year_published %} · {{ item.meta.year_published }}{% endif %}
-                </span>
               </span>
-            </span>
+            {% endif %}
           </a>
 
           <div class="game-tile__body">
+            <h3 class="game-tile__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+            <p class="game-tile__meta">
+              {{ item.meta.designer }}{% if item.meta.year_published %} · {{ item.meta.year_published }}{% endif %}
+            </p>
             <p class="game-tile__description">{{ item.meta.description }}</p>
             <ul class="chip-row">
               {% for type in item.contentTypes %}

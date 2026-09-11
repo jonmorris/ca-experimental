@@ -9,29 +9,23 @@ layout: layouts/base.njk
 
     <div class="landing" data-pagefind-body>
       {#
-        The hero fills its box with the game's own art regardless of the
-        image's aspect ratio: a blurred copy behind, the real image contained
-        on top, a scrim under the text.
+        The cover is shown plainly beside the title rather than blurred up
+        behind it. Nothing is laid over the art, so the type sits on the page's
+        own surface and reads in the page's own colours.
       #}
       <header class="landing__hero">
         {% if game.meta.box_art %}
-          <img class="landing__backdrop" src="{{ game.meta.box_art }}" alt="" aria-hidden="true">
+          <span class="landing__cover">
+            <img src="{{ game.meta.box_art }}" alt="Box art for {{ game.title }}">
+          </span>
         {% endif %}
-        <span class="landing__scrim" aria-hidden="true"></span>
 
-        <div class="landing__hero-body">
-          {% if game.meta.box_art %}
-            <img class="landing__cover" src="{{ game.meta.box_art }}"
-                 alt="Box art for {{ game.title }}" width="320" height="320">
+        <div class="landing__intro">
+          <h1 class="landing__title">{{ game.title }}</h1>
+          <p class="landing__description">{{ game.meta.description }}</p>
+          {% if game.hasRulebook %}
+            <a class="button button--primary" href="{{ game.url }}rulebook/">Open the rulebook</a>
           {% endif %}
-
-          <div class="landing__intro">
-            <h1 class="landing__title">{{ game.title }}</h1>
-            <p class="landing__description">{{ game.meta.description }}</p>
-            {% if game.hasRulebook %}
-              <a class="button button--primary" href="{{ game.url }}rulebook/">Open the rulebook</a>
-            {% endif %}
-          </div>
         </div>
       </header>
 

@@ -116,26 +116,21 @@ h4 {
 }
 
 /*
- * The landing hero is a full-bleed image treatment on screen; on paper it
- * becomes a plain masthead. The blurred backdrop and scrim would waste ink and
- * put white text on a grey field.
+ * Cover art is the one thing on these pages that is purely decorative on
+ * paper — it identifies a game you are holding the box of — so it comes out
+ * and the hero becomes a plain masthead.
  */
 .landing__hero {
+  display: block;
   background: none;
   border-radius: 0;
   border-bottom: 1pt solid #000;
+  padding-bottom: 8pt;
 }
 
-.landing__backdrop,
-.landing__scrim,
 .landing__cover,
 .game-tile__art {
   display: none !important;
-}
-
-.landing__hero-body {
-  display: block;
-  padding: 0 0 8pt;
 }
 
 .game-tile,
@@ -249,7 +244,6 @@ a {
   border-bottom: 1pt solid #000;
 }
 
-.landing__box-art,
 .game-card__art {
   display: none;
 }

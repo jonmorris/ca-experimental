@@ -188,8 +188,6 @@
   --shadow: light-dark(0 4px 14px -4px rgb(28 27 24 / 14%), 0 4px 16px -4px rgb(0 0 0 / 60%));
   --shadow-lg: light-dark(0 18px 44px -12px rgb(28 27 24 / 26%), 0 18px 48px -12px rgb(0 0 0 / 72%));
   --shadow-up: light-dark(0 -6px 20px -10px rgb(28 27 24 / 22%), 0 -6px 22px -10px rgb(0 0 0 / 62%));
-
-  --scrim: linear-gradient(to top, rgb(0 0 0 / 86%), rgb(0 0 0 / 38%) 55%, rgb(0 0 0 / 6%));
 }
 
 /*
