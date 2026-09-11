@@ -24,7 +24,8 @@
   --display-tracking: -0.021em;
   --ui-weight: 500;
 
-  --leading-normal: 1.58;
+  /* Nominated, not set: the reader's line-spacing control scales this. */
+  --leading-normal-default: 1.58;
   --leading-snug: 1.35;
 
   /* Cool, near-neutral. Almost no warmth in either theme. */
@@ -61,12 +62,10 @@
 
 :root[data-design="precision"][data-density="compact"] {
   --scale: 0.92;
-  --leading-normal: 1.48;
 }
 
 :root[data-design="precision"][data-density="spacious"] {
   --scale: 1.08;
-  --leading-normal: 1.68;
 }
 
 /* Figures line up everywhere in a reference tool. */

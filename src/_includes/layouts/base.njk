@@ -34,8 +34,9 @@
           var stored = JSON.parse(raw);
           if (!stored || Number(stored.schemaVersion) > 1) return;
           var prefs = stored.preferences || {};
-          var map = { theme: "data-theme", density: "data-density", face: "data-face", measure: "data-measure" };
-          var implicit = { theme: "system", density: "comfortable", face: "default", measure: "default" };
+          var map = { theme: "data-theme", density: "data-density", face: "data-face", spacing: "data-spacing" };
+          /* `face` has no implicit value: see the note in preferences.js. */
+          var implicit = { theme: "system", density: "comfortable", spacing: "normal" };
           for (var key in map) {
             var value = prefs[key];
             if (value && value !== implicit[key]) document.documentElement.setAttribute(map[key], value);

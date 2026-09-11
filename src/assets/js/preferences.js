@@ -36,19 +36,38 @@ export const PREFERENCES = {
     implicit: "comfortable",
     label: "Text size",
   },
+  /*
+   * No "Default" option: each design nominates a body face, and in the shipped
+   * one that face is the serif — so "Default" and "Serif" were two labels for
+   * one outcome.
+   *
+   * Deliberately no `implicit` either. An implicit value writes no attribute
+   * and so falls through to whatever the design nominated, which is only the
+   * same thing by coincidence: the precision direction nominates the sans, and
+   * a reader who picked "Serif" there would have been given sans. The design's
+   * choice still applies with JavaScript off, when no attribute is written at
+   * all.
+   */
   face: {
     attribute: "data-face",
-    values: ["default", "serif", "sans"],
-    default: "default",
-    implicit: "default",
+    values: ["serif", "sans"],
+    default: "serif",
     label: "Typeface",
   },
-  measure: {
-    attribute: "data-measure",
-    values: ["narrow", "default", "wide"],
-    default: "default",
-    implicit: "default",
-    label: "Line width",
+  /*
+   * Line spacing rather than line width. Every reading app that offers text
+   * controls has this one — Kindle, Kobo, Apple Books, Play Books, Instapaper,
+   * Reader — while a width control is something only the wide-screen ones
+   * carry, and both Instapaper and Readwise Reader drop it on a phone for want
+   * of room to give away. At a table, on a phone, it would have been a control
+   * that did nothing.
+   */
+  spacing: {
+    attribute: "data-spacing",
+    values: ["tight", "normal", "relaxed"],
+    default: "normal",
+    implicit: "normal",
+    label: "Line spacing",
   },
 };
 

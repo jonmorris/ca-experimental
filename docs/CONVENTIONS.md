@@ -212,7 +212,7 @@ style property:
 | `data-theme` | `light`, `dark` (absent = follow the OS) | reader |
 | `data-density` | `compact`, `comfortable`, `spacious` | reader |
 | `data-face` | `serif`, `sans` (absent = the design's default) | reader |
-| `data-measure` | `narrow`, `default`, `wide` | reader |
+| `data-spacing` | `tight`, `normal`, `relaxed` | reader |
 
 Colours are declared once as `light-dark()` pairs, with a plain light value
 first as a fallback. Never define a colour in only one theme, and never put a
@@ -222,6 +222,14 @@ A design direction is a **token overlay** (`theme-editorial.css`,
 `theme-precision.css`) scoped to `:root[data-design="…"]`. A direction may not
 introduce a component or restructure a layout; if it needs to, that belongs in
 the shared stylesheet driven by a token.
+
+**A direction never sets a token the reader controls.** `:root[data-design="…"]`
+and `:root[data-spacing="…"]` carry identical specificity, and the design
+stylesheet loads later, so it wins and the reader's choice does nothing. A
+direction nominates its starting point through a separate `*-default` token
+that the reader's control then resolves or scales — `--font-body-default` for
+the body face, `--leading-normal-default` for body leading. Both exist because
+this went wrong first.
 
 A design nominates `--font-body-default`, never `--font-body`: the two
 selectors have equal specificity and the design file loads later, so setting

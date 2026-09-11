@@ -78,8 +78,16 @@ is a different product.
 
 ## Further reading preferences
 
-Reading position, collapsed sections, justification. Theme, text size, body
-typeface and line width are **built** — see `preferences.js`.
+Reading position, collapsed sections, justification, line width. Theme, text
+size, body typeface and line spacing are **built** — see `preferences.js`.
+
+Line width was built and then withdrawn: measured across our own content its
+three settings gave 58, 68 and 83 characters, so the default already sat in
+the 50–75 band the research favours and one of the other two was always worse.
+It is also the one control the reading apps drop on a phone — both Instapaper
+and Readwise Reader restrict it to wide screens — which is the context this
+site is designed for. The measure is now a design decision, held at ~66
+characters by `--measure`.
 
 **Why deferred:** each control is one more thing to design, persist and test,
 and the four that shipped cover the complaints that actually come up.

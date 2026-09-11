@@ -27,7 +27,9 @@
 
   /* Literata runs large for its point size; ease the scale back a little. */
   --scale: 0.97;
-  --leading-normal: 1.66;
+
+  /* Nominated, not set: the reader's line-spacing control scales this. */
+  --leading-normal-default: 1.66;
 
   /* Paper, warmed further. */
   --surface: #fcfaf6;

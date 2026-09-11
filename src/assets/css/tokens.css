@@ -11,7 +11,7 @@
  *   data-design    editorial | precision   — which design direction
  *   data-theme     light | dark            — absent means follow the OS
  *   data-density   compact | comfortable | spacious
- *   data-measure   narrow | default | wide
+ *   data-spacing   tight | normal | relaxed — space between lines of body text
  *   data-face      serif | sans            — the reader's body text choice
  *
  * Contrast: every foreground/background pair below meets WCAG AA — 4.5:1 for
@@ -46,8 +46,25 @@
   --leading-flat: 1.1;
   --leading-tight: 1.22;
   --leading-snug: 1.4;
-  --leading-normal: 1.62;
-  --leading-loose: 1.75;
+
+  /*
+   * Body leading, in two parts.
+   *
+   * Each design calibrates its own body leading through
+   * `--leading-normal-default` and never sets `--leading-normal` itself —
+   * the same split `--font-body-default` uses, and for the same reason: the
+   * two selectors carry identical specificity, so the design stylesheet,
+   * loaded later, would silently win over the reader's choice. That is
+   * exactly what happened before this existed, and body leading sat frozen at
+   * the design's value however the reader set it.
+   *
+   * The reader's control is a multiplier rather than an absolute, so a design
+   * that has been tuned to a particular face keeps its calibration and
+   * "Relaxed" means the same felt change in either one.
+   */
+  --leading-normal-default: 1.62;
+  --leading-scale: 1;
+  --leading-normal: calc(var(--leading-normal-default) * var(--leading-scale));
 
   --tracking-tight: -0.018em;
   --tracking-normal: 0;
@@ -83,28 +100,27 @@
 
 /* ----------------------------------------------------------- density */
 
+/*
+ * Density moves the type scale only. Leading is the reader's other control and
+ * belongs to it alone; when density moved both, the two fought over one
+ * variable and neither did what its label promised.
+ */
 :root[data-density="compact"] {
   --scale: 0.94;
-  --leading-normal: 1.5;
-  --leading-loose: 1.6;
 }
 
 :root[data-density="spacious"] {
   --scale: 1.09;
-  --leading-normal: 1.72;
-  --leading-loose: 1.85;
 }
 
-/* ----------------------------------------------------------- measure */
+/* ----------------------------------------------------------- line spacing */
 
-:root[data-measure="narrow"] {
-  --measure: 32rem;
-  --width-prose: 38rem;
+:root[data-spacing="tight"] {
+  --leading-scale: 0.88;
 }
 
-:root[data-measure="wide"] {
-  --measure: 46rem;
-  --width-prose: 54rem;
+:root[data-spacing="relaxed"] {
+  --leading-scale: 1.14;
 }
 
 /* ============================================================== colour */

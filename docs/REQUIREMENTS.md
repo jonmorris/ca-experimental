@@ -21,7 +21,7 @@ A static web platform for board game rules. Each game gets a set of authored con
 - Print as a first-class output for every content type
 - Static hosting on Cloudflare Pages
 
-- Dark mode, and a reading-preferences panel (theme, text size, body typeface, line width)
+- Dark mode, and a reading-preferences panel (theme, text size, body typeface, line spacing)
 
 **Deferred (documented, not built):**
 
@@ -315,9 +315,17 @@ product changed. Four departures from the original:
    was the wrong trade.
 2. **Dark mode was brought into scope.** A rules site is read in dim rooms.
 3. **Reading preferences were brought into scope** — theme, text size, body
-   typeface and line width — which lifts "per-user preferences beyond
+   typeface and line spacing — which lifts "per-user preferences beyond
    bookmarks" from the out-of-scope list. They reuse the bookmark store's
    versioned-storage pattern.
+
+   Line spacing replaced an earlier line-width control. Every reading app that
+   offers text settings has line spacing; line width is carried only by the
+   wide-screen ones and is dropped on phones, which is this site's primary
+   context. The measure is a design decision instead, held at ~66 characters.
+   Typeface lost its "Default" option, which named the same outcome as
+   "Serif". Stored preferences needed no migration: a value that is no longer
+   recognised already falls back to its default.
 4. **The not-found page was specified** (§4.2), and the URL contract now says
    explicitly what a path prefix does and does not rewrite (§4.1). Both came
    out of a real defect: every command-palette result on the deployed site led

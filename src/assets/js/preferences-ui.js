@@ -14,8 +14,8 @@ function optionLabel(key, value) {
   const labels = {
     theme: { system: "System", light: "Light", dark: "Dark" },
     density: { compact: "Compact", comfortable: "Comfortable", spacious: "Spacious" },
-    face: { default: "Default", serif: "Serif", sans: "Sans" },
-    measure: { narrow: "Narrow", default: "Default", wide: "Wide" },
+    face: { serif: "Serif", sans: "Sans" },
+    spacing: { tight: "Tight", normal: "Normal", relaxed: "Relaxed" },
   };
   return labels[key]?.[value] ?? value;
 }
