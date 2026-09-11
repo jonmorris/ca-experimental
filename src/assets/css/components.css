@@ -43,22 +43,32 @@
 
 /* ------------------------------------------------------- section lists */
 
+/*
+ * The section list marks a reading position, not a selection — the page nav
+ * above it already carries the filled "you chose this" treatment, and using
+ * the same weight for both makes the sidebar argue with itself.
+ *
+ * So position is drawn as a rail: a hairline down the whole list with the
+ * current section's segment picked out in the accent. No fill, so the marker
+ * reads as a place on a scale rather than a chosen item.
+ */
 .jump-list {
   display: grid;
   gap: 1px;
   margin: 0;
   padding: 0;
   list-style: none;
-  counter-reset: none;
+  border-left: 1px solid var(--line);
 }
 
 .jump-link {
+  position: relative;
   display: grid;
   grid-template-columns: 1.5rem 1fr;
   gap: var(--space-2);
   align-items: baseline;
   padding: var(--space-2) var(--space-2);
-  border-radius: var(--radius);
+  border-radius: 0 var(--radius) var(--radius) 0;
   color: var(--ink-muted);
   font-family: var(--font-ui);
   font-size: var(--text-sm);
@@ -66,16 +76,31 @@
   text-decoration: none;
 }
 
+/* The rail segment. Transparent until this is where the reader is. */
+.jump-link::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: -1px;
+  width: 2px;
+  background: transparent;
+}
+
 .jump-link:hover {
-  background: var(--surface-sunken);
   color: var(--ink);
 }
 
+.jump-link:hover::before {
+  background: var(--line-strong);
+}
+
 .jump-link.is-current {
-  background: var(--surface-sunken);
   color: var(--ink);
   font-weight: 650;
-  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.jump-link.is-current::before {
+  background: var(--accent);
 }
 
 .jump-link__index {
