@@ -173,6 +173,23 @@
   max-width: var(--width-page);
   margin-inline: auto;
   padding: var(--space-5) var(--space-4);
+  text-align: center;
+}
+
+/*
+ * The menu sets bigger than the sidebar it stands in for. The sidebar is a
+ * column the reader glances at beside the rules; this is the whole screen,
+ * reached by a thumb, and usually in the middle of a game. Scoped to the menu
+ * so the sidebar keeps its own scale.
+ */
+.site-menu .nav-link {
+  padding-block: var(--space-3);
+  font-size: var(--text-lg);
+}
+
+.site-menu .site-menu__heading,
+.site-menu .nav-subheading {
+  font-size: var(--text-sm);
 }
 
 /*
