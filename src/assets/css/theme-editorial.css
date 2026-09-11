@@ -1,10 +1,10 @@
 /*
  * Direction: Refined editorial.
  *
- * A rulebook that has been properly typeset. Warm paper and a text serif
- * built for screen reading, with headings set in the same face a size or two
- * up and a good deal heavier. Colour is rationed: it marks cross-references
- * and bookmarks and does nothing else.
+ * A rulebook that has been properly typeset. Warm paper and a text serif for
+ * the rules themselves, with everything that is not the rules — titles,
+ * headings, navigation, labels — in a plain gothic. Colour is rationed: it
+ * marks cross-references and bookmarks and does nothing else.
  *
  * Everything here is a token override — no component knows which direction is
  * running.
@@ -12,16 +12,20 @@
 
 :root[data-design="editorial"] {
   --font-serif: "Literata", var(--fallback-serif);
-  --font-sans: "Public Sans", var(--fallback-sans);
+  --font-sans: "Libre Franklin", var(--fallback-sans);
   --font-mono: var(--fallback-mono);
   /*
-   * Headings are Literata too, not a separate display face. This was Fraunces,
-   * whose sharp high-contrast serifs read as fancier than a rulebook wants —
-   * the letterforms were doing more talking than the words. One family at two
-   * weights keeps a page title clearly a title without changing voice, and
-   * drops a whole webfont from the download.
+   * Headings are the sans, not a display serif. Two serifs were tried above
+   * this line and neither held up: Fraunces was too mannered for a page of
+   * rules, and Literata — the body face heavier — left a title reading as a
+   * bold paragraph rather than a title.
+   *
+   * A serif for the rules and a gothic for everything around them is how a
+   * reference book has always been set. The change of species is what makes a
+   * heading legible as a heading at a glance, which is the whole job here: at
+   * a table nobody reads a title, they look for one.
    */
-  --font-display: var(--font-serif);
+  --font-display: var(--font-sans);
   --font-ui: var(--font-sans);
 
   /* The default body face; a reader preference overrides it. */

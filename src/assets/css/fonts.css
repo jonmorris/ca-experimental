@@ -3,9 +3,6 @@
  *
  * All families are licensed under the SIL Open Font License; each family's
  * directory carries its OFL.txt. Only the latin subset is shipped.
- *
- * Font URLs are relative to this file rather than root-absolute, so they
- * resolve under a deploy prefix as well as at a root domain.
  */
 /* Literata — Editorial body text — designed for long-form reading on screen. */
 
@@ -27,23 +24,23 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Public Sans — Editorial UI — navigation, labels, controls. */
+/* Libre Franklin — Editorial headings and UI — page titles, navigation, labels, controls. */
 
 @font-face {
-  font-family: "Public Sans";
+  font-family: "Libre Franklin";
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url("../fonts/public-sans/public-sans-italic-400-latin.woff2") format("woff2");
+  src: url("../fonts/libre-franklin/libre-franklin-italic-400-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: "Public Sans";
+  font-family: "Libre Franklin";
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url("../fonts/public-sans/public-sans-normal-400-700-latin.woff2") format("woff2");
+  src: url("../fonts/libre-franklin/libre-franklin-normal-400-700-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
