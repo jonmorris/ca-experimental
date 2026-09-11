@@ -1,13 +1,9 @@
 ---
-title: Rulebook
+title: 'Rulebook'
 subhead: 'The complete official rules for the game, exactly as published.'
 ---
 
-# Pax Pamir: Second Edition Rulebook
-
-### Pax Pamir: Second Edition
-
-Rules of Play
+## Rules of Play {: #rules-of-play}
 
 In Pax Pamir, each player assumes the role of a nineteenth-century Afghan leader attempting to forge a new state after the collapse of the Durrani Empire. Western histories often call this period “The Great Game” because of the role played by the Europeans who attempted to use Central Asia as a theater for their own rivalries. In this game, those empires are viewed strictly from the perspective of the Afghans who sought to manipulate the interloping*ferengi*(foreigners) for their own purposes.
 

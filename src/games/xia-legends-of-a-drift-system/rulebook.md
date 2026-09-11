@@ -1,6 +1,6 @@
 ---
-title: Rulebook
-subhead: The complete published rules for the base game.
+title: 'Rulebook'
+subhead: 'The complete published rules for the base game.'
 ---
 
 ## Setup {: #setup}
@@ -119,7 +119,7 @@ There are a variety of ways that players can gain Fame Points ( ):
 
 - **Luck:** Whenever* a player rolls a natural** 20, for any of their  [d20] rolls, they receive 1 .  *(Tales of extraordinary exploits will spread.)* ********Maximum once per turn.* ***The die shows a 20, before any modifiers are applied.*
 
-## Ships: She May Not Look Like Much... {: #ships}
+## Ships: She May Not Look Like Much... {: #ships-she-may-not-look-like-much}
 
 ### Ship Overview
 
@@ -299,7 +299,6 @@ Each Outfit contains:
 
 **Rearranging:** A player may rearrange his Outfits in the Hold during the Business Phase of his turn. Outfits with Damage Markers cannot be rearranged; they must first be repaired.
 
-<!-- FIDELITY-FLAG: source reads "Tier 1 Outfits sell for 1,000 ; Tier 2 Outfits for 1,000 ; Tier 3 Outfits for 2,000" — Tier 1 and Tier 2 sell prices are identical. Currency icon may have been stripped in conversion; verify sell prices against physical rulebook. -->
 **Selling:** Outfits can be sold during the Business Phase of a player's turn. Outfits are sold for half of their cost, rounded up *(Tier 1 Outfits sell for* *1,000 ; Tier 2 Outfits for 1,000 ; Tier 3 Outfits for 2,000 )*. Damaged Outfits cannot be sold; they must first be repaired.
 
 **Damage:** Damage Markers can be placed on any Section of an Outfit. Damage Markers placed on an Outfit cause that Outfit to become less effective. Use Spaces that have Damage cannot be used. In addition, each Damage Marker on an Outfit reduces its roll by 1. *(ex. A Player activates a tier 1 Engine with 1* *Damage Marker on it. He rolls a d6 and receives a 4. Because of the Damage* *Marker, this counts as rolling a 3.)*
@@ -579,8 +578,7 @@ Players may do the following, in any order, during the Business Phase:
 
 - **Buy Outfits:** A player may purchase new Outfits, provided they fit in the Hold.
 
-<!-- FIDELITY-FLAG: source reads "Tier 1 Outfits sell for 1,000 , tier 2 for 1,000 , and tier 3 for 2,000" — Tier 1 and Tier 2 sell prices are identical. Same issue as in Outfits Detail section; verify against physical rulebook. -->
-- **Sell Outfits:** A player may sell any undamaged Outfit for half of its original cost, rounded up. Tier 1 Outfits sell for 1,000 , tier 2 for 1,000 , and tier 3 for 2,000
+- **Sell Outfits:** A player may sell any undamaged Outfit for half of its original cost, rounded up. Tier 1 Outfits sell for 1,000, tier 2 for 1,000, and tier 3 for 2,000
 
 - **Rearrange Hold:** A player may rearrange any item in their ship's Hold. Damage Markers and Outfits with Damage Markers cannot be rearranged in this manner.
 
@@ -1033,7 +1031,7 @@ Divide 20 by the number of ties / disputes *(ex. for a tie between two ships/pla
 
 The number rolled determines the winner. In the case of a rule dispute, this result lasts for the rest of the game.
 
-## Quick Reference {: #quick-reference}
+<!-- ## Quick Reference
 
 ### Engines
 
@@ -1057,8 +1055,6 @@ The number rolled determines the winner. In the case of a rule dispute, this res
 
 ## Icon Key {: #icon-key}
 
-<!-- FIDELITY-FLAG: source has the terrain type entries below as H2 headings (## Normal Space, ## Asteroid, etc.), suggesting they are separate top-level sections equal to "Icon Key." This appears to be a PDF heading-level artifact — in the physical rulebook these are clearly sub-entries of the Icon Key. Demoted to H3 per structural interpretation rules. Verify against physical rulebook. -->
-
 ### Normal Space
 
 ### Asteroid
@@ -1077,4 +1073,4 @@ The number rolled determines the winner. In the case of a rule dispute, this res
 
 ### Gate
 
-#### Special Movement
+#### Special Movement -->

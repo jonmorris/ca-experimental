@@ -1,5 +1,5 @@
 ---
-title: Aid Booklet
+title: 'Aid Booklet'
 subhead: 'The complete official rules for the game, exactly as published.'
 ---
 
@@ -7,7 +7,9 @@ subhead: 'The complete official rules for the game, exactly as published.'
 
 **In a chapter**, players will play through many rounds until they run out of cards. When a chapter ends, players gain Power from declared ambitions. *(See the* ***last page****.)* **In a round**, each player takes one turn, starting with the player who has initiative. When the round ends, discard all played cards and see whether initiative changes players.
 
-### First, the Player with the Initiative Marker Takes a Turn.
+### First
+
+#### The Player with the Initiative Marker Takes a Turn.
 
 If your hand is empty or you choose not to play a card, **pass the initiative** clockwise to the next player with cards in their hand. They take the first turn of the round instead of you.
 
@@ -17,7 +19,9 @@ You must play an action card as the lead card. You may take one action ***per pi
 
 *If you have the initiative, you may* **declare the ambition** *shown in the bottom-left* *corner of your card: Place the zero marker over your card’s number but not its pips,* *and put the highest available ambition marker in the matching ambition box on the* *map. (Ambitions are listed on the* ***last page****.)*
 
-### Second, Each Other Player in Clockwise Order Takes a Turn.
+### Second
+
+#### Each Other Player in Clockwise Order Takes a Turn.
 
 #### Surpass
 
@@ -33,59 +37,80 @@ Play any action card face down. You may take ***one*** ***action*** of the lead 
 
 *You can* **seize the initiative** *marker if you don’t have it and no one has seized it yet* *this round: Play an extra action card face down along with your first and ignore its* *actions, or Surpass with a “7” card (4 players only).*
 
-### Third, See if Initiative Changes Players, Then Discard All Played Cards.
+### Third
+
+#### See if Initiative Changes Players, Then Discard All Played Cards.
 
 **If someone seized the initiative**, they keep it. **If nobody seized the initiative**, give the initiative marker to the player who played a card to Surpass with the highest number. If no one Surpassed the lead card, the initiative marker does not change players. Finally, discard all played cards and start the next round. If no one has cards left in their hand, end the chapter.
 
 ## Action Summaries {: #action-summaries}
 
-**Administration****→****tax**, **repair**, or **influence Aggression****→****move**, **battle**, or **secure** **Construction****→****build** or **repair Mobilization****→****move** or **influence**
+**Administration** **→** **tax**, **repair**, or **influence**
 
-#### Build
+**Aggression** **→** **move**, **battle**, or **secure**
 
-a ship or building on the map. *Place a* ***ship*** *at a Loyal* *starport. A starport can* *only build* ***once per turn.*** *OR* *Place a* ***city or starport*** *in* *an empty slot on a planet* *with Loyal pieces.*
+**Construction** **→** **build** or **repair**
+
+**Mobilization** **→** **move** or **influence**
+
+**Build** a ship or building on the map. *Place a* ***ship*** *at a Loyal* *starport. A starport can* *only build* ***once per turn.*** *OR* *Place a* ***city or starport*** *in* *an empty slot on a planet* *with Loyal pieces.*
 
 *Place the piece* ***damaged*** *if anyone else controls the* *system.*
 
-#### Repair
+**Repair** a damaged ship or building. *Flip up a damaged Loyal* *ship or building in* ***any*** ***system*** *on the map,* *making it* ***fresh****.*
 
-a damaged ship or building. *Flip up a damaged Loyal* *ship or building in* ***any*** ***system*** *on the map,* *making it* ***fresh****.*
-
-#### Tax
-
-a resource from a city. *Choose a Loyal city, or* *choose a Rival city that* *you control.* *A city can only be taxed* ***once per turn.***
+**Tax** a resource from a city. *Choose a Loyal city, or* *choose a Rival city that* *you control.* *A city can only be taxed* ***once per turn.***
 
 *Gain 1 resource of the* *city’s planet type from the* *supply. Put it in a resource* *slot on your player board.*
 
 *If you tax a Rival city, also* *take 1 agent from their* *supply and place it in your* ***Captives*** *box on your* *player board.*
 
-#### Move
+**Move** ships to an adjacent system. *Move* ***any number*** *of Loyal* *ships from one system to* *one adjacent system.* *When you move ships* *from a* ***Loyal starport***, *you may take* ***Catapult*** ***moves****—keep moving* *the ships as much as you* *want, dropping them off* *as you want, until they* *move into* ***any******planet*** *or a* ***gate that is controlled by*** ***anyone else****.* *(In expansions, Blight also* *stops Catapult moves.)*
 
-ships to an adjacent system. *Move* ***any number*** *of Loyal* *ships from one system to* *one adjacent system.* *When you move ships* *from a* ***Loyal starport***, *you may take* ***Catapult*** ***moves****—keep moving* *the ships as much as you* *want, dropping them off* *as you want, until they* *move into* ***any******planet*** *or a* ***gate that is controlled by*** ***anyone else****.* *(In expansions, Blight also* *stops Catapult moves.)*
+**Influence** a card in the Court. *Place an agent on any* *card in the Court row.*
 
-#### Influence
+**Secure** a card from the Court. *Take a card where you* *have the* ***most agents*** *from* *the Court row.* *Return Loyal agents. Take* *Rival agents as* ***Captives****.* *Draw a card from the Court* *deck to* ***refill the Court****.*
 
-a card in the Court. *Place an agent on any* *card in the Court row.*
+**Loyal:** Of your player color.
 
-#### Secure
+**Rival:** Another player or of their color.
 
-a card from the Court. *Take a card where you* *have the* ***most agents*** *from* *the Court row.* *Return Loyal agents. Take* *Rival agents as* ***Captives****.* *Draw a card from the Court* *deck to* ***refill the Court****.*
+**Control:** Have more fresh ships in the system than each Rival.
 
-### Key Terms
+**Battle** to destroy pieces and steal cards and resources!
 
-**Loyal:** Of your player color. **Rival:** Another player or of their color. **Control:** Have more fresh ships in the system than each Rival.
+1. **Choose Battle System:** Choose 1 system that has any Loyal ships. This is the **battle system**. These are your **attacking ships**.
 
-#### Battle
+2. **Choose Defender:** Choose 1 Rival whose pieces are in the battle system. These are their **defending pieces**.
 
-to destroy pieces and steal cards and resources! 1. **Choose Battle System:** Choose 1 system that has any Loyal ships. This is the **battle system**. These are your **attacking ships**. 2. **Choose Defender:** Choose 1 Rival whose pieces are in the battle system. These are their **defending pieces**. 3. **Collect Dice:** For each attacking ship, you may collect 1 assault, skirmish, or raid die. **Assault dice** damage the defender quickly at some cost to you. **Skirmish dice** damage them slowly but keep you safe. **Raid dice** steal stuff from them and damage their buildings, but they are the most risky. **Raid Dice Limit:** You can only collect raid dice if there are ***defending buildings*** or if the defender has no Loyal buildings in any systems on the map. 4. **Roll and Resolve Dice:** Roll the collected dice. You must resolve all rolled faces in this order: 1. Hit any of your ***attacking ships*** once per . 2. If you rolled any number of , the defender **intercepts** you—hit any of your ***attacking ships*** once per fresh defending ship. *(This can only happen once* *per battle!)* 3. Hit any of their ***defending ships*** once per . Once no defending ships remain, hit any of their defending buildings instead. 4. Hit any of their ***defending buildings*** once per . 5. Raid their ***resources and cards*** if you have any attacking ships left. You may steal cards and resources by spending the number of shown.
+3. **Collect Dice:** For each attacking ship, you may collect 1 assault, skirmish, or raid die.
+   - **Assault dice** damage the defender quickly at some cost to you.
+   - **Skirmish dice** damage them slowly but keep you safe.
+   - **Raid dice** steal stuff from them and damage their buildings, but they are the most risky.
+
+**Raid Dice Limit:** You can only collect raid dice if there are ***defending buildings*** or if the defender has no Loyal buildings in any systems on the map.
+
+4. **Roll and Resolve Dice:** Roll the collected dice. You must resolve all rolled faces in this order:
+
+   1. Hit any of your ***attacking ships*** once per .
+
+   2. If you rolled any number of , the defender **intercepts** you—hit any of your ***attacking ships*** once per fresh defending ship. *(This can only happen once* *per battle!)*
+
+   3. Hit any of their ***defending ships*** once per . Once no defending ships remain, hit any of their defending buildings instead.
+
+   4. Hit any of their ***defending buildings*** once per . 5. Raid their ***resources and cards*** if you have any attacking ships left. You may steal cards and resources by spending the number of shown.
 
 #### Hitting Pieces & Gaining Trophies
 
 If you hit a fresh piece, it becomes **damaged**—tip it or flip it. If you hit a damaged piece, it is **destroyed**—remove it. The attacker takes destroyed defending pieces as **Trophies**. The defender takes destroyed attacking pieces as Trophies. Trophies add to the **Warlord ambition**.
 
-#### Destroying Cities
+### Destroying Cities
 
-**When you destroy a city, do the following...** 1. **Provoke Outrage.** Discard all resources and Guild cards you have of that city’s planet type. Place an agent to cover the Outrage icon of that city’s planet type on your player board—that resource is now **Outraged** . You cannot spend Outraged resources for their normal Prelude action. 2. **Ransack the Court.** Secure a card with ***any number*** of the defender’s agents. Take all Rival agents on the card as ***Trophies***, not Captives.
+**When you destroy a city, do the following...**
+
+1. **Provoke Outrage.** Discard all resources and Guild cards you have of that city’s planet type. Place an agent to cover the Outrage icon of that city’s planet type on your player board—that resource is now **Outraged** . You cannot spend Outraged resources for their normal Prelude action.
+
+2. **Ransack the Court.** Secure a card with ***any number*** of the defender’s agents. Take all Rival agents on the card as ***Trophies***, not Captives.
 
 ### Sidebar: Dice & Combat Notes
 
@@ -127,7 +152,13 @@ Score each ambition on the map that has any ambition markers:
 
 **Empath.** Have the most Psionic icons from resources and Guild cards.
 
-The player in ***first place*** for the ambition gains the higher Power shown on all its ambition markers. The player in ***second place*** gains the lower Power shown on them. **Ties:** On a tie for first place, all tied players get second place. On a tie for second place, the tied players do not place and gain no Power. **Qualifying:** You cannot gain Power from an ambition if you have none of what it counts. **Bonus City Power:** Each time you get first place in an ambition *(not tied)*, gain 2 extra Power if the “+2 to won ambitions” space on your player board is uncovered, or gain 5 extra if both “+2 to won ambitions” and “+3 to won ambitions” are uncovered.
+The player in ***first place*** for the ambition gains the higher Power shown on all its ambition markers. The player in ***second place*** gains the lower Power shown on them.
+
+**Ties:** On a tie for first place, all tied players get second place. On a tie for second place, the tied players do not place and gain no Power.
+
+**Qualifying:** You cannot gain Power from an ambition if you have none of what it counts.
+
+**Bonus City Power:** Each time you get first place in an ambition *(not tied)*, gain 2 extra Power if the “+2 to won ambitions” space on your player board is uncovered, or gain 5 extra if both “+2 to won ambitions” and “+3 to won ambitions” are uncovered.
 
 ### Step 2: Clean Up & Flip Ambition
 

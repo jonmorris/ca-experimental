@@ -1,5 +1,5 @@
 ---
-title: Rulebook
+title: 'Rulebook'
 subhead: 'The complete official rules for the game, exactly as published.'
 ---
 
@@ -71,7 +71,7 @@ The Mutapa king struts into the village, followed by a bunch of young warriors h
 
 The game is played in four phases. In Phase I and II players take turns. Phase III and IV are played very quickly. The phases are repeated until someone has won (see phase IV).
 
-## Phase I: The Generosity Of Kings {: #phase-i-the-generosity-of-kings}
+### Phase I: The Generosity Of Kings {toc}
 
 In this phase, the order of play is determined. Each player gives away as much of their cattle as they can. The player who keeps giving the longest will have the highest status and move first in the next phase.
 
@@ -97,7 +97,7 @@ In this phase, the order of play is determined. Each player gives away as much o
 
 *Now the cattle on the plaques are taken by each empire: the Kilwa* *get the 4 cattle on their plaque, and the Zulu and Mutapa each get 3* *cattle from their plaques.*
 
-## Phase II: Religion And Culture {: #phase-ii-religion-and-culture}
+### Phase II: Religion And Culture {toc}
 
 In this phase, each player takes a turn following the order of play determined in phase I. During their turn, the player may do the following, in no particular order:
 
@@ -173,7 +173,7 @@ It is allowed to build a secondary craftsman such that he uses the same resource
 
 *To raise the level 1 monument, only one ritual goods are required. Using* *the water, the ivory carver is again in range, so the Zulu only have to pay* *1 cattle to the Kilwa technology card and mark one of the ivory resources* *with a used marker on the map.* *Finally, the Zulu add the 6 gained victory points to their VP total: 2 VP* *are gained for raising the level 1 monument a step, and 4 VP for raising* *the level 2 monument.*
 
-## Phase III: Revenues {: #phase-iii-revenues}
+### Phase III: Revenues {toc}
 
 In this phase, all players play simultaneously.
 
@@ -181,7 +181,7 @@ In this phase, all players play simultaneously.
 
 **Collect income.** Each player collects 1 to 5 cattle as income. The amount is determined by the highest monument they have on the board. For each level in this monument, the player gains 1 cattle. The number of monuments a player has built is irrelevant for income determination.
 
-## Phase IV: Let Us Compare Mythologies {: #phase-iv-let-us-compare-mythologies}
+### Phase IV: Let Us Compare Mythologies {toc}
 
 This phase is used to determine if someone has won the game.
 

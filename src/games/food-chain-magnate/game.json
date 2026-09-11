@@ -3,8 +3,8 @@
   "year_published": 2015,
   "designer": "Jeroen Doumen and Joris Wiersinga",
   "publisher": "Splotter Spellen",
-  "players": "2\u20135",
-  "time": "120\u2013240 minutes",
+  "players": "2–5",
+  "time": "120–240 minutes",
   "box_art": "/games/food-chain-magnate/images/food-chain-magnate.png",
   "bgg_id": 175914,
   "description": "A cutthroat economic game about building a fast food empire, hiring and training staff, and competing fiercely for customers in a suburban neighborhood.",
@@ -26,6 +26,8 @@
       "label": "High Interaction"
     }
   ],
+  "best_at": "3–4",
+  "weight": "4.19 / 5",
   "expansions": {
     "the-ketchup-mechanism-and-other-ideas": {
       "title": "The Ketchup Mechanism & Other Ideas"

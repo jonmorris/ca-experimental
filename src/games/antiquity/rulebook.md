@@ -1,5 +1,5 @@
 ---
-title: Rulebook
+title: 'Rulebook'
 subhead: 'The complete official rules for the game, exactly as published.'
 ---
 
@@ -60,7 +60,7 @@ By building countryside and city buildings, and manning them, players can produc
 
 ### Fig. 1
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -69,7 +69,7 @@ Example city. The player has built two cart shops and manned them. He has also b
 
 ### Fig. 2
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -78,7 +78,7 @@ Example zone of control. All of the areas marked "A" are within the city's zone 
 
 ### Fig. 3
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -87,7 +87,7 @@ Example countryside building. The player wants to build a woodcutter using a man
 
 ### Fig. 4
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -96,7 +96,7 @@ The highlighted area constitutes one mountain range - it will produce either sto
 
 ### Fig. 5
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -105,7 +105,7 @@ Fisheries must be built on at least 1 hex within the zone of control (the second
 
 ### Fig. 6
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -114,7 +114,7 @@ Cities must be built within a player's zone of control, but may not be adjacent 
 
 ### Fig. 7
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -123,7 +123,7 @@ Player A already built a woodcutter on the left. This uses the areas marked "A".
 
 ### Fig. 8
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -144,21 +144,21 @@ The starting city (and only the starting city) may be built over any type of are
 
 When all players have chosen their starting position and placed their cities, the game starts.
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
 
 2 Players
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
 
 3 Players
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -167,7 +167,7 @@ When all players have chosen their starting position and placed their cities, th
 
 ### Fig. 9
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>

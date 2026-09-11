@@ -1,0 +1,18 @@
+{
+  "title": "Pax Renaissance: 2nd Edition",
+  "year_published": 2021,
+  "designer": "Phil Eklund, Matt Eklund",
+  "publisher": "Ion Game Design, Sierra Madre Games",
+  "players": "1–4",
+  "playtime_range": "60–120 minutes",
+  "time": "60–120 minutes",
+  "box_art": "/games/pax-renaissance-second-edition/images/paxrenaissance2ndeditioncover.webp",
+  "bgg_id": 308119,
+  "description": "Become the most influential banker and pull the strings that decide Europe's future.",
+  "editions": [
+    {
+      "label": "Pax Renaissance (First Edition)",
+      "path": "/games/pax-renaissance/"
+    }
+  ]
+}

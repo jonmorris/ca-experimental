@@ -1,16 +1,10 @@
 ---
-title: Rulebook
-subhead: The complete published rules, section by section.
-# Section anchors are permanent. When a heading is renamed the anchor it used
-# to carry is listed here, so saved bookmarks and inbound links still land.
+title: 'Rulebook'
+subhead: 'The complete published rules, section by section.'
 anchorAliases:
-  - from: contents
-    to: components
-  - from: research-development
-    to: research-and-development
 ---
 
-## Components {: #components}
+## Contents {: #contents}
 
 - Game board
 - 24 Company deeds
@@ -43,7 +37,7 @@ Successful companies grow, as do cities that are supplied by enough materials. I
 
 - Give each player a player aid and 100 {% term "rupiah" %}.
 - Sort the city building cards into three piles (a, b and c). Deal each player one card of each pile.
-- Hand each player a set of wooden player markers of one color. Each player places a marker on the first slot of each of the {% rule "R&D tracks", "research-and-development" %}.
+- Hand each player a set of wooden player markers of one color. Each player places a marker on the first slot of each of the [R&D tracks](#research-and-development).
 - Randomly select the player order and indicate this on the order of play track.
 - Sort the company deeds into three sets (a, b and c) and place the first set (the a's) on their respective provinces (you can use the coordinate system to find locations easily).
 - Agree if money will be open or closed. We prefer to play with players not revealing the amount of money they have but tastes differ. If you forget to agree, the amount of money players have will be secret.
@@ -63,7 +57,10 @@ Players place cities in order of play, using the city building card for that era
 
 A city may be built in any empty land area that borders on the coast. Areas under cultivation (that is, containing goods) may not be used. In addition, each province may only contain one city. If this means a player cannot build a city on one of the three indicated provinces, he must discard his city card and pass.
 
-{% figure "/games/indonesia/images/new-era.jpg", "Kalimantan Selatan example", "The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead." %}
+<figure class="rulebook-image" hidden>
+  <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
+  <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
+</figure>
 
 He also has to pass if there are no more size 1 city stones. After each player has built cities, discard all remaining unacquired companies from the previous era and place the next set of company deeds on the map.
 
@@ -73,13 +70,13 @@ This phase determines the order of play for the following phases. During this ph
 
 Whoever has the highest bid gets to be first in the order of play, whoever has the second highest result plays second, etcetera. In case of a tie between two players, their order with respect to each other remains unchanged.
 
-If players have invested in the {% rule "Turn Order Bid" %} on the R&D track, their bid is multiplied by the corresponding amount—so a bid of 5 would be worth 25 for a player who has invested once in this ability. Players MUST use this ability if they have it.
+If players have invested in the ["Turn Order Bid"](#turn-order-bid) on the R&D track, their bid is multiplied by the corresponding amount—so a bid of 5 would be worth 25 for a player who has invested once in this ability. Players MUST use this ability if they have it.
 
 The money transferred to the "Bank" box cannot be used for any reason for the remainder of the game, but does count for victory.
 
 ## Mergers {: #mergers}
 
-In this phase, players may announce {% term "merger" %}s, and then bid for control of the new companies. Only players who have researched at least one step on the {% rule "Mergers R&D track", "research-and-development" %} may announce mergers—skip this phase in the beginning of the game, when no player has conducted this research yet. However, every player with a free slot and both of the owners of the companies that are being merged may always join in the bidding, even if they have performed no Mergers R&D.
+In this phase, players may announce {% term "merger" %}s, and then bid for control of the new companies. Only players who have researched at least one step on the [Mergers R&D track](#research-and-development) may announce mergers—skip this phase in the beginning of the game, when no player has conducted this research yet. However, every player with a free slot and both of the owners of the companies that are being merged may always join in the bidding, even if they have performed no Mergers R&D.
 
 Players may announce only one merger per round. The Mergers phase continues until no player wants to announce more mergers, so players can announce as many mergers as they want.
 
@@ -87,7 +84,7 @@ Players may announce only one merger per round. The Mergers phase continues unti
 
 In turn order, each player who has researched at least one "Merger" step may announce a merger. Each merger is resolved before the next is announced.
 
-A merger always involves two companies—it is not possible to merge 3 or more companies in one step. However, a merger may involve up to five company deeds (this will happen if the merging companies are themselves the result of earlier mergers). The number of company deeds that may be involved in the merger is limited by the position on the {% rule "Merger R&D track", "research-and-development" %} of the announcing player: merger 2 allows mergers resulting in companies of at most 2 company deeds, merger 3 allows mergers resulting in companies of 3 deeds, etc.
+A merger always involves two companies—it is not possible to merge 3 or more companies in one step. However, a merger may involve up to five company deeds (this will happen if the merging companies are themselves the result of earlier mergers). The number of company deeds that may be involved in the merger is limited by the position on the [Merger R&D track](#research-and-development) of the announcing player: merger 2 allows mergers resulting in companies of at most 2 company deeds, merger 3 allows mergers resulting in companies of 3 deeds, etc.
 
 Each company deed can only be involved in a merger once per year—once it is merged, the resulting company cannot be merged again until the next Merger phase.
 
@@ -99,9 +96,12 @@ A player may announce a merger of two companies regardless of who owns these com
 
 The announcing player must place the first bid. This bid must either be equal to the nominal value of the merged companies, or be a valid raised bid. The nominal value is calculated by counting the number of goods each company has on the board and multiplying this by the value of each good (10 for ships, 20 for rice, 25 for spices, 30 for rubber, 35 for siap faji, 40 for oil). The minimum bid is equal to the nominal value, even if the announcing player owns one or both companies himself. A player may not bid more than he has on hand. Bidding then proceeds in order of play. Every player who can own the resulting company may bid (i.e. the players with a free slot, and the owners of the merging companies).
 
-{% figure "/games/indonesia/images/mergers.jpg", "Merger example", "Merging the two rice companies would require a bid of at least 5 rice × 20 rupiah = 100 rupiah. Bidding would go up in multiples of 5. Merging the shipping companies requires 6 × 10 = 60 rupiah. Bidding goes up in multiples of 6." %}
+<figure class="rulebook-image" hidden>
+  <img src="/games/indonesia/images/mergers.jpg" alt="Merger example" loading="lazy">
+  <figcaption>Merging the two rice companies would require a bid of at least 5 rice × 20 rupiah = 100 rupiah. Bidding would go up in multiples of 5. Merging the shipping companies requires 6 × 10 = 60 rupiah. Bidding goes up in multiples of 6.</figcaption>
+</figure>
 
-{% rule "Merger R&D", "research-and-development" %} does NOT influence who may bid. Players may either pass or bid. Once they pass, they cannot rejoin bidding for this merger. Bids must be raised in increments equal to multiples of the number of goods the companies have on the board—e.g., when merging rice companies with 3 and 5 goods on the board, the minimum bid of 8 × 20 = 160 can be raised in multiples of 8 to 168, 176, 184, etc.
+[Merger R&D](#research-and-development) does NOT influence who may bid. Players may either pass or bid. Once they pass, they cannot rejoin bidding for this merger. Bids must be raised in increments equal to multiples of the number of goods the companies have on the board—e.g., when merging rice companies with 3 and 5 goods on the board, the minimum bid of 8 × 20 = 160 can be raised in multiples of 8 to 168, 176, 184, etc.
 
 ### Resolving the Merger
 
@@ -117,7 +117,7 @@ As shipping companies grow large, it is often best to use both types of ships fr
 
 Note that no ships are ever taken off the board—even if the resulting company has multiple ships in the same area, these just remain.
 
-One ship of each company should be positioned on the {% rule "Company hull track", "hull-player" %} (below the R&D track), so everyone can see at a glance what the hull capacity of that particular company is.
+One ship of each company should be positioned on the [Company hull track](#hull-player) (below the R&D track), so everyone can see at a glance what the hull capacity of that particular company is.
 
 ### Siap Faji Mergers
 
@@ -134,9 +134,9 @@ Siap faji mergers are resolved in the same way as normal mergers, with the follo
 
 ## Acquisitions {: #acquisitions}
 
-In this phase, players may start new companies, provided they have free {% rule "slots", "slots" %} for these companies. Players get multiple chances but may acquire only one company per round.
+In this phase, players may start new companies, provided they have free [slots](#slots) for these companies. Players get multiple chances but may acquire only one company per round.
 
-Following the order of play, each player may start one available company of the current era. He takes the corresponding company deed and places it in front of him. Starting a company costs no money. Note that a player may never have more companies than he has {% rule "slots, as indicated on the R&D track", "slots" %}. A merged company that consists of multiple company deeds takes up only one slot.
+Following the order of play, each player may start one available company of the current era. He takes the corresponding company deed and places it in front of him. Starting a company costs no money. Note that a player may never have more companies than he has [slots, as indicated on the R&D track](#slots). A merged company that consists of multiple company deeds takes up only one slot.
 
 If the acquired company is a production company, the player must place one goods counter in the appropriate province. He may place this counter on any empty land area. However, a goods counter cannot be placed immediately next to a goods counter of the same type. If no such area is available, the company cannot be started and is taken out of the game.
 
@@ -152,23 +152,23 @@ In this phase, players may each research one out of 6 available upgrade types. T
 
 ### Turn Order Bid
 
-Turn Order Bid indicates the amount by which the player's order of play bid should be multiplied in order to determine the sequence of play during the {% rule "Bid for Turn Order", "bid-for-turn-order" %} phase.
+Turn Order Bid indicates the amount by which the player's order of play bid should be multiplied in order to determine the sequence of play during the [Bid for Turn Order](#bid-for-turn-order) phase.
 
 ### Slots
 
 Slots indicates the number of companies a player may own at any one time. Merged companies consisting of multiple company deeds take up only one slot.
 
-### Mergers {: #mergers-rd}
+### Mergers
 
 Mergers indicates the maximum number of company deeds that may be involved in a merger announced by a player. With mergers 1, a player cannot announce any mergers. With mergers 2 researched, a player may announce mergers of 2 single companies. With mergers 3, a player may announce a merger of a previously merged company (consisting of 2 company deeds) and a third, unmerged one, resulting in a company consisting of 3 company deeds. Note that the merger R&D determines only which mergers a player may announce. Players may bid for and own large, merged companies regardless of their R&D position on this track.
 
 ### Expansion
 
-Expansion indicates the maximum amount of expansion a production or shipping company may have during the {% rule "operations phase", "operations" %}.
+Expansion indicates the maximum amount of expansion a production or shipping company may have during the [operations phase](#operations).
 
 ### Hull Player
 
-Hull Player indicates the number of goods each ship belonging to a company of that player may transport for each production company during the {% rule "operations phase", "operations" %}. Each player should place one ship of each of his shipping companies directly beneath his own marker on the Hull Company track, so that everyone can see at a glance what the capacity of each shipping company is.
+Hull Player indicates the number of goods each ship belonging to a company of that player may transport for each production company during the [operations phase](#operations). Each player should place one ship of each of his shipping companies directly beneath his own marker on the Hull Company track, so that everyone can see at a glance what the capacity of each shipping company is.
 
 A player may advance the hull size on another player's R&D track instead of advancing his own capabilities. It may sometimes be useful to do this if the other player owns a strategic shipping line in order to transport and sell more of your own goods. It is not allowed to increase any other upgrade types from another player.
 
@@ -182,9 +182,9 @@ A player may freely choose which company to operate. He must however operate one
 
 For shipping companies, the operations phase consists of one choice: it may choose to expand.
 
-A shipping company may expand until it has a number of ships equal to the number listed on the deed for the appropriate {% term "era" %} (a/b/c). Remember that a {% rule "new era", "new-era" %} can only start in phase 1 at the beginning of a year.
+A shipping company may expand until it has a number of ships equal to the number listed on the deed for the appropriate {% term "era" %} (a/b/c). Remember that a [new era](#new-era) can only start in phase 1 at the beginning of a year.
 
-New ships may only be placed in any sea area where the company already has a ship, or adjacent to any such area. If a player has expansion "2", it is allowed to place the second ship in an area that has just been "opened up" by the first ship. The number of ships a player may add in a round is indicated by the position he has on the {% rule "Expansion track", "expansion" %} in the R&D table. So if the owner has expansion 2, he may add at most 2 ships per company, provided this does not bring the company over its limit.
+New ships may only be placed in any sea area where the company already has a ship, or adjacent to any such area. If a player has expansion "2", it is allowed to place the second ship in an area that has just been "opened up" by the first ship. The number of ships a player may add in a round is indicated by the position he has on the [Expansion track](#expansion) in the R&D table. So if the owner has expansion 2, he may add at most 2 ships per company, provided this does not bring the company over its limit.
 
 Merged shipping lines add the numbers on their respective deeds. So if Lampung (2/3/4) merged with Halmahera (3/4/5), the resulting company would be able to float (5/7/9) ships. These ships can be placed adjacent to any of the companies' existing ships—the location of the original deeds does no longer matter.
 
@@ -200,13 +200,13 @@ If a company has multiple production zones (this can only happen as the result o
 
 He may use chains of different companies for different goods, but he cannot let goods "switch company" in the middle of a chain.
 
-Each ship can transport only one good for each production company, unless the owner of the ships has developed a larger hull size—for each additional step on the {% rule "hull R&D track", "hull-player" %}, the ship can be used once more by each production company. Whereas the demand of each city is limited during the entire phase, all ships can be used anew by the next production company.
+Each ship can transport only one good for each production company, unless the owner of the ships has developed a larger hull size—for each additional step on the [hull R&D track](#hull-player), the ship can be used once more by each production company. Whereas the demand of each city is limited during the entire phase, all ships can be used anew by the next production company.
 
 The owner of the production company gets a fixed fee depending on the type of goods sold: 20 for rice, 25 for spice, and so on (see the table on the player aid). Out of this money, he has to pay 5 for each ship he uses to the owner of the respective shipping companies. If he uses a ship of hull 2 twice, he has to pay twice as well. The easiest way to keep track of this is to place 5 rupiah coins from the game on the different ships used and to give these coins to the owners afterwards, subtracting the sum from the amount earned by the production company.
 
 Production companies have to sell as many of their goods as they can, even if this means they have a negative income due to transport costs on one or more of their goods.
 
-If a company has sold all its goods, that is, as many goods as it currently has on the board, it must expand for free. The player expands 1 or more areas, depending on his R&D {% rule "expansion track", "expansion" %} status. These areas must be adjacent to one of the production zones of the company. A company can only expand into empty territory: a city or another company blocks the way. It is also not allowed to expand over sea areas, unless the two land areas are connected by an arrow.
+If a company has sold all its goods, that is, as many goods as it currently has on the board, it must expand for free. The player expands 1 or more areas, depending on his R&D [expansion track](#expansion) status. These areas must be adjacent to one of the production zones of the company. A company can only expand into empty territory: a city or another company blocks the way. It is also not allowed to expand over sea areas, unless the two land areas are connected by an arrow.
 
 Finally, it is not allowed to expand in such a way that production zones of two companies producing the same product would merge (so you can always distinguish companies). If there is no room to expand, a company cannot do so.
 
@@ -238,9 +238,9 @@ If the game is played by two players, give each player two city building cards o
 
 ## Victory Conditions {: #victory-conditions}
 
-The game ends in the {% rule "New Era" %} phase if the "c" era ends: that is, if there is only one type of c era company left to acquire, or if all c era companies have been acquired in the last year.
+The game ends in the ["New Era"](#new-era) phase if the "c" era ends: that is, if there is only one type of c era company left to acquire, or if all c era companies have been acquired in the last year.
 
-Any cash earned in the last {% rule "operations phase", "operations" %} is doubled, the player with the most money (including money in the bank) wins. In case of a tie, the player who is first on the order of play wins.
+Any cash earned in the last [operations phase](#operations) is doubled, the player with the most money (including money in the bank) wins. In case of a tie, the player who is first on the order of play wins.
 
 ## Rules Clarifications {: #rules-clarifications}
 
@@ -268,13 +268,13 @@ The marks help one realize where developments (cities or companies) will be avai
 
 ## Strategic Hints {: #strategic-hints}
 
-In the first year, make sure you get a nice company, and try to find some friends in order to have a good first year. Plan your {% rule "R&D", "research-and-development" %} carefully. Starting with increasing {% rule "slots", "slots" %} is often a good strategy, or at least a safe one.
+In the first year, make sure you get a nice company, and try to find some friends in order to have a good first year. Plan your [R&D](#research-and-development) carefully. Starting with increasing [slots](#slots) is often a good strategy, or at least a safe one.
 
 As the game progresses, make sure to have open slots for the more lucrative types of companies when they come up: rubber in the b era, and oil in the c era. It is often the case that only one or two rubber (and oil) companies can start really well—and it is often the owner of the shipping lines who decides which one!
 
 Shipping companies are a good stealthy way to make money. They do not seem to earn much but can be very lucrative towards the end of the game—especially if you count the fact that you do not have to pay your own shipping fees. Even more importantly, owning the right shipping company often gives you the option to determine which areas are going to develop, and which aren't. However, to make your company really useful you will have to merge it into a shipping emporium of 3 or more companies...
 
-The game revolves around mergers. Although it is of course important to own the right companies and operate them well, Indonesia fortunes are made or broken during the {% rule "merger phase", "mergers" %}. Make sure you always have enough cash to defend your own crown jewels, and to prevent "raids" on poor players.
+The game revolves around mergers. Although it is of course important to own the right companies and operate them well, Indonesia fortunes are made or broken during the [merger phase](#mergers). Make sure you always have enough cash to defend your own crown jewels, and to prevent "raids" on poor players.
 
 Mergers can be done for many reasons: to get someone else's company, to sell your own company and raise cash, to get a free slot, to take advantage of an order of play position, to speed up the game, to influence the direction of shipping lines, to increase or decrease the hull size of a particular shipping route, etc... as you gain experience you may discover even more different reasons to initiate mergers...
 

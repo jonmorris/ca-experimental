@@ -4,21 +4,39 @@
   "designer": "Cole Wehrle",
   "publisher": "Leder Games",
   "players": "2–4",
+  "best_at": "3–4",
+  "playtime_range": "60–120 minutes",
   "time": "60–120 minutes",
-  "bgg_id": 359871,
+  "weight": "3.44 / 5",
   "box_art": "/games/arcs/images/arcs.png",
-  "description": "A card-driven space empire game of conflict, ambition and political intrigue set in a dying galactic civilisation.",
+  "bgg_id": 359871,
+  "description": "A card-driven space empire game of conflict, ambition, and political intrigue set in a dying galactic civilization.",
   "tags": [
-    { "slug": "asymmetric-factions", "label": "Asymmetric Factions" },
-    { "slug": "trick-taking", "label": "Trick Taking" },
-    { "slug": "area-control", "label": "Area Control" },
-    { "slug": "space-theme", "label": "Space Theme" },
-    { "slug": "campaign", "label": "Campaign" }
-  ],
-  "expansions": {
-    "the-blighted-reach": {
-      "title": "The Blighted Reach",
-      "released": "2024-10-01"
+    {
+      "slug": "asymmetric-factions",
+      "label": "Asymmetric Factions"
+    },
+    {
+      "slug": "trick-taking",
+      "label": "Trick Taking"
+    },
+    {
+      "slug": "area-control",
+      "label": "Area Control"
+    },
+    {
+      "slug": "space-theme",
+      "label": "Space Theme"
+    },
+    {
+      "slug": "campaign",
+      "label": "Campaign"
     }
-  }
+  ],
+  "external_links": [
+    {
+      "label": "BGS Card LIbrary",
+      "url": "https://cards.buriedgiant.com/"
+    }
+  ]
 }

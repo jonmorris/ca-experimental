@@ -1,22 +1,7 @@
 ---
-title: Rulebook
+title: 'Rulebook'
 subhead: 'The complete official rules for the game, exactly as published.'
 ---
-
-## Table of Contents {: #table-of-contents}
-
-Introduction
-Summary of Play
-Setting Up
-Order of Play
-(Re-)production Phase
-Movement Phase
-Building Phase
-Wonder Phase
-Research
-Conflict
-End of the Game
-Tables
 
 ## Introduction {: #introduction}
 

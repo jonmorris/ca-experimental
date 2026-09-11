@@ -3,11 +3,13 @@
   "year_published": 1999,
   "designer": "Jeroen Doumen and Joris Wiersinga",
   "publisher": "Splotter Spellen",
-  "players": "1\u20134",
-  "time": "120\u2013240 minutes",
+  "players": "1–4",
+  "time": "120–240 minutes",
   "box_art": "/games/roads-and-boats/images/roads-and-boats.png",
   "bgg_id": 875,
   "description": "A tile-laying production and transportation game where players build roads and waterways to move goods across an island and compete to mint the most gold coins.",
+  "best_at": "2",
+  "weight": "4.20 / 5",
   "expansions": {
     "and-cetera": {
       "title": "&Cetera"

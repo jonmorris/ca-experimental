@@ -7,5 +7,7 @@
   "time": "90–150 minutes",
   "box_art": "/games/bus/images/bus.png",
   "bgg_id": 552,
-  "description": "A competitive network-building game in which players route bus lines through a city, transporting passengers and manipulating time to gain advantage."
+  "description": "A competitive network-building game in which players route bus lines through a city, transporting passengers and manipulating time to gain advantage.",
+  "best_at": "4",
+  "weight": "3.05 / 5"
 }

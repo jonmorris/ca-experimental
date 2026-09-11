@@ -3,9 +3,11 @@
   "year_published": 2009,
   "designer": "Jeroen Doumen",
   "publisher": "Splotter Spellen",
-  "players": "3\u20135",
-  "time": "180\u2013240 minutes",
+  "players": "3–5",
+  "time": "180–240 minutes",
   "box_art": "/games/greed-incorporated/images/greed-incorporated.jpg",
   "bgg_id": 55952,
-  "description": "A game of corporate fraud: run your companies into crisis, collect the severance bonus, and spend it on status symbols before someone else does."
+  "description": "A game of corporate fraud: run your companies into crisis, collect the severance bonus, and spend it on status symbols before someone else does.",
+  "best_at": "4",
+  "weight": "3.60 / 5"
 }

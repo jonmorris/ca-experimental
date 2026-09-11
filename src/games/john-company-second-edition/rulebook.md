@@ -1,95 +1,99 @@
 ---
-title: Rulebook
+title: 'Rulebook'
 subhead: 'The complete official rules for the game, exactly as published.'
 ---
 
-## The Board {: #the-board}
+## Components {: #components}
+
+### The Board
 
 John Company’s board has four main areas. On the far leftthere are five prize boxes where players will score the majority of their points. The middle leftcontains tracks which show the Company’s health and boxes to hold various pieces and cards. The map on the right side displays the political status and potential profitability of India. Lastly, there is a red ribbon which starts in the top leftand proceeds along the bottom edge of the map,  ending in the Bay of Bengal.  This ribbon charts the course of play through the game’s phases and the operations of the different company offices.
 
-## Rulebooks and Aids {: #rulebooks-and-aids}
+### Rulebooks and Aids
 
 There are two main rulebooks:  this one and the Crown Handbook which is used for the solo and two-player play. The game also includes two large player aids and two small player aid cards.
 
-## Player Pieces {: #player-pieces}
+### Player Pieces
 
 Each of the game’s six families has several game pieces, including 18 family members,  1 victory point marker,  6 promise cards,  1 glass opportunity marker, a family board, 2 firm cubes and 4 firm strategy cards.
 
 A player’s family members are their most important resource and will be used in the game to mark many things, including their control of various company positions, their shares in the Company, and the vast estates they have purchased.
 
-## India Pieces {: #india-pieces}
+### India Pieces
 
 John Company uses several different types of pieces to track the political fortunes of India.  There are 20 tower levels and 8  domes, one for each region. There are 3 sets of metal flags, which are used to track the size of the empires which might emerge on the subcontinent. Events are resolved using a set of 20 event tiles. There are 8 control/ loot tokens used to track which regions have been looted by the Company and the Presidency associated with them. Finally, there is a resin Elephant used to indicate a looming political Crisis.
 
-## Wooden Pawns and Cubes {: #wooden-pawns-and-cubes}
+### Wooden Pawns and Cubes
 
 There are 6 pawns in three colors which are used as markers to indicate the status of various tracks.  Red pawns mark Company Standing, Balance,  and Debt. Black pawns mark the game turn and votes. The silver pawn can be used to keep track of the current phase.  There are 30 wooden cubes.  The orange cubes are used to mark fatigue when placed on office cards and unrest when placed on Company-controlled regions.  The red Crown promise cubes are used in the solo and two-player game.
 
-## Money Supply {: #money-supply}
+### Money Supply
 
 The game includes coins in the following denominations and quantities: £1 (40), £2 (20), £5 (20), and £10 (10). The bank is unlimited, but these coins should cover almost every circumstance.
 
-## Crown AI Cards and Board {: #crown-ai-cards-and-board}
+### Crown AI Cards and Board
 
 There are 10 Crown AI cards and a  Crown board which are used in the solo and two-player games.
 
-## Enterprises (Small Cards) {: #enterprises-small-cards}
+### Enterprises (small cards)
 
 There are 57 small enterprises in the three enterprise types: 22 shipyards  (shipping),  20 workshops  (manufacturing), and 15 luxuries  (social).  Shipyards,  workshops,  and luxuries generally share the same points of card anatomy, described to the right.
 
-## Office Cards {: #office-cards}
+### Office Cards
 
 There are 17 office cards used to track which player controls which office.  If an office is vacant,  its office card is placed facedown on the Vacant Offices box on the board. Some offices are not in play at the start of the game and should be placed nearby.
 
-## Prestige and Blackmail Cards {: #prestige-and-blackmail-cards}
+### Prestige and Blackmail Cards
 
 Prestige cards  (20)  and blackmail cards  (10)  are usually won in the London Season and grant special bonuses.  Prestige cards with an icon in the top right also count as enterprises.  Many of these cards have special powers which are described in text on the card.
 
-## Law Cards {: #law-cards}
+### Law Cards
 
 Law cards (26) are used by the Prime Minister player during the Parliament Meets phase.  These cards can change the fundamental rules of the game or present challenges which the players must all face together. If a law is passed, it is placed faceup near the board and the remainder are kept in a stack near the Prime Minister.  One law card,  the Deregulation card  (with Debtor’s Prison on back), is used only in certain scenarios.
 
-## Company Failure Cards {: #company-failure-cards}
+### Company Failure Cards
 
 John Company ends either with the success of the Company or its failure. When the Company is successful, players will compete in one final retirement, where they may score additional points.  If the Company fails,  a random Company failure card (6) is drawn to determine whom the fickle public will blame for this disaster. Most failure cards inflict some sort of scoring penalty.
 
-## Setup Cards and Scenario Cards {: #setup-cards-and-scenario-cards}
+### Setup Cards and Scenario Cards
 
 John Company has several scenarios which are described on 3 scenario cards. Players use the matching set of setup cards  (18 each)  to create their starting positions.
 
-## Ships {: #ships}
+### Ships
 
 There are 22 player-owned ships.  These ships are placed on shipyards when unfitted and then placed on the map or on firms when fitted. If fatigued, they are turned to their fatigued side.  There are also 14 other ships used by the Company. On one side, they are extra ships, which are under short-term leases and will only trade for a single turn before returning to the supply. On the other side, they are Company ships that are built and maintained by the Company.
 
-## Prime Minister {: #prime-minister}
+### Prime Minister
 
 One player will always be the Prime Minister and keeps the Prime Minister dial in their play area.  The Prime Minister’s arm is used to indicate the proposed policy that will be enacted if the current law passes.
 
-## Regiments and Local Alliances {: #regiments-and-local-alliances}
+### Regiments and Local Alliances
 
 There are 20 regiments and 7  local alliance pieces which strengthen Company armies.
 
-## Closed/Filled Orders {: #closed-filled-orders}
+### Closed/Filled Orders
 
 There are 17 pieces used to mark closed orders in India and those filled by the Company or firms.
 
-## Power Tokens {: #power-tokens}
+### Power Tokens
 
 There are 4 power tokens that track the power status of the 3 different enterprise types and of Company shares. These are placed on the Power track and will shiftin position depending mostly on the passage of certain policies.
 
-## Office Overlays {: #office-overlays}
+### Office Overlays
 
 There are 8 different Governor overlays, which are added to the map if a region becomes Company-controlled.  The family member serving as Governor is placed on top of the overlay. In addition, there is one Superintendent of Trade in China overlay used to hold both the family member in that position and any ships assigned to Trade in China. There is also one Governor General overlay which is placed on the ribbon if that office is in play.
 
-## Other Pieces, Markers and Dice {: #other-pieces-markers-and-dice}
+### Other Pieces, Markers and Dice
 
 There are 6  dividers,  used to show writer affiliation.  There is a  Chairman marker and an Opposition Leader marker which are given to the player(s) with that office or title. There’s a Company share victory point token used in some scenarios.  There are also 18 trophy/passed law pieces.  Finally,  there are 10 standard dice, and 1 storm die.
 
+## Setup {: #setup}
+
 **1.**  Place the game board and component   **The 1710 Scenario** should be played first. trays in the center of the table. **The 1758 Scenario** is recommended for those who have played the 1710 scenario a  couple **2.**  Shuffle the India event tiles and place times.  Here,  the Company begins with its them next to the board. monopoly,  but this can be broken,  opening **3.**  Place the local alliance tiles in the Army the gates of India to private firms. boxes where they are listed. **The 1813 Scenario**  is the most advanced scenario.  In it,  the Company starts without **4.**  Place a marker on the “5” space of the Company Balance track located on the its monopoly,  and players may start private trading firms. This scenario is best with 5 or bottom edge of the board. 6 players. **5.**  Place the four power tokens on their **The Long 1710 Scenario**  is intended for indicated spaces on the Power track. players who have the time to play through **6.**  Every player should take a set of player the full history of the Company. This scenario pieces. Place each family’s victory point begins identically to the 1710 scenario,  but marker on the “0” space of the Victory it gives players the tools of Deregulation. Point track (top leftof the board).  This scenario may go up to 8 turns and often takes twice as long as the other scenarios. **7.**  Place the tower levels, domes, and flags After choosing a scenario, take the matching scenario near the right side of the board. setup card. Follow any instructions on the front of the **8.**  Place the laws, office, prestige,  card, taking components as needed and using pawns blackmail, and setup cards nearby. to mark the listed position on various tracks.  Then, set up the regions of India as shown on the card. **9.**  Next, choose a scenario. Place a  black pawn on the space with the matching date on the Turn track,  and the arm on the Prime Minister dial to point to the matching date.
 
-*T A B L E S E T U P F O R 1 7 1 0 B E F O R E S E T U P C A R D S*
+*Table Setup for 1710 Before Setup Cards*
 
-*T A B L E S E T U P F O R 1 7 1 0 B E F O R E S E T U P C A R D S*
+*Table Setup for 1710 Before Setup Cards*
 
 Next, take the player setup cards matching the date of the chosen scenario.  If playing with 5  players,  add 3  of that scenario’s extra cards.  If playing with 6  players,  add 6. Shuffle these cards together.
 
@@ -103,15 +107,15 @@ Then, complete setup:
 
 **12.** Shuffle the remaining law cards and place them near the board.
 
-## Draft Variant {: #draft-variant}
+### Draft Variant
 
 Instead of drawing random setup cards, players may wish to draftstarting positions using the following procedure. After setup cards are dealt, each player selects one and then passes the remainder to the player to their left.  Continue doing this until no cards remain.
 
-## Component Limits and Infinite Tracks {: #component-limits-and-infinite-tracks}
+### Component Limits and Infinite Tracks
 
 Most components in John Company are limited by the pieces included.  If a  supply of pieces is empty, complete as much of the action as possible. However, players may use proxies if they run out of cash,  trophy/passed law tokens,  dice,  and regiments. The Company Balance, Victory Point, and Vote tracks have no limit.
 
-## Your Play Area and Hidden Information {: #your-play-area-and-hidden-information}
+### Your Play Area and Hidden Information
 
 Players maintain a  play area that contains everything they own.  All information *(including the contents of discard piles)* is public except facedown blackmail cards.
 
@@ -141,15 +145,15 @@ Within each region are a  number of connected circles called orders.  Each order
 
 Every region has a  political alignment:  either sovereign or dominated. Sovereign regions  (those with a  large flag or a  dome without any flag)  will attempt to invade their neighbors.  Dominated regions  (those with a  small flag or no dome) will attempt to rebel to regain their sovereignty.
 
-## Empires {: #empires}
+### Empires
 
 When a region conquers another region, it either forms an empire or expands its existing empire. All empires are composed of one capital region (marked by a flag with a star) and at least one dominated region (marked by a smaller version of that flag).  Empires combine the strengths of their regions when attacking and defending in many situations, as described later in the rules.
 
 **Empire Decline.** If an empire is ever reduced to only its capital region, return its flag to the supply. It is no longer an empire.
 
-*R E A D I N G I N D I A E X A M P L E*
+*Reading India Example*
 
-## The Looming Crisis (The Elephant) {: #the-looming-crisis-the-elephant}
+### The Looming Crisis (The Elephant)
 
 India is always faced with a looming Crisis. This is represented by the Elephant and its position and direction on the map. The Elephant is always in play.
 
@@ -203,6 +207,8 @@ The players with the most and second most power gain victory points depending on
 
 **3.  Final Retirement or Consequence of Failure.** If the Company survived, all players roll for attrition and retire any pensioners. No prestige cards are gained. If the Company failed, draw one Consequence of Failure card and resolve it.
 
+## Game Turn {: #game-turn}
+
 John Company is a procedural game played over a set number of game turns. Each game turn consists of phases performed in the following order:
 
 **I.  The London Season.** Officeholders retire and compete for prestige cards.
@@ -223,9 +229,11 @@ Storms and events in India are resolved. **VII.  Events in India.**
 
 **IX.  Upkeep and Refresh.**  Players pay upkeep on their prizes and prepare for the next game turn.
 
+## The London Season {: #the-london-season}
+
 The London Season has three steps: Attrition, Retirements, and Prestige Cards. This phase is skipped on the game’s first turn.
 
-## Attrition {: #attrition}
+### Attrition
 
 This step should be completed simultaneously by all players.
 
@@ -239,7 +247,7 @@ Roll one die for each office card you hold. **Each fatigue on a card adds +1 to 
 
 **The Stress of Being Chairman.**  When rolling for the Chairman,  add +1 to the result.
 
-## Retirements {: #retirements}
+### Retirements
 
 Starting with the Chairman  (or former Chairman if the office is vacant)  and going clockwise, each player may retire their pensioner(s). For each pensioner, choose a prize on the leftside of the board, pay the cost indicated on the top leftof the prize box,  and move your pensioner to that box.  Increase your victory point marker by the amount listed.
 
@@ -247,9 +255,9 @@ Starting with the Chairman  (or former Chairman if the office is vacant)  and go
 
 Instead of paying the cost of your retirements directly to the bank,  set it near your player area.  It will be used to determine turn order in the next step and should be paid to the bank at the end of the London Season.
 
-*A T T R I T I O N   &   R E T I R I N G P E N S I O N E R S*
+*Attrition & Retiring Pensioners*
 
-## Prestige Cards {: #prestige-cards}
+### Prestige Cards
 
 Beginning with the player who spent the most total cash on retirements this turn, each player who retired at least one pensioner this turn must take or discard one card from the London Season Display.  Any ties are broken in favor of most total window icons *(including from retirements this turn!)* and then in Prime Minister order (clockwise, starting with the Prime Minister).
 
@@ -271,11 +279,13 @@ Enterprises on prestige cards offer special powers which a  player may use.  The
 
 Blackmails offer one-time effects. After they are used they are placed in your player area faceup and  **cannot**  be transferred.  At the end of the game,  all blackmail cards in a  player’s area  *(faceup or down)* count for power during Final Scoring.
 
-*L O N D O N D I S P L A Y I N A C T I O N*
+*London Display in Action*
+
+## Family {: #family}
 
 This phase has two steps. First, all players will take their family action. Then, new Company shares may be created.
 
-## Family Action {: #family-action}
+### Family Action
 
 Starting with the player with the Chairman title and proceeding clockwise,  each player selects one family action from those listed in this section. Each player should place their opportunity marker on the action they choose.  *(Note:  at the start of the* *game, this marker is not on any action.)*
 
@@ -297,7 +307,7 @@ Pay £5 to the bank and take one workshop. A workshop provides a £1 bonus each 
 
 Place a family member on an empty space on the Stock Exchange track and pay the price printed on that space to the bank. These family members may become shares at the end of the Family phase. Once shares, they may provide income through dividends and will be worth victory points at the end of the game if the Company survives. If the Company fails, they will cost victory points instead.
 
-## New Company Shares {: #new-company-shares}
+### New Company Shares
 
 Once all players have completed their turn, check to see if any family members on the Stock Exchange track are added to the Court.  One will be added for each Company Debt as described below.
 
@@ -305,9 +315,11 @@ If the Company has Debt,  move the rightmost family member on the Stock Exchange
 
 Finally,  if there are still pieces in the Stock Exchange track but no Company Debt, slide rightward all remaining family members on the Stock Exchange as far as possible, preserving their order.
 
+## Hiring {: #hiring}
+
 In this phase, all vacant offices in the Company are filled through hiring.
 
-## General Hiring Procedure {: #general-hiring-procedure}
+### General Hiring Procedure
 
 Offices are hired in ascending order using the number on the back of each office card. Vacant offices can only be hired by certain officeholders who choose from a specific pool of candidates. The hiring office and the available candidates are listed on the back of the office card. Once a candidate is hired, move that family member to the new office and give that player the matching office card.
 
@@ -317,7 +329,7 @@ Offices are hired in ascending order using the number on the back of each office
 
 **No Candidates or Hirer?**  In some circumstances there may be no eligible candidates for an office.  When this happens the office is skipped in the hiring process and will remain vacant through the turn, taking no actions (including hiring others).  If the office responsible for hiring a  candidate is vacant,  that office is skipped.
 
-## The Company’s Structure {: #the-companys-structure}
+### The Company’s Structure
 
 Company Shares Commanders
 
@@ -325,7 +337,7 @@ Writers Officers
 
 Each office is hired in a different manner described below.
 
-## Chairman {: #chairman}
+### Chairman
 
 Any player with a Company share may attempt to become the new Chairman. To be elected the new Chairman you need consent from players that control a majority of the current Company shares.
 
@@ -337,37 +349,39 @@ If no candidate can receive the necessary support,  the former Chairman picks an
 
 **An Empty Court?** In some scenarios it is possible for the Court to be empty. In this case the former Chairman will automatically become the next Chairman, and should place a family member from their supply to the Chairman slot.
 
-*C H A I R M A N E L E C T I O N*
+*Chairman Election*
 
 *The rest of hiring is mostly a straightforward affair. Players learning the game should feel* *free to read this hiring example and then skip the remainder of this section.*
 
-*G E N E R A L H I R I N G*
+*General Hiring*
 
-## Director of Trade {: #director-of-trade}
+### Director of Trade
 
 The Chairman hires from any current officeholder except the Chairman or a Governor. If all offices are vacant, any writer can be chosen. *Note: Commanders* *are not officeholders.*
 
-## Manager of Shipping {: #manager-of-shipping}
+### Manager of Shipping
 
 The Chairman hires any writer for this position.
 
-## Military Affairs {: #military-affairs}
+### Military Affairs
 
 The Chairman hires any Commander in a Presidential Army for this position. If there are none, they may hire any officer, or, if none, any piece in the Officersin-Training box.
 
-## Presidents {: #presidents}
+### Presidents
 
 The Director of Trade hires any writer or Governor associated with that region’s Presidency for this position.
 
-## Governors {: #governors}
+### Governors
 
 The President associated with the Governorship hires from any writer or officer in the region. The family member holding this position should be placed on top of the corresponding Governor overlay.  *Note:  a Commander is not an officer and* *cannot be promoted to a Governor.*
 
 If there is a Governor General, these positions no longer exist (page 26).
 
-## Superintendent of Trade in China {: #superintendent-of-trade-in-china}
+### Superintendent of Trade in China
 
 The Chairman hires any writer for this position.
+
+## Company Operation {: #company-operation}
 
 Starting with the Chairman,  each Company office acts in order,  leftto right, following the red ribbon on the game board.  The Chairman is responsible for making sure players realize whose turn it is to act and that this phase proceeds in a timely fashion. Use of a gavel or bell is encouraged.
 
@@ -375,7 +389,7 @@ Starting with the Chairman,  each Company office acts in order,  leftto right, f
 
 **No Dead Actions.** A player cannot take an action that would have no effect or chance of success *e.g. trading without having a ship to fill an order* *or deploying without a dice to trigger potential officer losses.*
 
-## Success Checks {: #success-checks}
+### Success Checks
 
 Doing business in India is risky.  Most actions that concern India require the acting player to make a check to see if their actions are successful. Each check requires a  roll of the dice.  The number of dice you roll is dependent on the resources you have and want to spend as determined by the action. Any money spent comes from the office’s treasury and is paid to the bank.
 
@@ -391,7 +405,7 @@ Then,  remove dice equal to the penalty.  Finally,  roll the dice.  Use the  **l
 
 *Note: some offices will use the result of a check in other ways, as detailed in their rules.*
 
-## Chairman {: #chairman}
+### Chairman
 
 The Chairman may first increase Company Debt and then must allocate the Company Balance.
 
@@ -399,9 +413,9 @@ You may advance the Company Debt marker up to three times.  For each advance, in
 
 Then,  allocate  **all funds**  on the Company Balance track to any other office treasuries.  Reduce the marker on the Company Balance track by the amount transferred and add it to the respective office treasuries.  *Note:  a Chairman may* *wish to increase Debt as they allocate to make it easier to plan. As long as they follow the* *rules for taking debt described in the previous paragraph, this is fine.*
 
-*S E E K I N G D E B T*
+*Seeking Debt*
 
-## Director of Trade {: #director-of-trade}
+### Director of Trade
 
 The Director of Trade may take the Special Envoy action and then may move writers and ships between the Presidencies.  The Special Envoy action can be taken multiple times.
 
@@ -415,9 +429,9 @@ Make a check. Each £1 you spend gives you one die. There is no penalty.
 
 Then, you may make up to two transfers. In each, move one writer or ship from one Presidency or sea zone to any other.
 
-*S P E C I A L E N V O Y*
+*Special Envoy*
 
-## Manager of Shipping {: #manager-of-shipping}
+### Manager of Shipping
 
 The Manager of Shipping fits, buys, and leases ships on behalf of the Company.
 
@@ -427,9 +441,9 @@ You must spend funds in your treasury until it has at most £2 remaining. Funds 
 
 **Lease Extra Ships.**  Pay  £2 to the bank to place an extra ship from the general supply in a sea zone. Extra ships are ships on short-term leases that will be returned to the supply during the Refresh step.
 
-## Military Affairs {: #military-affairs}
+### Military Affairs
 
-Military Affairs moves officers and regiments *A S S I G I N G C O M M A N D E R S* between Armies,  assigns new officers,  and assigns Commanders.
+Military Affairs moves officers and regiments *Assigning Commanders* between Armies,  assigns new officers,  and assigns Commanders.
 
 First, you may make up to two Army transfers. In each,  move one officer or regiment from one Army to any other Army.  Moved pieces always remain in the top half of the Army box.
 
@@ -437,7 +451,7 @@ Then,  you must assign each piece in the Officers-in-Training box to any of the 
 
 Finally,  for each Army,  if there is a  player with  **more total pieces**  than the current Commander player or if the Commander slot is vacant, assign a new Commander. Choose a player from among those having the greatest number of total pieces in that Army. Move one of their officers to the Commander slot, putting any previous Commander there back into the top half of the Army box as an officer.
 
-## Presidency Operations {: #presidency-operations}
+### Presidency Operations
 
 Each President generates revenue for the Company with the Trade action and decides the order in which they, their Commander, and their Governor(s) act.
 
@@ -467,9 +481,9 @@ Finally,  each player takes  £1 from the bank for each of their writers you pla
 
 **The Association of Writers:**  If a  writer is ever placed on an order adjacent to a  writer from a  different Presidency,  place a  Presidency divider on the connection so that the affiliation of writers is kept separate during the Refresh step.
 
-*T R A D I N G*
+*Trading*
 
-## Commanders {: #commanders}
+### Commanders
 
 First, you may request funds from your President to purchase any local alliances located in your Army box and shiftthem to the top of the Army box. The cost of each is listed on the alliance piece and is paid from your President’s treasury.
 
@@ -485,7 +499,7 @@ Make a check. Each officer or regiment you exhaust gives you one **2.** die. In 
 
 **3.**  Check for losses.  Each player must roll a  die for each of their officers that were exhausted in this action  *(never regiments!)*.  For each 6 rolled, they must return one of their officers to their supply.
 
-*D E P L O Y I N G*
+*Deploying*
 
 **If successful,** perform the following steps:
 
@@ -499,7 +513,7 @@ Each Tower Level Loot Modifier (if faceup)
 
 Distribute this cash among those that **participated and survived** the *(the Commander’s share)* Deploy action. First, give yourself £1 and £1 for each of your officers. Then continue clockwise to the next player and give them £1 for each of their officers. Continue clockwise in this fashion until all players with officers have been paid or no further cash remains.  After paying players,  if cash remains,  give  £1 to the bank for each regiment and local alliance  *(regardless of strength)*.  If cash remains, continue distributing as described, starting with your Commander’s share and officers.
 
-*D I V I D I N G L O O T*
+*Dividing Loot*
 
 **2.**  Take Trophies. Take one trophy token for each level in the targeted region’s tower *(since you are the Commander)*. Then, remove the tower and dome. If it was a capital, remove all matching flags.
 
@@ -513,7 +527,7 @@ Distribute this cash among those that **participated and survived** the *(the Co
 
 *The remaining offices in this section are created through player actions over the course* *of the game. When they are created, add their office card to the Vacant Offices box.*
 
-## Governors {: #governors}
+### Governors
 
 Governors are created through the Deploy action.
 
@@ -533,9 +547,9 @@ Make a  check using the number of dice remaining in the pool.  There is no penal
 
 **Then lower the number of dice in the pool by 1 regardless of its result.** You may continue taking actions until one the following happens:  you roll a catastrophic failure, you run out of dice, or you decide to stop.
 
-*A D M I N I S T E R I N G*
+*Administering*
 
-## Superintendent of Trade in China {: #superintendent-of-trade-in-china}
+### Superintendent of Trade in China
 
 This office is created either if the Director of Trade’s Special Envoy to China is successful or if Parliament passes the “Envoy to China” law. When created, the office is hired immediately by the Chairman who may promote any writer.
 
@@ -547,11 +561,11 @@ To trade in China,  make a  check.  Roll one die for each ship in your office’
 
 **If successful,** increase the Company Balance by £4 for each opium icon in all Company-controlled regions. Then, you take £1 from the bank for each opium icon in all Company-controlled regions.
 
-*T R A D I N G I N C H I N A*
+*Trading in China*
 
-T R A D E I N C H I N A
+Trade in China
 
-## Governor General {: #governor-general}
+### Governor General
 
 The Governor General is created by passing a  law of the same name.  When passed, all Governors immediately become pensioners. Remove any Governor overlays on the map and any partially-built Company ships. No new Governors are created  (or overlays placed)  when additional regions become Companycontrolled. *Note: the printed Company icons on the board show players which regions* *are Company-controlled when the Governor General is in play.*
 
@@ -585,13 +599,17 @@ Then,  **for each**  region that is Company-controlled,  choose one of the *(not
 
 **One Govern.**  The Governor General may only successfully govern at most once per game turn.
 
+## Bonuses {: #bonuses}
+
 During this phase, players collect bonuses. Every player should take £1 for each shipyard with a fitted ship and each workshop they own.
+
+## Revenue {: #revenue}
 
 During the Revenue phase, the Company will pay expenses, check expectations, and then pay dividends.
 
 During this phase,  the Company’s Standing will often be adjusted.  If the Standing marker is moved to the leftmost position of the Standing track,  the Company has failed. Go to the Final Scoring immediately (page 9).
 
-## Expenses {: #expenses}
+### Expenses
 
 First,  lower the Company Balance marker by  £1 for each debt as indicated by the Company Debt track, each regiment and officer in an Army (do not include Commanders), and each ship in the three sea zones.
 
@@ -599,11 +617,11 @@ First,  lower the Company Balance marker by  £1 for each debt as indicated by t
 
 **Public Embarrassment.** Lower the Company’s Standing one space to the leftif one or two emergency loans were taken this turn.  Lower it two spaces if three or more emergency loans were taken this turn.
 
-## Check Expectations {: #check-expectations}
+### Check Expectations
 
 Next,  lower the Company’s Standing one space to the leftif the Company Balance is  **less**  than the Expectations value listed beneath the Company’s Standing.
 
-## Pay Dividends {: #pay-dividends}
+### Pay Dividends
 
 Finally, the Chairman may pay out dividends.
 
@@ -611,9 +629,11 @@ The cost of each dividend is equal to the number of Company shares.  When a divi
 
 **Public Enthusiasm.** Advance Standing one space to the right if more total cash was paid in dividends than Expectations.
 
+## Events in India {: #events-in-india}
+
 During this phase,  roll the storm die,  resolve any storms and then resolve a number of events in India during which the political and economic landscape of India will shiftand Company-controlled regions may face Rebellion.
 
-## The Storm Die {: #the-storm-die}
+### The Storm Die
 
 Roll the storm die. The resulting face indicates which ships are subject to storms and how many events occur in India.
 
@@ -623,7 +643,7 @@ On a 1 or 2, nothing happens to the ship. On a 3 or 4, flip the ship to its fati
 
 **Events in India.**  After resolving any storms,  resolve as many events in India as indicated by the number on the storm die.  For each event in India, flip one tile from the draw stack. These events will often open or close orders,  alter a  region’s strength,  and may lead to Cascades.  **The** **location of the event often depends on the back of the top tile in the** **India draw stack.**
 
-*F L I P P I N G A N E V E N T*
+*Flipping an Event*
 
 When resolving events,  orders sometimes become closed.  If a  writer is on such an order, the writer is returned to its owner’s supply. If the order has a filled order token, flip it instead.
 
@@ -631,7 +651,7 @@ If you are ever required to close an order but **all orders** in that region are
 
 Each region can only Cascade once during the resolution of each event tile. However, a region may receive the effects of more than one Cascade per tile.  In other words,  while a  region might be  “flooded”  by closed orders from more than one region, it can only “overflow” once.
 
-## Region Loss {: #region-loss}
+### Region Loss
 
 Attacks against the Company can trigger the loss of a  Company-controlled region. When this occurs, follow these steps:
 
@@ -645,9 +665,9 @@ Attacks against the Company can trigger the loss of a  Company-controlled region
 
 **5.  Company Humiliation.**  Lower the Company’s Standing by one to the leftfor each region lost this turn (including this region). *E.g. The first lost* *region lowers Standing by 1  space,  the second lowers Standing an additional 2* *spaces, etc.* This can cause Company failure. If this happens the game is over. Finish the Events in India phase, then resolve Final Scoring.
 
-*R E G I O N L O S S E X A M P L E*
+*Region Loss Example*
 
-## Elephant’s March {: #elephants-march}
+### Elephant’s March
 
 After resolving some events,  the Elephant will move.  First,  check for Imperial Ambitions. Otherwise, it will move to the region pictured on the top of the draw stack.
 
@@ -655,7 +675,7 @@ After resolving a successful Invasion Crisis, the Elephant **Imperial Ambitions.
 
 After moving the Elephant, determine its position using the following procedure:
 
-If the region is Company-controlled,  put the *E L E P H A N T ’ S M A R C H* Elephant in the center of the region.
+If the region is Company-controlled,  put the *Elephant's March* Elephant in the center of the region.
 
 If the region is currently dominated by another region,  place the Elephant on the border facing its current sovereign to indicate a looming Rebellion.
 
@@ -663,7 +683,7 @@ If the region is sovereign,  place the Elephant on the border matching the shape
 
 **Fully-Formed Empires.**  In the rare instance that all neighbors are dominated,  place the Elephant on the border matching the shape on the Elephant redirect arrow and position it so that it is pointing at the empire’s capital.
 
-## Events Described {: #events-described}
+### Events Described
 
 All of the events in India are described in the following sections.
 
@@ -679,7 +699,7 @@ If the region pictured on the top of the draw stack is sovereign,  add a tower l
 
 Open any orders that are connected through the border the Elephant stands on. Then add one tower level to each region touching the Elephant that is not controlled by the Company. If the Elephant was wholly within a region (indicating a potential Rebellion), open all orders in that region and remove any unrest in this region.  **Then,  perform the Elephant’s** **March.**
 
-*P E A C E E X A M P L E*
+*Peace Example*
 
 Like Peace,  the location of the Crisis is determined by the placement of the Elephant piece, not by the top tile of the draw stack. The Elephant’s *(where it is walking from)* tail indicates the attacker.  The Elephant’s head *(where it is walking to)*  indicates the defender.  **After resolving a  Crisis,** **perform the Elephant’s March.**
 
@@ -699,7 +719,7 @@ When a Rebellion is successful the attacking region is now sovereign. Return its
 
 If the Rebellion failed, remove one tower level from the capital.
 
-*M Y S O R E I N V A D E S*
+*Mysore Invades*
 
 Both Invasions and Rebellions against Company-controlled regions are resolved the same way.  Whenever attacked by any type of Crisis,  the Company must resolve the Crisis (called the primary Crisis) and then must resolve an additional Rebellion Crisis  **in each other region with unrest** **cubes** using the following rules:
 
@@ -725,6 +745,8 @@ Return any flag on this region’s dome to the supply. If it was a capital, retu
 
 **Elephant Redirect.**  If the Elephant was fully within a  Companycontrolled region that was invaded,  perform an Elephant’s March using for the shape. *(Otherwise this event does not move the Elephant.)*
 
+## Parliament Meets {: #parliament-meets}
+
 The player with the Prime Minister dial must select a law and bring it up for a vote.  They do this by drawing and revealing,  one at a  time,  up to three cards from the law deck and selecting one. The remainder are discarded. Players are welcome to discuss each law before the next is drawn.  However,  **if a  dilemma** **(indicated at the top of the card)  is drawn,  the Prime Minister must stop** **drawing and select that law.**
 
 After selecting the law, the Prime Minister must select a policy by rotating the dial’s arm either clockwise or counter-clockwise. **The Prime Minister must stop** **at the first space that matches the icon printed on the bottom of the law card.**
@@ -743,9 +765,9 @@ There are three policy consequences:
 
 Next, the Prime Minister reads the text of the law aloud and marks its starting support *(printed on bottom right of law)* using the Votes marker on its track. The Prime Minister should allow some time for debate before proceeding to voting.
 
-*S E L E C T I N G A   L A W A N D P O L I C Y*
+*Selecting a Law and Policy*
 
-## Voting {: #voting}
+### Voting
 
 Starting with the Prime Minister,  players take turns voting.  After a  player has voted,  the next player in clockwise order votes.  After all players have had a chance to vote,  the Prime Minister can decide to initiate an additional round of voting or to stop and resolve the vote. If no votes were cast in the round, the vote must be resolved.
 
@@ -763,7 +785,7 @@ A player who previously voted for the law may change their mind and join the opp
 
 **The Prime Minister’s Honor.**  The Prime Minister cannot vote against the current law or consent to their enterprises being used to vote for that purpose. However, their enterprises may be used to vote against a  law if their  “Vote with my enterprises...” promise is used.
 
-## Resolving the Vote {: #resolving-the-vote}
+### Resolving the Vote
 
 When voting stops, the law passes or fails depending on the position of the Votes marker. There are two possible outcomes:
 
@@ -775,13 +797,15 @@ Finally, return any cards used for votes to their regular orientation.
 
 **Legislated Company Failure.**  If a  law causes the Company to fail,  the game is over. Finish resolving the vote then perform Final Scoring.
 
-## The Vote to Deregulate {: #the-vote-to-deregulate}
+### The Vote to Deregulate
 
 In the 1758 and long 1710 scenarios, the Prime Minister may initiate a special session of Parliament at the start of the turn before the London Season phase. To do this, the Company Standing marker and/or Company Debt marker must be on a lined space. If at least one of these markers is on one of the spaces marked with a star, the Prime Minister **must** initiate a special session to vote on Deregulation.
 
 If the vote passes, lower Company Debt one space for every two Debt and place the Standing marker on the space marked “S.” The Prime Minister gains a passed law token. Refer to the Deregulation rules for additional changes.
 
 If the law fails, increase the value of Company shares by placing (or flipping) the VP overlay in the Court.  Shares cannot be worth more than  +/-3 victory points. **Unlike other proposed laws,  this law is not associated with a  policy and the** **Prime Minister does not change hands if it fails nor will this law be discarded.** **The Prime Minister may also vote against the law.**
+
+## Upkeep and Refresh {: #upkeep-and-refresh}
 
 Everyone must pay for their family members on prizes. Each is paid for individually, using the indicated amount on that prize *(printed to the right of the prize’s cost)*. If a player cannot pay for a  prize’s expense,  instead return the family member to its supply and lower their owner’s victory point marker by that prize’s value.
 
@@ -799,11 +823,13 @@ Any exhausted officers and regiments become active.  Any active local alliances 
 
 Then, advance the turn marker and proceed with the first phase.
 
+## Deregulation {: #deregulation}
+
 *The next section is only used when players are playing games with Deregulation.*
 
 These rules are in play during the 1813 scenario.  In addition,  they may be triggered if players vote to deregulate the Company during the long 1710 scenario or the 1758 scenario.
 
-## Firms {: #firms}
+### Firms
 
 Players may now own shares in and manage firms.  Firms can trade in India independently of the Company and provide shareholders with alternate ways to score victory points.
 
@@ -823,11 +849,11 @@ At the start of Final Scoring, players will score or lose the number of victory 
 
 Then,  regardless of Company success or failure,  shareholders may perform one special retirement before proceeding with the rest of Final Scoring.  *Note:  as this is not a  London Season phase,  no cards are* *taken from the London Season Display.*
 
-## The Firms Phase {: #the-firms-phase}
+### The Firms Phase
 
 After the Family phase is complete and before the Hiring phase,  players will now perform the Firms phase. The Firms phase has two steps: Firm Investments and Firm Strategy.
 
-## Firm Investments {: #firm-investments}
+### Firm Investments
 
 The first step of the Firms phase has no set order and players can take the following actions at any time during it.  The Firms phase ends when no player wishes to take further actions. Any timing conflicts related to a firm are resolved by the firm’s manager.  Any timing conflicts between firms are resolved by the Prime Minister.
 
@@ -865,7 +891,7 @@ As part of a merger, players may negotiate for the transfer of firm shares to ot
 
 After a merger is agreed to, all secondary firms transfer and consolidate their treasuries, shareholders,  and ships into a  single firm. Then,  the secondary firms flip to their family side.
 
-## Firm Strategy {: #firm-strategy}
+### Firm Strategy
 
 After the Firm Investments step, all firm managers must simultaneously and secretly decide their trading sea zone and how much money to spend trading.
 
@@ -875,7 +901,7 @@ Firm managers that do not wish to trade may select the  “Hobnob”  strategy. 
 
 Players should cover any money allocated to their strategy with their hands or by any method they agree upon.  Once all players have made their decisions,  players reveal the amount they have spent,  however their strategy card should remain facedown. *Note: firms only get a single trade attempt each turn, so make sure you allocate* *enough!*
 
-## Filling Orders as a Firm {: #filling-orders-as-a-firm}
+### Filling Orders as a Firm
 
 At the start of a Presidency’s Operations *(before any actions are taken)*, any firm with a strategy that is associated with that Presidency reveals their strategy and make a check with dice equal to the cash allocated to their strategy. The cash is then paid to the bank.  If at least one success is rolled,  the firm may trade.  Each firm that successfully trades has an initiative value equal to the total of their ships  **minus** **the number of successful dice***(1s and 2s)* they rolled. This number can be negative.
 
@@ -893,9 +919,9 @@ You may only fill each order once.  When a  firm first fills an order,  mark it 
 
 Finally, advance your firm’s Value marker one space for each £6 you added to the firm’s India treasury this turn.
 
-*T R A D I N G W I T H F I R M S*
+*Trading with Firms*
 
-## Firm Expenses and Dividends {: #firm-expenses-and-dividends}
+### Firm Expenses and Dividends
 
 At the start of the Revenue phase, before the Company pays expenses, firms will pay expenses and dividends in initiative order followed by all other firms with any ties broken by their Manager’s windows and then clockwise starting with the Prime Minister.
 
@@ -923,17 +949,19 @@ Then, the firm manager should record the total amount of cash paid out in divide
 
 **Finally,  any cash remaining in the firm’s India treasury should be** **moved to its London treasury.**
 
-## Firms and Storms {: #firms-and-storms}
+### Firms and Storms
 
 When rolling for storms during the Events in India phase, treat all firm ships as if they were in the sea zone indicated by the firm’s strategy. If the strategy was “Hobnob,” firm ships will not be affected by storms.
 
-*F I R M E X P E N S E S A N D D I V I D E N D S*
+*Firm Expenses and Dividends*
+
+## Solo and Two-Player Game {: #solo-and-two-player-game}
 
 In the solo and two player game,  you will be playing against the Crown.  The Crown is sometimes keen to see the Company succeed,  with them becoming the dominant power within the Company. At other times, the Crown seeks for the Company to fail.  You must negotiate with the Crown and influence their decision-making to seize victory for yourself. Sometimes the Crown will make bad decisions for the Company and paying for costly favors may be the only way to keep those decisions in check. You do so via a set of 12 Crown promise cubes.  There is a  limited number of promise cubes,  so you must do favors for the Crown in return to get promise cubes back.
 
 The game follows all of the standard multiplayer rules,  with the following adjustments:
 
-## Setup {: #setup}
+### Setup
 
 Set up a game in any scenario. It is recommended to set up the 1710 scenario for your first game with the Crown. Before dealing setup cards, follow these steps:
 
@@ -947,13 +975,13 @@ Set up a game in any scenario. It is recommended to set up the 1710 scenario for
 
 **5.**  The Crown sits last in order in respect to whoever was Chairman during setup,  or before whichever player is next in the order of offices if the Crown is themselves the Chairman.
 
-## Finishing Setup as a Solo Player {: #finishing-setup-as-a-solo-player}
+### Finishing Setup as a Solo Player
 
 The Crown acts like two players for solo setup. Shuffle the 12 setup cards, draw 3 cards, select 1 to keep, and give 2 to the Crown. Repeat this 3 more times, so that you finish with 4 setup cards and the Crown finishes with 8.
 
 As a variant, players can deal the setup cards randomly. Deal 4 to the soloist and 8 to the Crown.
 
-## Finishing Setup with Two Players {: #finishing-setup-with-two-players}
+### Finishing Setup with Two Players
 
 Set up as a  3-player game with the Crown set up as one family.  Shuffle the 12 setup cards, each player draws 3 cards, selects 2 to keep, and gives the remaining card to the Crown. Repeat this 2 times. Each player and the Crown will have 4 setup cards.
 
@@ -963,7 +991,7 @@ Each time the Crown must decide between the two players, they will select the pl
 
 A player holding the Player Button may transfer it to the other player as part of a negotiation.
 
-## Difficulty {: #difficulty}
+### Difficulty
 
 You can adjust the difficulty of the Crown as follows:
 
@@ -975,13 +1003,13 @@ As Normal, but also give 4 more promise cubes to the Crown (2 **Hard.** from eac
 
 **Expert.** As Hard, but also give the Crown 3 extra setup cards.
 
-## Gameplay {: #gameplay}
+### Gameplay
 
 The Crown Handbook will be used to determine the behavior and interactions of the Crown during each game.  The Crown’s behavior for any current phase is dictated by the Crown Handbook and often affected by the current climate. However,  players are encouraged to not look beyond the phase they are currently in within the Handbook.  The Crown’s climate is determined by the current AI card and tie breaks are often determined by using the current AI card and AI card deck.
 
 Throughout the game, players can modify the actions of the Crown by spending promise cubes.  Players can gain promise cubes by acting in ways that are beneficial to the Crown. When playing with two players, promise cubes may be used in negotiations and traded between players at anytime.
 
-## AI Deck {: #ai-deck}
+### AI Deck
 
 You will often need to refer to the current faceup AI card and the AI deck when breaking ties.
 
@@ -995,7 +1023,7 @@ When the Crown changes climate during the Chairman’s actions, use the chart to
 
 When the Crown must decide between regions, use the region priority given at the bottom of the AI card (5). The Crown selects the leftmost region in the list and proceeds to the right.  *For example,  the Crown would first choose Madras,  then* *Mysore,  then Bombay,  then Punjab,  then Delhi,  then Maratha,  then Hyderabad,  and* *lastly Bengal.*
 
-## Favors and Promise Cubes {: #favors-and-promise-cubes}
+### Favors and Promise Cubes
 
 In most phases, promise cubes can be exchanged to/from the Crown in a closed economy via a  favor.  There are two kinds of favors:  favors that require you to pay promise cubes to the Crown  (indicated with a  red box)  and favors that force the Crown to give you promise cubes  (indicated with a  blue box).  Most favors are listed in the Crown Handbook. Favors have two critical restrictions:
 
@@ -1015,7 +1043,7 @@ Fit a specific ship.
 
 Some favors have darker boxes with a bold outline. These favors are mandatory and must be performed if the conditions are met.
 
-## Clarifications for the Crown {: #clarifications-for-the-crown}
+### Clarifications for the Crown
 
 The word  “most”  refers to having comparatively more or equal of something, with a minimum of 1. The word “fewest” refers to having comparatively less or equal of something, and includes zero.
 

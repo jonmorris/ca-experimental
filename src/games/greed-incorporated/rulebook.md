@@ -1,5 +1,5 @@
 ---
-title: Rulebook
+title: 'Rulebook'
 subhead: 'The complete official rules for the game, exactly as published.'
 ---
 
@@ -8,18 +8,6 @@ subhead: 'The complete official rules for the game, exactly as published.'
 "Twenty million, twenty-one million, twenty-two million… Hey! Where's the rest of my bonus?" The CEO's angry shouting does not match the suave elegance of his tailor-made suit. "But sir," the harried accountant protests, "you have bankrupted this company. Your employees have lost their pensions. Surely you can… ". "Stop whining!", the CEO interrupts him. "Clearly you don't understand business at all. How am I supposed to pay for adequate transportation without my bonus? Make sure you transfer the money today!". He slams the door of his white limousine and drives off, heading for a new challenge.
 
 Greed, incorporated is a game of corporate embezzlement and money-grubbing executives. You run one or more companies and make their accounting books look as good as possible using every trick that good old honest businessmen ever invented. And then some. Just make sure you leave the company, while cashing your exit bonus, before the company crashes and the credit crunch commences.
-
-## Colofon {: #colofon}
-
-**Game design:** Jeroen Doumen, Joris Wiersinga
-
-**Graphic design:** Ynze Moedt
-
-**Rule translations:** Birgit Hugk, Torsten Hintz
-
-**Published by:** Splotter Spellen, The Netherlands, info@splotter.nl, http://www.splotter.nl
-
-**Playtesting:** Merijn Bennaars, Bram van Dam, Maaike DekkersDuijts, Bianca van Duijl, Nora Ghaoui, Adriaan de Goeij, Ferdy Hanssen, Ragnar Krempel, Martijn Lemckert, Henriëtte Verburg, Peter Vogelzang, Rolien Wiersinga, Arthur Zonnenberg. Thank you! Apologies if you are not on the list!
 
 ## Overview {: #overview}
 
@@ -208,3 +196,15 @@ Greed, Incorporated is not meant to be played by those who are care more about t
 
 <!-- FIDELITY-FLAG: source reads "you ould move" — apparent OCR error for "you could move". Preserved as found. -->
 - Intra-concern deals. Just think of all the cash and goods *you ould move around if you would have two or more companies!* *Just be careful which one of your companies you want to pay out.*
+
+## Colofon {: #colofon}
+
+**Game design:** Jeroen Doumen, Joris Wiersinga
+
+**Graphic design:** Ynze Moedt
+
+**Rule translations:** Birgit Hugk, Torsten Hintz
+
+**Published by:** Splotter Spellen, The Netherlands, info@splotter.nl, http://www.splotter.nl
+
+**Playtesting:** Merijn Bennaars, Bram van Dam, Maaike DekkersDuijts, Bianca van Duijl, Nora Ghaoui, Adriaan de Goeij, Ferdy Hanssen, Ragnar Krempel, Martijn Lemckert, Henriëtte Verburg, Peter Vogelzang, Rolien Wiersinga, Arthur Zonnenberg. Thank you! Apologies if you are not on the list!

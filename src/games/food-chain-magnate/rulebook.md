@@ -1,5 +1,5 @@
 ---
-title: Rulebook
+title: 'Rulebook'
 subhead: 'The complete official rules for the game, exactly as published.'
 ---
 
@@ -91,7 +91,7 @@ Put the billboards listed in the above table back in the box.
 
 Create a map by randomly selecting map tiles. Rotate each tile randomly before placing it in a grid. The number of map tiles used depends on the number of players, as shown in the table above and the image to the right.
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -154,7 +154,7 @@ If two or more players have the same number of open slots, the one who was ahead
 
 Players choose their position in the turn order by placing the turn order marker on an available spot on the turn order track. Note that
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -223,7 +223,7 @@ It is allowed to place a marketing campaign in a location where it will not reac
 
 If a player has the ***"First billboard placed"*** milestone, marketing campaigns placed by that player will not end. To indicate this, place the campaign tile on its eternal side on the board with a single wooden piece on it. The corresponding marketeer card will be unavailable for the rest of the game. It will not be returned to the stock or the player's hand.
 
-<figure class="rulebook-image">
+<figure class="rulebook-image" hidden>
   <img src="/games/indonesia/images/new-era.jpg" alt="Kalimantan Selatan example" loading="lazy">
   <figcaption>The Kalimantan Selatan Oil Company cannot start as there is no viable starting area. The deed is discarded instead.</figcaption>
 </figure>
@@ -424,7 +424,7 @@ This milestone is awarded when you play a waitress in your structure. It is not 
 
 For the rest of the game, you will receive $5 for each waitress in your structure rather than $3. This bonus already applies to the waitress played to get the milestone.
 
-### First to THrow Away Food/Drink
+### First to Throw Away Food/Drink
 
 This milestone is awarded when you throw away at least one food or drink token in phase 7 (Cleanup).
 

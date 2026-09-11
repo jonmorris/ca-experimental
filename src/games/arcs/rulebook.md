@@ -1,6 +1,6 @@
 ---
-title: Rulebook
-subhead: The complete published rules for the base game.
+title: 'Rulebook'
+subhead: 'The complete published rules for the base game.'
 ---
 
 ## Introduction {: #introduction}
@@ -764,6 +764,104 @@ If you're running a tournament or want a more strategic but slower game, you can
 
 If you're prompted to draw from the action discard pile, draw from the facedown pile. In the rare circumstance that it doesn't have enough cards, shuffle the piles together first.
 
+## Glossary {: #glossary}
+
+<a id="glossary-adjacent"></a>
+<strong>Adjacent:</strong> Shares a thin border.
+
+<a id="glossary-building"></a>
+<strong>Building:</strong> Cities and starports.
+
+<a id="glossary-bury"></a>
+<strong>Bury:</strong> Place on the bottom of the Court deck.
+
+<a id="glossary-capture"></a>
+<strong>Capture:</strong> Place the prompted piece in the Captives box on your player board.
+
+<a id="glossary-chapter"></a>
+<strong>Chapter:</strong> The time in which players play rounds until they all run out of action cards.
+
+<a id="glossary-clear"></a>
+<strong>Clear:</strong> Return all pieces from the prompted area.
+
+<a id="glossary-control"></a>
+<strong>Control:</strong> You control a system and its contents if you have more fresh ships there than each Rival. On a tie, no one controls the system.
+
+<a id="glossary-damaged"></a>
+<strong>Damaged:</strong> Not fresh—a tipped ship or a building on its darker side.
+
+<a id="glossary-destroy"></a>
+<strong>Destroy:</strong> Return a fresh or damaged piece from the map. *(It often goes to a Trophies box.)*
+
+<a id="glossary-empty"></a>
+<strong>Empty:</strong> Has no pieces in or on it.
+
+<a id="glossary-fresh"></a>
+<strong>Fresh:</strong> Not damaged—an upright ship or a building on its lighter side.
+
+<a id="glossary-gain"></a>
+<strong>Gain:</strong> Add the specified piece to your play area from its supply. *(You can't gain it if its supply is empty.)*
+
+<a id="glossary-give"></a>
+<strong>Give:</strong> Add the specified piece to a Rival play area.
+
+<a id="glossary-hit"></a>
+<strong>Hit:</strong> Tip over a fresh piece on the map, or remove a damaged piece from the map.
+
+<a id="glossary-loyal"></a>
+<strong>Loyal:</strong> Of your player color.
+
+<a id="glossary-out-of-play"></a>
+<strong>Out of Play:</strong> Cannot be interacted with.
+
+<a id="glossary-piece"></a>
+<strong>Piece:</strong> Any component in the game.
+
+<a id="glossary-place"></a>
+<strong>Place:</strong> See Pieces & Piece Limits.
+
+<a id="glossary-play-area"></a>
+<strong>Play Area:</strong> On and around your player board. *(Most pieces go in specific parts of your play area.)*
+
+<a id="glossary-prelude"></a>
+<strong>Prelude:</strong> See Prelude Actions.
+
+<a id="glossary-replace-return"></a>
+<strong>Replace, Return:</strong> See Pieces & Piece Limits.
+
+<a id="glossary-rival"></a>
+<strong>Rival:</strong> Of another player's color. When used alone, refers to another player.
+
+<a id="glossary-round"></a>
+<strong>Round:</strong> The time in which each player takes a turn.
+
+<a id="glossary-scrap"></a>
+<strong>Scrap:</strong> Make out of play permanently.
+
+<a id="glossary-seize-the-initiative"></a>
+<strong>Seize the Initiative:</strong> Take the initiative marker. You cannot do this if you have the initiative marker or if someone has already seized the initiative this round.
+
+<a id="glossary-spend"></a>
+<strong>Spend:</strong> When referring to a resource, return the spent resource to its supply.
+
+<a id="glossary-steal"></a>
+<strong>Steal:</strong> Add the specified piece to your play area from a Rival's play area. *(This is distinct from take because some rules prevent stealing.)*
+
+<a id="glossary-supply"></a>
+<strong>Supply:</strong> The general supply holds resources and other shared pieces, and players' supplies hold their Loyal ships and agents.
+
+<a id="glossary-swap"></a>
+<strong>Swap:</strong> Give the prompted piece and take the prompted piece at the same time.
+
+<a id="glossary-take"></a>
+<strong>Take:</strong> Add the specified piece to your play area.
+
+<a id="glossary-turn"></a>
+<strong>Turn:</strong> The time in which a player plays an action card and may take actions.
+
+<a id="glossary-turn-order"></a>
+<strong>Turn Order:</strong> Starting with the player with initiative and going clockwise.
+
 ## Credits {: #credits}
 
 **Game Design:** Cole Wehrle
@@ -781,3 +879,105 @@ If you're prompted to draw from the action discard pile, draw from the facedown 
 **Contractors & Summer Interns:** Cory DeVore (3d modeler), Jeff Fraser (usability read moderator), George Georgeadis (Kickstarter video producer), Emily Mattingley (graphic design assistant), Alita Robertson (production assistant), Amanda Valentine (copy-editor); Q. Bryant and Dylan Kistler (production interns); Sam Buan, Michael Cauthorn, and Finn Powers-Tiffin (playtesting interns)
 
 **Playtesting & Usability Reading:** Nathan Adams, Jo Attwood, Celena Baker, Dominik Batók, Todd Berman, Q. Bryant, Sam Buan, Cat Bult, Christina Berkley, Luke Bridwell, Ran C, Brenda Carrasco, Michael Cauthorn, Lili Chin, Jacob Church, Joshua Clark Orkin, Benjamin Cochrane, Justin Dowd and the Brass Cat crew, Erin, Zane Fisher, Andrew Grimes, Tonke Groot, Lily Gould, Daniel Hallinan, Haze, Sophia Hercher, April Higgins, Kevin Hulse, John Keller, Dylan Kistler, Ben Lang, Patrick Lefebvre, JC Lumsargis, Jai Manacsa, jermcurry, Jules Marciano, Vixen Martin, Arthur McCool, Kirby Morris, Caitlin Moran, Joe Moran, Paul Mussoni, Elias Nichols, Hung Nguyen, Nathaniel Olin, Mark Overstreet, Finn Powers-Tiffin, Daniel Preston, Kristopher Reynolds, Alita Robertson, Arden Rogow-Bales, Malachi Ray Rempen, Evan Rowland, Guerric Samples, Marius Schneider, Jaden Servant, S.P. Shaman, Sarah Shirley (Sarai), Mar Hepto, Matilda Simonsson, Charles Simon, Nicole Smith, Matt Snow, Kiaran Smalldon, Frack the Snail, Francis Snyder, Rho Sternjäger, turmoilbyrd, uropb, Samuel Vriezen, Steve Owen, Jackson Wray, Drew Wehrle, Chris Weidner, and many more!
+
+## Index {: #index}
+
+- [Actions](#playing-a-chapter) - [Playing a Chapter](#playing-a-chapter), [Standard Actions](#standard-actions)
+
+- [Battle](#battle) - [Standard Actions](#standard-actions)
+
+- [Build](#build) - [Standard Actions](#standard-actions)
+
+- [Influence](#influence) - [Standard Actions](#standard-actions)
+
+- [Move](#move) - [Standard Actions](#standard-actions)
+
+- [Repair](#repair) - [Standard Actions](#standard-actions)
+
+- [Secure](#secure) - [Standard Actions](#standard-actions)
+
+- [Tax](#tax) - [Standard Actions](#standard-actions)
+
+- Action cards - [Playing a Chapter](#playing-a-chapter)
+
+- [Adjacency](#glossary-adjacent) - [Core Concepts](#core-concepts), [The Map](#the-map)
+
+- Ambitions - [Ending a Chapter](#ending-a-chapter)
+
+- Declaring - [Playing a Chapter](#playing-a-chapter)
+
+- Battle dice - [Standard Actions](#standard-actions)
+
+- [Buildings](#glossary-building) - [Standard Actions](#standard-actions)
+
+- Captives - [Core Concepts](#core-concepts), [Standard Actions](#standard-actions)
+
+- [Chapters](#glossary-chapter) - [Core Concepts](#core-concepts), [Ending a Chapter](#ending-a-chapter)
+
+- [Control](#glossary-control) - [Core Concepts](#core-concepts)
+
+- Court - [Core Concepts](#core-concepts), [Standard Actions](#standard-actions)
+
+- [Damage](#glossary-damaged) and [Destroy](#glossary-destroy) - [Core Concepts](#core-concepts), [Standard Actions](#standard-actions)
+
+- Ending a chapter - [Ending a Chapter](#ending-a-chapter)
+
+- Fine print - [Fine Print](#fine-print)
+
+- [Fresh pieces](#glossary-fresh) - [Core Concepts](#core-concepts)
+
+- Guild cards - [Guild Cards](#guild-cards)
+
+- Initiative - [Playing a Chapter](#playing-a-chapter)
+
+- Passing - [Playing a Chapter](#playing-a-chapter)
+
+- Seizing - [Playing a Chapter](#playing-a-chapter)
+
+- Leader and lore cards - [Leaders and Lore](#leaders-and-lore)
+
+- Map - [Core Concepts](#core-concepts), [The Map](#the-map)
+
+- Negotiations - [Fine Print](#fine-print), [Negotiations](#negotiations)
+
+- Outrage - [Standard Actions](#standard-actions), [Destroying Cities](#destroying-cities)
+
+- Passing initiative - [Playing a Chapter](#playing-a-chapter), [Passing Initiative](#passing-initiative)
+
+- [Pieces](#glossary-piece)
+  - [Buildings](#glossary-building) - [Standard Actions](#standard-actions)
+  - [Damaging](#glossary-damaged) and [destroying](#glossary-destroy) - [Core Concepts](#core-concepts), [Standard Actions](#standard-actions)
+  - Limits - [Fine Print](#fine-print), Pieces & Piece Limits
+
+- Planets - [Core Concepts](#core-concepts), [The Map](#the-map)
+
+- Power - [Ending a Chapter](#ending-a-chapter)
+
+- Prelude actions - [Other Actions](#other-actions), [Prelude Actions](#prelude-actions)
+
+- Provoking Outrage - [Standard Actions](#standard-actions), [Destroying Cities](#destroying-cities)
+
+- Raid cost - [Standard Actions](#standard-actions), [Resources](#resources)
+
+- Raiding - [Standard Actions](#standard-actions), [Raiding](#raiding)
+
+- Resources - [Resources](#resources)
+
+- [Seizing the initiative](#glossary-seize-the-initiative) - [Playing a Chapter](#playing-a-chapter), [Seizing the Initiative](#seizing-the-initiative)
+
+- Starports
+  - Building ships with - [Standard Actions](#standard-actions)
+  - Catapult moves from - [Standard Actions](#standard-actions)
+
+- Systems - [Core Concepts](#core-concepts), [The Map](#the-map)
+  - [Adjacency](#glossary-adjacent) - [Core Concepts](#core-concepts)
+  - Moving among - [Standard Actions](#standard-actions)
+
+- Tiebreakers - [Fine Print](#fine-print), Tiebreakers & Choice Order
+
+- Trophies - [Core Concepts](#core-concepts)
+  - And Warlord scoring - [Ending a Chapter](#ending-a-chapter)
+  - [Taking](#glossary-take) - [Core Concepts](#core-concepts), [Standard Actions](#standard-actions)
+  - [Returning](#glossary-replace-return) - [Ending a Chapter](#ending-a-chapter)
+
+- Two-player games - [Setup](#setup), [Ending a Chapter](#ending-a-chapter)

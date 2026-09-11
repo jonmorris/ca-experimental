@@ -1,8 +1,8 @@
 ---
-title: Official FAQ
-navLabel: FAQ
+title: 'Official FAQ'
+navLabel: 'FAQ'
 navOrder: 25
-subhead: Answers to the questions and edge cases that come up most often in play, including Embers of a Forsaken Star.
+subhead: 'Answers to the questions and edge cases that come up most often in play, including Embers of a Forsaken Star.'
 ---
 
 # Xia: Legends of a Drift System Official FAQ
@@ -123,7 +123,7 @@ Scenario: If you are on a planet and on the edge, can you scan through the shiel
 
 No. When on a planet you are not adjacent to anything outside of the planetary shield.
 
-## Xia: Embers of a Forsaken Star (Updated 05/16/17) {: #xia-embers-of-a-forsaken-star}
+## Xia: Embers of a Forsaken Star (Updated 05/16/17) {: #xia-embers-of-a-forsaken-star-updated-05-16-17}
 
 ## General {: #general}
 
@@ -261,7 +261,7 @@ If player has Tier 3 ship, Scoundrel has no target and does not move. If player 
 
 If player is outlaw, this Scoundrel does nothing. "Usual suspect" refers to base-game Scoundrel, which ignores outlaws.
 
-## Events {: #events-2}
+## Events {: #events}
 
 ### Socialist Merchants
 
