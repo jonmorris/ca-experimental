@@ -29,9 +29,28 @@ function documentKey(bookmark) {
   return `${bookmark.expansionSlug || ""}::${bookmark.ruleSlug}`;
 }
 
+/**
+ * A stored label, or the slug made presentable.
+ *
+ * A bookmark carries the title of the document it was saved from, read off the
+ * page at the time. For a while that lookup used a class the redesign had
+ * renamed, so it missed and fell back to the raw slug — and those records still
+ * say "rulebook" and "aid-booklet" in every browser that has them, because the
+ * cause was fixed but what had already been written was not.
+ *
+ * A stored title identical to its own slug is that fallback rather than a real
+ * title, so it is derived again here. Healing on display rather than by
+ * migrating the store keeps this to one place and leaves the reader's data
+ * alone; a record written correctly is untouched either way.
+ */
+function labelFor(title, slug) {
+  if (!title || title === slug) return titleFromSlug(slug);
+  return title;
+}
+
 function documentTitle(bookmark) {
-  const rule = bookmark.ruleTitle || titleFromSlug(bookmark.ruleSlug);
-  const expansion = bookmark.expansionTitle || titleFromSlug(bookmark.expansionSlug);
+  const rule = labelFor(bookmark.ruleTitle, bookmark.ruleSlug);
+  const expansion = labelFor(bookmark.expansionTitle, bookmark.expansionSlug);
   return expansion ? `${expansion} · ${rule}` : rule;
 }
 
@@ -77,7 +96,7 @@ export function groupBookmarks(bookmarks, { byGame = false } = {}) {
     if (!games.has(bookmark.gameSlug)) {
       games.set(bookmark.gameSlug, {
         slug: bookmark.gameSlug,
-        title: bookmark.gameTitle || titleFromSlug(bookmark.gameSlug),
+        title: labelFor(bookmark.gameTitle, bookmark.gameSlug),
         // Built here rather than stored, so it needs the deploy prefix that
         // the markup gets from `HtmlBasePlugin`.
         url: withBasePath(`/games/${bookmark.gameSlug}/`),
