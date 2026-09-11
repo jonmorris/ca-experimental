@@ -18,7 +18,10 @@
     "verify:bgg:strict": "node scripts/verify-bgg-ids.mjs --strict",
     "verify": "npm run verify:links && npm run verify:bgg",
     "verify:links": "node scripts/verify-links.mjs",
-    "hash:assets": "node scripts/hash-assets.mjs"
+    "hash:assets": "node scripts/hash-assets.mjs",
+    "sync:content": "node scripts/sync-content.mjs",
+    "sync:links": "node scripts/strip-dead-links.mjs",
+    "sync": "npm run sync:content && npm run build && npm run sync:links && npm run build"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",

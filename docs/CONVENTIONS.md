@@ -118,6 +118,12 @@ never restated per file. There is one place where a URL is decided.
 **URLs are stable forever.** `npm run verify:links` enforces the contract and
 checks that every internal link and fragment resolves.
 
+**Never hand-edit synced content.** `src/games/` is written by
+`npm run sync` from the upstream rules repository, which overwrites. A
+correction belongs in `scripts/sync-content.mjs` as an override, where it is
+re-applied on every sync and carries a note saying what it is for — or upstream,
+after which the override can go.
+
 **Images are never referenced from the output directory.** Box art lives in
 `src/games/{slug}/images/` and is not passed through to `_site`; the Eleventy
 Image transform reads the source and writes only the sizes a page actually

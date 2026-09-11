@@ -29,10 +29,34 @@ Node 20 or newer.
 | `npm run hash:assets` | Renames stylesheets, scripts and fonts after their contents, and rewrites every reference. |
 | `npm run build:search` | Builds the Pagefind index over `_site/`. |
 | `npm run build` | All three, in order. This is the deploy command. |
+| `npm run sync` | Pulls content from the cardboard-appendix repo and neutralises its dead links. Needs `UPSTREAM`. |
+| `npm run sync:content` | The translation step alone. |
+| `npm run sync:links` | The dead-link step alone; needs a build first. |
 | `npm run verify:links` | Checks the URL contract and every internal link and anchor in `_site/`. Needs a build first. |
 | `npm run verify:bgg` | Validates every `bgg_id` against Geekdo. |
 | `npm run verify:bgg:strict` | The same, but a network error is a failure. What CI runs. |
 | `npm run verify` | Links and BGG together. |
+
+## Syncing content
+
+Game content is written in the [cardboard-appendix](https://github.com/jonmorris/cardboard-appendix)
+repository; this one builds the site from it. To bring changes across:
+
+```sh
+UPSTREAM=../cardboard-appendix npm run sync
+```
+
+That translates upstream's format into this one, restores its content over
+anything previously synced, and then renders dead links as plain text against
+the built site. Review the diff before committing — it is a content change, not
+a mechanical one.
+
+**Corrections live in `scripts/sync-content.mjs`, not in the synced files.** A
+sync overwrites, so anything fixed by hand in `src/games/` is lost the next time
+it runs. Descriptions rewritten here, Arkwright's cover, expansion titles an
+ampersand cannot survive in a slug, the glossaries and landing subheads written
+on this side — each is recorded in that script as an override with a note on
+why. Fix one upstream and its entry can go.
 
 **Box art is resized at build time.** `@11ty/eleventy-img` rewrites every
 `<img>` in the output into a `<picture>` with WebP and JPEG at up to three
