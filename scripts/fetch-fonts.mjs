@@ -46,13 +46,6 @@ const FAMILIES = [
     note: "Editorial body text — designed for long-form reading on screen.",
   },
   {
-    name: "Fraunces",
-    dir: "fraunces",
-    query: "Fraunces:opsz,wght@9..144,500..800",
-    licence: "ofl/fraunces/OFL.txt",
-    note: "Editorial display — page titles and section headings only.",
-  },
-  {
     name: "Public Sans",
     dir: "public-sans",
     query: "Public+Sans:ital,wght@0,400..700;1,400",

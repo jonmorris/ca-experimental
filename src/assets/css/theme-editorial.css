@@ -1,10 +1,10 @@
 /*
  * Direction: Refined editorial.
  *
- * A rulebook that has been properly typeset. Warm paper, a text serif built
- * for screen reading, and a display face with enough character that a page
- * title is memorable. Colour is rationed: it marks cross-references and
- * bookmarks and does nothing else.
+ * A rulebook that has been properly typeset. Warm paper and a text serif
+ * built for screen reading, with headings set in the same face a size or two
+ * up and a good deal heavier. Colour is rationed: it marks cross-references
+ * and bookmarks and does nothing else.
  *
  * Everything here is a token override — no component knows which direction is
  * running.
@@ -14,14 +14,21 @@
   --font-serif: "Literata", var(--fallback-serif);
   --font-sans: "Public Sans", var(--fallback-sans);
   --font-mono: var(--fallback-mono);
-  --font-display: "Fraunces", "Literata", var(--fallback-serif);
+  /*
+   * Headings are Literata too, not a separate display face. This was Fraunces,
+   * whose sharp high-contrast serifs read as fancier than a rulebook wants —
+   * the letterforms were doing more talking than the words. One family at two
+   * weights keeps a page title clearly a title without changing voice, and
+   * drops a whole webfont from the download.
+   */
+  --font-display: var(--font-serif);
   --font-ui: var(--font-sans);
 
   /* The default body face; a reader preference overrides it. */
   --font-body-default: var(--font-serif);
 
   --body-weight: 400;
-  --display-weight: 600;
+  --display-weight: 700;
   --display-tracking: -0.014em;
   --ui-weight: 600;
 
@@ -52,20 +59,6 @@
 
 :root[data-design="editorial"][data-density="spacious"] {
   --scale: 1.06;
-}
-
-/*
- * Fraunces carries optical-size and weight axes. Set them explicitly so a
- * heading is drawn at the right optical size rather than a scaled-up text cut.
- */
-[data-design="editorial"] .page-title,
-[data-design="editorial"] .section-heading h2,
-[data-design="editorial"] .display {
-  font-variation-settings: "opsz" 96, "SOFT" 0, "WONK" 0;
-}
-
-[data-design="editorial"] .page-title {
-  font-variation-settings: "opsz" 144, "SOFT" 8, "WONK" 1;
 }
 
 /* An old-style figure set suits running rules text; the UI wants lining. */
