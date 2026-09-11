@@ -1128,13 +1128,34 @@ dialog::backdrop {
   gap: var(--space-1);
 }
 
+/*
+ * Built to match the bookmark toggle beside it: same padding, same icon size,
+ * same label that drops away on a narrow screen. The two are a pair of actions
+ * on the same heading and should not read as two different kinds of thing.
+ */
 .heading-permalink {
-  padding: 0 var(--space-1);
-  color: var(--line-strong);
-  font-family: var(--font-ui);
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--ink-faint);
   text-decoration: none;
   opacity: 0;
+}
+
+.heading-permalink__icon {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+
+.heading-permalink__label {
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+  font-weight: var(--ui-weight);
 }
 
 .section-heading:hover .heading-permalink,
@@ -1146,6 +1167,13 @@ dialog::backdrop {
   color: var(--accent);
 }
 
+/* Held open while the confirmation shows, so it cannot fade mid-message. */
+.heading-permalink[data-copied] {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* No hover to reveal it with, so it stays out. */
 @media (hover: none) {
   .heading-permalink {
     opacity: 1;
@@ -1191,8 +1219,18 @@ dialog::backdrop {
 }
 
 @media (max-width: 46rem) {
-  .bookmark-toggle__label {
+  .bookmark-toggle__label,
+  .heading-permalink__label {
     display: none;
+  }
+
+  /*
+   * Except to confirm. A phone has no hover and no cursor change, so the word
+   * is the only unambiguous signal that the tap did anything — and this is the
+   * screen where a silent action is most easily read as a broken one.
+   */
+  .heading-permalink[data-copied] .heading-permalink__label {
+    display: inline;
   }
 }
 
