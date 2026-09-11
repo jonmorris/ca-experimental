@@ -48,12 +48,9 @@
 }
 
 /*
- * The CA monogram, drawn in the two colours it was authored in and left alone
- * in both themes. A logo is a fixed thing; it does not restyle itself with the
- * page around it.
- *
- * Sized by height with the width left to follow, the mark being a good deal
- * wider than it is tall — a square slot would letterbox it.
+ * The mark: a rulebook seen face-on, its tabbed spine to the right, on a plate
+ * of its own. Drawn in its own colours and left alone in both themes — it
+ * carries its own ground, so it needs nothing from the page behind it.
  */
 .site-logo__mark {
   display: grid;
@@ -62,8 +59,8 @@
 
 .site-logo__svg {
   display: block;
-  height: 1.4rem;
-  width: auto;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .site-header__divider {
