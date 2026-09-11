@@ -1,4 +1,5 @@
 import { bookmarkStore } from "./bookmark-store.js";
+import { groupBookmarks } from "./bookmark-groups.js";
 import { createOverlay } from "./overlay.js";
 
 /**
@@ -6,22 +7,34 @@ import { createOverlay } from "./overlay.js";
  *
  * The landing page keeps the fuller panel; this is the at-the-table version —
  * a saved rule is one tap away wherever you are, rather than a trip back to
- * the game's home page. Both read the same store.
+ * the game's home page. Both read the same store and use the same grouping.
+ *
+ * Scoped to the current game it groups by document. Across all games it adds a
+ * game heading above those, because "Rulebook" on its own stops meaning
+ * anything once three games are listed.
  */
 
-function groupByRule(bookmarks) {
-  const groups = new Map();
-  for (const bookmark of bookmarks) {
-    if (!groups.has(bookmark.ruleSlug)) {
-      groups.set(bookmark.ruleSlug, {
-        title: bookmark.ruleTitle || bookmark.ruleSlug,
-        url: bookmark.ruleUrl,
-        items: [],
-      });
-    }
-    groups.get(bookmark.ruleSlug).items.push(bookmark);
-  }
-  return [...groups.values()].sort((a, b) => a.title.localeCompare(b.title));
+function documentSection(group) {
+  const section = document.createElement("section");
+  section.className = "drawer-group";
+
+  const heading = document.createElement("h3");
+  heading.className = "drawer-group__title";
+  const headingLink = document.createElement("a");
+  headingLink.href = group.url;
+  headingLink.textContent = group.title;
+  heading.append(headingLink);
+
+  const count = document.createElement("span");
+  count.className = "drawer-group__count";
+  count.textContent = String(group.items.length);
+  heading.append(count);
+
+  const list = document.createElement("ul");
+  list.className = "drawer-group__list";
+
+  section.append(heading, list);
+  return { section, list };
 }
 
 export function initBookmarksDrawer() {
@@ -39,6 +52,29 @@ export function initBookmarksDrawer() {
 
   const gameSlug = document.body.dataset.game || null;
   let showAll = !gameSlug;
+
+  function itemElement(bookmark) {
+    const item = document.createElement("li");
+    item.className = "drawer-item";
+
+    const link = document.createElement("a");
+    link.className = "drawer-item__link";
+    link.href = bookmark.url;
+    link.textContent = bookmark.title;
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "drawer-item__remove";
+    remove.innerHTML = '<span aria-hidden="true">×</span>';
+    remove.setAttribute("aria-label", `Remove bookmark: ${bookmark.title}`);
+    remove.addEventListener("click", () => {
+      bookmarkStore.remove(bookmark);
+      render();
+    });
+
+    item.append(link, remove);
+    return item;
+  }
 
   function render() {
     const bookmarks = bookmarkStore.list(showAll ? {} : { gameSlug });
@@ -66,52 +102,48 @@ export function initBookmarksDrawer() {
     }
     if (empty) empty.hidden = true;
 
-    for (const group of groupByRule(bookmarks)) {
-      const section = document.createElement("section");
-      section.className = "drawer-group";
+    if (!showAll) {
+      for (const group of groupBookmarks(bookmarks)) {
+        const { section, list } = documentSection(group);
+        for (const bookmark of group.items) list.append(itemElement(bookmark));
+        body.append(section);
+      }
+      return;
+    }
 
-      const heading = document.createElement("h3");
-      heading.className = "drawer-group__title";
-      const headingLink = document.createElement("a");
-      headingLink.href = group.url;
-      headingLink.textContent = group.title;
-      heading.append(headingLink);
+    for (const game of groupBookmarks(bookmarks, { byGame: true })) {
+      const gameSection = document.createElement("section");
+      gameSection.className = "drawer-game";
 
-      const list = document.createElement("ul");
-      list.className = "drawer-group__list";
+      const gameHeading = document.createElement("h3");
+      gameHeading.className = "drawer-game__title";
+      const gameLink = document.createElement("a");
+      gameLink.href = game.url;
+      gameLink.textContent = game.title;
+      gameHeading.append(gameLink);
+      gameSection.append(gameHeading);
 
-      // Reading order within a section, not the order they were saved.
-      for (const bookmark of [...group.items].sort((a, b) => a.url.localeCompare(b.url))) {
-        const item = document.createElement("li");
-        item.className = "drawer-item";
+      for (const group of game.groups) {
+        const { section, list } = documentSection(group);
+        // Nested one level, so the game heading reads as the parent.
+        section.classList.add("drawer-group--nested");
+        // Demote the document heading: it now sits under the game's h3.
+        const h4 = document.createElement("h4");
+        h4.className = "drawer-group__title";
+        h4.append(...section.querySelector(".drawer-group__title").childNodes);
+        section.querySelector(".drawer-group__title").replaceWith(h4);
 
-        const link = document.createElement("a");
-        link.className = "drawer-item__link";
-        link.href = bookmark.url;
-        link.textContent = bookmark.title;
-
-        const remove = document.createElement("button");
-        remove.type = "button";
-        remove.className = "drawer-item__remove";
-        remove.innerHTML = '<span aria-hidden="true">×</span>';
-        remove.setAttribute("aria-label", `Remove bookmark: ${bookmark.title}`);
-        remove.addEventListener("click", () => {
-          bookmarkStore.remove(bookmark);
-          render();
-        });
-
-        item.append(link, remove);
-        list.append(item);
+        for (const bookmark of group.items) list.append(itemElement(bookmark));
+        gameSection.append(section);
       }
 
-      section.append(heading, list);
-      body.append(section);
+      body.append(gameSection);
     }
   }
 
   scopeToggle?.addEventListener("click", () => {
     showAll = !showAll;
-    scopeToggle.textContent = showAll ? "Show this game only" : "Show all games";
+    scopeToggle.textContent = showAll ? "This game only" : "Show all games";
     scopeToggle.setAttribute("aria-pressed", String(showAll));
     render();
   });

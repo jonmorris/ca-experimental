@@ -1,27 +1,13 @@
 import { bookmarkStore } from "./bookmark-store.js";
+import { groupBookmarks } from "./bookmark-groups.js";
 
 /**
  * The "Your bookmarks" panel on a game's landing page.
  *
- * Bookmarks are grouped by the content type they live in, each entry linking
- * straight to its H2 anchor.
+ * Always scoped to this game, so it groups by document only — rulebook,
+ * summary, and each expansion's documents separately. Grouping and ordering
+ * come from `bookmark-groups.js`, shared with the header drawer.
  */
-
-function groupByRule(bookmarks) {
-  const groups = new Map();
-  for (const bookmark of bookmarks) {
-    if (!groups.has(bookmark.ruleSlug)) {
-      groups.set(bookmark.ruleSlug, {
-        ruleSlug: bookmark.ruleSlug,
-        ruleTitle: bookmark.ruleTitle || bookmark.ruleSlug,
-        ruleUrl: bookmark.ruleUrl,
-        items: [],
-      });
-    }
-    groups.get(bookmark.ruleSlug).items.push(bookmark);
-  }
-  return [...groups.values()].sort((a, b) => a.ruleTitle.localeCompare(b.ruleTitle));
-}
 
 export function initBookmarksPanel() {
   const panel = document.querySelector("[data-bookmarks-panel]");
@@ -50,19 +36,18 @@ export function initBookmarksPanel() {
     emptyState.hidden = true;
     container.hidden = false;
 
-    for (const group of groupByRule(bookmarks)) {
+    for (const group of groupBookmarks(bookmarks)) {
       const groupNode = groupTemplate.content.cloneNode(true);
       const groupLink = groupNode.querySelector("[data-group-link]");
-      groupLink.textContent = group.ruleTitle;
-      groupLink.href = group.ruleUrl;
+      groupLink.textContent = group.title;
+      groupLink.href = group.url;
+
+      const groupCount = groupNode.querySelector("[data-group-count]");
+      if (groupCount) groupCount.textContent = String(group.items.length);
 
       const list = groupNode.querySelector("[data-group-list]");
 
-      // Within a section, present bookmarks in reading order rather than the
-      // order they happened to be saved in.
-      const ordered = [...group.items].sort((a, b) => a.url.localeCompare(b.url));
-
-      for (const bookmark of ordered) {
+      for (const bookmark of group.items) {
         const itemNode = itemTemplate.content.cloneNode(true);
         const link = itemNode.querySelector("[data-item-link]");
         link.textContent = bookmark.title;

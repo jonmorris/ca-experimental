@@ -76,6 +76,10 @@
       data-game="{{ game.slug }}"
       data-game-title="{{ game.title }}"
     {% endif %}
+    {% if expansion %}
+      data-expansion="{{ expansion.slug }}"
+      data-expansion-title="{{ expansion.title }}"
+    {% endif %}
     data-content-type="{{ contentTypeSlug or 'site' }}"
     data-base-path="{{ basePath }}"
   >

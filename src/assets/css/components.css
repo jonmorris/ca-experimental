@@ -517,7 +517,47 @@ dialog::backdrop {
   font-size: var(--text-base);
 }
 
+/*
+ * Two heading levels. Scoped to one game only the document heading shows;
+ * across all games a game heading sits above it, so "Rulebook" is always
+ * qualified by which game's rulebook it is.
+ */
+.drawer-game + .drawer-game {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
+.drawer-game__title {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+}
+
+.drawer-game__title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.drawer-game__title a:hover {
+  text-decoration: underline;
+}
+
+.drawer-group + .drawer-group {
+  margin-top: var(--space-4);
+}
+
+.drawer-group--nested {
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--line);
+}
+
 .drawer-group__title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
   margin-bottom: var(--space-2);
   font-family: var(--font-ui);
   font-size: var(--text-2xs);
@@ -533,6 +573,16 @@ dialog::backdrop {
 
 .drawer-group__title a:hover {
   color: var(--ink);
+}
+
+.drawer-group__count,
+.bookmarks-group__count {
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .drawer-group__list {
@@ -1112,6 +1162,9 @@ dialog::backdrop {
 }
 
 .bookmarks-group__title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
   margin-bottom: var(--space-2);
   font-family: var(--font-ui);
   font-size: var(--text-2xs);

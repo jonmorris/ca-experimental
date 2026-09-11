@@ -29,9 +29,20 @@
 export const STORAGE_KEY = "cardboard-appendix:bookmarks";
 export const SCHEMA_VERSION = 1;
 
-/** Identity of a bookmark: one anchor, in one content type, in one game. */
+/**
+ * Identity of a bookmark: one anchor, in one document, in one game.
+ *
+ * The expansion is part of it. A game's base rulebook and an expansion's
+ * rulebook share a content-type slug and frequently share anchors too — Arcs
+ * and The Blighted Reach both open with `#introduction` — so without this the
+ * two are the same bookmark and toggling one toggles the other.
+ *
+ * Absent expansions collapse to an empty segment rather than "undefined", so
+ * records saved before this existed keep the key they already had.
+ */
 function keyOf(bookmark) {
-  return `${bookmark.gameSlug}::${bookmark.ruleSlug}::${bookmark.anchor}`;
+  const expansion = bookmark.expansionSlug || "";
+  return `${bookmark.gameSlug}::${expansion}::${bookmark.ruleSlug}::${bookmark.anchor}`;
 }
 
 function isValid(bookmark) {

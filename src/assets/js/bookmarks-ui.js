@@ -13,9 +13,12 @@ function pageContext() {
   const ruleSlug = body.dataset.contentType;
   if (!gameSlug || !ruleSlug) return null;
 
-  const heading = document.querySelector(".page-header__title");
+  const heading = document.querySelector(".page-title");
   return {
     gameSlug,
+    gameTitle: body.dataset.gameTitle || gameSlug,
+    expansionSlug: body.dataset.expansion || "",
+    expansionTitle: body.dataset.expansionTitle || "",
     ruleSlug,
     ruleTitle: heading?.textContent.trim() || ruleSlug,
     ruleUrl: window.location.pathname,
