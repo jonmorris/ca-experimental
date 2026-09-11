@@ -1,0 +1,35 @@
+{
+  "title": "Root",
+  "year_published": 2018,
+  "designer": "Cole Wehrle",
+  "publisher": "Leder Games",
+  "players": "2–4",
+  "time": "60–90 minutes",
+  "box_art": "/games/root/images/root.jpg",
+  "bgg_id": 237182,
+  "description": "Root is a game of adventure and war in which 2 to 4 (1 to 6 with the 'Riverfolk' expansion, 2-6 with the 'Underworld', or 'Marauder' expansions) players battle for control of a vast wilderness.",
+  "tags": [
+    {
+      "slug": "asymmetric-factions",
+      "label": "Asymmetric Factions"
+    },
+    {
+      "slug": "area-control",
+      "label": "Area Control"
+    },
+    {
+      "slug": "negotiation",
+      "label": "Negotiation"
+    },
+    {
+      "slug": "woodland-theme",
+      "label": "Woodland Theme"
+    }
+  ],
+  "external_links": [
+    {
+      "label": "Leder Card Library",
+      "url": "https://cards.ledergames.com/"
+    }
+  ]
+}

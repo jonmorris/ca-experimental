@@ -1,0 +1,34 @@
+{
+  "title": "Food Chain Magnate",
+  "year_published": 2015,
+  "designer": "Jeroen Doumen and Joris Wiersinga",
+  "publisher": "Splotter Spellen",
+  "players": "2\u20135",
+  "time": "120\u2013240 minutes",
+  "box_art": "/games/food-chain-magnate/images/food-chain-magnate.png",
+  "bgg_id": 175914,
+  "description": "A cutthroat economic game about building a fast food empire, hiring and training staff, and competing fiercely for customers in a suburban neighborhood.",
+  "tags": [
+    {
+      "slug": "economic",
+      "label": "Economic"
+    },
+    {
+      "slug": "business-simulation",
+      "label": "Business Simulation"
+    },
+    {
+      "slug": "route-building",
+      "label": "Route Building"
+    },
+    {
+      "slug": "high-interaction",
+      "label": "High Interaction"
+    }
+  ],
+  "expansions": {
+    "the-ketchup-mechanism-and-other-ideas": {
+      "title": "The Ketchup Mechanism & Other Ideas"
+    }
+  }
+}

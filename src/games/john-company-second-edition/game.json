@@ -1,0 +1,17 @@
+{
+  "title": "John Company: Second Edition",
+  "year_published": 2022,
+  "designer": "Cole Wehrle",
+  "publisher": "Wehrlegig Games",
+  "players": "1\u20136",
+  "time": "90\u2013240 minutes",
+  "box_art": "/games/john-company-second-edition/images/john-company-second-edition.jpg",
+  "bgg_id": 332686,
+  "description": "Ambitious families using the British East India Company for personal gain, negotiating over who gets which post and who carries the blame.",
+  "editions": [
+    {
+      "label": "John Company (First Edition)",
+      "path": "/games/john-company/"
+    }
+  ]
+}

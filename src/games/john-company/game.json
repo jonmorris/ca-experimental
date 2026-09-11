@@ -1,0 +1,35 @@
+{
+  "title": "John Company",
+  "year_published": 2017,
+  "designer": "Cole Wehrle",
+  "publisher": "Wehrlegig Games",
+  "players": "1–6",
+  "time": "120–240 minutes",
+  "box_art": "/games/john-company/images/john-company.jpg",
+  "bgg_id": 211716,
+  "description": "A negotiation-driven game simulating the rise and fall of the British East India Company, where players place family members in the company and navigate politics, commerce, and military campaigns.",
+  "tags": [
+    {
+      "slug": "negotiation",
+      "label": "Negotiation"
+    },
+    {
+      "slug": "economic",
+      "label": "Economic"
+    },
+    {
+      "slug": "historical",
+      "label": "Historical"
+    },
+    {
+      "slug": "semi-cooperative",
+      "label": "Semi-Cooperative"
+    }
+  ],
+  "editions": [
+    {
+      "label": "John Company: Second Edition",
+      "path": "/games/john-company-second-edition/"
+    }
+  ]
+}

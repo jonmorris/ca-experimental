@@ -53,6 +53,8 @@ layout: layouts/base.njk
         {% endif %}
       </dl>
 
+      {# A game can be on the shelf before anything has been written for it. #}
+      {% if game.contentTypes.length %}
       <section class="landing__section" aria-labelledby="contents-title">
         <h2 class="section-title" id="contents-title">Contents</h2>
         <ul class="card-grid">
@@ -67,6 +69,7 @@ layout: layouts/base.njk
           {% endfor %}
         </ul>
       </section>
+      {% endif %}
 
       {% for expansion in game.expansions %}
         <section class="landing__section" aria-labelledby="exp-title-{{ expansion.slug }}">
@@ -85,7 +88,10 @@ layout: layouts/base.njk
         </section>
       {% endfor %}
 
-      {% include "partials/bookmarks-panel.njk" %}
+      {# Nothing to save yet if the game has no content to save from. #}
+      {% if game.allContentTypes.length %}
+        {% include "partials/bookmarks-panel.njk" %}
+      {% endif %}
 
       {% if content | stripHtml %}
         <div class="prose">{{ content | safe }}</div>
