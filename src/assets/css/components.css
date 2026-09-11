@@ -102,10 +102,19 @@
   background: var(--accent);
 }
 
+/*
+ * Centred in its column, not flush left. Left flush put the digit 9px from
+ * the rail and 25px from the title it belongs to, so it read as a marker
+ * stuck to the rail rather than the number of the section beside it. Centring
+ * splits the column's slack instead — about 17px either side of a single
+ * digit, 14px either side of a double — without moving the titles, so the
+ * sidebar's alignment is untouched.
+ */
 .jump-link__index {
   color: var(--ink-faint);
   font-size: var(--text-2xs);
   font-variant-numeric: tabular-nums;
+  text-align: center;
 }
 
 .jump-link.is-current .jump-link__index {
