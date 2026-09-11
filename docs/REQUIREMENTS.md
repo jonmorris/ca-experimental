@@ -217,8 +217,10 @@ Present on every in-game page. `Home > {Game Name} > {Section}`.
 
 ### Scope
 
-- H2-level anchors inside rulebook content only
-- Always-visible bookmark toggle (outline / filled state) next to every H2 in a rulebook page — both desktop and mobile
+- H2-level anchors on any bookmarkable content type — the default, set per type in `lib/content-types.js`
+- Glossary terms, which are the bookmarkable unit on a glossary: its headings are the generated letters A, B, C, and saving "A" is no use to anyone
+- Always-visible bookmark toggle (outline / filled state) — both desktop and mobile. The label is dropped in a glossary's dense term list, where the icon carries it and the repeated word would not
+- The book index opts out: every entry is already a pointer to a rulebook section, so a bookmark there saves a signpost rather than the place it points at
 
 ### Storage
 
@@ -306,7 +308,7 @@ cross-game similarity.
 ## Amendments
 
 This document is the specification of record and has been amended as the
-product changed. Four departures from the original:
+product changed. Five departures from the original:
 
 1. **Navigation (§6) was reopened.** The original pinned an inline nav bar
    above 1024px, a hamburger below, and a bottom-pinned prev/next bar. The
@@ -326,7 +328,13 @@ product changed. Four departures from the original:
    Typeface lost its "Default" option, which named the same outcome as
    "Serif". Stored preferences needed no migration: a value that is no longer
    recognised already falls back to its default.
-4. **The not-found page was specified** (§4.2), and the URL contract now says
+4. **Bookmarks were widened past the rulebook** (§8). The original scoped them
+   to rulebook H2s, which assumed the rulebook is where you look things up. A
+   summary's phase order, an FAQ's one awkward ruling and a glossary term are
+   exactly as worth saving, and a reader who has bookmarked a rulebook section
+   does not expect the control to be missing one page over. Content types are
+   bookmarkable by default and opt out instead.
+5. **The not-found page was specified** (§4.2), and the URL contract now says
    explicitly what a path prefix does and does not rewrite (§4.1). Both came
    out of a real defect: every command-palette result on the deployed site led
    to a 404, because the palette's index travels to the browser as JSON and so

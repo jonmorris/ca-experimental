@@ -4,7 +4,7 @@ import { slugify } from "./lib/slugify.js";
 import { basePath, withBasePath } from "./lib/base-path.js";
 import { buildGames } from "./lib/registry.js";
 import { cleanHeadingText, explicitHeadingId } from "./lib/headings.js";
-import { enhanceHeadings } from "./lib/heading-tools.js";
+import { enhanceHeadings, bookmarkButton } from "./lib/heading-tools.js";
 
 const GAME_URL_RE = /^\/games\/([^/]+)\//;
 
@@ -116,6 +116,17 @@ export default function (eleventyConfig) {
    */
   eleventyConfig.addFilter("enhanceHeadings", (content, options = {}) =>
     enhanceHeadings(content, { ...options, basePath: prefix }),
+  );
+
+  /**
+   * `{% bookmarkToggle anchor, title, pageUrl %}`
+   *
+   * The same control `enhanceHeadings` attaches to a section heading, for the
+   * places a template builds its own anchors — glossary terms, which are not
+   * headings in the markdown and so never pass through that filter.
+   */
+  eleventyConfig.addShortcode("bookmarkToggle", (anchor, title, pageUrl) =>
+    bookmarkButton({ anchor, title, pageUrl, basePath: prefix }),
   );
 
   // ------------------------------------------------------------- shortcodes

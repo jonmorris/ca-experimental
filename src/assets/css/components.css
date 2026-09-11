@@ -1437,9 +1437,26 @@ dialog::backdrop {
 }
 
 .term-list__term {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
   font-family: var(--font-ui);
   font-size: var(--text-base);
   font-weight: 700;
+}
+
+/*
+ * Icon only here. A rulebook carries a dozen headings down a long page, where
+ * the word "Bookmark" reads as a label; a glossary carries thirty-odd terms in
+ * a dense column, where the same word repeated becomes texture and the term
+ * itself is what should be scannable.
+ */
+.term-list__term .bookmark-toggle__label {
+  display: none;
+}
+
+.term-list__term .bookmark-toggle {
+  padding: 0 var(--space-1);
 }
 
 .term-list__term a {

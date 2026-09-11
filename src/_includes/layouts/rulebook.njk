@@ -10,7 +10,7 @@ layout: layouts/game.njk
 #}
 <div class="prose">
   {{ content | enhanceHeadings({
-    bookmarkable: true,
+    bookmarkable: contentType.bookmarkable,
     pageUrl: page.url,
     anchorAliases: contentType.anchorAliases
   }) | safe }}

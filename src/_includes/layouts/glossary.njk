@@ -4,6 +4,11 @@ layout: layouts/game.njk
 {#
   The full glossary. Terms come from the file's `terms` frontmatter; each also
   gets its own deep-linkable page under `/glossary/{term-slug}/`.
+
+  A term is bookmarkable, and it is the term rather than the letter heading
+  above it that carries the control: the headings on this page are "A", "B",
+  "C", generated here rather than written in the markdown, and saving "A" is
+  no use to anyone. The unit a reader wants back is the definition.
 #}
 {% if content | stripHtml %}
   <div class="prose prose--intro">{{ content | safe }}</div>
@@ -28,6 +33,11 @@ layout: layouts/game.njk
           <div class="term-list__item" id="{{ term.slug }}">
             <dt class="term-list__term">
               <a href="{{ game.url }}glossary/{{ term.slug }}/">{{ term.term }}</a>
+              {% if contentType.bookmarkable %}
+                <span class="heading-tools" data-pagefind-ignore>
+                  {% bookmarkToggle term.slug, term.term, contentType.url %}
+                </span>
+              {% endif %}
             </dt>
             <dd class="term-list__definition">
               {% if term.short %}<p class="term-list__short">{{ term.short }}</p>{% endif %}
