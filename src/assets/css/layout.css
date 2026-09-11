@@ -70,10 +70,14 @@
   --logo-spine: light-dark(#9a5b12, #c98430);
 }
 
+/*
+ * Sized so the book itself draws at 16px. The artwork spans 20 of its 32
+ * units, so the box is 16 / (20 / 32) = 25.6px.
+ */
 .site-logo__svg {
   display: block;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.6rem;
+  width: 1.6rem;
 }
 
 .site-logo__page {
