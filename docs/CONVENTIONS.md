@@ -118,6 +118,25 @@ never restated per file. There is one place where a URL is decided.
 **URLs are stable forever.** `npm run verify:links` enforces the contract and
 checks that every internal link and fragment resolves.
 
+**A game's `site_visibility` decides how much of the site it reaches.**
+
+| Value | Effect |
+| --- | --- |
+| `listed` (default) | On the shelf and everywhere else |
+| `unlisted` | Pages build and URLs work; off any page that enumerates games |
+| `hidden` | Not built at all |
+
+Two different reasons to hold a game back, and collapsing them would serve
+neither: rules still being written should have no pages, while a finished game
+that is not ready to announce needs working URLs to share. An unlisted game
+stays in search and in the command palette — unlisted means unadvertised, not
+unreachable.
+
+`buildGames()` drops hidden games, so nothing downstream has to remember they
+exist; but pages come from files rather than from the registry, so
+`games.11tydata.js` also returns `permalink: false` for a game the registry has
+dropped. Anything that enumerates games reads the `listed` data, never `games`.
+
 **Never hand-edit synced content.** `src/games/` is written by
 `npm run sync` from the upstream rules repository, which overwrites. A
 correction belongs in `scripts/sync-content.mjs` as an override, where it is

@@ -109,13 +109,22 @@ export default {
       // `_source/` and `_working/` are never published.
       if (parsed.isPrivate) return false;
 
+      /*
+       * A hidden game has no pages at all. The registry drops it, so nothing
+       * links to it, but pages come from files rather than from the registry —
+       * without this a game marked hidden still publishes every URL it has.
+       */
+      if (!data.games?.[parsed.gameSlug]) return false;
+
       if (isLanding(parsed)) return `/games/${parsed.gameSlug}/`;
 
       const prefix = parsed.expansionSlug ? `${parsed.expansionSlug}/` : "";
       return `/games/${parsed.gameSlug}/${prefix}${parsed.fileSlug}/`;
     },
 
-    eleventyExcludeFromCollections: (data) =>
-      Boolean(parsePath(data.page?.inputPath)?.isPrivate),
+    eleventyExcludeFromCollections: (data) => {
+      const parsed = parsePath(data.page?.inputPath);
+      return Boolean(parsed?.isPrivate) || !data.games?.[parsed?.gameSlug];
+    },
   },
 };

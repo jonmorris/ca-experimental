@@ -51,6 +51,10 @@ anything previously synced, and then renders dead links as plain text against
 the built site. Review the diff before committing — it is a content change, not
 a mechanical one.
 
+A game's `site_visibility` in `game.json` controls whether it is built at all
+(`hidden`), built but kept off the shelf (`unlisted`), or shown normally
+(`listed`, the default).
+
 **Corrections live in `scripts/sync-content.mjs`, not in the synced files.** A
 sync overwrites, so anything fixed by hand in `src/games/` is lost the next time
 it runs. Descriptions rewritten here, Arkwright's cover, expansion titles an

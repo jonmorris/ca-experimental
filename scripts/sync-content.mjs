@@ -76,15 +76,6 @@ const RENAME = { "rules-summary.md": "summary.md" };
  * every sync. Fix one upstream and its entry here can go.
  */
 const META_OVERRIDES = {
-  arkwright: {
-    /*
-     * Upstream ships the newer edition's cover — the factory floor — against a
-     * record that reads Spielworxx, 2014. This is the art for the edition
-     * described. Lower resolution at 500x700, but larger than either surface
-     * draws it.
-     */
-    box_art: "/games/arkwright/images/arkwright.png",
-  },
   "greed-incorporated": {
     // Upstream's is an unterminated pull-quote, cut mid-sentence.
     description:

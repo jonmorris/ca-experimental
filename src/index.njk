@@ -13,11 +13,11 @@ bodyClass: page page--home
   <section class="home__section" aria-labelledby="games-title">
     <h2 class="section-title" id="games-title">
       Games
-      <span class="section-title__count">{{ games | length }}</span>
+      <span class="section-title__count">{{ listed | length }}</span>
     </h2>
 
     <ul class="game-grid">
-      {% for slug, item in games %}
+      {% for slug, item in listed %}
         <li class="game-tile">
           {#
             The box art is shown as itself: contained in a fixed-ratio frame on
