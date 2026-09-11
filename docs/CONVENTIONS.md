@@ -118,6 +118,16 @@ never restated per file. There is one place where a URL is decided.
 **URLs are stable forever.** `npm run verify:links` enforces the contract and
 checks that every internal link and fragment resolves.
 
+**Assets are named after their contents.** `scripts/hash-assets.mjs` stamps
+every stylesheet, script and font with a hash of its bytes and rewrites each
+reference — in pages, in a stylesheet's `url()`, and in one module's import of
+another. Nothing references an asset by a name it writes down by hand, and
+nothing may: the name in the output is not the name on disk. Dependencies are
+stamped first so a file's hash covers its rewritten references, which is what
+makes a change propagate — editing `preferences.js` renames it, `preferences-ui.js`
+which imports it, and `site.js` which imports both, while every other module
+keeps its name and stays cached.
+
 **A URL that is not an href or a src has to carry the deploy prefix itself.**
 `HtmlBasePlugin` rewrites markup for `PATH_PREFIX` and nothing else, so a URL
 travelling to the browser as a data attribute, as JSON, built at runtime, or

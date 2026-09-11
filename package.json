@@ -12,12 +12,13 @@
     "dev": "eleventy --serve",
     "build:site": "eleventy",
     "build:search": "pagefind --site _site",
-    "build": "npm run build:site && npm run build:search",
+    "build": "npm run build:site && npm run hash:assets && npm run build:search",
     "clean": "rm -rf _site",
     "verify:bgg": "node scripts/verify-bgg-ids.mjs",
     "verify:bgg:strict": "node scripts/verify-bgg-ids.mjs --strict",
     "verify": "npm run verify:links && npm run verify:bgg",
-    "verify:links": "node scripts/verify-links.mjs"
+    "verify:links": "node scripts/verify-links.mjs",
+    "hash:assets": "node scripts/hash-assets.mjs"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",

@@ -26,12 +26,20 @@ Node 20 or newer.
 | --- | --- |
 | `npm run dev` | Eleventy dev server with live reload. |
 | `npm run build:site` | Builds the site into `_site/`. |
+| `npm run hash:assets` | Renames stylesheets, scripts and fonts after their contents, and rewrites every reference. |
 | `npm run build:search` | Builds the Pagefind index over `_site/`. |
-| `npm run build` | Both, in order. This is the deploy command. |
+| `npm run build` | All three, in order. This is the deploy command. |
 | `npm run verify:links` | Checks the URL contract and every internal link and anchor in `_site/`. Needs a build first. |
 | `npm run verify:bgg` | Validates every `bgg_id` against Geekdo. |
 | `npm run verify:bgg:strict` | The same, but a network error is a failure. What CI runs. |
 | `npm run verify` | Links and BGG together. |
+
+**Assets are cache-busted by content, in the build only.** `hash:assets`
+renames `tokens.css` to `tokens.ca0822a0.css` and rewrites every reference to
+it — including one module's import of another, which is the part a version
+query string on the `<script>` tag would miss. Change a file and its URL
+changes, so no browser can serve a stale copy; leave it alone and the URL holds,
+so the cache still works. `npm run dev` skips this and serves plain names.
 
 **Search is not available in dev.** The index is built by `npm run build:search`
 as a post-build step, so `npm run dev` has nothing to query. The widget says so
