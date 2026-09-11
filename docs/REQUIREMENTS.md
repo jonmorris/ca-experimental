@@ -94,8 +94,41 @@ All permalinks are explicit. Nothing implicit from the SSG's default routing.
 | `/games/{slug}/glossary/{term-slug}/`        | Individual term page (deep-linkable)      |
 | `/games/{slug}/index/`                       | Book index                                |
 | `/games/{slug}/{expansion-slug}/{type}/`     | Expansion content, same shape as base     |
+| `/404.html`                                  | Not found — see §4.2                      |
 
 URLs are stable forever. Renaming a section keeps the old anchor as an alias.
+
+### 4.1 Hosting under a path prefix
+
+The contract above describes the site's own URLs. Setting `PATH_PREFIX` hangs
+the whole of it beneath a subpath, for a host that serves from `/{repo}/`
+rather than a root domain, without changing a single authored URL.
+
+The prefix is applied to the *output*, and only href and src attributes are
+rewritten for it. **Any URL that reaches the browser some other way has to
+carry the prefix itself**: values in data attributes, URLs embedded as JSON,
+URLs built at runtime in JavaScript, and `url()` inside a stylesheet — which is
+never rewritten at all, so font and image references in CSS are written
+relative to the stylesheet rather than root-absolutely. `npm run verify:links`
+checks all of these, not just the markup, because a URL that travels as data
+fails invisibly: the page around it renders perfectly.
+
+### 4.2 Not found
+
+`/404.html` is a junction rather than an apology, offering three routes out
+that widen from the specific to the general:
+
+1. **What you probably meant.** A 404 arrives with a clue attached — the URL
+   itself. The page reads the requested path back, and if it names a game that
+   exists (exactly, or unambiguously near: `/games/xia/` is Xia: Legends of a
+   Drift System) it offers that game's closest matching pages, ranked by the
+   same matcher the command palette uses. Outside a known game the bar is
+   higher: a suggestion must actually contain what was asked for, because three
+   confident wrong answers are worse than none.
+2. **Search**, opening the same command palette the rest of the site uses.
+3. **Every game**, as box art.
+
+The last two are in the markup, so the page is a way out without JavaScript.
 
 ## 5. Cross-linking
 
@@ -273,7 +306,7 @@ cross-game similarity.
 ## Amendments
 
 This document is the specification of record and has been amended as the
-product changed. Three departures from the original:
+product changed. Four departures from the original:
 
 1. **Navigation (§6) was reopened.** The original pinned an inline nav bar
    above 1024px, a hamburger below, and a bottom-pinned prev/next bar. The
@@ -285,6 +318,12 @@ product changed. Three departures from the original:
    typeface and line width — which lifts "per-user preferences beyond
    bookmarks" from the out-of-scope list. They reuse the bookmark store's
    versioned-storage pattern.
+4. **The not-found page was specified** (§4.2), and the URL contract now says
+   explicitly what a path prefix does and does not rewrite (§4.1). Both came
+   out of a real defect: every command-palette result on the deployed site led
+   to a 404, because the palette's index travels to the browser as JSON and so
+   was never rewritten for the prefix — and neither was anything else that
+   reaches the client as data, including every self-hosted webfont.
 
 Everything else — the URL contract, the content model, cross-link semantics,
 the bookmark storage schema, print as a first-class output and the

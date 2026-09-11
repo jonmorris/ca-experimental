@@ -2,16 +2,80 @@
 layout: layouts/page.njk
 permalink: /404.html
 title: Page not found
+bodyClass: page page--not-found
+eleventyExcludeFromCollections: true
 ---
-<div class="article">
-  <header class="page-header">
-    <h1 class="page-title">Page not found</h1>
-    <p class="page-subhead">
-      That URL doesn’t exist here. Section anchors are kept forever, so a broken
-      link is more likely a typo than a move.
+{#
+  The not-found page.
+
+  Built as a way back rather than a dead end, in three widening steps: what the
+  reader most likely meant (filled in by `not-found.js` from the URL they
+  landed on), search, and the full shelf of games. The last two ship in the
+  markup, so the page is useful before — and without — any JavaScript.
+#}
+<div class="not-found" data-not-found data-pagefind-ignore>
+  <header class="not-found__head">
+    <p class="eyebrow">404</p>
+    <h1 class="not-found__title">That page isn’t here</h1>
+    {# Filled in with the URL actually requested; without JS there is nothing
+       truthful to put here, so it stays hidden rather than echoing /404.html. #}
+    <p class="not-found__path" data-not-found-path hidden><code></code></p>
+    <p class="not-found__lede" data-not-found-lede>
+      Section anchors are kept forever, so a link that lands here is far more
+      likely a typo than something that moved.
     </p>
   </header>
-  <div class="prose">
-    <p><a href="/">Browse all games</a></p>
-  </div>
+
+  <section class="not-found__block" data-not-found-suggestions hidden aria-labelledby="suggestions-title">
+    <h2 class="section-title" id="suggestions-title">Did you mean</h2>
+    <ul class="suggestion-list" data-not-found-list></ul>
+  </section>
+
+  <section class="not-found__block" aria-labelledby="search-title">
+    <h2 class="section-title" id="search-title">Search everything</h2>
+    <p class="not-found__hint">
+      Every rulebook, summary and glossary term at once<span class="not-found__hint--shortcut">
+      — or press <kbd>⌘K</kbd> from any page</span>.
+    </p>
+    {#
+      Opens the one palette the site already has, rather than standing up a
+      second search box that would have to be kept in step with it.
+    #}
+    <button type="button" class="button button--primary" data-not-found-search>
+      <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false">
+        <circle cx="9" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M13.2 13.2 17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      Search the appendix
+    </button>
+  </section>
+
+  <section class="not-found__block" aria-labelledby="all-games-title">
+    <h2 class="section-title" id="all-games-title">
+      All games
+      <span class="section-title__count">{{ games | length }}</span>
+    </h2>
+
+    <ul class="game-grid game-grid--compact">
+      {% for slug, item in games %}
+        <li class="game-tile">
+          <a class="game-tile__link" href="{{ item.url }}">
+            {% if item.meta.box_art %}
+              <span class="game-tile__art">
+                <img class="game-tile__image" src="{{ item.meta.box_art }}" alt="" loading="lazy">
+              </span>
+            {% endif %}
+          </a>
+          <div class="game-tile__body">
+            <h3 class="game-tile__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+            <ul class="chip-row">
+              {% for type in item.contentTypes %}
+                <li><a class="chip" href="{{ type.url }}">{{ type.label }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
 </div>

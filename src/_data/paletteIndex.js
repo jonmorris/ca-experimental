@@ -1,4 +1,5 @@
 import { buildGames } from "../../lib/registry.js";
+import { withBasePath } from "../../lib/base-path.js";
 
 /**
  * The command palette's index, embedded in every page at build time.
@@ -7,6 +8,11 @@ import { buildGames } from "../../lib/registry.js";
  * answer instantly, and this is small enough to inline. It carries navigation
  * targets only — pages, sections and glossary terms — while full-text search
  * stays with Pagefind, which is what it is good at.
+ *
+ * Every URL here is written through `withBasePath`. This index reaches the
+ * client as JSON inside a script tag, and `HtmlBasePlugin` rewrites href and
+ * src attributes only — so a URL that travels as data has to carry the deploy
+ * prefix itself or every result 404s on a subpath host.
  */
 export default function () {
   const entries = [];
@@ -15,7 +21,7 @@ export default function () {
     entries.push({
       label: game.title,
       detail: "Overview",
-      url: game.url,
+      url: withBasePath(game.url),
       gameSlug: game.slug,
       gameTitle: game.title,
       group: "Pages",
@@ -26,7 +32,7 @@ export default function () {
       entries.push({
         label: expansion ? `${expansion.title}: ${type.label}` : type.label,
         detail: type.subhead || "",
-        url: type.url,
+        url: withBasePath(type.url),
         gameSlug: game.slug,
         gameTitle: game.title,
         group: "Pages",
@@ -38,7 +44,7 @@ export default function () {
         entries.push({
           label: section.title,
           detail: expansion ? `${expansion.title} · ${type.label}` : type.label,
-          url: `${type.url}#${section.slug}`,
+          url: `${withBasePath(type.url)}#${section.slug}`,
           gameSlug: game.slug,
           gameTitle: game.title,
           group: "Sections",
@@ -50,7 +56,7 @@ export default function () {
       entries.push({
         label: term.term,
         detail: term.short,
-        url: `${game.url}glossary/${term.slug}/`,
+        url: withBasePath(`${game.url}glossary/${term.slug}/`),
         gameSlug: game.slug,
         gameTitle: game.title,
         group: "Glossary",

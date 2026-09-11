@@ -155,7 +155,12 @@ async function main() {
           `  font-style: ${face.style};`,
           `  font-weight: ${face.weight};`,
           "  font-display: swap;",
-          `  src: url("/assets/fonts/${family.dir}/${fileName}") format("woff2");`,
+          // Relative to this stylesheet, not root-absolute: `HtmlBasePlugin`
+          // rewrites href and src in markup but never looks inside CSS, so a
+          // root-absolute font URL misses the deploy prefix and every face
+          // 404s on a subpath host. `../fonts/` resolves correctly from
+          // /assets/css/ under any prefix, including none.
+          `  src: url("../fonts/${family.dir}/${fileName}") format("woff2");`,
           `  unicode-range: ${face.unicodeRange};`,
           "}",
         ].join("\n"),

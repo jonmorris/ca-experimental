@@ -118,6 +118,15 @@ never restated per file. There is one place where a URL is decided.
 **URLs are stable forever.** `npm run verify:links` enforces the contract and
 checks that every internal link and fragment resolves.
 
+**A URL that is not an href or a src has to carry the deploy prefix itself.**
+`HtmlBasePlugin` rewrites markup for `PATH_PREFIX` and nothing else, so a URL
+travelling to the browser as a data attribute, as JSON, built at runtime, or
+inside a stylesheet's `url()` will miss it and 404 on a subpath host while
+every rendered link on the same page works. Pass it through `withBasePath`
+(`lib/base-path.js` at build time, `src/assets/js/base-path.js` on the client),
+or in CSS write the reference relative to the stylesheet. `verify:links`
+checks the palette index and stylesheet assets for exactly this.
+
 ---
 
 ## 3. Anchors

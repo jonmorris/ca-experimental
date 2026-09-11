@@ -283,14 +283,6 @@
   letter-spacing: var(--display-tracking);
 }
 
-.section-title__count {
-  color: var(--ink-faint);
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  font-variant-numeric: tabular-nums;
-  font-weight: 600;
-}
-
 /* ----------------------------------------------------------- footer */
 
 .site-footer {

@@ -2,6 +2,7 @@ import { createOverlay } from "./overlay.js";
 import { bookmarkStore } from "./bookmark-store.js";
 import { getSections } from "./section-tracker.js";
 import { searchText } from "./search.js";
+import { rank } from "./fuzzy.js";
 
 /**
  * The command palette — Cmd-K / Ctrl-K.
@@ -23,41 +24,6 @@ import { searchText } from "./search.js";
  */
 
 const MAX_PER_GROUP = 6;
-
-/** Subsequence match, so "sfm" finds "Siap Faji Mergers". */
-function score(haystack, needle) {
-  const text = haystack.toLowerCase();
-  const query = needle.toLowerCase();
-  if (!query) return 0;
-
-  const exact = text.indexOf(query);
-  if (exact === 0) return 1000;
-  if (exact > 0) return 700 - exact;
-
-  let index = 0;
-  let hits = 0;
-  let streak = 0;
-  let best = 0;
-  for (const char of query) {
-    const found = text.indexOf(char, index);
-    if (found === -1) return -1;
-    streak = found === index ? streak + 1 : 1;
-    best = Math.max(best, streak);
-    hits += 1;
-    index = found + 1;
-  }
-  return hits * 8 + best * 12 - index;
-}
-
-function rank(items, query, limit = MAX_PER_GROUP) {
-  if (!query) return items.slice(0, limit);
-  return items
-    .map((item) => ({ item, value: score(item.label, query) }))
-    .filter((entry) => entry.value > 0)
-    .sort((a, b) => b.value - a.value)
-    .slice(0, limit)
-    .map((entry) => entry.item);
-}
 
 export function initCommandPalette() {
   const panel = document.querySelector("[data-palette]");

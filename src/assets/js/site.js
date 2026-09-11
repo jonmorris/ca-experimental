@@ -15,6 +15,7 @@ import { initBookmarksPanel } from "./bookmarks-panel.js";
 import { initBookmarksDrawer } from "./bookmarks-drawer.js";
 import { initSectionTracker } from "./section-tracker.js";
 import { initSectionNav } from "./section-nav.js";
+import { initNotFound } from "./not-found.js";
 
 function start() {
   // The inline head script already applied these before first paint; this
@@ -30,6 +31,7 @@ function start() {
   initBookmarkToggles();
   initBookmarksPanel();
   initBookmarksDrawer();
+  initNotFound();
 }
 
 if (document.readyState === "loading") {

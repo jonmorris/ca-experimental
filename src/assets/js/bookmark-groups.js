@@ -9,6 +9,8 @@
  * the second matters; across all games both do.
  */
 
+import { withBasePath } from "./base-path.js";
+
 function titleFromSlug(slug) {
   return String(slug || "")
     .split("-")
@@ -76,7 +78,9 @@ export function groupBookmarks(bookmarks, { byGame = false } = {}) {
       games.set(bookmark.gameSlug, {
         slug: bookmark.gameSlug,
         title: bookmark.gameTitle || titleFromSlug(bookmark.gameSlug),
-        url: `/games/${bookmark.gameSlug}/`,
+        // Built here rather than stored, so it needs the deploy prefix that
+        // the markup gets from `HtmlBasePlugin`.
+        url: withBasePath(`/games/${bookmark.gameSlug}/`),
         items: [],
       });
     }

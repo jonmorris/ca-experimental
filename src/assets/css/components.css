@@ -122,6 +122,37 @@
   padding: var(--space-2);
 }
 
+/* ================================================================ counts */
+
+/*
+ * The small tally beside a heading — games on a shelf, bookmarks in a
+ * document. One rule for all three, because they are one thing: a count of
+ * what is under the heading it sits next to.
+ *
+ * Boxed so it reads as a label rather than as a number that wandered in from
+ * the heading. Sized in `ch` with tabular figures so one, two and three digits
+ * all produce the same pill, and `min-width` rather than `width` so a larger
+ * number widens it instead of overflowing.
+ */
+.section-title__count,
+.drawer-group__count,
+.bookmarks-group__count {
+  display: inline-block;
+  min-width: 2.25ch;
+  padding: 0.15em 0.5em;
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
 /* ============================================================== controls */
 
 .button {
@@ -598,16 +629,6 @@ dialog::backdrop {
 
 .drawer-group__title a:hover {
   color: var(--ink);
-}
-
-.drawer-group__count,
-.bookmarks-group__count {
-  color: var(--ink-faint);
-  font-family: var(--font-ui);
-  font-size: var(--text-2xs);
-  font-variant-numeric: tabular-nums;
-  font-weight: 600;
-  letter-spacing: 0;
 }
 
 .drawer-group__list {
@@ -1420,4 +1441,144 @@ dialog::backdrop {
   background: var(--surface-sunken);
   border-radius: var(--radius);
   color: var(--ink-muted);
+}
+
+/* ========================================================== not found */
+
+/*
+ * The 404 is a junction, not an apology: three routes out, widening from the
+ * specific to the general — what you probably meant, search, then everything.
+ * The heading carries the weight and the rest stays quiet, because the reader
+ * is here by accident and wants to leave quickly.
+ */
+
+.not-found {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.not-found__head {
+  max-width: 40rem;
+}
+
+.not-found__title {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  line-height: var(--leading-flat);
+  text-wrap: balance;
+}
+
+/*
+ * The URL that failed, shown back verbatim. Long paths break anywhere rather
+ * than pushing the page sideways on a phone.
+ */
+.not-found__path {
+  margin-top: var(--space-4);
+}
+
+.not-found__path code {
+  display: inline-block;
+  max-width: 100%;
+  padding: var(--space-1) var(--space-3);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  overflow-wrap: anywhere;
+}
+
+.not-found__lede {
+  margin-top: var(--space-4);
+  color: var(--ink-muted);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  text-wrap: pretty;
+}
+
+.not-found__hint {
+  margin-bottom: var(--space-4);
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+}
+
+.not-found__hint kbd {
+  padding: 0 var(--space-1);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+}
+
+/* No keyboard to press it with, so the shortcut is not offered. */
+@media (pointer: coarse) {
+  .not-found__hint--shortcut {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------- suggestions */
+
+.suggestion-list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*
+ * Wide rows rather than a card grid: these are guesses being offered in rank
+ * order, and a vertical list reads top-down as exactly that.
+ */
+.suggestion__link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.suggestion__link:hover {
+  border-color: var(--line-strong);
+  background: var(--surface-sunken);
+}
+
+.suggestion__label {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-weight: 650;
+}
+
+.suggestion__detail {
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+/* A denser shelf than the homepage: here it is the fallback, not the point. */
+.game-grid--compact {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+  gap: var(--space-5);
+}
+
+.game-grid--compact .game-tile__art {
+  aspect-ratio: 1 / 1;
+  padding: var(--space-4);
+}
+
+.game-grid--compact .game-tile__title {
+  font-size: var(--text-base);
+}
+
+.game-grid--compact .game-tile__body {
+  padding: var(--space-3) var(--space-4) var(--space-4);
 }
