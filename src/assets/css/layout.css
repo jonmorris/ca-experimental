@@ -66,6 +66,11 @@
  * — a dark page with its rules cut out of it — and leaves dark mode looking as
  * it always did. The spine is the one colour that stays a colour, lightened in
  * dark so it does not close up.
+ *
+ * The drawing fills 80% of its box. The favicon's artwork sits in a 32-unit
+ * square with the book only 20 units tall — padding that a favicon needs and a
+ * mark beside a wordmark does not. The template crops to that padding with a
+ * viewBox of 3.5 3.5 25 25; not one coordinate of the drawing moves.
  */
 .site-logo__mark {
   display: grid;
@@ -77,8 +82,8 @@
 
 .site-logo__svg {
   display: block;
-  height: 1.4rem;
-  width: 1.4rem;
+  height: 1.75rem;
+  width: 1.75rem;
 }
 
 .site-logo__page {
