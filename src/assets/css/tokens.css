@@ -188,6 +188,14 @@
   --shadow: light-dark(0 4px 14px -4px rgb(28 27 24 / 14%), 0 4px 16px -4px rgb(0 0 0 / 60%));
   --shadow-lg: light-dark(0 18px 44px -12px rgb(28 27 24 / 26%), 0 18px 48px -12px rgb(0 0 0 / 72%));
   --shadow-up: light-dark(0 -6px 20px -10px rgb(28 27 24 / 22%), 0 -6px 22px -10px rgb(0 0 0 / 62%));
+
+  /*
+   * For `filter: drop-shadow()`, which takes no spread value and so cannot
+   * reuse the box shadows above. Used where a shadow has to follow artwork
+   * rather than the box around it.
+   */
+  --shadow-art: 0 4px 12px rgb(28 27 24 / 18%);
+  --shadow-art: 0 4px 12px light-dark(rgb(28 27 24 / 18%), rgb(0 0 0 / 55%));
 }
 
 /*
