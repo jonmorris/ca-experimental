@@ -40,7 +40,12 @@
   flex: none;
   color: var(--ink);
   font-family: var(--font-ui);
-  font-size: var(--text-sm);
+  /*
+   * 14px flat, not --text-sm. The wordmark is a fixed mark in fixed-height
+   * chrome; it is not reading text, so it does not follow the reader's density
+   * preference the way the page below it does.
+   */
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: var(--tracking-tight);
   text-decoration: none;
@@ -72,8 +77,8 @@
 
 .site-logo__svg {
   display: block;
-  height: 1.75rem;
-  width: 1.75rem;
+  height: 1.4rem;
+  width: 1.4rem;
 }
 
 .site-logo__page {
