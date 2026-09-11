@@ -4,10 +4,10 @@
   "year_published": 2014,
   "designer": "Stefan Risthaus",
   "publisher": "Spielworxx",
-  "players": "2–4",
-  "playtime_range": "120–240 minutes",
-  "time": "120–240 minutes",
-  "box_art": "/games/arkwright/images/arkwright.jpg",
+  "players": "2\u20134",
+  "playtime_range": "120\u2013240 minutes",
+  "time": "120\u2013240 minutes",
+  "box_art": "/games/arkwright/images/arkwright.png",
   "bgg_id": 154825,
   "description": "In Arkwright players run up to four factories in England during the late 18th Century."
 }
