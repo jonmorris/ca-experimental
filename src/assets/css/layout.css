@@ -37,6 +37,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+  flex: none;
   color: var(--ink);
   font-family: var(--font-ui);
   font-size: var(--text-sm);
@@ -60,7 +61,13 @@
   background: var(--line-strong);
 }
 
+/*
+ * The game's name takes whatever room is left and truncates last. A long one
+ * — "Xia: Legends of a Drift System" — matters more in context than the site's
+ * own name, which is why the wordmark yields first below.
+ */
 .site-header__game {
+  flex: 1 1 auto;
   min-width: 0;
   overflow: hidden;
   color: var(--ink-muted);
@@ -79,11 +86,22 @@
 .site-header__actions {
   display: flex;
   align-items: center;
+  flex: none;
   gap: var(--space-2);
   margin-left: auto;
 }
 
-/* The site title collapses to its mark on the narrowest screens. */
+/*
+ * The wordmark collapses to its mark wherever a game is open, up to the
+ * sidebar breakpoint: in that range the header is carrying two names and the
+ * game's is the one worth reading. The mark still links home.
+ */
+@media (max-width: 64rem) {
+  body[data-game] .site-logo__text {
+    display: none;
+  }
+}
+
 @media (max-width: 26rem) {
   .site-logo__text {
     display: none;

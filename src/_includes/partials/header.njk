@@ -28,14 +28,18 @@
         data-palette-toggle
         aria-haspopup="dialog"
         aria-expanded="false"
+        aria-label="{% if game %}Search {{ game.title }}{% else %}Search all games{% endif %}"
         hidden>
         <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false">
           <circle cx="9" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
           <path d="M13.2 13.2 17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
-        <span class="search-trigger__label">
-          {% if game %}Search {{ game.title }}{% else %}Search all games{% endif %}
-        </span>
+        {#
+          Just "Search" — the game's name is already in the header, and
+          repeating it here is what crowded a long title out. The full phrase
+          stays as the control's accessible name.
+        #}
+        <span class="search-trigger__label">Search</span>
         <kbd class="search-trigger__key" aria-hidden="true">⌘K</kbd>
       </button>
 

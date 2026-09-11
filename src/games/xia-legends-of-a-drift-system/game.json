@@ -1,0 +1,18 @@
+{
+  "title": "Xia: Legends of a Drift System",
+  "year_published": 2014,
+  "designer": "Cody Miller",
+  "publisher": "Far Off Games",
+  "players": "3–5",
+  "time": "60–180 minutes",
+  "bgg_id": 82222,
+  "box_art": "/games/xia-legends-of-a-drift-system/images/xia-legends-of-a-drift-system.png",
+  "description": "A sandbox space adventure: outfit a ship, run missions, mine, trade or duel your rivals across a drifting star system, and chase fame by whichever route suits you.",
+  "tags": [
+    { "slug": "sandbox", "label": "Sandbox" },
+    { "slug": "space-theme", "label": "Space Theme" },
+    { "slug": "dice", "label": "Dice" },
+    { "slug": "pick-up-and-deliver", "label": "Pick-up and Deliver" },
+    { "slug": "player-driven", "label": "Player Driven" }
+  ]
+}
