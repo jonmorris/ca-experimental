@@ -61,6 +61,13 @@
  * — a dark page with its rules cut out of it — and leaves dark mode looking as
  * it always did. The spine is the one colour that stays a colour, lightened in
  * dark so it does not close up.
+ *
+ * The drawing is cropped to itself. The favicon's artwork sits in a 32-unit
+ * square with the book only 20 units tall — margin a favicon needs, because it
+ * lands on browser chrome, and a mark beside a wordmark does not. The template
+ * crops it away with a viewBox of 3.5 3.5 25 25, which makes the book bigger
+ * inside an unchanged 24px box rather than by growing the box around it. Not a
+ * coordinate of the drawing moves.
  */
 .site-logo__mark {
   display: grid;
@@ -70,14 +77,10 @@
   --logo-spine: light-dark(#9a5b12, #c98430);
 }
 
-/*
- * Sized so the book itself draws at 16px. The artwork spans 20 of its 32
- * units, so the box is 16 / (20 / 32) = 25.6px.
- */
 .site-logo__svg {
   display: block;
-  height: 1.6rem;
-  width: 1.6rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .site-logo__page {
