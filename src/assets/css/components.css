@@ -874,10 +874,30 @@ dialog::backdrop {
  * letterboxed cover. `drop-shadow` follows what is actually drawn, so it hugs
  * the artwork whatever shape it is.
  */
+/*
+ * Held back from the full width of the frame.
+ *
+ * `contain` lets a cover use whichever dimension runs out first, and for box
+ * art near the frame's own 4:3 that is the width — so a landscape cover filled
+ * the frame edge to edge while a portrait one, capped by the height it could
+ * never exceed, sat at barely a third of the area beside it. Measured across
+ * the shelf the two ends were 71% and 31%.
+ *
+ * Capping the width closes that from the top: a cover wide enough to be
+ * width-limited loses this much, and a portrait cover, limited by height
+ * instead, is untouched. It buys evenness at the cost of some size on the
+ * covers that were largest, which is the trade worth making on a shelf where
+ * nothing should look more important than its neighbour.
+ */
+.game-tile__art {
+  --cover-width: 87%;
+}
+
 .game-tile__image {
   display: block;
-  width: 100%;
+  width: var(--cover-width);
   height: 100%;
+  margin-inline: auto;
   object-fit: contain;
   filter: drop-shadow(var(--shadow-art));
   transition: scale 220ms ease;
