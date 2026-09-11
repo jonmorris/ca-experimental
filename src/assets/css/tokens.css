@@ -61,10 +61,17 @@
    * The reader's control is a multiplier rather than an absolute, so a design
    * that has been tuned to a particular face keeps its calibration and
    * "Relaxed" means the same felt change in either one.
+   *
+   * It applies to `--leading-reading` alone. Chrome keeps `--leading-normal`
+   * whatever the reader chooses: the control is for the passage being read,
+   * and a menu is not read at length — opening the panel to space out a
+   * rulebook and watching the panel's own labels drift apart is the setting
+   * visibly overreaching.
    */
   --leading-normal-default: 1.62;
   --leading-scale: 1;
-  --leading-normal: calc(var(--leading-normal-default) * var(--leading-scale));
+  --leading-normal: var(--leading-normal-default);
+  --leading-reading: calc(var(--leading-normal-default) * var(--leading-scale));
 
   --tracking-tight: -0.018em;
   --tracking-normal: 0;

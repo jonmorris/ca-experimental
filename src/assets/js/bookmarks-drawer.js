@@ -143,7 +143,7 @@ export function initBookmarksDrawer() {
 
   scopeToggle?.addEventListener("click", () => {
     showAll = !showAll;
-    scopeToggle.textContent = showAll ? "This game only" : "Show all games";
+    scopeToggle.textContent = showAll ? "This Game Only" : "Show All Games";
     scopeToggle.setAttribute("aria-pressed", String(showAll));
     render();
   });
