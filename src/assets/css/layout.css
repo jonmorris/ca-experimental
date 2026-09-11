@@ -48,19 +48,48 @@
 }
 
 /*
- * The mark: a rulebook seen face-on, its tabbed spine to the right, on a plate
- * of its own. Drawn in its own colours and left alone in both themes — it
- * carries its own ground, so it needs nothing from the page behind it.
+ * The mark: a rulebook seen face-on, its tabbed spine to the right.
+ *
+ * No plate behind it. The favicon keeps one because it lands on browser chrome
+ * nobody controls, but here the surface is known, and a filled tile in the
+ * corner of a light header reads as a sticker rather than a mark.
+ *
+ * Which means the drawing has to answer to the theme: the page is an outline
+ * in the text colour rather than a cream fill, and the rules inside it follow.
+ * The spine is the one colour that stays a colour, lightened in dark mode so it
+ * does not close up against the surface.
  */
 .site-logo__mark {
   display: grid;
   place-items: center;
+
+  --logo-spine: #9a5b12;
+  --logo-spine: light-dark(#9a5b12, #c98430);
+  --logo-rule: #6b6760;
+  --logo-rule: light-dark(#6b6760, #8d8880);
 }
 
 .site-logo__svg {
   display: block;
   height: 1.5rem;
   width: 1.5rem;
+}
+
+.site-logo__page {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.7;
+}
+
+.site-logo__spine {
+  fill: var(--logo-spine);
+}
+
+.site-logo__rules {
+  fill: none;
+  stroke: var(--logo-rule);
+  stroke-width: 1.6;
+  stroke-linecap: round;
 }
 
 .site-header__divider {
