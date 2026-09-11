@@ -126,15 +126,21 @@
   padding: var(--space-5) var(--space-4);
 }
 
+/*
+ * Set in title case rather than small caps. The label above a list of links is
+ * read as a word — a game's name, a document's name — and uppercasing it makes
+ * it a texture to be decoded instead. It also mangles the names themselves:
+ * "&Cetera" and "Xia: Legends of a Drift System" are not written that way.
+ * Without the caps the tracking goes too, which only ever existed to keep
+ * uppercase from setting too tight.
+ */
 .site-menu__heading,
 .sidebar__heading {
   margin-bottom: var(--space-2);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
-  font-weight: 700;
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
+  font-size: var(--text-xs);
+  font-weight: 650;
 }
 
 /* --------------------------------------------------------- section bar */
