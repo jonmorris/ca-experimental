@@ -34,6 +34,14 @@ Node 20 or newer.
 | `npm run verify:bgg:strict` | The same, but a network error is a failure. What CI runs. |
 | `npm run verify` | Links and BGG together. |
 
+**Box art is resized at build time.** `@11ty/eleventy-img` rewrites every
+`<img>` in the output into a `<picture>` with WebP and JPEG at up to three
+widths, so a page sends the pixels it draws rather than the ones the source
+file happened to carry — Root's cover is 2048px wide and is never drawn above
+315. The originals stay in `src/games/*/images/` and are no longer copied to
+the output at all; only the generated sizes ship. Each `<img>` carries its own
+`sizes` because a cover and a figure are drawn at very different widths.
+
 **Assets are cache-busted by content, in the build only.** `hash:assets`
 renames `tokens.css` to `tokens.ca0822a0.css` and rewrites every reference to
 it — including one module's import of another, which is the part a version

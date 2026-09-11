@@ -1,4 +1,5 @@
 import { HtmlBasePlugin } from "@11ty/eleventy";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 import { slugify } from "./lib/slugify.js";
 import { basePath, withBasePath } from "./lib/base-path.js";
@@ -54,6 +55,41 @@ export default function (eleventyConfig) {
    * subpath. Authored URLs stay root-absolute either way, so nothing in a
    * template or a content file has to know where the site is hosted.
    */
+  /*
+   * Box art ships at whatever size the publisher's image happened to be —
+   * Root's cover is 2048px wide and is never drawn above 315. Every <img> in
+   * the output is resized to the widths that are actually used and re-encoded,
+   * so a page sends the pixels it needs rather than the ones the source file
+   * came with.
+   *
+   * Registered before `HtmlBasePlugin` so the prefix rewrite sees the srcset
+   * this generates. The other way round, the plugin would rewrite the original
+   * src and then this would replace it.
+   */
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    /*
+     * 315px is the widest a cover is drawn on the shelf and 256 on a landing
+     * page; 640 covers both at 2x for a dense screen. The smaller steps are
+     * for phones, where the tile is narrower still.
+     */
+    widths: [320, 480, 640],
+    formats: ["webp", "jpeg"],
+    // Only ever scaled down: upscaling a small cover would add weight and no detail.
+    svgShortCircuit: true,
+    defaultAttributes: {
+      loading: "lazy",
+      decoding: "async",
+    },
+    /*
+     * A fallback only. Each <img> declares the width it is really drawn at —
+     * a cover is about 315px at its widest because the grid adds columns
+     * rather than growing tiles, while a figure runs the whole prose column.
+     * Without a `sizes` a browser assumes full viewport width and fetches the
+     * largest file for a tile the size of a playing card.
+     */
+    sizes: "(max-width: 46rem) 92vw, 38rem",
+  });
+
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // Exposed to templates and, via a body attribute, to the client modules that
@@ -67,7 +103,6 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add("src/games/**/_working/**");
 
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addPassthroughCopy("src/games/**/images/**/*");
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
 
   eleventyConfig.setServerOptions({ showAllHosts: true });
@@ -186,7 +221,9 @@ export default function (eleventyConfig) {
     const figcaption = caption
       ? `\n  <figcaption>${escapeHtml(caption)}</figcaption>`
       : "";
-    return `<figure class="figure">\n  <img src="${escapeHtml(src)}" alt="${escapeHtml(alt || "")}" loading="lazy">${figcaption}\n</figure>`;
+    // Runs the full width of the prose column, unlike a cover.
+    const sizes = "(max-width: 46rem) 92vw, 38rem";
+    return `<figure class="figure">\n  <img src="${escapeHtml(src)}" alt="${escapeHtml(alt || "")}" sizes="${sizes}">${figcaption}\n</figure>`;
   });
 
   /**

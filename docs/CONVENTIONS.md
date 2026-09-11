@@ -118,6 +118,18 @@ never restated per file. There is one place where a URL is decided.
 **URLs are stable forever.** `npm run verify:links` enforces the contract and
 checks that every internal link and fragment resolves.
 
+**Images are never referenced from the output directory.** Box art lives in
+`src/games/{slug}/images/` and is not passed through to `_site`; the Eleventy
+Image transform reads the source and writes only the sizes a page actually
+draws. A template therefore points `box_art` at the source path and lets the
+transform resolve it — nothing should link to an image expecting to find it in
+the built site.
+
+Give every `<img>` a `sizes` attribute. Without one a browser assumes the image
+fills the viewport and fetches the largest file for a tile the size of a
+playing card; the grid in particular adds columns rather than growing tiles, so
+a cover is about 315px wide whatever the screen.
+
 **Assets are named after their contents.** `scripts/hash-assets.mjs` stamps
 every stylesheet, script and font with a hash of its bytes and rewrites each
 reference — in pages, in a stylesheet's `url()`, and in one module's import of
