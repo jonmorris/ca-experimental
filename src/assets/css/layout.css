@@ -48,19 +48,16 @@
 }
 
 /*
- * The CA monogram. Sized by height with the width left to follow, the mark
- * being a good deal wider than it is tall — a square slot would letterbox it.
+ * The CA monogram, drawn in the two colours it was authored in and left alone
+ * in both themes. A logo is a fixed thing; it does not restyle itself with the
+ * page around it.
  *
- * `color` is the ink rather than the accent: the gold is fixed in the artwork,
- * and the second tone is drawn as `currentColor` so the outline and the
- * dimensional inline flip with the theme. Left as the near-black it was
- * authored in, both would vanish into a dark surface and the letters would
- * lose their depth exactly where the contrast is thinnest.
+ * Sized by height with the width left to follow, the mark being a good deal
+ * wider than it is tall — a square slot would letterbox it.
  */
 .site-logo__mark {
   display: grid;
   place-items: center;
-  color: var(--ink);
 }
 
 .site-logo__svg {
