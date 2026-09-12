@@ -10,6 +10,15 @@ bodyClass: page page--home
     <p class="home__lede">{{ site.description }}</p>
   </header>
 
+  {#
+    Recently opened. Empty and hidden until the history says otherwise, which
+    it can only do from the browser — so this stays a shell the client fills.
+  #}
+  <section class="home__section" aria-labelledby="recent-title" data-recent-games hidden>
+    <h2 class="section-title" id="recent-title">Recently Opened</h2>
+    <ul class="game-grid game-grid--recent" data-recent-list></ul>
+  </section>
+
   <section class="home__section" aria-labelledby="games-title">
     <h2 class="section-title" id="games-title">
       Games
@@ -18,7 +27,7 @@ bodyClass: page page--home
 
     <ul class="game-grid">
       {% for slug, item in listed %}
-        <li class="game-tile">
+        <li class="game-tile" data-game-slug="{{ slug }}">
           {#
             The box art is shown as itself: contained in a fixed-ratio frame on
             a quiet ground, so covers of different proportions still line up

@@ -76,6 +76,12 @@
       data-pagefind-filter="game:{{ game.slug }}"
       data-game="{{ game.slug }}"
       data-game-title="{{ game.title }}"
+      {#
+        Written as data, so HtmlBasePlugin does not rewrite it — it is stored
+        unprefixed and `withBasePath` puts the prefix on at render time, the
+        same contract the stored bookmark URLs keep.
+      #}
+      data-game-url="{{ game.url }}"
     {% endif %}
     {% if expansion %}
       data-expansion="{{ expansion.slug }}"

@@ -780,10 +780,51 @@ dialog::backdrop {
 }
 
 .prefs__note {
-  padding: 0 var(--space-4) var(--space-4);
+  padding: 0 var(--space-4) var(--space-3);
   color: var(--ink-faint);
   font-family: var(--font-ui);
   font-size: var(--text-2xs);
+}
+
+.prefs__data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: 0 var(--space-4) var(--space-4);
+}
+
+.prefs__clear {
+  padding: var(--space-1) var(--space-3);
+  background: none;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-full);
+  color: var(--ink-muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  cursor: pointer;
+}
+
+.prefs__clear:hover:not(:disabled) {
+  background: var(--surface-sunken);
+  color: var(--ink);
+}
+
+/* Nothing stored, nothing to erase. */
+.prefs__clear:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/*
+ * Asked once, waiting for the second press. Filled rather than recoloured:
+ * there is no danger colour in the palette, and tinting it with the accent —
+ * which everywhere else means "this is where you are" — would read as selected
+ * rather than as about to happen.
+ */
+.prefs__clear.is-armed {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface);
 }
 
 /* ================================================================ cards */
@@ -954,6 +995,51 @@ dialog::backdrop {
 }
 
 .game-tile__title a:hover {
+  text-decoration: underline;
+}
+
+/*
+ * The recently-opened row runs narrower than the shelf below it. It is a way
+ * back into something already started, not a second shelf, and at the grid's
+ * own width four of them would push the games themselves off the screen.
+ */
+.game-grid--recent {
+  /*
+   * Narrower tracks than the shelf, so a phone gets two across rather than one
+   * — four full-width tiles would be a screen and a half of "recently opened"
+   * standing between the reader and the games themselves.
+   */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 10.5rem), 1fr));
+  gap: var(--space-4);
+}
+
+.game-grid--recent .game-tile__art {
+  padding: var(--space-4);
+}
+
+.game-grid--recent .game-tile__body {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+}
+
+.game-grid--recent .game-tile__title {
+  font-size: var(--text-md);
+}
+
+/* Where the reader was, and the way straight back to it. */
+.game-tile__place {
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+}
+
+.game-tile__place a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.game-tile__place a:hover {
+  color: var(--ink-muted);
   text-decoration: underline;
 }
 

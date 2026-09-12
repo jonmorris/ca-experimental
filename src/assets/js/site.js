@@ -17,6 +17,8 @@ import { initSectionTracker } from "./section-tracker.js";
 import { initSectionNav } from "./section-nav.js";
 import { initNotFound } from "./not-found.js";
 import { initHeadingLinks } from "./heading-links.js";
+import { initHistoryRecorder } from "./history-recorder.js";
+import { initRecentGames } from "./recent-games.js";
 
 function start() {
   // The inline head script already applied these before first paint; this
@@ -25,6 +27,10 @@ function start() {
 
   initSectionTracker();
   initSectionNav();
+
+  // After the tracker: the recorder asks it which headings are sections.
+  initHistoryRecorder();
+  initRecentGames();
 
   initMenu();
   initPreferences();

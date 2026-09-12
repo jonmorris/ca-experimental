@@ -166,6 +166,16 @@ export function createBookmarkStore({ storage = defaultStorage() } = {}) {
       return true;
     },
 
+    /** Removes every bookmark. Returns true if there were any to remove. */
+    clear() {
+      const payload = read(storage);
+      if (!payload.bookmarks.length) return false;
+      payload.bookmarks = [];
+      write(storage, payload);
+      notify();
+      return true;
+    },
+
     /**
      * Subscribes to changes — both from this tab and, via the `storage` event,
      * from any other tab the reader has open. Returns an unsubscribe function.

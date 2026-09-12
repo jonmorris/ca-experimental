@@ -83,6 +83,17 @@
     <div class="prefs__body" data-preferences-body></div>
 
     <p class="prefs__note">Saved in this browser only.</p>
+
+    {#
+      What the site has stored, and how to be rid of it. The history is the
+      reason this is here: bookmarks are things the reader chose to keep, but
+      the history is a record the site wrote down on their behalf, and that
+      should never be something only the developer can erase.
+    #}
+    <div class="prefs__data">
+      <button type="button" class="prefs__clear" data-clear-history>Clear history</button>
+      <button type="button" class="prefs__clear" data-clear-bookmarks>Clear bookmarks</button>
+    </div>
   </div>
 </dialog>
 
