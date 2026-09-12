@@ -1256,8 +1256,19 @@ dialog::backdrop {
   margin-top: 0;
 }
 
+/*
+ * `flex-basis: 0`, not `auto`, is what keeps the tools beside the heading.
+ *
+ * A wrapping flex container breaks its lines using each item's hypothetical
+ * size — for `auto` that is the heading's max-content width — and it does that
+ * before any shrinking happens. So a heading wider than the column claimed the
+ * whole first line and pushed the permalink and the bookmark onto a second one,
+ * even though `min-width: 0` would have let it shrink. Basing it at zero means
+ * the heading only ever asks for what is left over, and the title wraps inside
+ * its own column instead.
+ */
 .section-heading h2 {
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-width: 0;
   font-family: var(--font-display);
   font-size: var(--text-2xl);
@@ -1270,6 +1281,7 @@ dialog::backdrop {
 .heading-tools {
   display: inline-flex;
   align-items: center;
+  flex: none;
   gap: var(--space-1);
 }
 
