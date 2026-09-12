@@ -19,6 +19,7 @@ import { initNotFound } from "./not-found.js";
 import { initHeadingLinks } from "./heading-links.js";
 import { initHistoryRecorder } from "./history-recorder.js";
 import { initRecentGames } from "./recent-games.js";
+import { initJumpBookmarks } from "./jump-bookmarks.js";
 
 function start() {
   // The inline head script already applied these before first paint; this
@@ -36,6 +37,7 @@ function start() {
   initPreferences();
   initCommandPalette();
   initBookmarkToggles();
+  initJumpBookmarks();
   initBookmarksPanel();
   initBookmarksDrawer();
   initNotFound();

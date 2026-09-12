@@ -121,6 +121,25 @@
   color: var(--accent);
 }
 
+/*
+ * The bookmark mark, pinned to the row's right edge rather than given a column
+ * of its own: a third grid track would cost every unbookmarked row the gap in
+ * front of it, and most rows are unbookmarked. Only a row that carries one
+ * reserves the space it needs.
+ */
+.jump-link__flag {
+  position: absolute;
+  top: 50%;
+  right: var(--space-2);
+  translate: 0 -50%;
+  display: inline-flex;
+  color: var(--accent);
+}
+
+.jump-link.is-bookmarked {
+  padding-right: calc(var(--space-2) + 1.25rem);
+}
+
 .jump-list--sheet .jump-link {
   padding-block: var(--space-3);
   font-size: var(--text-base);
