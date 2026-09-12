@@ -10,6 +10,14 @@
   font-size: var(--text-md);
   /* The one surface the reader's line-spacing control acts on. */
   line-height: var(--leading-reading);
+  /*
+   * Rules text carries things with no break opportunities in them — the image
+   * credits in High Frontier are bare Wikimedia URLs, the longest of them 620px
+   * of unbreakable string in a 358px column. A word that cannot fit on a line
+   * of its own does not wrap, it hangs off the side, and the page it is on
+   * scrolls sideways into empty margin.
+   */
+  overflow-wrap: break-word;
 }
 
 .prose > * + * {
