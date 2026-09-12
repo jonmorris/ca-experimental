@@ -22,6 +22,7 @@ import { initRecentGames } from "./recent-games.js";
 import { initJumpBookmarks } from "./jump-bookmarks.js";
 import { initMyReference } from "./my-reference.js";
 import { initPrint } from "./print.js";
+import { initFavorites } from "./favorites-ui.js";
 
 function start() {
   // The inline head script already applied these before first paint; this
@@ -33,6 +34,7 @@ function start() {
 
   // After the tracker: the recorder asks it which headings are sections.
   initHistoryRecorder();
+  initFavorites();
   initRecentGames();
 
   initMenu();

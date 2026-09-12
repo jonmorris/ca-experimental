@@ -1811,3 +1811,53 @@ dialog::backdrop {
 .game-grid--compact .game-tile__body {
   padding: var(--space-3) var(--space-4) var(--space-4);
 }
+
+/* =============================================================== favorites */
+
+.landing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/*
+ * Quieter than the primary action beside it. Opening the rulebook is what
+ * almost everyone came for; starring the game is a thing you do once, and it
+ * should not compete for the same glance.
+ */
+.button--quiet {
+  padding-inline: var(--space-4);
+  background: none;
+  color: var(--ink-muted);
+}
+
+.button--quiet:hover {
+  background: var(--surface-sunken);
+  color: var(--ink);
+}
+
+.favorite-toggle__icon {
+  display: inline-flex;
+}
+
+/* Starred. The mark fills in, which is the whole signal — no colour change of
+   the label, no second state to learn. */
+.favorite-toggle.is-on {
+  border-color: var(--marker);
+  color: var(--marker);
+}
+
+.favorite-toggle.is-on:hover {
+  background: var(--marker-wash);
+  color: var(--marker);
+}
+
+/* The mark on a starred game in the shelf, beside its title. */
+.game-tile__star {
+  display: inline-flex;
+  align-items: center;
+  margin-left: var(--space-2);
+  color: var(--marker);
+  translate: 0 0.1em;
+}

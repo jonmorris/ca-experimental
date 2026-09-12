@@ -11,6 +11,22 @@ bodyClass: page page--home
   </header>
 
   {#
+    Favorites, then recent. Both are shells the client fills, because only the
+    browser knows what is in them — and both stay hidden until there is
+    something to put in them, so a first-time reader meets the games and
+    nothing else.
+
+    Favorites sits above because it is the deliberate list: a reader who has
+    starred a game has said it matters more than the fact that they opened
+    something yesterday. Recent drops anything already starred, so the two rows
+    never show the same game twice.
+  #}
+  <section class="home__section" aria-labelledby="favorites-title" data-favorite-games hidden>
+    <h2 class="section-title" id="favorites-title">Favorites</h2>
+    <ul class="game-grid game-grid--recent" data-favorite-list></ul>
+  </section>
+
+  {#
     Recently opened. Empty and hidden until the history says otherwise, which
     it can only do from the browser — so this stays a shell the client fills.
   #}

@@ -23,9 +23,22 @@ layout: layouts/base.njk
         <div class="landing__intro">
           <h1 class="landing__title">{{ game.title }}</h1>
           <p class="landing__description">{{ game.meta.description }}</p>
-          {% if game.hasRulebook %}
-            <a class="button button--primary" href="{{ game.url }}rulebook/">Open the rulebook</a>
-          {% endif %}
+          {#
+            The star is made here and nowhere else. This is the page about the
+            game, so it is where a reader says "this is one of mine"; a star on
+            all eighteen tiles would put a second target inside every card whose
+            whole job is to be one.
+          #}
+          <div class="landing__actions">
+            {% if game.hasRulebook %}
+              <a class="button button--primary" href="{{ game.url }}rulebook/">Open the rulebook</a>
+            {% endif %}
+            <button type="button" class="button button--quiet favorite-toggle"
+                    data-favorite-toggle aria-pressed="false" hidden>
+              <span class="favorite-toggle__icon" data-favorite-icon></span>
+              <span data-favorite-label>Favorite</span>
+            </button>
+          </div>
         </div>
       </header>
 

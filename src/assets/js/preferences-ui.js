@@ -2,6 +2,7 @@ import { preferences, PREFERENCES } from "./preferences.js";
 import { createOverlay } from "./overlay.js";
 import { bookmarkStore } from "./bookmark-store.js";
 import { historyStore } from "./reading-history.js";
+import { favoriteStore } from "./favorites.js";
 
 /**
  * The reading-preferences panel.
@@ -130,6 +131,10 @@ export function initPreferences() {
   render();
 
   const disarm = [
+    armClearButton(panel.querySelector("[data-clear-favorites]"), {
+      label: "Clear favorites",
+      store: favoriteStore,
+    }),
     armClearButton(panel.querySelector("[data-clear-history]"), {
       label: "Clear history",
       store: historyStore,

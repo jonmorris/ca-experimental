@@ -1,5 +1,7 @@
 import { historyStore } from "./reading-history.js";
 import { withBasePath } from "./base-path.js";
+import { favoriteStore } from "./favorites.js";
+import { favoriteSlugs } from "./favorites-ui.js";
 
 /**
  * "Recently opened" on the home page.
@@ -87,11 +89,22 @@ export function initRecentGames() {
   if (!section || !list) return;
 
   function render() {
-    const entries = historyStore.list({ limit: SHOWN });
+    /*
+     * A starred game is already on the shelf above this one. Showing it twice
+     * would make the two rows read as one long list rather than as two
+     * different answers.
+     */
+    const starred = favoriteSlugs();
+    const entries = historyStore
+      .list()
+      .filter((entry) => !starred.has(entry.gameSlug))
+      .slice(0, SHOWN);
+
     list.replaceChildren(...entries.map(buildTile));
     section.hidden = entries.length === 0;
   }
 
   render();
   historyStore.subscribe(render);
+  favoriteStore.subscribe(render);
 }
