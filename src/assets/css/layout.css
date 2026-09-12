@@ -291,7 +291,13 @@
 
 .main {
   min-width: 0;
-  padding-block: var(--space-6) var(--space-8);
+  /*
+   * The top step is smaller than the bottom one. What sits at the top of a
+   * page is a line of breadcrumbs set in the smallest type on it, and small
+   * text needs less room above it than the gap under the sticky chrome was
+   * giving it — the page read as starting late.
+   */
+  padding-block: var(--space-5) var(--space-8);
 }
 
 .main:focus {
@@ -448,10 +454,6 @@
     margin-top: var(--space-5);
     padding-top: var(--space-5);
     border-top: 1px solid var(--line);
-  }
-
-  .main {
-    padding-block: var(--space-6) var(--space-8);
   }
 
   /* A landing page is art-led and wants the full width. */
