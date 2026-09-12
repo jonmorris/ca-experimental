@@ -174,3 +174,54 @@ scope and prefix questions below.
   the manifest's `start_url` and `scope` would have to carry the prefix
   themselves — `HtmlBasePlugin` rewrites `href` and `src`, never data. The same
   class of bug that once 404'd every search result.
+
+---
+
+## Reordering My Reference, and managing bookmarks in bulk
+
+Dragging the sections of My Reference into an order of the reader's choosing,
+and a place to clear out bookmarks a game at a time.
+
+**Why deferred:** My Reference shipped in rules order, which is the order that
+needs no interface and is right until someone says otherwise. Reordering needs
+a drag affordance that works by thumb as well as mouse, a keyboard equivalent
+for it, and somewhere to persist the order — three problems for a preference
+nobody has asked for yet.
+
+Bulk removal is the same story from the other side: removing one bookmark is a
+tap, and there is now an undo on it. Whether anyone ever removes enough of them
+at once to want a management page is a thing to find out rather than to assume.
+
+**What already helps:** the page does not group by document — each section
+carries its own source label as an eyebrow instead. That was chosen partly
+because grouping and ordering are the same decision, and a page whose sections
+are individually self-describing can be put in any order without anything
+becoming ambiguous. So the order becomes an array of section keys in the store,
+and nothing else moves.
+
+Also worth testing before either is built: whether removing a bookmark wants a
+confirmation step in general, not only on this page. Adding one should stay a
+single tap; removing one perhaps should not be — but not so guarded that it
+becomes a chore.
+
+---
+
+## My Reference in the sidebar and the sticky bar
+
+The section list that follows the reader down a rulebook does not appear on My
+Reference. The page carries its own contents list at the top instead.
+
+**Why deferred:** both the sidebar's section list and the sticky bar are
+rendered from the registry's `sections`, which are parsed from a markdown file
+at build time. This page has no file, and what is on it is not known until the
+browser has read the reader's bookmarks. Wiring it up means those partials
+rendering empty shells and `section-tracker.js` growing a way to be told to
+re-read the document — a change to a file that three other features depend on,
+for a page that is usually short enough to see whole.
+
+**What already helps:** the contents list at the top of the page is built from
+the same plan the sections are, so it is already complete and correct before
+anything is fetched — and on a page meant to be printed, contents at the top is
+where they belong anyway. `initStickyBar` now returns early when there is no
+jump list to open, so the bar correctly does not appear rather than appearing
+empty.

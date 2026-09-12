@@ -1,0 +1,66 @@
+---
+pagination:
+  data: games
+  size: 1
+  alias: refGame
+  resolve: values
+permalink: "/games/{{ refGame.slug }}/my-reference/"
+layout: layouts/game.njk
+contentTypeSlug: my-reference
+noIndex: true
+title: My Reference
+---
+{#
+  The reader's own page, one per game.
+
+  Nothing here is content: the page is a shell, and what fills it is assembled
+  in the browser out of the sections that reader has bookmarked. The build
+  cannot know what those are, so it renders the empty state and lets the client
+  replace it — which is also why the page is kept out of the search index. An
+  empty shell indexed once at build time would be the only version anyone ever
+  found.
+#}
+{#
+  The game's documents in nav order, each with its sections in reading order.
+  This is what lets the page know its own contents before it has fetched a
+  single byte: bookmarks say *which* sections, this says what order they go in
+  and where they came from, so the table of contents and every heading can be
+  rendered immediately and the bodies filled in after.
+#}
+<script type="application/json" data-reference-order>
+  {{ refGame | referenceOrder | dump | safe }}
+</script>
+
+<div class="prose" data-my-reference>
+  <div class="reference-empty" data-reference-empty>
+    <p class="reference-empty__lead">
+      Bookmark a section anywhere in {{ refGame.title }} and it is collected
+      here, in the order it appears in the rules.
+    </p>
+
+    <p class="reference-empty__how">
+      Look for
+      <span class="reference-empty__demo">
+        <svg viewBox="0 0 16 20" width="13" height="15" aria-hidden="true" focusable="false">
+          <path d="M2.5 1.5h11a1 1 0 0 1 1 1v15.2a.6.6 0 0 1-.94.49L8 14.2l-5.56 4a.6.6 0 0 1-.94-.5V2.5a1 1 0 0 1 1-1Z"
+                fill="none" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+      </span>
+      beside any section heading — in the rulebook, the summary, an expansion,
+      anywhere. Tap it and the whole section is copied onto this page.
+    </p>
+
+    <p class="reference-empty__why">
+      It is a rules reference you build yourself: the half-dozen things your
+      group actually stops to look up, on one page, in one scroll, instead of
+      six trips back to the contents. Bookmark as you learn the game, then keep
+      this open while you play. It prints, too.
+    </p>
+
+    <p class="reference-empty__where">
+      Kept in this browser only — nothing is uploaded, and nobody else sees it.
+    </p>
+  </div>
+
+  <div class="reference-body" data-reference-body hidden></div>
+</div>

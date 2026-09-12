@@ -144,6 +144,34 @@ export default function (eleventyConfig) {
   });
 
   /**
+   * The manifest My Reference is assembled against.
+   *
+   * Every document of a game in nav order, each with its sections in reading
+   * order, its label, and where it lives. Bookmarks say which sections a reader
+   * wants; this says what order they belong in and what to call where they came
+   * from — so the page can draw its own contents, and its table of contents,
+   * before it has fetched anything.
+   *
+   * URLs are prefixed here. They travel as JSON, and HtmlBasePlugin only ever
+   * rewrites href and src.
+   */
+  eleventyConfig.addFilter("referenceOrder", (game) =>
+    (game?.allContentTypes || [])
+      .filter((type) => !type.synthetic)
+      .map((type) => ({
+        slug: type.slug,
+        expansion: type.expansionSlug || "",
+        label: type.label,
+        expansionLabel:
+          (type.expansionSlug &&
+            game.expansions.find((e) => e.slug === type.expansionSlug)?.title) ||
+          "",
+        url: withBasePath(type.url, prefix),
+        sections: type.sections.map((section) => section.slug),
+      })),
+  );
+
+  /**
    * Attaches per-heading UI to rendered content and re-homes retired anchors.
    *
    * Rendering this here rather than in the markdown pipeline keeps the decision

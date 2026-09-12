@@ -22,8 +22,15 @@ function initStickyBar() {
   const panel = document.querySelector("[data-section-jump]");
   const position = bar.querySelector("[data-section-bar-position]");
 
+  /*
+   * Only when there is a list to open. My Reference has no sections at build
+   * time — it assembles itself in the browser — so without this the page shows
+   * a bar that names nothing and opens nothing.
+   */
+  if (!panel || !trigger) return;
+
   bar.hidden = false;
-  if (panel && trigger) createOverlay({ panel, trigger });
+  createOverlay({ panel, trigger });
 
   onSectionChange(({ current, index, sections }) => {
     if (label && current) label.textContent = current.title;

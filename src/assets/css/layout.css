@@ -487,3 +487,51 @@
     gap: var(--space-8);
   }
 }
+
+/* ------------------------------------------------------- page top row */
+
+/*
+ * Breadcrumbs and the page-level actions share a line. The breadcrumbs already
+ * carried their own bottom margin, so the row takes it over and they keep none
+ * of their own.
+ */
+.page-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.page-top .breadcrumbs {
+  margin-bottom: 0;
+  min-width: 0;
+}
+
+.print-button {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background: var(--surface-sunken);
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+/* The icon carries it on a phone; the word is what makes it obvious on a desk. */
+@media (max-width: 34rem) {
+  .print-button__label {
+    display: none;
+  }
+}

@@ -201,3 +201,165 @@
   color: var(--rule);
   text-decoration-style: solid;
 }
+
+/* ================================================== my reference */
+
+/*
+ * The reader's own page. Everything below is drawn by `my-reference.js` out of
+ * their bookmarks, so nothing here exists at build time except the empty state.
+ */
+
+.reference-empty {
+  display: grid;
+  gap: var(--space-4);
+  max-width: var(--measure);
+}
+
+.reference-empty__lead {
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+}
+
+.reference-empty__how,
+.reference-empty__why {
+  color: var(--ink-muted);
+}
+
+/* The control being described, drawn as it appears beside a heading. */
+.reference-empty__demo {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-1);
+  border: 1px solid var(--marker);
+  border-radius: var(--radius);
+  color: var(--marker);
+  translate: 0 0.15em;
+}
+
+.reference-empty__where {
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+/* ------------------------------------------------- contents of this page */
+
+.reference-contents {
+  margin-bottom: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface-sunken);
+  border-radius: var(--radius-lg);
+}
+
+.reference-contents__list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: reference;
+}
+
+.reference-contents__list li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.reference-contents__list a {
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  text-decoration: none;
+}
+
+.reference-contents__list a:hover {
+  text-decoration: underline;
+}
+
+/* Which document it came from — the same answer the eyebrow gives below. */
+.reference-contents__from {
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+}
+
+/* --------------------------------------------------------- sections */
+
+.reference-section + .reference-section {
+  margin-top: var(--space-7);
+}
+
+/*
+ * The eyebrow, and the way back. Two documents in one game can carry the same
+ * heading, so a heading here needs to say where it is from — and that label is
+ * also the most honest place to put "read this where it actually lives".
+ */
+.reference-source {
+  margin-bottom: var(--space-1);
+}
+
+.reference-source a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  text-decoration: none;
+}
+
+.reference-source a:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
+.reference-section .section-heading {
+  margin-top: 0;
+}
+
+.reference-section__body > * + * {
+  margin-top: var(--space-4);
+}
+
+/* ---------------------------------------------------- states */
+
+.reference-missing {
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.reference-section--missing .section-heading h2 {
+  color: var(--ink-faint);
+}
+
+/* Removed, but still here until the page is next loaded. */
+.reference-section.is-removed {
+  opacity: 0.45;
+}
+
+.reference-removed {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  color: var(--ink-muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.reference-removed__undo {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--accent-strong);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* The removed section keeps its own control readable while it is dimmed. */
+.reference-section.is-removed .reference-removed {
+  opacity: 1;
+}

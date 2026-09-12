@@ -42,6 +42,8 @@ body {
 .heading-permalink,
 .bookmarks-item__remove,
 .breadcrumbs,
+.print-button,
+.reference-removed,
 .chip-row,
 dialog,
 [data-palette-index] {
@@ -293,4 +295,33 @@ a {
 .index-group__letter {
   font-size: 13pt;
   border-bottom: 0.5pt solid #999;
+}
+
+
+/* --- my reference -------------------------------------------------------- */
+
+/*
+ * The page this site is most worth printing: a reader's own selection of the
+ * rules, on paper, beside the board. Each section starts on its own block so a
+ * heading is never orphaned at the foot of a page, and the source label stays —
+ * on paper it is the only thing that says which book a rule came out of.
+ */
+.reference-section {
+  break-inside: avoid-page;
+  margin-top: 1.5em;
+}
+
+.reference-contents {
+  background: none;
+  border: 1px solid #ddd;
+  break-inside: avoid-page;
+}
+
+.reference-source a {
+  text-decoration: none;
+}
+
+/* A section removed but not yet gone is not part of the reference. */
+.reference-section.is-removed {
+  display: none !important;
 }
