@@ -141,6 +141,36 @@ export function createFavoriteStore({ storage = defaultStorage() } = {}) {
       return true;
     },
 
+    /** Everything stored, as stored. */
+    snapshot() {
+      return { schemaVersion: SCHEMA_VERSION, games: read(storage).games };
+    },
+
+    /** Folds an exported payload in, keeping the earlier star of a duplicate. */
+    merge(payload) {
+      const incoming = Array.isArray(payload?.games) ? payload.games.filter(isValid) : [];
+      if (!incoming.length) return 0;
+
+      const current = read(storage);
+      const seen = new Map(current.games.map((game) => [game.gameSlug, game]));
+      let added = 0;
+
+      for (const game of incoming) {
+        const existing = seen.get(game.gameSlug);
+        if (existing) {
+          if ((game.addedAt || 0) < (existing.addedAt || 0)) seen.set(game.gameSlug, game);
+          continue;
+        }
+        seen.set(game.gameSlug, game);
+        added += 1;
+      }
+
+      current.games = [...seen.values()];
+      write(storage, current);
+      notify();
+      return added;
+    },
+
     clear() {
       const payload = read(storage);
       if (!payload.games.length) return false;

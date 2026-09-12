@@ -173,6 +173,44 @@ export function createHistoryStore({ storage = defaultStorage() } = {}) {
       return entry;
     },
 
+    /** Everything stored, as stored. */
+    snapshot() {
+      return { schemaVersion: SCHEMA_VERSION, games: read(storage).games };
+    },
+
+    /**
+     * Folds an exported payload in.
+     *
+     * A history is about when, so a game on both sides keeps the *later*
+     * visit — the opposite of bookmarks and favourites, where the earlier
+     * record is the truer one because it is when the reader decided.
+     */
+    merge(payload) {
+      const incoming = Array.isArray(payload?.games) ? payload.games.filter(isValid) : [];
+      if (!incoming.length) return 0;
+
+      const current = read(storage);
+      const seen = new Map(current.games.map((game) => [game.gameSlug, game]));
+      let added = 0;
+
+      for (const game of incoming) {
+        const existing = seen.get(game.gameSlug);
+        if (existing) {
+          if ((game.visitedAt || 0) > (existing.visitedAt || 0)) seen.set(game.gameSlug, game);
+          continue;
+        }
+        seen.set(game.gameSlug, game);
+        added += 1;
+      }
+
+      current.games = [...seen.values()]
+        .sort((a, b) => (b.visitedAt || 0) - (a.visitedAt || 0))
+        .slice(0, MAX_GAMES);
+      write(storage, current);
+      notify();
+      return added;
+    },
+
     /** Forgets everything. The reader's own record is theirs to erase. */
     clear() {
       const payload = read(storage);

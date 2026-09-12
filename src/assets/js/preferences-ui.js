@@ -3,6 +3,7 @@ import { createOverlay } from "./overlay.js";
 import { bookmarkStore } from "./bookmark-store.js";
 import { historyStore } from "./reading-history.js";
 import { favoriteStore } from "./favorites.js";
+import { downloadExport, applyImport, describeImport } from "./data-transfer.js";
 
 /**
  * The reading-preferences panel.
@@ -109,6 +110,51 @@ function armClearButton(button, { label, store }) {
   return reset;
 }
 
+/**
+ * Download and restore.
+ *
+ * The file input is hidden and driven by a button, because a bare file input is
+ * unstyleable and reads as a form on a panel that has none.
+ */
+function initTransfer(panel) {
+  const result = panel.querySelector("[data-transfer-result]");
+
+  function say(message, ok = true) {
+    if (!result) return;
+    result.textContent = message;
+    result.classList.toggle("is-bad", !ok);
+    result.hidden = false;
+  }
+
+  panel.querySelector("[data-export]")?.addEventListener("click", () => {
+    downloadExport();
+    say("Downloaded. Keep it somewhere you will find it again.");
+  });
+
+  const file = panel.querySelector("[data-import-file]");
+  panel.querySelector("[data-import-open]")?.addEventListener("click", () => file?.click());
+
+  file?.addEventListener("change", async () => {
+    const chosen = file.files?.[0];
+    if (!chosen) return;
+
+    let text = "";
+    try {
+      text = await chosen.text();
+    } catch {
+      say("That file could not be read.", false);
+      return;
+    } finally {
+      // So choosing the same file twice in a row still fires a change.
+      file.value = "";
+    }
+
+    const outcome = applyImport(text);
+    if (!outcome.ok) say(outcome.reason, false);
+    else say(describeImport(outcome));
+  });
+}
+
 export function initPreferences() {
   const panel = document.querySelector("[data-preferences-panel]");
   const trigger = document.querySelector("[data-preferences-toggle]");
@@ -129,6 +175,8 @@ export function initPreferences() {
   }
 
   render();
+
+  initTransfer(panel);
 
   const disarm = [
     armClearButton(panel.querySelector("[data-clear-favorites]"), {

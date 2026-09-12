@@ -166,6 +166,45 @@ export function createBookmarkStore({ storage = defaultStorage() } = {}) {
       return true;
     },
 
+    /** Everything stored, as stored — the shape an export writes out. */
+    snapshot() {
+      return { schemaVersion: SCHEMA_VERSION, bookmarks: read(storage).bookmarks };
+    },
+
+    /**
+     * Folds an exported payload in beside what is already here.
+     *
+     * Merge rather than replace: an import lands on a device that may already
+     * have bookmarks, and the reader asking for their data back has not asked
+     * to lose what they have. Identity is the same key the store uses, so a
+     * bookmark that exists on both sides is one bookmark, keeping whichever
+     * copy was made first.
+     */
+    merge(payload) {
+      const incoming = Array.isArray(payload?.bookmarks) ? payload.bookmarks.filter(isValid) : [];
+      if (!incoming.length) return 0;
+
+      const current = read(storage);
+      const seen = new Map(current.bookmarks.map((b) => [keyOf(b), b]));
+      let added = 0;
+
+      for (const bookmark of incoming) {
+        const key = keyOf(bookmark);
+        const existing = seen.get(key);
+        if (existing) {
+          if ((bookmark.createdAt || 0) < (existing.createdAt || 0)) seen.set(key, bookmark);
+          continue;
+        }
+        seen.set(key, bookmark);
+        added += 1;
+      }
+
+      current.bookmarks = [...seen.values()];
+      write(storage, current);
+      notify();
+      return added;
+    },
+
     /** Removes every bookmark. Returns true if there were any to remove. */
     clear() {
       const payload = read(storage);
