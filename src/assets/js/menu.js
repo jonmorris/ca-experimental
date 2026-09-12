@@ -42,11 +42,17 @@ export function initMenu() {
   });
 
   /*
-   * Tapping anywhere else closes it. The dropdown is not a <dialog> — it sits
-   * in the header's flow so the page stays scrollable behind it — so there is
-   * no backdrop to catch the tap, and it has to be caught on the document.
+   * Tapping anywhere else closes it. The dropdown is not a <dialog> — the page
+   * stays scrollable behind it — so there is no backdrop to catch the tap, and
+   * it has to be caught on the document.
+   *
+   * On `click`, not `pointerdown`. Every touch scroll begins with a
+   * pointerdown, so listening for that closed the menu the instant a reader
+   * put a finger on the page to scroll — the menu simply vanished, and with no
+   * tap to blame it for. A gesture that moves produces no click at all, so
+   * this closes on a real tap and leaves scrolling alone.
    */
-  document.addEventListener("pointerdown", (event) => {
+  document.addEventListener("click", (event) => {
     if (toggle.getAttribute("aria-expanded") !== "true") return;
     if (menu.contains(event.target) || toggle.contains(event.target)) return;
     setOpen(false);

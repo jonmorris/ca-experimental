@@ -67,6 +67,9 @@
       <style>
         .menu-toggle, .icon-button, .search, .section-bar { display: none !important; }
         .site-menu[hidden] { display: block !important; }
+        /* Rendered open, so it has to take its own room rather than hang over
+           the page the way the dropdown does. */
+        .site-menu { position: static !important; max-height: none !important; }
       </style>
     </noscript>
   </head>

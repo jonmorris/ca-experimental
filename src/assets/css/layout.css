@@ -166,7 +166,25 @@
 
 /* ---------------------------------------------------------- menu (narrow) */
 
+/*
+ * Out of the flow, hanging off the sticky header rather than sitting inside
+ * its height.
+ *
+ * In the flow it added its own 497px to the top of the document every time it
+ * opened, so the page reflowed under the reader twice per use. Scroll
+ * anchoring then tried to compensate and got it wrong in both directions:
+ * measured from 1500, opening moved the page 67px and closing moved it 861px
+ * the other way, leaving the reader nine hundred pixels from the rule they had
+ * been reading with no way back to it.
+ *
+ * Absolute against the header — `position: sticky` makes it a containing block
+ * — so opening and closing change nothing about the document at all.
+ */
 .site-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   max-height: calc(100dvh - var(--header-height));
   overflow-y: auto;
   background: var(--surface-raised);
