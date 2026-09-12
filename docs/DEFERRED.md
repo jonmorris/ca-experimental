@@ -112,3 +112,65 @@ popovers duplicate a destination that already exists as a page.
 addressable, and `section-tracker.js` already knows the document's outline.
 Glossary terms already resolve through one shortcode, so a popover would be a
 change to how `{% term %}` renders and nothing else.
+
+---
+
+## Offline reading and installing to the home screen
+
+A service worker caching the site so it works with no connection, a
+`manifest.webmanifest` so it can be added to a phone's home screen, and a
+"Save for offline" button to pull down a game you have not read yet.
+
+**Why deferred:** the promise cannot be kept, and the mechanism cannot be
+supervised.
+
+The promise: Safari clears script-writable storage — the Cache API, the service
+worker registration, everything — after roughly seven days without a visit, and
+no API call from inside a Safari tab overrides it. Adding the site to the home
+screen largely escapes that, but on iOS a standalone web app has had its own
+storage container, so a game saved in a tab is not necessarily there when the
+icon is opened. The reliable recipe is therefore "install first, then
+download", which is a ritual to explain before the feature can be trusted. A
+button that says *saved for offline* would be telling a reader something we
+cannot check and they cannot verify, and the moment it matters is the moment
+they have no signal to fix it.
+
+The mechanism: a service worker is sticky. A browser that has one keeps using
+it, and a broken one cannot be reached — only replaced, through an update path
+that is itself the thing that broke. This site has no analytics and no error
+reporting, so a fault would be invisible from here and unfixable from there.
+That is a poor trade for a feature whose payoff is that the rules sometimes
+still open on a train.
+
+**Revisit if** any of these change: the audience is known to install the site
+(which makes the storage story sound), there is some way to observe failures in
+the field, or the site moves off a subpath to a root domain, which removes the
+scope and prefix questions below.
+
+**What already helps:**
+
+- **Content-hashed filenames.** `scripts/hash-assets.mjs` names every stylesheet,
+  script and font for its own contents, which is the hard half of cache
+  invalidation and the reason a cache-first strategy would be safe here: an
+  edit changes the address, so a stale copy is never asked for again. On a site
+  with stable filenames, cache-first is how returning readers get bricked.
+- **The jump index is already inline.** `paletteIndex` ships as JSON in every
+  page rather than as a fetched file, so every section, term and rule target on
+  the site is reachable from any cached page with no network round trip. That is
+  the useful part of offline, and it already works. Only full-text search needs
+  Pagefind's separate index.
+- **The 404 page already recovers from a URL**, which is the natural offline
+  fallback for a navigation that misses the cache — it would need a different
+  sentence, not different logic.
+- **`hash-assets.mjs` already excludes a directory** (`_site/pagefind/`), so the
+  requirement that `sw.js` keep a stable, unhashed name has a precedent to
+  follow rather than a mechanism to invent.
+- **Sizes are measured**, so the tiers do not need re-deriving: the shell (CSS,
+  JS, fonts) is ~1.5MB, a game is 0.6–5MB, all box art is 5MB, Pagefind's index
+  is 3.1MB, and the built site is 27MB — far too much to precache, which is why
+  a per-game download is the shape this would take.
+- **Scope and prefix.** The site is served under `/ca-experimental/`, so a
+  service worker would have to be served from that directory to cover it, and
+  the manifest's `start_url` and `scope` would have to carry the prefix
+  themselves — `HtmlBasePlugin` rewrites `href` and `src`, never data. The same
+  class of bug that once 404'd every search result.
