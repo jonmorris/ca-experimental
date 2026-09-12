@@ -1179,6 +1179,16 @@ dialog::backdrop {
   margin-bottom: var(--space-7);
 }
 
+/*
+ * Space between the shelves. `:not([hidden])` is what keeps it honest: a
+ * hidden section still matches an adjacent-sibling selector even though it
+ * takes no room, so without this a reader with no history would get the gap
+ * anyway and the games would sit twice as far down the page as intended.
+ */
+.home__section:not([hidden]) + .home__section {
+  margin-top: var(--space-7);
+}
+
 .home__title {
   font-family: var(--font-display);
   font-size: var(--text-4xl);
