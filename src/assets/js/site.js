@@ -23,6 +23,7 @@ import { initJumpBookmarks } from "./jump-bookmarks.js";
 import { initMyReference } from "./my-reference.js";
 import { initPrint } from "./print.js";
 import { initFavorites } from "./favorites-ui.js";
+import { initAboutDemos } from "./about-demos.js";
 
 function start() {
   // The inline head script already applied these before first paint; this
@@ -48,6 +49,7 @@ function start() {
   initBookmarksDrawer();
   initNotFound();
   initHeadingLinks();
+  initAboutDemos();
 }
 
 if (document.readyState === "loading") {

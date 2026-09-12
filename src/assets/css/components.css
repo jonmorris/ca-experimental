@@ -1861,3 +1861,194 @@ dialog::backdrop {
   color: var(--marker);
   translate: 0 0.1em;
 }
+
+/* ========================================================= about: the brags */
+
+/*
+ * The feature cards on the About page. Each one carries a working piece of the
+ * site rather than a screenshot of it, so the layout has to give the demo room
+ * without letting it outweigh the sentence that frames it.
+ */
+.brag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-4);
+  margin: var(--space-5) 0 var(--space-7);
+  padding: 0;
+  list-style: none;
+}
+
+/* The search card earns the full width: its results need somewhere to go. */
+.brag--wide {
+  grid-column: 1 / -1;
+}
+
+.brag {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.brag__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  line-height: var(--leading-tight);
+}
+
+.brag__body {
+  color: var(--ink-muted);
+  font-size: var(--text-base);
+  line-height: var(--leading-snug);
+}
+
+/* The live part. Pushed to the bottom so cards of different lengths line up. */
+.brag__demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.brag__demo--quiet {
+  color: var(--ink-faint);
+}
+
+.brag__caption {
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+}
+
+/* ---------------------------------------------------- the live search */
+
+.brag__demo:has(.brag-search__input) {
+  display: block;
+}
+
+.brag-search__input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+}
+
+.brag-search__results {
+  display: grid;
+  gap: 1px;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.brag-search__link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+
+.brag-search__link:hover {
+  background: var(--surface-sunken);
+}
+
+.brag-search__where {
+  color: var(--ink-faint);
+  font-size: var(--text-2xs);
+}
+
+.brag-search__empty {
+  padding: var(--space-2) var(--space-3);
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+/* ------------------------------------------------ the type controls */
+
+.brag__demo:has(.brag-faces) {
+  display: block;
+}
+
+.brag-faces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.brag-faces__row {
+  display: inline-flex;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.brag-faces__button {
+  padding: var(--space-1) var(--space-3);
+  background: none;
+  border: 0;
+  color: var(--ink-muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  cursor: pointer;
+}
+
+.brag-faces__button + .brag-faces__button {
+  border-left: 1px solid var(--line);
+}
+
+.brag-faces__button:hover {
+  background: var(--surface-sunken);
+  color: var(--ink);
+}
+
+.brag-faces__button.is-on {
+  background: var(--accent-wash);
+  color: var(--accent-strong);
+}
+
+/* Set in the body face, so the controls above it visibly do something. */
+.brag-sample {
+  margin-top: var(--space-3);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-reading);
+}
+
+/*
+ * The copy-link in the About demo keeps its word.
+ *
+ * Beside a heading the icon is enough — the heading says what it points at. On
+ * its own in a card it has no heading to borrow meaning from, so the label
+ * stays and the control reads as a button rather than a decoration.
+ */
+.brag__demo .heading-permalink__label {
+  display: inline;
+}
+
+.brag__demo .heading-permalink {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+}

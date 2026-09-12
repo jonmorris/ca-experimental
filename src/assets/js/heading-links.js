@@ -34,8 +34,16 @@ export function initHeadingLinks() {
     let timer;
 
     link.addEventListener("click", (event) => {
-      const anchor = link.getAttribute("href");
-      const url = `${window.location.origin}${window.location.pathname}${anchor}`;
+      const href = link.getAttribute("href");
+      /*
+       * Resolved against this page rather than pasted onto it. Beside a heading
+       * the href is a bare `#anchor` and the two are the same thing, but the
+       * About page points one of these at a section in another document — and
+       * concatenating produced `/about//games/indonesia/rulebook/#mergers`, a
+       * copied link that went nowhere.
+       */
+      const url = new URL(href, window.location.href).href;
+      const samePage = !href.startsWith("#") ? false : true;
 
       /*
        * Synchronously, before anything is awaited. A handler that calls this
@@ -50,7 +58,7 @@ export function initHeadingLinks() {
         if (!copied) {
           // No clipboard. Do what the anchor would have done, so the reader
           // still gets the URL — in the address bar rather than the clipboard.
-          window.location.hash = anchor;
+          window.location.href = url;
           return;
         }
 
@@ -59,7 +67,9 @@ export function initHeadingLinks() {
          * copied. `replaceState` rather than a navigation: the reader is
          * already at this heading and does not need moving.
          */
-        window.history.replaceState(null, "", url);
+        // Only when the link points into this page. Rewriting the address bar
+        // to somewhere the reader is not would be a lie about where they are.
+        if (samePage) window.history.replaceState(null, "", url);
 
         link.dataset.copied = "true";
         if (label) label.textContent = "Copied";

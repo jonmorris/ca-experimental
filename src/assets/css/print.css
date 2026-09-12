@@ -325,3 +325,25 @@ a {
 .reference-section.is-removed {
   display: none !important;
 }
+
+/* --- about ---------------------------------------------------------------- */
+
+/*
+ * The feature cards describe themselves in prose and demonstrate themselves in
+ * controls. On paper only the first half means anything, so the demonstrations
+ * go and the sentences stay.
+ */
+.brag__demo {
+  display: none !important;
+}
+
+.brag-grid {
+  display: block;
+}
+
+.brag {
+  border: 0;
+  padding: 0;
+  margin-bottom: 1em;
+  break-inside: avoid-page;
+}

@@ -16,6 +16,94 @@ title: About
       index — cross-linked to each other and searchable within that game.
     </p>
 
+    {#
+      The feature section. Every card demonstrates itself rather than
+      describing itself: the search box searches, the type controls change the
+      type on this page, the copy-link copies. A list of claims about a reading
+      tool is the one thing a reading tool should not need.
+    #}
+    <h2 id="cool">What we think is cool about {{ site.title }}</h2>
+  </div>
+
+  <ul class="brag-grid" data-about-demos>
+    <li class="brag">
+      <h3 class="brag__title">One box, one rulebook, five people</h3>
+      <p class="brag__body">
+        The oldest problem at a table: the rules are a physical object and only
+        one person can hold them. Here everybody has the whole book, at once,
+        and nobody has to ask for it back.
+      </p>
+      <p class="brag__demo brag__demo--quiet">
+        It prints, too — so the person who prefers paper can still have paper.
+      </p>
+    </li>
+
+    <li class="brag">
+      <h3 class="brag__title">Every rule has an address</h3>
+      <p class="brag__body">
+        Not a page number that changes between printings — a permanent link to
+        the exact rule, that you can paste into the group chat mid-argument.
+        Try it:
+      </p>
+      <p class="brag__demo">
+        <a class="heading-permalink" data-copy-link
+           href="/games/indonesia/rulebook/#mergers"
+           aria-label="Copy link to section: Mergers">
+          <svg class="heading-permalink__icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+          </svg>
+          <span class="heading-permalink__label">Copy link</span>
+        </a>
+        <span class="brag__caption">Indonesia · Rulebook · Mergers</span>
+      </p>
+    </li>
+
+    <li class="brag brag--wide">
+      <h3 class="brag__title">Find it without knowing where it is</h3>
+      <p class="brag__body">
+        You do not remember whether it was in the rulebook, the summary or the
+        glossary — you just remember the word. Every section, term and rule
+        across every game is one index. This is the real one:
+      </p>
+      <div class="brag__demo">
+        <label class="visually-hidden" for="brag-search">Search every game</label>
+        <input class="brag-search__input" id="brag-search" type="text"
+               autocomplete="off" spellcheck="false"
+               placeholder="Try “merger”, “setup”, “trade”…" data-brag-search>
+        <ul class="brag-search__results" data-brag-results></ul>
+        <p class="brag__caption" data-brag-count></p>
+      </div>
+    </li>
+
+    <li class="brag">
+      <h3 class="brag__title">Build the reference you actually need</h3>
+      <p class="brag__body">
+        Bookmark the four rules your group keeps stopping to look up, and they
+        are collected onto one page for that game — in the rules' own order,
+        the whole section, not a link to it. A player aid you wrote by reading.
+      </p>
+      <p class="brag__demo" data-brag-reference></p>
+    </li>
+
+    <li class="brag">
+      <h3 class="brag__title">Read it the way you read</h3>
+      <p class="brag__body">
+        Serif or sans, bigger or smaller, tighter or looser, light or dark.
+        Rules are dense enough without being set the way somebody else likes
+        them. These buttons change this page as you press them:
+      </p>
+      <div class="brag__demo">
+        <div class="brag-faces" data-brag-faces></div>
+        <p class="brag-sample">
+          Starting with the player holding the start marker, each player in turn
+          order either bids or passes.
+        </p>
+      </div>
+    </li>
+  </ul>
+
+  <div class="prose">
     <h2 id="how-it-works">How it works</h2>
     <ul>
       <li>Every section has a permanent anchor, so a link you save keeps working.</li>
