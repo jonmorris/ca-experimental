@@ -82,7 +82,17 @@
 
     <div class="prefs__body" data-preferences-body></div>
 
-    <p class="prefs__note">Saved in this browser only.</p>
+    {#
+      The note has to name the cost, not just the privacy. "Saved in this
+      browser only" reads as reassurance — nothing is uploaded — and buries the
+      part a reader would want to act on, which is that a browser is a place
+      things get deleted from.
+    #}
+    <p class="prefs__note">
+      Saved in this browser only: nothing is uploaded and nothing is shared with
+      your other devices. Clearing your browsing data removes it, and Safari
+      deletes it after about a week without a visit.
+    </p>
 
     {#
       What the site has stored, and how to be rid of it. The history is the
