@@ -2175,10 +2175,19 @@ body[data-content-type="rulebook"] {
     box-shadow: var(--shadow-sm);
   }
 
-  /* Fills the card's height so there is something for the two to sit at the
-     ends of; the arrow keeps the centring it has from the row. */
+  /*
+   * Fills the card — both ways.
+   *
+   * Down, so there is something for the direction and the title to sit at the
+   * ends of. Across, because a flex item sized from its own content stops at
+   * the longest word it happens to hold: the card went from 176px to 248 with
+   * the three-column layout and the words kept wrapping at 108, leaving eighty
+   * pixels of card doing nothing and titles breaking that had no need to.
+   */
   .prev-next__text {
     display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
     flex-direction: column;
     justify-content: space-between;
     align-self: stretch;
