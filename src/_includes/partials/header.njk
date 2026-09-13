@@ -99,7 +99,13 @@
       <nav class="site-menu__section" aria-label="Site">
         <p class="site-menu__heading">Site</p>
         <ul class="nav-list">
-          <li><a class="nav-link{% if page.url == '/' %} is-current{% endif %}" href="/">All Games</a></li>
+          {#
+            "Home", not "All Games": the page carries the reader's favourites
+            and what they were last reading as well as the shelf, and naming it
+            after one of its three sections undersells the other two. The shelf
+            itself is still headed All Games on the page.
+          #}
+          <li><a class="nav-link{% if page.url == '/' %} is-current{% endif %}" href="/">Home</a></li>
           <li><a class="nav-link{% if page.url == '/about/' %} is-current{% endif %}" href="/about/">About</a></li>
         </ul>
       </nav>
