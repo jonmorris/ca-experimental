@@ -7,7 +7,7 @@
  * and reports:
  *
  *   - pages whose URL does not match the contract in the requirements
- *   - internal links pointing at a page that was not built
+ *   - internal links pointing at a page or file that was not built
  *   - command-palette targets pointing at a page or anchor that was not built
  *   - assets a stylesheet references that are not where it says they are
  *   - `#fragment` links pointing at an ID that does not exist on the target
@@ -193,9 +193,21 @@ function main() {
       const target = pages.get(targetUrl);
 
       if (!target) {
-        // Assets are copied, not built as pages.
-        if (/\.(css|js|svg|png|jpe?g|webp|pdf|xml|txt|json)$/.test(targetUrl)) continue;
-        if (targetUrl.startsWith("/pagefind/")) continue;
+        /*
+         * Assets are copied, not built as pages — so they are not in the page
+         * map, but they are still on disk and can still be missing. Checked
+         * rather than skipped: a game's downloads are ordinary links to
+         * ordinary files, and the whole point of offering one is that it is
+         * there. The old blanket skip meant a PDF that never got committed
+         * produced a download button leading to a 404 and a clean report.
+         */
+        if (/\.[a-z0-9]+$/i.test(targetUrl)) {
+          if (targetUrl.startsWith("/pagefind/")) continue;
+          if (!existsSync(join(SITE_DIR, targetUrl.replace(/^\//, "")))) {
+            fail(`${url} — links to ${targetUrl}, which is not in the build`);
+          }
+          continue;
+        }
         fail(`${url} — links to ${targetUrl}, which was not built`);
         continue;
       }

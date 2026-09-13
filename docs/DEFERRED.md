@@ -306,13 +306,22 @@ Two panels instead of one: reading settings on their own, and a data panel
 that opens on a summary of everything the site is holding — how many
 bookmarks, how many favourites, how many games of history, how much space —
 with a clear for each type beside its own count, and the download and restore
-that today sit under all three.
+that today sit under all four.
 
 **Why deferred:** neither half is big enough yet to need the room. There are
-four reading settings and three stores, and one panel with a rule across it
+four reading settings and four stores, and one panel with a rule across it
 holds both without anyone having to scroll to find anything. Splitting now
 would mean a second entry point in a header that carries four controls and is
 deliberately thin.
+
+It was built once and taken back out: its own `<dialog>`, a person-shaped
+control in the header, a row in the menu for the widths with no room for the
+icon, and the summary of counts described above. Nothing about it was broken.
+It was simply two panels' worth of entry points for one panel's worth of
+content, and the thin header paid for it — so the whole of it came out again
+and the section went back under the rule in Reading. The reasoning above is
+unchanged; what is new is that it has now been measured against the built
+thing rather than guessed at.
 
 The reason to expect it anyway is that both halves grow. More stores are
 likely — highlights, notes, a per-game reading position, whatever a reader
@@ -332,9 +341,9 @@ go today except a panel titled Reading, where they do not belong.
   `buildExport` and `applyImport` know nothing about where they are called
   from, so moving the two buttons is moving two event listeners.
 - The export envelope is keyed by store name (`bookmarks`, `favorites`,
-  `history`, `preferences`), so a new store is a new key and an older file
-  missing that key already imports cleanly — which is what lets the data panel
-  grow a row at a time.
+  `history`, `searches`, `preferences`), so a new store is a new key and an
+  older file missing that key already imports cleanly — which is what lets the
+  data panel grow a row at a time.
 - `overlays.njk` already renders each panel as its own `<dialog>` wired by
   `overlay.js`, and the palette and the Reading panel now share one floating
   shell and one `.overlay-scroll` region. A third panel is markup plus a

@@ -45,7 +45,14 @@ const DROP_FRONTMATTER = new Set([
   "status", "priority", "copyrightNotes", "lastUpdated",
 ]);
 
-/* game.json keys the registry does not read. */
+/*
+ * game.json keys the registry does not read.
+ *
+ * `downloads` is upstream's own, in a shape nothing here understands. This
+ * site has a `downloads` key of its own in the same file, written here — see
+ * below, where the local one is carried forward. Dropping upstream's is what
+ * keeps the two from being mistaken for each other.
+ */
 const DROP_META = new Set(["site_published", "sections", "downloads"]);
 
 const NON_CONTENT = new Set(["_source", "_working", "images", "downloads"]);
@@ -247,8 +254,14 @@ function portMeta(gameSlug, from, to) {
     out[key] = value;
   }
 
-  // Tags are written here; upstream has none.
+  /*
+   * Written here, never upstream, and a sync rebuilds this file from
+   * upstream's — so anything authored locally has to be carried across by
+   * name or it is silently lost on the next sync. `downloads` points at files
+   * committed to this repository, which upstream does not have.
+   */
   if (existing.tags) out.tags = existing.tags;
+  if (existing.downloads) out.downloads = existing.downloads;
   Object.assign(out, META_OVERRIDES[gameSlug] || {});
   if (EXPANSION_TITLES[gameSlug]) {
     out.expansions = Object.fromEntries(

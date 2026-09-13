@@ -1,5 +1,5 @@
 import { favoriteStore } from "./favorites.js";
-import { withBasePath } from "./base-path.js";
+import { collapseToRow } from "./row-collapse.js";
 
 /**
  * Everywhere a favourite is made or shown.
@@ -77,6 +77,8 @@ function initHome() {
   const list = section?.querySelector("[data-favorite-list]");
   if (!section || !list) return;
 
+  let recollapse = null;
+
   function render() {
     const favorites = favoriteStore.list();
 
@@ -86,6 +88,13 @@ function initHome() {
         `.game-grid [data-game-slug="${CSS.escape(favorite.gameSlug)}"]`,
       );
 
+      /*
+       * No tile on the shelf means the game is not listed, and an unlisted
+       * game does not belong in this row whatever the store says: the row is
+       * on the front page, above the shelf the game was kept off. A favourite
+       * saved before the game was withdrawn — or carried in from an exported
+       * file — is skipped rather than shown.
+       */
       if (tile) {
         const clone = tile.cloneNode(true);
         clone.removeAttribute("data-game-slug");
@@ -97,27 +106,11 @@ function initHome() {
         continue;
       }
 
-      /*
-       * A favourite that is not on the shelf — an unlisted game, reachable only
-       * by its URL. It is still the reader's own favourite, so it appears, just
-       * without a cover to borrow.
-       */
-      const item = document.createElement("li");
-      item.className = "game-tile";
-      const body = document.createElement("div");
-      body.className = "game-tile__body";
-      const title = document.createElement("h3");
-      title.className = "game-tile__title";
-      const link = document.createElement("a");
-      link.href = withBasePath(favorite.gameUrl);
-      link.textContent = favorite.gameTitle;
-      title.append(link);
-      body.append(title);
-      item.append(body);
-      list.append(item);
     }
 
-    section.hidden = favorites.length === 0;
+    section.hidden = list.children.length === 0;
+    // One row, with the rest behind the last card. See `row-collapse.js`.
+    recollapse ? recollapse() : (recollapse = collapseToRow(list, { label: "See all favorites" }));
 
     // And mark them where they sit on the shelf.
     for (const tile of document.querySelectorAll(".game-grid [data-game-slug]")) {

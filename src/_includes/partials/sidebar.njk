@@ -13,7 +13,12 @@
     {{ gameSections(game, page.url) }}
   </nav>
 
-  {% if contentType and contentType.sections.length %}
+  {#
+    The section list, for any page that has sections to list — including the
+    ones whose sections are not known until the browser has read the reader's
+    bookmarks. The shell is rendered either way and filled by section-nav.js.
+  #}
+  {% if contentType and (contentType.sections.length or contentTypeSlug == "my-reference") %}
     <nav class="sidebar__block sidebar__block--sections"
          aria-label="Sections in {{ contentType.title }}"
          data-sidebar-sections>

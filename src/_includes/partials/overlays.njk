@@ -113,39 +113,15 @@
     #}
     <div class="overlay-scroll">
       <div class="prefs__body" data-preferences-body></div>
-    </div>
-  </div>
-</dialog>
 
-{# ------------------------------------------------------------- your data #}
-{#
-  Everything the site is keeping for this reader: what there is of it, how to
-  take a copy of it, and how to destroy it.
-
-  Its own panel rather than a section of Reading. The two sat together while
-  there were three buttons between them, but they answer different questions —
-  Reading is how a page looks, this is what the browser is holding — and only
-  one of them belongs behind a control in the header shaped like a person.
-#}
-<dialog class="prefs" data-account-panel aria-labelledby="account-title">
-  <div class="prefs__inner">
-    <header class="drawer__header">
-      <h2 class="drawer__title" id="account-title">Your data</h2>
-      <div class="drawer__actions">
-        {{ closeButton("your data") }}
-      </div>
-    </header>
-
-    <div class="overlay-scroll">
-      <div class="prefs__body">
-        {#
-          What is here, before what to do with it. Somebody opening this panel
-          asks "what does this site have of mine" before they ask "how do I get
-          rid of it", and a list of counts answers the first without their
-          having to go and look. Filled by `account-ui.js`, because only the
-          browser knows.
-        #}
-        <ul class="data-summary" data-data-summary></ul>
+      {#
+        Everything the site has stored, under one label like the settings
+        above it — but set apart by a rule, because these are not settings.
+        Every control above changes how a page looks; every control here moves
+        or destroys what the reader has made.
+      #}
+      <section class="prefs__section" aria-labelledby="prefs-data-label">
+        <p class="pref-group__label" id="prefs-data-label">Your data</p>
 
         {#
           The note has to name the cost, not just the privacy. "Saved in this
@@ -162,10 +138,10 @@
         {#
           Taking it with you, above the clear buttons — "keep a copy" should be
           the easier of the two things to find in a panel that also destroys
-          data. And the history is why the clearing is here at all: bookmarks
-          are things the reader chose to keep, but the history is a record the
-          site wrote down on their behalf, and that should never be something
-          only the developer can erase.
+          data. And the history is why the clearing is here at all: bookmarks are
+          things the reader chose to keep, but the history is a record the site
+          wrote down on their behalf, and that should never be something only the
+          developer can erase.
         #}
         <div class="prefs__data">
           <button type="button" class="prefs__transfer" data-export>Download a copy</button>
@@ -184,10 +160,14 @@
         </div>
 
         {#
-          Everything at once, last and on its own line. Below the four so that a
-          reader working down the panel meets the narrow doors before the wide
-          one, and set apart by a rule because it is a different size of
-          decision — the four above erase one thing each, this erases the lot.
+          Everything at once, last and on its own line.
+
+          Below the four so that a reader working down the panel meets the
+          narrow doors before the wide one, and set apart by a rule because it
+          is a different size of decision — the four above erase one thing each,
+          this erases the lot. It asks twice like the others, in its own words,
+          and names what it takes so that "everything" is not left to mean
+          whatever the reader fears it means.
         #}
         <div class="prefs__data prefs__data--all">
           <button type="button" class="prefs__clear prefs__clear--all" data-clear-all>
@@ -195,16 +175,16 @@
           </button>
           <p class="prefs__note prefs__note--inline">
             Bookmarks, favorites, history and searches. Your reading settings
-            are kept — Reset, in Reading, is the one for those.
+            are kept — Reset, at the top, is the one for those.
           </p>
         </div>
-      </div>
+      </section>
     </div>
   </div>
 </dialog>
 
 {# ------------------------------- section jump list, opened by the sticky bar #}
-{% if contentType and contentType.sections.length %}
+{% if contentType and (contentType.sections.length or contentTypeSlug == "my-reference") %}
   <dialog class="jump-sheet" data-section-jump aria-label="Jump to a section in {{ contentType.title }}">
     <div class="jump-sheet__inner">
       <header class="drawer__header">

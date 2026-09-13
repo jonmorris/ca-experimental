@@ -10,13 +10,15 @@ layout: layouts/base.njk
     <div class="landing" data-pagefind-body>
       {#
         The cover is shown plainly beside the title rather than blurred up
-        behind it. Nothing is laid over the art, so the type sits on the page's
-        own surface and reads in the page's own colours.
+        behind it, framed the same way it is on the shelf: contained in a
+        fixed-ratio box on a quiet ground. Nothing is laid over the art, so the
+        type sits on the page's own surface and reads in the page's own
+        colours.
       #}
       <header class="landing__hero">
         {% if game.meta.box_art %}
           <span class="landing__cover">
-            <img src="{{ game.meta.box_art }}" alt="Box art for {{ game.title }}" sizes="260px">
+            <img src="{{ game.meta.box_art }}" alt="Box art for {{ game.title }}" sizes="224px">
           </span>
         {% endif %}
 
@@ -33,11 +35,23 @@ layout: layouts/base.njk
             {% if game.hasRulebook %}
               <a class="button button--primary" href="{{ game.url }}rulebook/">Open the rulebook</a>
             {% endif %}
-            <button type="button" class="button button--quiet favorite-toggle"
-                    data-favorite-toggle aria-pressed="false" hidden>
-              <span class="favorite-toggle__icon" data-favorite-icon></span>
-              <span data-favorite-label>Favorite</span>
-            </button>
+            {#
+              Only a listed game can be favourited.
+
+              Unlisted means the pages build and the URLs work but the game is
+              not advertised — and a favourite is advertising: it puts the game
+              on the front page, in the reader's own row, above the shelf it was
+              deliberately kept off. Where the right to publish a game is still
+              being settled, the one control that would publish it should not be
+              on the page.
+            #}
+            {% if game.visibility == "listed" %}
+              <button type="button" class="button button--quiet favorite-toggle"
+                      data-favorite-toggle aria-pressed="false" hidden>
+                <span class="favorite-toggle__icon" data-favorite-icon></span>
+                <span data-favorite-label>Favorite</span>
+              </button>
+            {% endif %}
           </div>
         </div>
       </header>
@@ -109,6 +123,19 @@ layout: layouts/base.njk
           </ul>
         </section>
       {% endfor %}
+
+      {#
+        The files, under the pages.
+
+        Below Contents and the expansions because those are this site's own
+        rendering of the rules — the thing somebody came here for — and a
+        download is the alternative to reading them here. Above the bookmarks
+        panel, which is about what this reader has done rather than about what
+        the game has.
+      #}
+      {% if game.downloads.length %}
+        {% include "partials/downloads.njk" %}
+      {% endif %}
 
       {# Nothing to save yet if the game has no content to save from. #}
       {% if game.allContentTypes.length %}

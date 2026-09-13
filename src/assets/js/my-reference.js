@@ -1,4 +1,5 @@
 import { bookmarkStore } from "./bookmark-store.js";
+import { refreshSections } from "./section-tracker.js";
 
 /**
  * My Reference: the reader's own page, assembled from their bookmarks.
@@ -9,9 +10,11 @@ import { bookmarkStore } from "./bookmark-store.js";
  *
  *  1. From `data-reference-order` (every document of this game in nav order,
  *     each with its sections in reading order) crossed with the bookmarks, the
- *     page already knows exactly what it contains and in what order. Headings,
- *     the contents list and the source links all render immediately, with no
- *     network at all.
+ *     page already knows exactly what it contains and in what order. The
+ *     headings and the source links render immediately, with no network at
+ *     all, and the site's own navigation — sidebar list, sticky bar, jump
+ *     sheet, prev/next — fills itself from those headings like any other
+ *     page's.
  *  2. Each distinct source document is then fetched once and its sections
  *     lifted out to fill the bodies in.
  *
@@ -20,8 +23,8 @@ import { bookmarkStore } from "./bookmark-store.js";
  *  - Every link inside a copied section is rewritten to an absolute URL back to
  *    the document it came from, so nothing on this page links into this page.
  *  - Every id inside a copy is stripped, and the only anchors here are the ones
- *    this page mints for its own contents list — prefixed with the document,
- *    and with the expansion where there is one. That last part is not optional:
+ *    this page mints for its own headings — prefixed with the document, and
+ *    with the expansion where there is one. That last part is not optional:
  *    Arcs' rulebook and The Blighted Reach's rulebook are both `rulebook`, and
  *    both open with an `introduction`.
  */
@@ -85,30 +88,6 @@ function plan(order, bookmarks) {
   }
 
   return { entries, orphans: [...wanted.values()] };
-}
-
-function buildContents(entries) {
-  const nav = document.createElement("nav");
-  nav.className = "reference-contents";
-  nav.setAttribute("aria-label", "Contents of this page");
-
-  const list = document.createElement("ol");
-  list.className = "reference-contents__list";
-
-  for (const entry of entries) {
-    const item = document.createElement("li");
-    const link = document.createElement("a");
-    link.href = `#${refId(entry.doc, entry.anchor)}`;
-    link.textContent = entry.title;
-    const from = document.createElement("span");
-    from.className = "reference-contents__from";
-    from.textContent = sourceLabel(entry.doc);
-    item.append(link, from);
-    list.append(item);
-  }
-
-  nav.append(list);
-  return nav;
 }
 
 function buildSection(entry) {
@@ -249,13 +228,28 @@ export function initMyReference() {
   // Pass one: everything the page can know without asking the network.
   const sections = new Map();
   body.replaceChildren();
-  if (entries.length > 1) body.append(buildContents(entries));
   for (const entry of entries) {
     const section = buildSection(entry);
     sections.set(section.dataset.refKey, { entry, section });
     body.append(section);
   }
   for (const orphan of orphans) body.append(buildOrphan(orphan));
+
+  /*
+   * The headings exist now, so the rest of the site can see them.
+   *
+   * This page used to carry its own contents list, built right here, because
+   * it was the only thing that knew what was on it. It no longer needs to: one
+   * call hands these sections to the tracker, and the sidebar list, the sticky
+   * bar, the jump sheet and the prev/next pager fill themselves from it the
+   * same way they do on a rulebook. The reader gets the navigation they
+   * already know instead of a second kind that only exists here.
+   *
+   * Before the fetches, not after: the headings are what the navigation is
+   * made of, and they are all here. Waiting on the bodies would mean a page
+   * with a visible outline and no way to move through it.
+   */
+  refreshSections();
 
   /*
    * Removal is undoable. A bookmark is one tap to make and this is one tap to

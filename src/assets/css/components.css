@@ -30,17 +30,6 @@
   text-decoration: none;
 }
 
-/* A menu row that acts rather than navigates; everything else about it is a
-   nav-link, including being the full width of the list. */
-.nav-link--button {
-  width: 100%;
-  background: none;
-  border: 0;
-  cursor: pointer;
-  font: inherit;
-  text-align: inherit;
-}
-
 .nav-link:hover {
   background: var(--surface-sunken);
   color: var(--ink);
@@ -247,21 +236,6 @@
   border-radius: var(--radius);
   color: var(--ink-muted);
   cursor: pointer;
-}
-
-/*
- * The header carries four controls on a phone, and a fifth would cost the
- * wordmark its place. Your data is the one nobody reaches for in the middle of
- * a game, so below tablet width it leaves the header for a line in the menu —
- * see the entry in header.njk.
- *
- * Here rather than in layout.css because it has to out-rank `.icon-button`
- * above, which sets a display of its own and is loaded after it.
- */
-@media (max-width: 46rem) {
-  .icon-button[data-account-toggle] {
-    display: none;
-  }
 }
 
 .icon-button:hover {
@@ -1096,49 +1070,6 @@ button.palette__link {
 }
 
 /*
- * What the browser is holding, as a short column of figures.
- *
- * Numbers first and left-aligned in their own column so the eye can run down
- * them, which is the whole reason to count things rather than list them. Rows
- * at zero stay, greyed: a summary that dropped its empty rows would change
- * shape as the reader used the site, and "no bookmarks" answers the question
- * this panel was opened to ask.
- */
-.data-summary {
-  display: grid;
-  gap: var(--space-2);
-  margin: 0 0 var(--space-5);
-  padding: 0;
-  list-style: none;
-}
-
-.data-summary__row {
-  display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  align-items: baseline;
-  gap: var(--space-3);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-}
-
-.data-summary__value {
-  color: var(--ink);
-  font-size: var(--text-lg);
-  font-variant-numeric: tabular-nums;
-  font-weight: 650;
-  text-align: right;
-}
-
-.data-summary__label {
-  color: var(--ink-muted);
-}
-
-.data-summary__row.is-empty .data-summary__value,
-.data-summary__row.is-empty .data-summary__label {
-  color: var(--ink-faint);
-}
-
-/*
  * The wide door, set apart from the four narrow ones by a rule and given the
  * room to be read before it is pressed.
  */
@@ -1355,9 +1286,82 @@ button.palette__link {
    * — four full-width tiles would be a screen and a half of "recently opened"
    * standing between the reader and the games themselves.
    */
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 10.5rem), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 9.5rem), 1fr));
   gap: var(--space-4);
 }
+
+/*
+ * The last place in a collapsed row: what is not being shown, and the way to
+ * show it.
+ *
+ * Drawn as an outline rather than a filled tile, so a row of covers does not
+ * read as having one blank game in it. It is the size of its neighbours
+ * because the grid row makes it so.
+ */
+.game-tile--more {
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.game-tile__more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  height: 100%;
+  padding: var(--space-4);
+  background: none;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-lg);
+  color: var(--ink-muted);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  text-align: center;
+}
+
+.game-tile__more:hover {
+  border-color: var(--accent);
+  border-style: solid;
+  color: var(--ink);
+}
+
+.game-tile__more-count {
+  font-size: var(--text-xl);
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  line-height: 1;
+}
+
+.game-tile__more-label {
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+}
+
+/* The same control where a narrow grid has no cell to spare for it. */
+.game-tile--more-bar {
+  grid-column: 1 / -1;
+}
+
+.game-tile--more-bar .game-tile__more {
+  flex-direction: row;
+  gap: var(--space-3);
+  height: auto;
+  padding: var(--space-3);
+  border-radius: var(--radius);
+}
+
+.game-tile--more-bar .game-tile__more-count {
+  font-size: var(--text-base);
+}
+
+/*
+ * Two across on a phone, which is what this grid was always meant to give:
+ * at 10.5rem a second track did not fit inside a 390px screen, so a row of
+ * "recently opened" was one tall tile.
+ */
 
 .game-grid--recent .game-tile__art {
   padding: var(--space-4);
@@ -1460,7 +1464,7 @@ button.palette__link {
 /*
  * The cover sits beside the title on the page's own surface. No blurred
  * backdrop, no scrim: nothing is laid over the art, so the type reads in the
- * page's colours and the cover is shown at its own proportions.
+ * page's colours and the cover is shown as an object beside the title.
  */
 .landing__hero {
   display: grid;
@@ -1470,18 +1474,50 @@ button.palette__link {
   border-bottom: 1px solid var(--line);
 }
 
+/*
+ * The same frame the shelf gives a cover: a fixed-ratio box on a quieter
+ * ground, with the art contained and centred inside it. A reader arrives here
+ * from a tile, so the art carrying its treatment across the jump makes the two
+ * read as one object rather than two pictures of it.
+ *
+ * The frame also settles the size question the way the shelf settles it. Sized
+ * to the artwork, a tall box and a wide one took different amounts of the hero
+ * and dropped the title at a different height on each game's page; the box is
+ * now the same on every page and the art is what varies within it.
+ */
 .landing__cover {
+  --cover-width: 87%;
+
   display: block;
-  justify-self: start;
+  /*
+   * The width of the column on a phone, and a fixed size beside the title
+   * above 46rem. Stood at 16rem in a single-column hero it was a small box
+   * with the rest of the row empty next to it — the one picture on the page,
+   * given less room than the paragraph under it.
+   */
+  justify-self: stretch;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: var(--space-5);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
 }
 
+/*
+ * Sized as a box and centred by `object-fit`, matching the tile: giving the
+ * picture the height and letting the width be held back is what keeps the
+ * padding honest whatever proportions the cover has. `drop-shadow` follows
+ * what is actually drawn, so it hugs the artwork rather than tracing the empty
+ * space beside a letterboxed one.
+ */
 .landing__cover img {
   display: block;
-  width: auto;
-  max-width: min(100%, 16rem);
-  max-height: 16rem;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow);
+  width: var(--cover-width);
+  height: 100%;
+  margin-inline: auto;
+  object-fit: contain;
+  filter: drop-shadow(var(--shadow-art));
 }
 
 .landing__title {
@@ -1507,6 +1543,11 @@ button.palette__link {
     grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     gap: var(--space-7);
+  }
+
+  .landing__cover {
+    justify-self: start;
+    width: min(100%, 16rem);
   }
 }
 
@@ -1536,6 +1577,101 @@ button.palette__link {
 
 .landing__section {
   margin-bottom: var(--space-7);
+}
+
+/* --------------------------------------------------------- downloads */
+
+/*
+ * One row per file, stacked, each the full width of the section.
+ *
+ * Not the card grid the sections above it use: a card is a place to go and
+ * these are one thing each, so a row that names the file and says what it
+ * costs to fetch is the whole object. Stacked rather than laid out across,
+ * because the list is two or three long on most games and a grid of three
+ * would put a lone row on its own line looking like an error.
+ */
+.download-list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.download {
+  margin: 0;
+}
+
+/*
+ * The whole row is the target. A filename is a short thing to aim at and
+ * these are read on a phone as often as anywhere, so the row carries the tap
+ * rather than the words in it.
+ */
+.download__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+}
+
+.download__link:hover {
+  border-color: var(--line-strong);
+  background: var(--surface-sunken);
+}
+
+.download__icon {
+  display: flex;
+  flex: 0 0 auto;
+  color: var(--ink-faint);
+}
+
+.download__link:hover .download__icon {
+  color: var(--accent);
+}
+
+.download__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  /* Takes the room the meta does not, and gives it back by wrapping. */
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.download__title {
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-weight: 650;
+}
+
+.download__note {
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+}
+
+/*
+ * What it costs, at the end of the row.
+ *
+ * `nowrap` because "12.4 MB" broken across two lines is not a size any more,
+ * and the title beside it is what gives when the row is narrow.
+ */
+.download__meta {
+  flex: 0 0 auto;
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.download__dot {
+  opacity: 0.6;
 }
 
 /* ================================================================= home */
@@ -2048,8 +2184,14 @@ a.home-update:hover .home-update__go {
  * The room it occupies. On the page rather than on the bar, because a fixed
  * element takes no space in the flow and the last line of the rules would
  * otherwise sit underneath it with no way to scroll it clear.
+ *
+ * Asked of the bar rather than of the page's content type, so the two cannot
+ * disagree. My Reference carries a pager too, and only sometimes: it has one
+ * once the reader has bookmarked a second section, and `section-nav.js` hides
+ * it until then. A page reserving the room for a bar that is not there would
+ * end in four rems of nothing.
  */
-body[data-content-type="rulebook"] {
+body:has(.prev-next:not([hidden])) {
   padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
 }
 
@@ -2143,7 +2285,7 @@ body[data-content-type="rulebook"] {
     display: none;
   }
 
-  body[data-content-type="rulebook"] {
+  body:has(.prev-next:not([hidden])) {
     padding-bottom: 0;
   }
 }
@@ -2195,10 +2337,19 @@ body[data-content-type="rulebook"] {
     box-shadow: var(--shadow-sm);
   }
 
-  /* Fills the card's height so there is something for the two to sit at the
-     ends of; the arrow keeps the centring it has from the row. */
+  /*
+   * Fills the card — both ways.
+   *
+   * Down, so there is something for the direction and the title to sit at the
+   * ends of. Across, because a flex item sized from its own content stops at
+   * the longest word it happens to hold: the card went from 176px to 248 with
+   * the three-column layout and the words kept wrapping at 108, leaving eighty
+   * pixels of card doing nothing and titles breaking that had no need to.
+   */
   .prev-next__text {
     display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
     flex-direction: column;
     justify-content: space-between;
     align-self: stretch;
@@ -2256,9 +2407,29 @@ body[data-content-type="rulebook"] {
    * over-generous — nothing on the shelf needs it — so the clamp takes the
    * rare title that would want one.
    */
-  /* However many lines it takes. */
+  /*
+   * Two lines of room, with the words sitting in the bottom of it.
+   *
+   * Widening the card took two-line titles from most of the shelf down to five
+   * — but five is not none, and on Xia two of twenty sections still made the
+   * pair jump seven pixels as the reader scrolled past them. So the label
+   * reserves the second line whether it needs it or not, and bottom-aligns
+   * inside that, which keeps the last line of a title exactly where the last
+   * line of every other title is. A card is one height now, and the space a
+   * short name does not use falls between the direction and the title rather
+   * than under it.
+   *
+   * Two ems times the line height rather than `2lh`, which says the same thing
+   * in a unit Safari only learned in 16.4 and Firefox in 120. Where `lh` is not
+   * understood the whole declaration is dropped and the card goes back to
+   * sizing itself to its content — which is the bug, silently, on any browser
+   * a year or two behind. `em` is the element's own font size everywhere.
+   */
   .prev-next__label {
+    display: flex;
+    align-items: flex-end;
     overflow: visible;
+    min-height: calc(2em * var(--leading-snug));
     line-height: var(--leading-snug);
     white-space: normal;
   }
