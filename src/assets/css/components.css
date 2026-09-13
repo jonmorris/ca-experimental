@@ -2245,16 +2245,17 @@ body[data-content-type="rulebook"] {
    * short name does not use falls between the direction and the title rather
    * than under it.
    *
-   * `lh` rather than a measured pixel value: it is this element's own line
-   * height, so the floor still fits two lines if the reader turns the text
-   * size up. Where the unit is not supported the rule is dropped and the card
-   * simply sizes to its content, which is where it started.
+   * Two ems times the line height rather than `2lh`, which says the same thing
+   * in a unit Safari only learned in 16.4 and Firefox in 120. Where `lh` is not
+   * understood the whole declaration is dropped and the card goes back to
+   * sizing itself to its content — which is the bug, silently, on any browser
+   * a year or two behind. `em` is the element's own font size everywhere.
    */
   .prev-next__label {
     display: flex;
     align-items: flex-end;
     overflow: visible;
-    min-height: 2lh;
+    min-height: calc(2em * var(--leading-snug));
     line-height: var(--leading-snug);
     white-space: normal;
   }
