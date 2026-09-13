@@ -39,19 +39,24 @@
   The H2 list for the page being read. `data-jump-anchor` is what
   `section-nav.js` uses to mark the entry the reader is currently inside.
 #}
+{#
+  The list itself, when the build knows the sections — and an empty one it can
+  fill when it does not. My Reference is assembled in the browser out of the
+  reader's bookmarks, so its sections exist a moment after the page does;
+  `section-nav.js` fills any list marked `data-jump-list` that arrives empty.
+#}
 {% macro sectionList(contentType, listClass) %}
-  {% if contentType and contentType.sections.length %}
-    <ol class="{{ listClass }}">
-      {% for section in contentType.sections %}
-        <li>
-          <a class="jump-link"
-             href="{{ contentType.url }}#{{ section.slug }}"
-             data-jump-anchor="{{ section.slug }}">
-            <span class="jump-link__index" aria-hidden="true">{{ loop.index }}</span>
-            <span class="jump-link__title">{{ section.title }}</span>
-          </a>
-        </li>
-      {% endfor %}
-    </ol>
-  {% endif %}
+  <ol class="{{ listClass }}" data-jump-list
+      {% if contentType %}data-jump-base="{{ contentType.url }}"{% endif %}>
+    {% for section in contentType.sections %}
+      <li>
+        <a class="jump-link"
+           href="{{ contentType.url }}#{{ section.slug }}"
+           data-jump-anchor="{{ section.slug }}">
+          <span class="jump-link__index" aria-hidden="true">{{ loop.index }}</span>
+          <span class="jump-link__title">{{ section.title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ol>
 {% endmacro %}

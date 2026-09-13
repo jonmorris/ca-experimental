@@ -313,12 +313,6 @@ a {
   margin-top: 1.5em;
 }
 
-.reference-contents {
-  background: none;
-  border: 1px solid #ddd;
-  break-inside: avoid-page;
-}
-
 .reference-source a {
   text-decoration: none;
 }

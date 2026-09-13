@@ -2089,8 +2089,14 @@ a.home-update:hover .home-update__go {
  * The room it occupies. On the page rather than on the bar, because a fixed
  * element takes no space in the flow and the last line of the rules would
  * otherwise sit underneath it with no way to scroll it clear.
+ *
+ * Asked of the bar rather than of the page's content type, so the two cannot
+ * disagree. My Reference carries a pager too, and only sometimes: it has one
+ * once the reader has bookmarked a second section, and `section-nav.js` hides
+ * it until then. A page reserving the room for a bar that is not there would
+ * end in four rems of nothing.
  */
-body[data-content-type="rulebook"] {
+body:has(.prev-next:not([hidden])) {
   padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
 }
 
@@ -2184,7 +2190,7 @@ body[data-content-type="rulebook"] {
     display: none;
   }
 
-  body[data-content-type="rulebook"] {
+  body:has(.prev-next:not([hidden])) {
     padding-bottom: 0;
   }
 }

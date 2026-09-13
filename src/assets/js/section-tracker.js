@@ -132,12 +132,36 @@ export function getSections() {
   return sections;
 }
 
-export function initSectionTracker() {
+/**
+ * Reads the document's sections again.
+ *
+ * For the page that has none until the browser has built it. My Reference is
+ * assembled out of the reader's bookmarks, so its headings arrive after this
+ * module has already looked and found nothing — and everything downstream of
+ * here is a subscriber, so one re-read and one publish is all it takes for the
+ * bar, the lists and the pager to behave exactly as they do on a rulebook.
+ */
+export function refreshSections() {
+  const had = sections.length;
   sections = readSections();
-  if (sections.length < 2) return false;
+  if (!sections.length) return false;
 
   readOffset();
+  pinnedIndex = null;
   currentIndex = computeIndex();
+
+  // The listeners were never attached if the page started with nothing.
+  if (had < 2 && sections.length >= 2) attachListeners();
+
+  publish();
+  return true;
+}
+
+let listening = false;
+
+function attachListeners() {
+  if (listening) return;
+  listening = true;
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", () => {
     // The offset is built from rem-based tokens, and the density preference
@@ -164,7 +188,23 @@ export function initSectionTracker() {
     requestAnimationFrame(update);
   });
   requestAnimationFrame(update);
+}
 
+/**
+ * Starts tracking, if there is anything to track.
+ *
+ * Returns false when the document has fewer than two sections, which is the
+ * signal the bar, the sidebar and the pager read to stay out of the way. My
+ * Reference always answers false here — it has no headings until the browser
+ * has built them — and comes back through `refreshSections()` once it does.
+ */
+export function initSectionTracker() {
+  readOffset();
+  sections = readSections();
+  if (sections.length < 2) return false;
+
+  currentIndex = computeIndex();
+  attachListeners();
   publish();
   return true;
 }

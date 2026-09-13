@@ -184,7 +184,7 @@
 </dialog>
 
 {# ------------------------------- section jump list, opened by the sticky bar #}
-{% if contentType and contentType.sections.length %}
+{% if contentType and (contentType.sections.length or contentTypeSlug == "my-reference") %}
   <dialog class="jump-sheet" data-section-jump aria-label="Jump to a section in {{ contentType.title }}">
     <div class="jump-sheet__inner">
       <header class="drawer__header">

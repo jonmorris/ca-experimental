@@ -61,12 +61,13 @@ layout: layouts/base.njk
     beside.
 
     The rail is rendered on every in-game page, empty where there is nothing to
-    put in it, because it is what holds the measure in the middle. Only the
-    rulebook gets a pager: the shorter documents are a screen or two and the
-    sidebar or the sticky bar already covers them.
+    put in it, because it is what holds the measure in the middle. The pager
+    goes to the two long documents: the rulebook, and My Reference, which is as
+    long as the reader has made it. The shorter ones are a screen or two and
+    the sidebar or the sticky bar already covers them.
   #}
   <div class="shell__rail">
-    {% if contentTypeSlug == "rulebook" and contentType.sections.length %}
+    {% if contentTypeSlug == "rulebook" or contentTypeSlug == "my-reference" %}
       {{ prevNext(contentType, "inline") }}
     {% endif %}
   </div>

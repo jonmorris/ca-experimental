@@ -328,9 +328,18 @@
  * third of. Below that it is a third child of a two-column grid, which puts it
  * on a row of its own under the page — and at the widths in between, an empty
  * column taking width from the reading one.
+ *
+ * `contents` and not `none`, because the rail is where the pager lives and the
+ * pager is still wanted at narrow widths — as a bar fixed across the foot of
+ * the screen. A `display: none` ancestor takes its descendants with it however
+ * they are positioned, so hiding the rail here hid the phone's bottom bar with
+ * it. This dissolves the rail's box instead: the column goes, and what is in
+ * it is left to the rules that place it — fixed to the viewport below 64rem,
+ * and hidden by `.prev-next` itself in the band above that. Neither can land
+ * in the grid as a third item and open a row under the page.
  */
 .shell__rail {
-  display: none;
+  display: contents;
 }
 
 .main {
