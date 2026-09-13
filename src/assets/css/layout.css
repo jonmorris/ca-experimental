@@ -290,9 +290,20 @@
   font-variant-numeric: tabular-nums;
 }
 
+/*
+ * The chevron points at what tapping it will do, not at where the list is: down
+ * to open the list, up to put it away again. A control that keeps pointing down
+ * while its list is open is describing the list rather than offering an action,
+ * and the bar stays visible under the open sheet where that reads as wrong.
+ */
 .section-bar__chevron {
   flex: none;
   color: var(--ink-faint);
+  transition: rotate 160ms ease;
+}
+
+[aria-expanded="true"] > .section-bar__chevron {
+  rotate: 180deg;
 }
 
 /* ------------------------------------------------------------- shell */
