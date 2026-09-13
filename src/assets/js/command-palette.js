@@ -76,8 +76,26 @@ export function initCommandPalette() {
    * brings to this one, which is whether the eighteen other games are about to
    * turn up. What it can find is said by the empty state instead, which is
    * read at the moment it matters — before anything has been typed.
+   *
+   * It follows the scope rather than the page, because the field is the thing
+   * the reader is looking at while they type: a placeholder still reading
+   * "Search Indonesia" after they have asked for every game is the field
+   * contradicting the bar directly above it.
    */
-  input.placeholder = gameSlug ? `Search ${gameTitle}` : "Search all games";
+  function applyScope() {
+    input.placeholder = global || !gameSlug ? "Search all games" : `Search ${gameTitle}`;
+    if (!gameSlug) return;
+    if (scopeNote) {
+      scopeNote.textContent = global ? "Searching all games" : `Searching ${gameTitle}`;
+    }
+    if (scopeAction) scopeAction.textContent = global ? `Only ${gameTitle}` : "All games";
+    scopeToggle?.setAttribute(
+      "aria-label",
+      global ? `Search only ${gameTitle}` : "Search all games",
+    );
+  }
+
+  applyScope();
   if (scopeBar && gameSlug) scopeBar.hidden = false;
 
   const overlay = createOverlay({
@@ -114,28 +132,11 @@ export function initCommandPalette() {
     const query = rawQuery.trim();
 
     /*
-     * The bar is written on every render rather than only when the button is
-     * pressed, so that reopening the panel — which puts the scope back to this
-     * game — cannot leave the last state's wording behind.
-     *
-     * The button is labelled with what it does rather than with what is
-     * selected: there is no state to read back, only a direction to go, so it
-     * carries no pressed state either.
+     * Written on every render rather than only when the button is pressed, so
+     * that reopening the panel — which puts the scope back to this game —
+     * cannot leave the last state's wording behind.
      */
-    if (gameSlug) {
-      if (scopeNote) {
-        scopeNote.textContent = global ? "Searching all games" : `Searching ${gameTitle}`;
-      }
-      if (scopeAction) {
-        scopeAction.textContent = global ? `Only ${gameTitle}` : "All games";
-      }
-      if (scopeToggle) {
-        scopeToggle.setAttribute(
-          "aria-label",
-          global ? `Search only ${gameTitle}` : "Search all games",
-        );
-      }
-    }
+    applyScope();
 
     const scoped = global || !gameSlug
       ? index
