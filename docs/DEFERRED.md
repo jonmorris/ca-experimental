@@ -6,6 +6,10 @@ addition rather than a rewrite.
 
 Nothing here is a TODO. Do not build any of it without a decision to.
 
+An entry marked **Partly built** is one where some of it shipped and the rest
+was held back. What shipped, and why it is shaped the way it is, is in
+`DECISIONS.md`; what is still deferred stays here.
+
 ---
 
 ## Text-highlight annotations
@@ -53,15 +57,83 @@ a single UI file.
 
 ## Cross-game similarity and recommendations
 
-"If you like Indonesia, look at…", or filtering the homepage by mechanism.
+**Partly built.** A credits-based version shipped: "More games" at the foot of
+every game's overview, ranked by shared designer and publisher and re-ranked in
+the browser against the reader's favourites and history. How it works and why
+is in `docs/DECISIONS.md`. What follows is the rest of it.
 
-**Why deferred:** two games is not enough of a corpus for either to be
-meaningful, and the taxonomy would be guesswork.
+### A tagging vocabulary that covers the shelf
 
-**What already helps:** `game.json` carries a `tags` array of
-`{ slug, label }`, normalised and deduplicated by the registry and exposed on
-every game record. It is hidden metadata — nothing renders it yet, by design —
-so tags can be authored now and the shape is settled when filtering arrives.
+Tags exist in `game.json` and the related-games row deliberately does not read
+them: they are on six games of twenty, so a tag-weighted score would be a
+different ranking for a quarter of the shelf and no ranking at all for the
+rest. Filtering the shelf by mechanism is blocked on the same thing — most tags
+are on exactly one game, so the control would be twenty checkboxes that each
+hide nineteen games.
+
+**Why deferred:** the vocabulary is the work, not the wiring. Tagging twenty
+heavy games well means deciding what the axes are — mechanism, structure,
+interaction, theme — and whether "economic" and "heavy euro" are the same claim
+said twice, which is a question about this catalogue rather than about board
+games in general. Done badly it is worse than nothing: a similarity score built
+on inconsistent tags is confidently wrong, and unlike a missing feature nothing
+on the page says so.
+
+**What already helps:** the registry normalises and deduplicates tags into
+`{ slug, label }` on every game record, so the shape is settled and tags can be
+authored at any time. `parseCredits` in `lib/related.js` shows the pattern a
+second signal would follow — scored into the same total, with its own weight
+beside `DESIGNER_WEIGHT` and `PUBLISHER_WEIGHT`. Adding tags to the ranking is
+one term in one function.
+
+### Recommending across houses rather than within one
+
+Today a Splotter page recommends Splotter, which is right at twenty games and
+increasingly dull at eighty. The interesting version reaches sideways: *you
+like heavy economic games with brutal opening decisions, here is one by
+somebody else entirely.* That needs the vocabulary above and enough games for
+two houses to overlap in it.
+
+### Bookmarks as a third affinity signal
+
+The browser pass reads favourites and history. Bookmarks are the strongest
+statement of the three — a reader who saved nine sections of one rulebook is
+telling us more than one who opened it — and they are not read at all.
+
+**Why deferred:** a bookmark is per-section, so "how much do you care about
+this game" means counting records per `gameSlug` and deciding what a count is
+worth against a star. That is a weighting question with no obvious answer and
+nothing to test it against yet.
+
+**What already helps:** every bookmark record already carries `gameSlug`, so
+the grouping needs no storage change — `bookmark-store.js` would be a third
+import in `related-games.js` and a third weight beside the two there.
+
+### What the row is actually for
+
+The open question, and the one that decides the rest. Nothing is filtered out
+of the row today: a reader who has already read all four games it offers sees
+them anyway. That is a deliberate holding position, not an answer — on a
+twenty-game shelf, hiding what somebody has seen would empty the row for
+exactly the readers who use the site most.
+
+There are two different modules hiding under one heading:
+
+- **A way sideways.** Show the best-connected games whatever the reader has
+  done. Good for browsing, honest about what it knows, and useless as
+  discovery once somebody has read most of the shelf.
+- **A way onward.** Show the best-connected games they have *not* seen. Real
+  discovery, but it needs a catalogue deep enough that the answer is not empty,
+  and it needs deciding what "seen" means — opened once, or read.
+
+**Revisit when** the shelf is deep enough that a reader can plausibly have seen
+everything the row would offer, which is the point at which the question
+answers itself.
+
+**Worth settling at the same time:** a second edition currently ranks as a
+recommendation for its own first edition. It is useful information and it is
+not the same thing as "another game you might like", and no signal in the
+scoring can tell the difference.
 
 ---
 

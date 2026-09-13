@@ -1371,6 +1371,26 @@ button.palette__link {
   font-size: var(--text-md);
 }
 
+/*
+ * The same row again, one step tighter, for the foot of a game's overview.
+ *
+ * It is the recent row's tiles in a narrower column: the landing page loses
+ * the sidebar's width to the sidebar, and at 10.5rem tracks the fourth tile
+ * drops onto a line of its own and reads as an afterthought rather than as the
+ * end of a row. Four across a laptop, two across a phone, and the tiles stay
+ * the size of a thing you glance at on the way out.
+ */
+.game-grid--related {
+  /*
+   * `auto-fit`, not `auto-fill`. The row holds exactly four, and auto-fill
+   * reserves as many tracks as the column could hold — six on a wide screen,
+   * so four tiles sat bunched to the left under a heading spanning the whole
+   * measure. auto-fit collapses the empty tracks and lets the four it has
+   * share the room.
+   */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
+}
+
 /* Where the reader was, and the way straight back to it. */
 .game-tile__place {
   color: var(--ink-faint);

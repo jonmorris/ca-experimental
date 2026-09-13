@@ -21,6 +21,7 @@ import { initHeadingLinks } from "./heading-links.js";
 import { initHistoryRecorder } from "./history-recorder.js";
 import { initShelf } from "./shelf.js";
 import { initRecentGames } from "./recent-games.js";
+import { initRelatedGames } from "./related-games.js";
 import { initJumpBookmarks } from "./jump-bookmarks.js";
 import { initMyReference, initReferenceCount } from "./my-reference.js";
 import { initPrint } from "./print.js";
@@ -40,6 +41,7 @@ function start() {
   initShelf();
   initFavorites();
   initRecentGames();
+  initRelatedGames();
 
   initMenu();
   initPreferences();

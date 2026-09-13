@@ -364,6 +364,29 @@ is readable in one file.
 
 ---
 
+## 8b. Related games
+
+Every game's overview ends with a row of other games, ranked at build time by
+shared designer and publisher and re-ranked in the browser against what the
+reader has favourited and opened.
+
+- **The scoring lives in `lib/related.js`** and nowhere else. A template asks
+  `related.games[slug]` for a ranked list and renders it; it does not know what
+  a score is.
+- **Credits are parsed, never re-authored.** `designer` and `publisher` stay
+  the sentences they are in `game.json` and stay what the page renders. The
+  registry puts the parsed slugs beside them as `meta.designers` and
+  `meta.publishers`, which nothing displays.
+- **`tags` are not read by it.** Deliberately — see `DEFERRED.md`. Wiring them
+  in before the vocabulary covers the shelf is the thing not to do.
+- **Candidates come from `listed`**, like everything else that enumerates
+  games. An unlisted game gets a row of its own but is never in anybody's.
+- **The row is complete without JavaScript.** The browser pass reorders and
+  re-hides tiles the build already wrote, the same contract the shelf's sorting
+  keeps.
+
+---
+
 ## 9. Engineering principles
 
 - **Default to extending, not creating.** Before writing a new component or
