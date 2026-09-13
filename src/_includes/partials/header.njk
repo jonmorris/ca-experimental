@@ -29,6 +29,22 @@
     {% endif %}
 
     <div class="site-header__actions">
+      {#
+        The site's own pages, shown where the menu that carries them is not.
+
+        Below the sidebar breakpoint these live in the menu; at and above it
+        the menu is hidden outright, and until now so were these — Home was
+        implied by the wordmark and About was reachable only from the footer,
+        which on a rulebook is a long way down. Same two labels as the menu, so
+        the two navigations name the site the same way.
+      #}
+      <nav class="site-nav" aria-label="Site">
+        <a class="site-nav__link{% if page.url == '/' %} is-current{% endif %}"
+           href="/"{% if page.url == '/' %} aria-current="page"{% endif %}>Home</a>
+        <a class="site-nav__link{% if page.url == '/about/' %} is-current{% endif %}"
+           href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+      </nav>
+
       <button
         type="button"
         class="search-trigger"

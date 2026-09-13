@@ -142,6 +142,53 @@
 }
 
 /*
+ * The site nav, shown only where the menu holding the same links is hidden.
+ * Below that breakpoint it would be a second copy of the menu's first section
+ * in a header that is deliberately thin.
+ *
+ * Set as quietly as the game's name beside it: these are the two least-used
+ * things up here, and the search field is what the header is for.
+ */
+.site-nav {
+  display: none;
+}
+
+@media (min-width: 64rem) {
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    margin-right: var(--space-2);
+  }
+}
+
+.site-nav__link {
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  color: var(--ink-muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--ui-weight);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav__link:hover {
+  background: var(--surface-sunken);
+  color: var(--ink);
+}
+
+/*
+ * Colour rather than the filled pill the sidebar uses: in a list a fill says
+ * "this one of these", but there are only two here and one of them is the
+ * page you are on nearly half the time.
+ */
+.site-nav__link.is-current {
+  color: var(--accent-strong);
+  font-weight: 650;
+}
+
+/*
  * The wordmark collapses to its mark wherever a game is open, up to the
  * sidebar breakpoint: in that range the header is carrying two names and the
  * game's is the one worth reading. The mark still links home.
