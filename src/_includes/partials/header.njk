@@ -1,8 +1,14 @@
 {#
   The header stays deliberately thin — at a table, chrome above the fold is
   chrome between you and the rule you are looking for. It carries identity on
-  the left and four controls on the right, and nothing else. The section list
-  lives in the sidebar (wide) or the sticky bar (narrow), not up here.
+  the left and the controls on the right, and nothing else.
+
+  Not the game's name: it was here on every in-game page and said something
+  different on each one, which is the opposite of what a header is for. Every
+  page that has a game already names it somewhere the reader can rely on — the
+  sidebar's heading at wide widths, the breadcrumbs, the page title, and the
+  section list's eyebrow when it is open. The section list itself lives in the
+  sidebar or the sticky bar, not up here either.
 #}
 <header class="site-header">
   <div class="site-header__inner">
@@ -22,11 +28,6 @@
       </span>
       <span class="site-logo__text">{{ site.title }}</span>
     </a>
-
-    {% if game %}
-      <span class="site-header__divider" aria-hidden="true"></span>
-      <a class="site-header__game" href="{{ game.url }}">{{ game.title }}</a>
-    {% endif %}
 
     <div class="site-header__actions">
       {#
@@ -96,6 +97,29 @@
         </svg>
       </button>
 
+      {#
+        Everything the site is keeping for this reader, behind one control.
+
+        Not an account — there is nothing to sign in to and nothing leaves the
+        browser — but it is where a reader looks for their own things, and the
+        data was buried under four radio groups in a panel called Reading,
+        which is not.
+      #}
+      <button
+        type="button"
+        class="icon-button"
+        data-account-toggle
+        aria-haspopup="dialog"
+        aria-expanded="false"
+        aria-label="Your data"
+        hidden>
+        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false">
+          <circle cx="10" cy="7" r="3.1" fill="none" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M3.8 17a6.2 6.2 0 0 1 12.4 0" fill="none" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </button>
+
       <button
         type="button"
         class="menu-toggle"
@@ -123,6 +147,14 @@
           #}
           <li><a class="nav-link{% if page.url == '/' %} is-current{% endif %}" href="/">Home</a></li>
           <li><a class="nav-link{% if page.url == '/about/' %} is-current{% endif %}" href="/about/">About</a></li>
+          {#
+            Where the person in the header goes below tablet width. Five icons
+            and a wordmark do not fit across a phone, and of the five this is
+            the one nobody reaches for mid-game — so it keeps its place in the
+            header where there is room, and takes a line in the menu where
+            there is not.
+          #}
+          <li><button type="button" class="nav-link nav-link--button" data-account-open>Your data</button></li>
         </ul>
       </nav>
 

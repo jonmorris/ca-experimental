@@ -30,6 +30,17 @@
   text-decoration: none;
 }
 
+/* A menu row that acts rather than navigates; everything else about it is a
+   nav-link, including being the full width of the list. */
+.nav-link--button {
+  width: 100%;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  text-align: inherit;
+}
+
 .nav-link:hover {
   background: var(--surface-sunken);
   color: var(--ink);
@@ -165,6 +176,16 @@
 .drawer-group__count,
 .bookmarks-group__count {
   display: inline-block;
+  /*
+   * Centred on the heading, not sat on its baseline.
+   *
+   * Baseline alignment puts the pill's *text* on the heading's baseline, and
+   * everything the pill adds under that text — padding, border, the curve of
+   * the capsule — then hangs below the line. Against display type that is five
+   * or six pixels of droop, which is exactly enough to read as a mistake. What
+   * should line up here is the two shapes, not the two baselines.
+   */
+  align-self: center;
   min-width: 2.25ch;
   padding: 0.15em 0.5em;
   background: var(--surface-sunken);
@@ -226,6 +247,21 @@
   border-radius: var(--radius);
   color: var(--ink-muted);
   cursor: pointer;
+}
+
+/*
+ * The header carries four controls on a phone, and a fifth would cost the
+ * wordmark its place. Your data is the one nobody reaches for in the middle of
+ * a game, so below tablet width it leaves the header for a line in the menu —
+ * see the entry in header.njk.
+ *
+ * Here rather than in layout.css because it has to out-rank `.icon-button`
+ * above, which sets a display of its own and is loaded after it.
+ */
+@media (max-width: 46rem) {
+  .icon-button[data-account-toggle] {
+    display: none;
+  }
 }
 
 .icon-button:hover {
@@ -318,18 +354,40 @@
 }
 
 /*
- * Given room to be seen for what it is. Sized to its own label, it read as
- * another of the icon buttons beside it; a field wants a field's proportions,
- * and there is space in the header for one.
+ * Given room to be seen for what it is, and more of it as the header gets
+ * more. Sized to its own label it read as another of the icon buttons beside
+ * it; a field wants a field's proportions, and the space it takes here is
+ * space the header has nothing else to do with.
  */
 @media (min-width: 46rem) {
   .search-trigger {
-    min-width: 10rem;
+    min-width: 12rem;
   }
 }
 
+@media (min-width: 64rem) {
+  .search-trigger {
+    min-width: 18rem;
+  }
+}
+
+@media (min-width: 88rem) {
+  .search-trigger {
+    min-width: 22rem;
+  }
+}
+
+/*
+ * The words take the slack, which pushes the shortcut to the far end — the
+ * same shape as the home page's field, where the icon and the label sit
+ * together on the left and the key sits alone on the right. Packed left, the
+ * three read as a row of three things rather than as a field with a hint in
+ * the corner.
+ */
 .search-trigger__label {
+  flex: 1 1 auto;
   overflow: hidden;
+  text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -488,6 +546,29 @@ dialog::backdrop {
 .overlay-scroll::-webkit-scrollbar-thumb {
   border-radius: 999px;
   background: var(--line-strong);
+}
+
+/*
+ * The heading block of the section list: game above, document below.
+ *
+ * `min-width: 0` because the header is a flex row and a long game name — "Xia:
+ * Legends of a Drift System" — would otherwise push the close button off the
+ * end rather than truncating itself.
+ */
+.jump-sheet__heading {
+  min-width: 0;
+}
+
+.jump-sheet__eyebrow {
+  overflow: hidden;
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /*
@@ -1012,6 +1093,72 @@ button.palette__link {
 .prefs__clear:disabled {
   opacity: 0.45;
   cursor: default;
+}
+
+/*
+ * What the browser is holding, as a short column of figures.
+ *
+ * Numbers first and left-aligned in their own column so the eye can run down
+ * them, which is the whole reason to count things rather than list them. Rows
+ * at zero stay, greyed: a summary that dropped its empty rows would change
+ * shape as the reader used the site, and "no bookmarks" answers the question
+ * this panel was opened to ask.
+ */
+.data-summary {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  list-style: none;
+}
+
+.data-summary__row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.data-summary__value {
+  color: var(--ink);
+  font-size: var(--text-lg);
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  text-align: right;
+}
+
+.data-summary__label {
+  color: var(--ink-muted);
+}
+
+.data-summary__row.is-empty .data-summary__value,
+.data-summary__row.is-empty .data-summary__label {
+  color: var(--ink-faint);
+}
+
+/*
+ * The wide door, set apart from the four narrow ones by a rule and given the
+ * room to be read before it is pressed.
+ */
+.prefs__data--all {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
+.prefs__clear--all {
+  justify-self: start;
+  border-color: var(--ink-muted);
+  color: var(--ink);
+}
+
+/* A note that belongs to the control above it, not to the section. */
+.prefs__note--inline {
+  margin-bottom: 0;
 }
 
 /*
@@ -1905,13 +2052,47 @@ body[data-content-type="rulebook"] {
  * tap target, which is most of the point of a bar at the bottom of a phone.
  */
 .prev-next__link {
-  display: grid;
-  align-content: center;
-  gap: 2px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
   padding: var(--space-2) var(--space-4);
   font-family: var(--font-ui);
   text-decoration: none;
   min-width: 0;
+}
+
+/* The two lines of words, beside the arrow rather than under it. */
+.prev-next__text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+/*
+ * The arrow leans the way it is going when the link is under the pointer. Two
+ * pixels — enough to feel like the control answered, not enough to look like
+ * something moved.
+ */
+.prev-next__arrow {
+  flex: none;
+  color: var(--ink-faint);
+  transition: translate 140ms ease, color 140ms ease;
+}
+
+.prev-next__link:hover .prev-next__arrow {
+  color: var(--accent);
+}
+
+.prev-next__link--prev .prev-next__arrow {
+  rotate: 180deg;
+}
+
+.prev-next__link--prev:hover .prev-next__arrow {
+  translate: -2px 0;
+}
+
+.prev-next__link--next:hover .prev-next__arrow {
+  translate: 2px 0;
 }
 
 .prev-next__link:hover {
@@ -1919,6 +2100,7 @@ body[data-content-type="rulebook"] {
 }
 
 .prev-next__link--next {
+  justify-content: flex-end;
   border-left: 1px solid var(--line);
   text-align: right;
 }
@@ -1960,11 +2142,10 @@ body[data-content-type="rulebook"] {
 }
 
 /*
- * Wider still, and the margin beside the measure is open enough to stand them
- * in: the article stops at its reading width, the pager is its sibling rather
- * than its last child, and the two links stack in the space that leaves. The
- * threshold is where that margin is actually wide enough — below it the column
- * runs nearly to the edge of the content area and there is nowhere to put them.
+ * Wider still, and the page has a column to put them in: the shell becomes
+ * three, the measure in the middle with a rail either side, and the pager
+ * stacks in the right-hand one. The threshold is the same as the layout's,
+ * because it is the layout that makes room for them.
  *
  * Sticky again here, not fixed: it belongs to the column, and at the end of
  * the rules it should come to rest with them rather than hang on over the
@@ -1977,21 +2158,44 @@ body[data-content-type="rulebook"] {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-2);
-    width: 11rem;
     margin-block-start: var(--space-7);
-    margin-inline-start: auto;
     padding-bottom: 0;
     background: none;
     border-top: 0;
     box-shadow: none;
   }
 
+  /*
+   * A floor, not a ceiling — and everything measured from the bottom.
+   *
+   * The pair is pinned to the bottom of the viewport, so whatever a card does
+   * it does upward: its bottom edge cannot move. Put the title against that
+   * edge and its last line is the one thing that never moves either, so a
+   * title that takes two lines puts the second one *above* where the first was
+   * rather than shoving the whole control around. The direction sits at the
+   * top of whatever height that leaves, and the arrow stays on the middle of
+   * the card.
+   *
+   * `min-height` gives short titles a card worth the name; nothing caps it, so
+   * no title is ever cut.
+   */
   .prev-next__link {
+    min-height: 5rem;
     padding: var(--space-3) var(--space-4);
     background: var(--surface-raised);
     border: 1px solid var(--line);
     border-radius: var(--radius);
     box-shadow: var(--shadow-sm);
+  }
+
+  /* Fills the card's height so there is something for the two to sit at the
+     ends of; the arrow keeps the centring it has from the row. */
+  .prev-next__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: stretch;
+    gap: var(--space-2);
   }
 
   .prev-next__link:hover {
@@ -2002,10 +2206,50 @@ body[data-content-type="rulebook"] {
   /* Stacked and narrow: both read from the left, and a long section title
      wraps rather than losing its second half to an ellipsis. */
   .prev-next__link--next {
+    justify-content: space-between;
     border-left: 1px solid var(--line);
     text-align: left;
   }
 
+  .prev-next__link--prev {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  /*
+   * Stacked, the pair is a vertical move: previous is the section above and
+   * next is the one below, so the arrows say up and down rather than back and
+   * forward. The same glyph, turned a quarter instead of a half.
+   */
+  .prev-next__link--prev .prev-next__arrow {
+    rotate: -90deg;
+  }
+
+  .prev-next__link--next .prev-next__arrow {
+    rotate: 90deg;
+  }
+
+  .prev-next__link--prev:hover .prev-next__arrow {
+    translate: 0 -2px;
+  }
+
+  .prev-next__link--next:hover .prev-next__arrow {
+    translate: 0 2px;
+  }
+
+  /*
+   * Two lines, always — whether the section is called Setup or Research &
+   * Development.
+   *
+   * The pair is pinned to the bottom of the viewport, so a pill that grew a
+   * line pushed its own top edge up and the other pill with it: the control
+   * changed size and moved as the reader scrolled past a long heading, which
+   * is the kind of small unsteadiness that reads as unfinished. Reserving the
+   * space means the geometry never changes at all. A third line would be
+   * over-generous — nothing on the shelf needs it — so the clamp takes the
+   * rare title that would want one.
+   */
+  /* However many lines it takes. */
   .prev-next__label {
     overflow: visible;
     line-height: var(--leading-snug);

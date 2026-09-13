@@ -105,34 +105,6 @@
   stroke-linecap: round;
 }
 
-.site-header__divider {
-  width: 1px;
-  height: 1.1rem;
-  background: var(--line-strong);
-}
-
-/*
- * The game's name takes whatever room is left and truncates last. A long one
- * — "Xia: Legends of a Drift System" — matters more in context than the site's
- * own name, which is why the wordmark yields first below.
- */
-.site-header__game {
-  flex: 1 1 auto;
-  min-width: 0;
-  overflow: hidden;
-  color: var(--ink-muted);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  font-weight: var(--ui-weight);
-  text-decoration: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.site-header__game:hover {
-  color: var(--ink);
-}
-
 .site-header__actions {
   display: flex;
   align-items: center;
@@ -145,9 +117,6 @@
  * The site nav, shown only where the menu holding the same links is hidden.
  * Below that breakpoint it would be a second copy of the menu's first section
  * in a header that is deliberately thin.
- *
- * Set as quietly as the game's name beside it: these are the two least-used
- * things up here, and the search field is what the header is for.
  */
 .site-nav {
   display: none;
@@ -189,24 +158,13 @@
 }
 
 /*
- * The wordmark collapses to its mark wherever a game is open, up to the
- * sidebar breakpoint: in that range the header is carrying two names and the
- * game's is the one worth reading. The mark still links home.
- *
- * The divider goes with it. It is there to separate two names, and once the
- * wordmark is gone there is only one — a rule floating between the mark and
- * the game reads as a piece of the wordmark that failed to load.
+ * The site's name stays in the header at every width — except where the words
+ * genuinely will not fit beside four controls. Measured rather than guessed:
+ * at 22rem the wordmark and the actions meet, so below that the mark carries
+ * the link on its own.
  */
-@media (max-width: 64rem) {
-  body[data-game] .site-logo__text,
-  body[data-game] .site-header__divider {
-    display: none;
-  }
-}
-
-@media (max-width: 26rem) {
-  .site-logo__text,
-  .site-header__divider {
+@media (max-width: 22rem) {
+  .site-logo__text {
     display: none;
   }
 }
@@ -365,6 +323,16 @@
   display: none;
 }
 
+/*
+ * The right-hand rail exists only where there are three columns to be the
+ * third of. Below that it is a third child of a two-column grid, which puts it
+ * on a row of its own under the page — and at the widths in between, an empty
+ * column taking width from the reading one.
+ */
+.shell__rail {
+  display: none;
+}
+
 .main {
   min-width: 0;
   /*
@@ -392,8 +360,22 @@
   min-width: 0;
 }
 
+/*
+ * The measure, centred in whatever column it is given.
+ *
+ * It used to be capped wider than the prose inside it, which left a strip of
+ * unused column on the right of every page — and because the article sat at
+ * the left of its column, that strip read as extra margin on one side of the
+ * text. Capping it at the measure makes every edge in the reading column line
+ * up: the heading, the subhead and the rules all start and stop together.
+ *
+ * Below the three-column breakpoint the column is wider than the measure, and
+ * the auto margins centre the block in it rather than leaving it against the
+ * sidebar.
+ */
 .article {
-  max-width: var(--width-prose);
+  max-width: var(--measure);
+  margin-inline: auto;
 }
 
 /* ------------------------------------------------------- page header */
@@ -510,7 +492,7 @@
 
   .shell {
     display: grid;
-    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    grid-template-columns: var(--rail-width) minmax(0, 1fr);
     gap: var(--space-7);
     align-items: start;
   }
@@ -534,17 +516,80 @@
 
   /* A landing page is art-led and wants the full width. */
   .shell--landing {
-    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    grid-template-columns: var(--rail-width) minmax(0, 1fr);
   }
 }
 
-/* ====================================================== >= 88rem (wide) */
+/* ================================================ >= 80rem (three columns) */
 
-@media (min-width: 88rem) {
+/*
+ * Wide enough for the page to become what it has been pretending to be: a
+ * measure in the middle with an equal margin either side.
+ *
+ * Until here it is two columns of different widths, and the reading column is
+ * whatever is left over — which puts the text off-centre on the page and gives
+ * the pager an odd remainder to live in. Three named columns instead: the
+ * section list, the measure, and the pager, with the rails matched so the
+ * middle is centred by construction rather than by arithmetic.
+ *
+ * The middle column is the measure itself rather than a share of what is left,
+ * which is what makes the text land in the centre of the page instead of near
+ * it — and it makes the article and the prose inside it exactly the same
+ * width, so the slack that used to sit inside the reading column on its right
+ * is gone. Both rails are `1fr`, so they are equal by construction and every
+ * pixel the page gains goes to them: the pager gets wider as the screen does,
+ * which is the point of putting it there.
+ *
+ * The gap closes from space-7 to space-6 to pay for the third column, and the
+ * `minmax` floor is what decides the threshold: 14rem either side of a 38rem
+ * measure with two gaps needs 1176px, which is what a 1280 screen has inside
+ * the page's padding.
+ */
+@media (min-width: 80rem) {
   .shell {
-    gap: var(--space-8);
+    grid-template-columns:
+      minmax(var(--rail-width), 1fr)
+      var(--measure)
+      minmax(var(--rail-width), 1fr);
+    gap: var(--space-6);
+  }
+
+  /* The landing page has no third column to fill, and wants the width. */
+  .shell--landing {
+    grid-template-columns: var(--rail-width) minmax(0, 1fr);
+  }
+
+  /*
+   * The rail is empty on every page without a pager, and it still has to be
+   * full height on the ones that have one: the pager sticks to the bottom of
+   * the viewport, and an item shrunk to its own content has no height to stick
+   * within.
+   */
+  .shell__rail {
+    display: flex;
+    flex-direction: column;
+    /*
+     * The pager's place in the rail is the bottom of it, not the top.
+     *
+     * `position: sticky` with a `bottom` only pins an element whose own place
+     * in the flow is below where it would be pinned to. As the rail's first
+     * child the pager's place was the top of the page — above the fold, never
+     * pinned, and it simply scrolled away with the sidebar. Pushed to the
+     * bottom of a full-height rail, its place is the end of the document
+     * again, which is where it was as the last child of the column and why it
+     * worked there.
+     */
+    justify-content: flex-end;
+    align-self: stretch;
+    min-width: 0;
   }
 }
+
+/*
+ * The gap used to open up again past 88rem. With three columns that only takes
+ * width from the two rails — the measure in the middle is fixed — so the space
+ * is better spent on them.
+ */
 
 /* ------------------------------------------------------- page top row */
 

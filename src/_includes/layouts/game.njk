@@ -48,20 +48,26 @@ layout: layouts/base.njk
       {{ content | safe }}
     </article>
 
-    {#
-      The section pager sits outside the article rather than inside it.
+  </main>
 
-      It is chrome for the column, not part of the piece: a bar across the foot
-      of a phone, and at desktop widths a pair of links standing in the open
-      margin beside the measure. That margin is only open because the article
-      stops at its reading width — so the pager has to be a sibling of the
-      article to reach it, not a last child confined to the same box.
+  {#
+    The right-hand rail, and the section pager in it.
 
-      Only the rulebook has it. The shorter documents are a screen or two and
-      the sidebar or the sticky bar already covers them.
-    #}
+    A column of the shell rather than anything inside the reading column: on a
+    phone the pager is a bar across the foot of the screen, and at desktop
+    widths it is a pair of links standing in the margin beside the measure.
+    That margin is a column now — the one that matches the section list on the
+    other side — so the pager belongs to it rather than to the article it sits
+    beside.
+
+    The rail is rendered on every in-game page, empty where there is nothing to
+    put in it, because it is what holds the measure in the middle. Only the
+    rulebook gets a pager: the shorter documents are a screen or two and the
+    sidebar or the sticky bar already covers them.
+  #}
+  <div class="shell__rail">
     {% if contentTypeSlug == "rulebook" and contentType.sections.length %}
       {{ prevNext(contentType, "inline") }}
     {% endif %}
-  </main>
+  </div>
 </div>

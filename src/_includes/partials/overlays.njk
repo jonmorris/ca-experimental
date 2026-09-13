@@ -113,15 +113,39 @@
     #}
     <div class="overlay-scroll">
       <div class="prefs__body" data-preferences-body></div>
+    </div>
+  </div>
+</dialog>
 
-      {#
-        Everything the site has stored, under one label like the settings
-        above it — but set apart by a rule, because these are not settings.
-        Every control above changes how a page looks; every control here moves
-        or destroys what the reader has made.
-      #}
-      <section class="prefs__section" aria-labelledby="prefs-data-label">
-        <p class="pref-group__label" id="prefs-data-label">Your data</p>
+{# ------------------------------------------------------------- your data #}
+{#
+  Everything the site is keeping for this reader: what there is of it, how to
+  take a copy of it, and how to destroy it.
+
+  Its own panel rather than a section of Reading. The two sat together while
+  there were three buttons between them, but they answer different questions —
+  Reading is how a page looks, this is what the browser is holding — and only
+  one of them belongs behind a control in the header shaped like a person.
+#}
+<dialog class="prefs" data-account-panel aria-labelledby="account-title">
+  <div class="prefs__inner">
+    <header class="drawer__header">
+      <h2 class="drawer__title" id="account-title">Your data</h2>
+      <div class="drawer__actions">
+        {{ closeButton("your data") }}
+      </div>
+    </header>
+
+    <div class="overlay-scroll">
+      <div class="prefs__body">
+        {#
+          What is here, before what to do with it. Somebody opening this panel
+          asks "what does this site have of mine" before they ask "how do I get
+          rid of it", and a list of counts answers the first without their
+          having to go and look. Filled by `account-ui.js`, because only the
+          browser knows.
+        #}
+        <ul class="data-summary" data-data-summary></ul>
 
         {#
           The note has to name the cost, not just the privacy. "Saved in this
@@ -138,10 +162,10 @@
         {#
           Taking it with you, above the clear buttons — "keep a copy" should be
           the easier of the two things to find in a panel that also destroys
-          data. And the history is why the clearing is here at all: bookmarks are
-          things the reader chose to keep, but the history is a record the site
-          wrote down on their behalf, and that should never be something only the
-          developer can erase.
+          data. And the history is why the clearing is here at all: bookmarks
+          are things the reader chose to keep, but the history is a record the
+          site wrote down on their behalf, and that should never be something
+          only the developer can erase.
         #}
         <div class="prefs__data">
           <button type="button" class="prefs__transfer" data-export>Download a copy</button>
@@ -158,7 +182,23 @@
           <button type="button" class="prefs__clear" data-clear-searches>Clear searches</button>
           <button type="button" class="prefs__clear" data-clear-bookmarks>Clear bookmarks</button>
         </div>
-      </section>
+
+        {#
+          Everything at once, last and on its own line. Below the four so that a
+          reader working down the panel meets the narrow doors before the wide
+          one, and set apart by a rule because it is a different size of
+          decision — the four above erase one thing each, this erases the lot.
+        #}
+        <div class="prefs__data prefs__data--all">
+          <button type="button" class="prefs__clear prefs__clear--all" data-clear-all>
+            Clear everything
+          </button>
+          <p class="prefs__note prefs__note--inline">
+            Bookmarks, favorites, history and searches. Your reading settings
+            are kept — Reset, in Reading, is the one for those.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </dialog>
@@ -168,7 +208,23 @@
   <dialog class="jump-sheet" data-section-jump aria-label="Jump to a section in {{ contentType.title }}">
     <div class="jump-sheet__inner">
       <header class="drawer__header">
-        <h2 class="drawer__title">{{ contentType.title }}</h2>
+        {#
+          The document's name, with the game's above it.
+
+          The sheet is opened from a bar that shows one section of one
+          document, and below the sidebar breakpoint it is the only place on
+          the page that says which game those sections belong to — the header
+          no longer does. An eyebrow rather than a second line of the heading:
+          it is context for the title, not a title of its own.
+        #}
+        <div class="jump-sheet__heading">
+          {% if game %}
+            <p class="jump-sheet__eyebrow">
+              {{ game.title }}{% if expansion %} <span aria-hidden="true">·</span> {{ expansion.title }}{% endif %}
+            </p>
+          {% endif %}
+          <h2 class="drawer__title">{{ contentType.title }}</h2>
+        </div>
         <div class="drawer__actions">
           {{ closeButton("section list") }}
         </div>
