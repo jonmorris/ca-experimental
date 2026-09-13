@@ -16,7 +16,12 @@
  *   text   One line, written as something that happened. It has to read as
  *          news at a glance and fit on a phone without wrapping to three
  *          lines — around eighty characters.
- *   url    Optional. Where the news leads; the whole line becomes the link.
+ *   url    Optional, and off for now. Where the news leads; the whole line
+ *          becomes the link, with an arrow at the end of the sentence. Left
+ *          out, the line is a statement — which is what most news here is,
+ *          since a new feature is on every page and a new game is one of
+ *          eighteen on the shelf below. Add it when a line has somewhere
+ *          particular to send someone.
  *
  * Nothing shown means nothing has happened lately, which is the honest state
  * for a site between bursts of work. The window is deliberately short: a "New"
@@ -28,7 +33,6 @@ const ENTRIES = [
     date: "2026-09-13",
     tag: "New",
     text: "Favorite a game to keep it at the top of the shelf.",
-    url: "/about/",
   },
   {
     date: "2026-09-06",
