@@ -2291,6 +2291,37 @@ a.home-update:hover .home-update__go {
 }
 
 /*
+ * The strip iOS leaves underneath it.
+ *
+ * Safari collapses its bottom toolbar to a floating pill as you scroll, and
+ * the space it vacates is not handed to `position: fixed`: the bar stays
+ * pinned to the bottom of the layout viewport, which is where the full
+ * toolbar's top edge was. What shows in the gap is the page — rules text, with
+ * the URL pill floating over it, which is what makes the bar look like it is
+ * hovering rather than sitting on the edge of the screen.
+ *
+ * So the bar's surface runs on past its own box. Painted by a pseudo-element
+ * rather than by padding on purpose: the links stay where they are, because
+ * the thing wanted under Safari's pill is ground, not a tap target. Generous,
+ * because the gap's height is the browser's business and not ours — and on
+ * every browser where `bottom: 0` really is the bottom of the screen, the
+ * strip is off screen and clipped, costing nothing.
+ *
+ * Only where the bar is fixed. At 80rem it is a sticky card in the rail with
+ * a page underneath it, and a strip below it would be a smear down the margin.
+ */
+@media (max-width: 63.99rem) {
+  .prev-next::after {
+    content: "";
+    position: absolute;
+    inset: 100% 0 auto;
+    height: 8rem;
+    background: var(--surface-raised);
+    pointer-events: none;
+  }
+}
+
+/*
  * The room it occupies. On the page rather than on the bar, because a fixed
  * element takes no space in the flow and the last line of the rules would
  * otherwise sit underneath it with no way to scroll it clear.
