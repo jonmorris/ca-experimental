@@ -1350,8 +1350,14 @@ dialog::backdrop {
   align-content: start;
 }
 
+/*
+ * The hero and the search under it are centred; the shelves below stay left,
+ * where a grid of tiles reads from.
+ */
 .home__hero {
   max-width: 44rem;
+  margin-inline: auto;
+  text-align: center;
 }
 
 /*
@@ -1368,7 +1374,17 @@ dialog::backdrop {
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  /*
+   * A measure rather than a fraction. Half the column at a laptop width is
+   * about 38rem, and a percentage that looked right there would go on growing
+   * across a 27-inch monitor into a field the width of a paragraph of rules.
+   * Capped, it fills the column on a phone, grows with it to this width, and
+   * then stops — the page gets wider around it, which is what makes it read as
+   * a control rather than as a band.
+   */
   width: 100%;
+  max-width: 38rem;
+  margin-inline: auto;
   padding: var(--space-4);
   background: var(--surface-raised);
   border: 1px solid var(--line-strong);
