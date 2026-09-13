@@ -1416,8 +1416,14 @@ button.palette__link {
   --cover-width: 87%;
 
   display: block;
-  justify-self: start;
-  width: min(100%, 16rem);
+  /*
+   * The width of the column on a phone, and a fixed size beside the title
+   * above 46rem. Stood at 16rem in a single-column hero it was a small box
+   * with the rest of the row empty next to it — the one picture on the page,
+   * given less room than the paragraph under it.
+   */
+  justify-self: stretch;
+  width: 100%;
   aspect-ratio: 4 / 3;
   padding: var(--space-5);
   background: var(--surface-sunken);
@@ -1464,6 +1470,11 @@ button.palette__link {
     grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     gap: var(--space-7);
+  }
+
+  .landing__cover {
+    justify-self: start;
+    width: min(100%, 16rem);
   }
 }
 
