@@ -1498,10 +1498,10 @@ button.palette__link {
 
   display: block;
   /*
-   * The width of the column on a phone, and a fixed size beside the title
-   * above 46rem. Stood at 16rem in a single-column hero it was a small box
-   * with the rest of the row empty next to it — the one picture on the page,
-   * given less room than the paragraph under it.
+   * The width of the column on a phone, and a box that grows with the page
+   * beside the title above 46rem. Stood at 16rem in a single-column hero it
+   * was a small box with the rest of the row empty next to it — the one
+   * picture on the page, given less room than the paragraph under it.
    */
   justify-self: stretch;
   width: 100%;
@@ -1553,9 +1553,27 @@ button.palette__link {
     gap: var(--space-7);
   }
 
+  /*
+   * Beside the title the box is no longer one size: it grows with the page
+   * between the sidebar breakpoint and the width the shell stops at, and
+   * nowhere else. The two ends are what the hero can afford at each. At 78rem
+   * the widest description on the site still sets in four lines beside a 20rem
+   * box; at 64rem the sidebar has just taken 14rem out of the row, and
+   * anything past 16rem eats into a column already down to about 350px. Held
+   * at 20rem throughout, the buttons underneath do still fit on one line at
+   * 64rem — but only just, and the paragraph above them runs to seven lines.
+   * The ramp spends the width where there is width to spend.
+   *
+   * `max-width` rather than a `min()` inside the width. A percentage in the
+   * width of an item in an `auto` grid column resolves against the column the
+   * item is sizing, and the pair settled at 273px however large the other end
+   * of the `min()` was — so the 16rem this asked for was never what rendered,
+   * and no larger size would have arrived either.
+   */
   .landing__cover {
     justify-self: start;
-    width: min(100%, 16rem);
+    width: clamp(16rem, 28.6vw - 2.3rem, 20rem);
+    max-width: 100%;
   }
 }
 
