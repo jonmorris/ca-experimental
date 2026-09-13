@@ -798,18 +798,34 @@ dialog::backdrop {
   outline-offset: 1px;
 }
 
+/*
+ * The data block. Labelled like a settings group so it reads as part of the
+ * same panel, and ruled off from them because it is not one: everything above
+ * changes how a page looks, everything here moves or destroys what the reader
+ * has made.
+ */
+.prefs__section {
+  margin-top: var(--space-2);
+  padding: var(--space-4);
+  border-top: 1px solid var(--line);
+}
+
 .prefs__note {
-  padding: 0 var(--space-4) var(--space-3);
+  margin-bottom: var(--space-3);
   color: var(--ink-faint);
   font-family: var(--font-ui);
   font-size: var(--text-2xs);
+  line-height: var(--leading-snug);
 }
 
 .prefs__data {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  padding: 0 var(--space-4) var(--space-4);
+}
+
+.prefs__data + .prefs__data {
+  margin-top: var(--space-3);
 }
 
 .prefs__clear {
@@ -2074,7 +2090,7 @@ dialog::backdrop {
 /* What happened. Announced as well as shown — a download and a merge are both
    silent, and a control that does something invisible reads as broken. */
 .prefs__result {
-  padding: 0 var(--space-4) var(--space-3);
+  margin-top: var(--space-3);
   color: var(--ink-muted);
   font-family: var(--font-ui);
   font-size: var(--text-2xs);
