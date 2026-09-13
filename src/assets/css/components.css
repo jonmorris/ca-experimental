@@ -501,6 +501,29 @@ dialog::backdrop {
 }
 
 /*
+ * The heading block of the section list: game above, document below.
+ *
+ * `min-width: 0` because the header is a flex row and a long game name — "Xia:
+ * Legends of a Drift System" — would otherwise push the close button off the
+ * end rather than truncating itself.
+ */
+.jump-sheet__heading {
+  min-width: 0;
+}
+
+.jump-sheet__eyebrow {
+  overflow: hidden;
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/*
  * The jump list is the exception: it is not a tool reached from the header
  * like the three above, it is the sticky section bar's own list. So it drops
  * from the bar — full width, top corners square, no top border of its own

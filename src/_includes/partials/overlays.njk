@@ -188,7 +188,23 @@
   <dialog class="jump-sheet" data-section-jump aria-label="Jump to a section in {{ contentType.title }}">
     <div class="jump-sheet__inner">
       <header class="drawer__header">
-        <h2 class="drawer__title">{{ contentType.title }}</h2>
+        {#
+          The document's name, with the game's above it.
+
+          The sheet is opened from a bar that shows one section of one
+          document, and below the sidebar breakpoint it is the only place on
+          the page that says which game those sections belong to — the header
+          no longer does. An eyebrow rather than a second line of the heading:
+          it is context for the title, not a title of its own.
+        #}
+        <div class="jump-sheet__heading">
+          {% if game %}
+            <p class="jump-sheet__eyebrow">
+              {{ game.title }}{% if expansion %} <span aria-hidden="true">·</span> {{ expansion.title }}{% endif %}
+            </p>
+          {% endif %}
+          <h2 class="drawer__title">{{ contentType.title }}</h2>
+        </div>
         <div class="drawer__actions">
           {{ closeButton("section list") }}
         </div>

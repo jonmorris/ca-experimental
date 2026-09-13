@@ -1,8 +1,14 @@
 {#
   The header stays deliberately thin — at a table, chrome above the fold is
   chrome between you and the rule you are looking for. It carries identity on
-  the left and four controls on the right, and nothing else. The section list
-  lives in the sidebar (wide) or the sticky bar (narrow), not up here.
+  the left and the controls on the right, and nothing else.
+
+  Not the game's name: it was here on every in-game page and said something
+  different on each one, which is the opposite of what a header is for. Every
+  page that has a game already names it somewhere the reader can rely on — the
+  sidebar's heading at wide widths, the breadcrumbs, the page title, and the
+  section list's eyebrow when it is open. The section list itself lives in the
+  sidebar or the sticky bar, not up here either.
 #}
 <header class="site-header">
   <div class="site-header__inner">
@@ -22,11 +28,6 @@
       </span>
       <span class="site-logo__text">{{ site.title }}</span>
     </a>
-
-    {% if game %}
-      <span class="site-header__divider" aria-hidden="true"></span>
-      <a class="site-header__game" href="{{ game.url }}">{{ game.title }}</a>
-    {% endif %}
 
     <div class="site-header__actions">
       {#

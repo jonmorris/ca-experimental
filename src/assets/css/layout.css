@@ -105,34 +105,6 @@
   stroke-linecap: round;
 }
 
-.site-header__divider {
-  width: 1px;
-  height: 1.1rem;
-  background: var(--line-strong);
-}
-
-/*
- * The game's name takes whatever room is left and truncates last. A long one
- * — "Xia: Legends of a Drift System" — matters more in context than the site's
- * own name, which is why the wordmark yields first below.
- */
-.site-header__game {
-  flex: 1 1 auto;
-  min-width: 0;
-  overflow: hidden;
-  color: var(--ink-muted);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-  font-weight: var(--ui-weight);
-  text-decoration: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.site-header__game:hover {
-  color: var(--ink);
-}
-
 .site-header__actions {
   display: flex;
   align-items: center;
@@ -145,9 +117,6 @@
  * The site nav, shown only where the menu holding the same links is hidden.
  * Below that breakpoint it would be a second copy of the menu's first section
  * in a header that is deliberately thin.
- *
- * Set as quietly as the game's name beside it: these are the two least-used
- * things up here, and the search field is what the header is for.
  */
 .site-nav {
   display: none;
@@ -189,35 +158,13 @@
 }
 
 /*
- * Below the sidebar breakpoint the header keeps the site's name and drops the
- * game's.
- *
- * It used to be the other way round: on a game page the wordmark collapsed to
- * its mark and the game's name took the space, on the grounds that the game is
- * what you are reading. But a header that says something different on every
- * page stops being the thing you orient by, and the game's name is already on
- * the page under it — in the breadcrumbs, in the section bar, in the title.
- * The one place it was not was anywhere the reader could rely on.
- *
- * The divider goes with the name it separates. Left behind, a rule floating
- * between the mark and nothing reads as a piece of the wordmark that failed to
- * load.
- */
-@media (max-width: 64rem) {
-  .site-header__game,
-  .site-header__divider {
-    display: none;
-  }
-}
-
-/*
- * Except where the words genuinely will not fit beside four controls. Measured
- * rather than guessed: at 22rem the wordmark and the actions meet, so below
- * that the mark carries the link on its own.
+ * The site's name stays in the header at every width — except where the words
+ * genuinely will not fit beside four controls. Measured rather than guessed:
+ * at 22rem the wordmark and the actions meet, so below that the mark carries
+ * the link on its own.
  */
 @media (max-width: 22rem) {
-  .site-logo__text,
-  .site-header__divider {
+  .site-logo__text {
     display: none;
   }
 }
