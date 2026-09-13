@@ -1,11 +1,13 @@
 {#
-  Prev / next between rulebook sections, at the foot of the page.
+  Prev / next between rulebook sections, pinned to the bottom of the screen.
 
-  The bottom-pinned bar is gone: the sticky section bar at the top now answers
-  "where am I" continuously, and two fixed bars competing for the same small
-  screen was the wrong trade at a table. Targets are updated by section-nav.js
-  as the reader scrolls; the server-rendered first and last sections stand in
-  until it runs.
+  It pairs with the sticky section bar at the top: that one says where you are,
+  this one moves you one section either way without opening anything. Both
+  follow the same scroll tracker, so they cannot disagree.
+
+  Targets are updated by section-nav.js as the reader scrolls; the
+  server-rendered first and last sections stand in until it runs. The pinning
+  is CSS alone — see `.prev-next` in components.css.
 #}
 {% macro prevNext(contentType, variant) %}
   {% set first = contentType.sections[0] %}

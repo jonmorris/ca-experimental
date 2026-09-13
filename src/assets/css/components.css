@@ -1616,27 +1616,41 @@ dialog::backdrop {
 
 /* ========================================================= prev / next */
 
+/*
+ * The section pager rides along the bottom of the screen.
+ *
+ * It is the last thing in the document, so for as long as there is rulebook
+ * left below the fold its own place is off-screen and it stays pinned; when
+ * the reader really does reach the end it settles into the flow and scrolls
+ * away. One rule, no script, and it cannot get out of step with the page.
+ *
+ * That is also the only arrangement in which it means anything. Sitting at the
+ * foot of a page it was a control you could not reach until you no longer
+ * needed it, describing sections you had already scrolled past.
+ *
+ * Two floating pills rather than a band across the screen: the gap between
+ * them leaves the rules visible, which matters when the thing it is covering
+ * is the paragraph you are reading. It sits under the header and the section
+ * bar, which are the things that must never be covered.
+ */
 .prev-next {
+  position: sticky;
+  bottom: var(--space-4);
+  z-index: 20;
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-3);
   margin-top: var(--space-7);
-  padding-top: var(--space-5);
-  border-top: 1px solid var(--line);
-}
-
-@media (min-width: 46rem) {
-  .prev-next {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 .prev-next__link {
   display: grid;
   gap: 2px;
-  padding: var(--space-3) var(--space-4);
+  padding: var(--space-2) var(--space-4);
   background: var(--surface-raised);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
   font-family: var(--font-ui);
   text-decoration: none;
   min-width: 0;
