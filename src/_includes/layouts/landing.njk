@@ -88,7 +88,7 @@ layout: layouts/base.njk
         <ul class="card-grid">
           {% for type in game.contentTypes %}
             <li class="card">
-              <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a>{{ officialMark(type.official) }}</h3>
+              <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
               {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
               {#
                 Every other card counts what is in it at build time. My
@@ -97,10 +97,22 @@ layout: layouts/base.njk
                 place in the card, filled in by the client and hidden until
                 there is a number worth showing.
               #}
+              {#
+                The foot of the card carries both facts about the document:
+                what is in it on the left, where its words came from on the
+                right. The mark sits opposite the count rather than up on the
+                title, so the title stays a title and the two pieces of
+                metadata share one line.
+              #}
               {% if type.slug == "my-reference" %}
                 <p class="card__meta" data-reference-count hidden></p>
-              {% elif type.sections.length %}
-                <p class="card__meta">{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</p>
+              {% elif type.sections.length or type.official %}
+                <p class="card__meta">
+                  {% if type.sections.length %}
+                    <span>{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</span>
+                  {% endif %}
+                  {{ officialMark(type.official) }}
+                </p>
               {% endif %}
             </li>
           {% endfor %}
@@ -114,10 +126,15 @@ layout: layouts/base.njk
           <ul class="card-grid">
             {% for type in expansion.contentTypes %}
               <li class="card">
-                <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a>{{ officialMark(type.official) }}</h3>
+                <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
                 {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
-                {% if type.sections.length %}
-                  <p class="card__meta">{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</p>
+                {% if type.sections.length or type.official %}
+                  <p class="card__meta">
+                    {% if type.sections.length %}
+                      <span>{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</span>
+                    {% endif %}
+                    {{ officialMark(type.official) }}
+                  </p>
                 {% endif %}
               </li>
             {% endfor %}
