@@ -1,6 +1,7 @@
 import { bookmarkStore } from "./bookmark-store.js";
 import { favoriteStore } from "./favorites.js";
 import { historyStore } from "./reading-history.js";
+import { searchHistory } from "./search-history.js";
 import { preferences, PREFERENCES } from "./preferences.js";
 
 /**
@@ -13,7 +14,7 @@ import { preferences, PREFERENCES } from "./preferences.js";
  * no accounts to fall back on, so the honest thing is to make the data
  * something the reader holds rather than something the site holds for them.
  *
- * One file, four stores, a version on the envelope as well as on each payload —
+ * One file, every store, a version on the envelope as well as on each payload —
  * so a file written today can still be read after the shapes inside it have
  * moved on.
  *
@@ -41,6 +42,7 @@ export function buildExport() {
     bookmarks: bookmarkStore.snapshot(),
     favorites: favoriteStore.snapshot(),
     history: historyStore.snapshot(),
+    searches: searchHistory.snapshot(),
     preferences: preferences.all(),
   };
 }
@@ -106,6 +108,7 @@ export function applyImport(text) {
     bookmarks: bookmarkStore.merge(parsed.bookmarks),
     favorites: favoriteStore.merge(parsed.favorites),
     history: historyStore.merge(parsed.history),
+    searches: searchHistory.merge(parsed.searches),
   };
 
   /*
@@ -140,6 +143,9 @@ export function describeImport(result) {
   }
   if (result.added.history) {
     parts.push(`${result.added.history} game${result.added.history === 1 ? "" : "s"} of history`);
+  }
+  if (result.added.searches) {
+    parts.push(`${result.added.searches} search${result.added.searches === 1 ? "" : "es"}`);
   }
   if (result.settings) parts.push("your reading settings");
 

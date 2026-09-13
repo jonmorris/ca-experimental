@@ -2,6 +2,7 @@ import { preferences, PREFERENCES } from "./preferences.js";
 import { createOverlay } from "./overlay.js";
 import { bookmarkStore } from "./bookmark-store.js";
 import { historyStore } from "./reading-history.js";
+import { searchHistory } from "./search-history.js";
 import { favoriteStore } from "./favorites.js";
 import { downloadExport, applyImport, describeImport } from "./data-transfer.js";
 
@@ -186,6 +187,10 @@ export function initPreferences() {
     armClearButton(panel.querySelector("[data-clear-history]"), {
       label: "Clear history",
       store: historyStore,
+    }),
+    armClearButton(panel.querySelector("[data-clear-searches]"), {
+      label: "Clear searches",
+      store: searchHistory,
     }),
     armClearButton(panel.querySelector("[data-clear-bookmarks]"), {
       label: "Clear bookmarks",

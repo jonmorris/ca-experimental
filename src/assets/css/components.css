@@ -557,6 +557,7 @@ dialog::backdrop {
   list-style: none;
 }
 
+
 /* Searching every game groups results under each game's name, so this one has
    to hold a title as well as a category. */
 .palette__group {
@@ -596,6 +597,45 @@ dialog::backdrop {
   line-height: var(--leading-snug);
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/*
+ * The rows that do something rather than go somewhere are buttons, and a
+ * button brings a lifetime of user-agent styling with it.
+ */
+button.palette__link {
+  width: 100%;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  text-align: start;
+}
+
+/* Both of these read as a line, not as a title over a subtitle. */
+.palette__link--recent,
+.palette__link--more {
+  display: flex;
+  align-items: center;
+}
+
+/*
+ * A past search wears a clock. It is the one row in this list that asks a
+ * question again rather than going somewhere, and without a mark it reads as
+ * a result that happens to have no detail under it.
+ */
+.palette__icon-recent {
+  flex: none;
+  align-self: center;
+  margin-inline-end: var(--space-2);
+  color: var(--ink-faint);
+}
+
+/* "Show 6 more" is an option, not a result: set as the aside it is. */
+.palette__link--more .palette__label {
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--ui-weight);
 }
 
 .palette__detail mark {

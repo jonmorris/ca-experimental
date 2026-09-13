@@ -2,6 +2,7 @@ import { createOverlay } from "./overlay.js";
 import { bookmarkStore } from "./bookmark-store.js";
 import { getSections } from "./section-tracker.js";
 import { searchText } from "./search.js";
+import { searchHistory } from "./search-history.js";
 import { rank } from "./fuzzy.js";
 import { initShortcutHints } from "./shortcut.js";
 
@@ -72,6 +73,13 @@ export function initCommandPalette() {
   let global = false;
 
   /*
+   * How many recent searches the panel is showing. Reset every time it opens:
+   * an expanded list is an answer to "show me more", not a setting.
+   */
+  const RECENT_SHOWN = 4;
+  let recentLimit = RECENT_SHOWN;
+
+  /*
    * The placeholder names the scope rather than listing what can be found in
    * it. "Jump to a section, term or rule" describes every search box on the
    * site equally; "Search Indonesia" answers the question a reader actually
@@ -106,6 +114,7 @@ export function initCommandPalette() {
     onOpen: () => {
       input.value = "";
       global = false;
+      recentLimit = RECENT_SHOWN;
       render("");
       requestAnimationFrame(() => input.focus());
     },
@@ -117,6 +126,64 @@ export function initCommandPalette() {
       href: `#${section.id}`,
       group: "On this page",
     }));
+  }
+
+  /*
+   * Recent searches, above everything, and only on an empty field.
+   *
+   * Once there is a query the panel's job is to answer it, and a list of
+   * things the reader typed last week competing with the results of the thing
+   * they are typing now is noise. So these appear at rest and get out of the
+   * way at the first keystroke.
+   *
+   * They are actions rather than destinations: choosing one puts it back in
+   * the field and runs it, because a search is a question and the answer may
+   * have changed since it was asked.
+   */
+  function recentEntries() {
+    const all = searchHistory.list();
+    if (!all.length) return [];
+
+    const shown = all.slice(0, recentLimit).map((entry) => ({
+      label: entry.query,
+      query: entry.query,
+      group: "Recent searches",
+    }));
+
+    /*
+     * "Show more" is an option in the list rather than a control beside it, so
+     * the arrow keys reach it like everything else here.
+     */
+    if (all.length > shown.length) {
+      shown.push({
+        label: `Show ${all.length - shown.length} more`,
+        expand: true,
+        group: "Recent searches",
+      });
+    }
+    return shown;
+  }
+
+  /** The one mark that says "you have been here before". */
+  function recentIcon() {
+    const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    icon.setAttribute("class", "palette__icon-recent");
+    icon.setAttribute("viewBox", "0 0 16 16");
+    icon.setAttribute("width", "14");
+    icon.setAttribute("height", "14");
+    icon.setAttribute("aria-hidden", "true");
+    icon.setAttribute("focusable", "false");
+    icon.innerHTML =
+      '<circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>' +
+      '<path d="M8 4.6V8l2.4 1.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>';
+    return icon;
+  }
+
+  /** Puts a past search back in the field and asks it again. */
+  function replay(query) {
+    input.value = query;
+    input.focus();
+    runQuery(query);
   }
 
   function bookmarkEntries(global) {
@@ -155,6 +222,7 @@ export function initCommandPalette() {
     const here = window.location.pathname;
     const dedupe = (list) =>
       list.filter((entry) => {
+        if (!entry.href) return true;
         const target = entry.href.startsWith("#") ? `${here}${entry.href}` : entry.href;
         if (seen.has(target)) return false;
         seen.add(target);
@@ -162,6 +230,7 @@ export function initCommandPalette() {
       });
 
     entries = [
+      ...(query ? [] : recentEntries()),
       ...dedupe(rank(bookmarkEntries(global), query)),
       ...(gameSlug && !global ? dedupe(rank(sectionEntries(), query)) : []),
       ...dedupe(
@@ -209,10 +278,29 @@ export function initCommandPalette() {
       item.id = `palette-item-${i}`;
       item.setAttribute("aria-selected", String(i === activeIndex));
 
-      const link = document.createElement("a");
+      /*
+       * A destination is a link and an action is a button — not one element
+       * pretending to be both. The keyboard path is the same either way
+       * because Enter activates whichever it finds.
+       */
+      const action = Boolean(entry.query || entry.expand);
+      const link = document.createElement(action ? "button" : "a");
       link.className = "palette__link";
-      link.href = entry.href;
+      if (action) link.type = "button";
+      else link.href = entry.href;
       link.tabIndex = -1;
+
+      if (entry.query) {
+        link.classList.add("palette__link--recent");
+        link.prepend(recentIcon());
+        link.addEventListener("click", () => replay(entry.query));
+      } else if (entry.expand) {
+        link.classList.add("palette__link--more");
+        link.addEventListener("click", () => {
+          recentLimit = Infinity;
+          render(input.value);
+        });
+      }
 
       const label = document.createElement("span");
       label.className = "palette__label";
@@ -329,6 +417,18 @@ export function initCommandPalette() {
   input.addEventListener("input", () => runQuery(input.value));
 
   /*
+   * A search is remembered when it takes the reader somewhere, not while they
+   * type it. Recording on keystrokes would fill the list with the prefixes of
+   * one word — "s", "si", "sia" — and a query nobody followed is not something
+   * they were looking for. Enter goes through the same click, so there is one
+   * rule and one place it lives.
+   */
+  list.addEventListener("click", (event) => {
+    if (event.target.closest("a.palette__link")) searchHistory.record(input.value);
+  });
+
+
+  /*
    * Widening runs the query again as it stands rather than clearing it: the
    * reader has just read a short list and wants the same words asked of more
    * of the site. Focus returns to the field, since this is something done in
@@ -350,7 +450,7 @@ export function initCommandPalette() {
       setActive(activeIndex - 1);
     } else if (event.key === "Enter") {
       event.preventDefault();
-      items[activeIndex]?.querySelector("a")?.click();
+      items[activeIndex]?.querySelector("a, button")?.click();
     }
   });
 
