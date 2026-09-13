@@ -1351,12 +1351,20 @@ dialog::backdrop {
 }
 
 /*
- * The hero and the search under it are centred; the shelves below stay left,
- * where a grid of tiles reads from.
+ * The landing block: the name, what the site is for, the search, and one line
+ * of news. Centred over the shelves, which stay left where a grid of tiles
+ * reads from.
+ *
+ * It is given room on purpose. Arriving into a wall of box art says "browse";
+ * a block with air around it says "this is a place you search, and here is
+ * what is new" — and the first shelf is still on screen underneath, which is
+ * the part of a minimal landing page worth borrowing and the part worth
+ * leaving behind. Nothing is hidden behind an Explore More.
  */
 .home__hero {
   max-width: 44rem;
   margin-inline: auto;
+  padding-block: var(--space-7) var(--space-6);
   text-align: center;
 }
 
@@ -1384,6 +1392,7 @@ dialog::backdrop {
    */
   width: 100%;
   max-width: 38rem;
+  margin-block-start: var(--space-7);
   margin-inline: auto;
   padding: var(--space-4);
   background: var(--surface-raised);
@@ -1417,6 +1426,61 @@ dialog::backdrop {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/*
+ * One line of news under the field.
+ *
+ * Set as a line rather than as a card: it is a sentence with a label on it,
+ * and anything more would make a site that changes a few times a month look
+ * like one with an announcements section. The pill carries the only colour,
+ * because the category is what makes it scannable at a glance — a reader who
+ * has seen this week's news should be able to skip it without reading it.
+ */
+.home-update {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  max-width: 100%;
+  margin-top: var(--space-4);
+  color: var(--ink-muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  text-align: left;
+  text-decoration: none;
+}
+
+a.home-update:hover {
+  color: var(--ink);
+}
+
+.home-update__tag {
+  flex: none;
+  padding: 2px var(--space-2);
+  border-radius: 999px;
+  background: var(--accent-wash);
+  color: var(--accent-strong);
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.home-update__text {
+  min-width: 0;
+  text-wrap: pretty;
+}
+
+/* Present only where it means something: a line that leads somewhere. */
+.home-update__go {
+  display: inline-block;
+  color: var(--ink-faint);
+  transition: translate 140ms ease;
+}
+
+a.home-update:hover .home-update__go {
+  color: var(--accent);
+  translate: 2px 0;
 }
 
 /* The shortcut is a promise only a keyboard can collect. */
