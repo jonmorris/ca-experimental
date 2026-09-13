@@ -1,5 +1,6 @@
 ---
 title: 'Space Diamonds'
+official: true
 navOrder: 20
 subhead: 'The introductory scenario, and a first game of High Frontier.'
 ---

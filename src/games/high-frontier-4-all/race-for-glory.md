@@ -1,5 +1,6 @@
 ---
 title: 'Race For Glory'
+official: true
 navOrder: 40
 subhead: 'A standalone game of exoglobalization, for 2 to 5 players.'
 ---

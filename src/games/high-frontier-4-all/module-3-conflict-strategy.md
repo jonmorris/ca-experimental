@@ -1,5 +1,6 @@
 ---
 title: 'Module 3 Conflict Strategy'
+official: true
 navOrder: 33
 subhead: 'Strategy notes for the Conflict module.'
 ---

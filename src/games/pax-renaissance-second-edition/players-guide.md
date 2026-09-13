@@ -1,5 +1,6 @@
 ---
 title: 'Players Guide'
+official: true
 navOrder: 20
 subhead: 'A guided playthrough, turn by turn.'
 ---

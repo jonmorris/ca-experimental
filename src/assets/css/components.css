@@ -190,6 +190,48 @@
   text-align: center;
 }
 
+/* =============================================================== official */
+
+/*
+ * The mark on a document the publisher wrote.
+ *
+ * Pitched to sit beside the section count without competing with it: the
+ * count's own grey and size, and a fill instead of a colour, so the foot of a
+ * card reads as one line of metadata rather than a fact and an announcement.
+ * The words are what carry it — they only have to be legible to somebody who
+ * went looking for them.
+ *
+ * Pushed to the far end by its own auto margin rather than by the row's
+ * justification, so it still lands hard right on a card whose document has no
+ * section count to sit opposite. In the page header the auto margin is inert,
+ * which is why the gap there comes from padding on the row instead.
+ */
+.official-mark {
+  display: inline-block;
+  padding: 0.15em 0.5em;
+  background: var(--surface-sunken);
+  border-radius: 999px;
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  line-height: 1.4;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Hard right in the card's foot, count or no count. */
+.card__meta .official-mark {
+  margin-inline-start: auto;
+}
+
+/* The header has no row to push against, so the gap is set here. */
+.page-title .official-mark {
+  margin-inline-start: var(--space-3);
+}
+
 /* ============================================================== controls */
 
 .button {
@@ -1154,6 +1196,9 @@ button.palette__link {
 }
 
 .card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   margin-top: var(--space-2);
   color: var(--ink-faint);
   font-family: var(--font-ui);

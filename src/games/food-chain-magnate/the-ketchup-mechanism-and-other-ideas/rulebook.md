@@ -1,5 +1,6 @@
 ---
 title: Rulebook
+official: true
 navLabel: Rulebook
 subhead: The expansion rules for The Ketchup Mechanism & Other Ideas.
 ---

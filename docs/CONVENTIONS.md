@@ -70,8 +70,22 @@ title: Official FAQ
 navLabel: FAQ        # what the nav tab says
 navOrder: 25         # lower sorts earlier; the standard types are 10/20/30/40
 subhead: One line under the page title.
+official: true       # the publisher's own text — see below
 ---
 ```
+
+**`official: true` marks a document as the publisher's own text**, and shows an
+Official mark on its card and in its own header. It is opt-in per file and
+never inferred from the content type: a `players-book.md` transcribed from the
+box and a `strategy-primer.md` written here both land on the generic type, so
+any default would either miss the first or put the publisher's name on the
+second. Of those two mistakes the second costs a reader something, so absent
+means unofficial.
+
+Only the official side is marked. Anything written for this site — a summary, a
+glossary, an index — carries no mark, because a badge on every document in the
+library would stop being read. The mark's presence is a claim; its absence is
+not a counter-claim.
 
 **A file only exists when it has real content.** No empty placeholders.
 Absence means that content type doesn't exist for that game, and the nav,

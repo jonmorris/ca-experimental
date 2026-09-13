@@ -1,5 +1,6 @@
 ---
 title: 'Rulebook'
+official: true
 subhead: 'The complete and official rules of Root.'
 ---
 
