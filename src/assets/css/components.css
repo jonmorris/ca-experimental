@@ -165,6 +165,16 @@
 .drawer-group__count,
 .bookmarks-group__count {
   display: inline-block;
+  /*
+   * Centred on the heading, not sat on its baseline.
+   *
+   * Baseline alignment puts the pill's *text* on the heading's baseline, and
+   * everything the pill adds under that text — padding, border, the curve of
+   * the capsule — then hangs below the line. Against display type that is five
+   * or six pixels of droop, which is exactly enough to read as a mistake. What
+   * should line up here is the two shapes, not the two baselines.
+   */
+  align-self: center;
   min-width: 2.25ch;
   padding: 0.15em 0.5em;
   background: var(--surface-sunken);
