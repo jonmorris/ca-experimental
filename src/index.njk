@@ -4,10 +4,15 @@ permalink: /
 bodyClass: page page--home
 ---
 <div class="home" data-pagefind-body>
+  {#
+    The site's name is the page's heading, and what it is for is the line under
+    it. The name was an eyebrow over a tagline set as the H1, which made the
+    first heading of the site a sentence about the site rather than the site —
+    and left two lines of description under it saying much the same thing twice.
+  #}
   <header class="home__hero">
-    <p class="eyebrow">{{ site.title }}</p>
-    <h1 class="home__title">{{ site.tagline }}</h1>
-    <p class="home__lede">{{ site.description }}</p>
+    <h1 class="home__title">{{ site.title }}</h1>
+    <p class="home__lede">{{ site.tagline }}</p>
   </header>
 
   {#

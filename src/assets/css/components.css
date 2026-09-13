@@ -317,6 +317,17 @@
   color: var(--ink-muted);
 }
 
+/*
+ * Given room to be seen for what it is. Sized to its own label, it read as
+ * another of the icon buttons beside it; a field wants a field's proportions,
+ * and there is space in the header for one.
+ */
+@media (min-width: 46rem) {
+  .search-trigger {
+    min-width: 10rem;
+  }
+}
+
 .search-trigger__label {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1322,9 +1333,25 @@ dialog::backdrop {
 
 /* ================================================================= home */
 
+/*
+ * One gap between every band of the page, set once on the container.
+ *
+ * It used to be a margin on each piece, which meant the space between two
+ * bands depended on which of them was showing. A hidden section is display:
+ * none, so `.home__section:not([hidden]) + .home__section` could not match
+ * across one — with favourites but no recent games, All Games sat flush under
+ * Favorite Games with nothing between them. Grid does not have that problem:
+ * a hidden child creates no track and therefore no gap, and the bands that
+ * remain are evenly spaced whichever ones those are.
+ */
+.home {
+  display: grid;
+  gap: var(--space-7);
+  align-content: start;
+}
+
 .home__hero {
   max-width: 44rem;
-  margin-bottom: var(--space-7);
 }
 
 /*
@@ -1342,7 +1369,6 @@ dialog::backdrop {
   align-items: center;
   gap: var(--space-3);
   width: 100%;
-  margin-bottom: var(--space-7);
   padding: var(--space-4);
   background: var(--surface-raised);
   border: 1px solid var(--line-strong);
@@ -1399,15 +1425,6 @@ dialog::backdrop {
   }
 }
 
-/*
- * Space between the shelves. `:not([hidden])` is what keeps it honest: a
- * hidden section still matches an adjacent-sibling selector even though it
- * takes no room, so without this a reader with no history would get the gap
- * anyway and the games would sit twice as far down the page as intended.
- */
-.home__section:not([hidden]) + .home__section {
-  margin-top: var(--space-7);
-}
 
 .home__title {
   font-family: var(--font-display);
