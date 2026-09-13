@@ -1643,6 +1643,18 @@ dialog::backdrop {
   margin-top: var(--space-7);
 }
 
+/*
+ * Held in from the text on a phone. Flush with the measure, the pills read as
+ * part of the column they are floating over — two edges in the same place,
+ * one of them scrolling and one of them not — instead of as something laid on
+ * top of it.
+ */
+@media (max-width: 46rem) {
+  .prev-next {
+    margin-inline: var(--space-4);
+  }
+}
+
 .prev-next__link {
   display: grid;
   gap: 2px;
