@@ -583,6 +583,21 @@
     align-items: start;
   }
 
+  /*
+   * The sidebar scrolls, and says so only when asked.
+   *
+   * A default desktop scrollbar is a slab of system grey with its own border,
+   * and putting one down the side of a quiet list of links made the loudest
+   * thing in the column the fact that the column has more in it. So the thumb
+   * is drawn in the page's own hairline colour, and only once the pointer is
+   * over the list or something inside it has focus — which is when somebody is
+   * about to scroll it, and when the answer to "is there more" is worth
+   * having.
+   *
+   * Colour and not `overflow`, and not a width: the track keeps its width the
+   * whole time, so the links do not shift sideways as the thumb fades in, and
+   * the wheel works whether or not anything is painted.
+   */
   .sidebar {
     display: block;
     position: sticky;
@@ -592,6 +607,33 @@
     overscroll-behavior: contain;
     padding-block: var(--space-6);
     padding-right: var(--space-3);
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  .sidebar:hover,
+  .sidebar:focus-within {
+    scrollbar-color: var(--line-strong) transparent;
+  }
+
+  /* The same again for WebKit, which reads none of the two properties above. */
+  .sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: transparent;
+    transition: background 140ms ease;
+  }
+
+  .sidebar:hover::-webkit-scrollbar-thumb,
+  .sidebar:focus-within::-webkit-scrollbar-thumb {
+    background: var(--line-strong);
   }
 
   .sidebar__block + .sidebar__block {
