@@ -53,6 +53,18 @@ html.has-overlay body {
   overflow: hidden;
 }
 
+/*
+ * Both halves are set, not just the background. A selection that only paints
+ * behind the text leaves every colour on the page to fend for itself — a
+ * glossary term is purple, a cross-reference is green, a link is accent — and
+ * one of them will always be the one that disappears. Naming the ink as well
+ * means every selected glyph lands on the same known pair.
+ */
+::selection {
+  background-color: var(--selection);
+  color: var(--selection-ink);
+}
+
 h1,
 h2,
 h3,

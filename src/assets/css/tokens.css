@@ -202,6 +202,24 @@
   --marker-wash: #fbeeda;
   --marker-wash: light-dark(#fbeeda, #34260f);
 
+  /*
+   * Selected text.
+   *
+   * Left alone, this is whatever the browser and the OS agree on — which on a
+   * dark page is frequently a pale system blue behind light ink, and unreadable
+   * exactly when somebody is trying to read what they have selected in order to
+   * copy it. Every platform picks differently, so the only way to know what it
+   * looks like is to say.
+   *
+   * The accent and its contrast partner, which are already an audited pair in
+   * both themes, so selecting text can never produce a combination nobody
+   * checked.
+   */
+  --selection: #1a5f7a;
+  --selection: light-dark(#1a5f7a, #7cc4e4);
+  --selection-ink: #ffffff;
+  --selection-ink: light-dark(#ffffff, #08222e);
+
   --focus-ring: #0b4f6c;
   --focus-ring: light-dark(#0b4f6c, #8ecff0);
   --focus-halo: rgb(11 79 108 / 22%);
