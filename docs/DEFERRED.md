@@ -53,6 +53,10 @@ Adding sync means writing a second implementation of that interface and
 choosing between them at `src/assets/js/bookmark-store.js`. It should not touch
 a single UI file.
 
+That is the mechanism. What an account would be *for*, and which side of the
+free line each thing falls on, is **Accounts, and what a paid one is for**
+below.
+
 ---
 
 ## Cross-game similarity and recommendations
@@ -278,28 +282,6 @@ becomes a chore.
 
 ---
 
-## My Reference in the sidebar and the sticky bar
-
-The section list that follows the reader down a rulebook does not appear on My
-Reference. The page carries its own contents list at the top instead.
-
-**Why deferred:** both the sidebar's section list and the sticky bar are
-rendered from the registry's `sections`, which are parsed from a markdown file
-at build time. This page has no file, and what is on it is not known until the
-browser has read the reader's bookmarks. Wiring it up means those partials
-rendering empty shells and `section-tracker.js` growing a way to be told to
-re-read the document — a change to a file that three other features depend on,
-for a page that is usually short enough to see whole.
-
-**What already helps:** the contents list at the top of the page is built from
-the same plan the sections are, so it is already complete and correct before
-anything is fetched — and on a page meant to be printed, contents at the top is
-where they belong anyway. `initStickyBar` now returns early when there is no
-jump list to open, so the bar correctly does not appear rather than appearing
-empty.
-
----
-
 ## Splitting Your data out of the Reading panel
 
 Two panels instead of one: reading settings on their own, and a data panel
@@ -421,3 +403,126 @@ text.
 rulebook exists in German) or of the site (this reader wants German). They lead
 to different URL shapes and different fallbacks, and the honest answer for a
 long time will be that most games have one language and a few have several.
+
+---
+
+## Accounts, and what a paid one is for
+
+The product question underneath the sync entry above: if there is ever a paid
+account, what is being sold.
+
+**The shape, as currently intended.** The whole site works without an account,
+and keeps working without one. Free means the browser keeps what it keeps, and
+the reader has complete control of it — download a copy, restore from a file,
+clear any store on its own. Paid means a login, and the data is simply always
+there, on whatever device is in hand. The fee is for not having to think about
+it.
+
+So what is sold is durability and portability. Not the rules, not access to a
+feature that makes the site usable, and never the reader's own data — a
+subscription that holds bookmarks hostage would be breaking the promise the
+export button already makes.
+
+**Why deferred:** no backend, no accounts, and none of this is decidable before
+there is something to charge for. It is written down because it constrains what
+gets built between now and then, not because any of it is scheduled.
+
+**The constraint it puts on everything built before it.** Anything gated has to
+degrade without destroying. A reader who stops paying keeps every bookmark,
+highlight and ordering they made; the feature stops, the data does not. Which
+means a premium feature cannot invent a record shape only the paid client can
+read — the free client has to be able to hand it back in the export file, even
+if it can no longer do anything with it.
+
+**Candidates named so far**, both of which already have entries here:
+
+- **Text-highlight annotations** — see that entry for why the anchoring problem
+  is the hard part, and note that it is hard whether or not anyone pays.
+- **Reordering My Reference** — see *Reordering My Reference, and managing
+  bookmarks in bulk*.
+
+Both are additive to a reading experience that is complete without them, which
+is the right shape for this. A gate on something the site needs in order to be
+worth using would be a different product.
+
+**What already helps:**
+
+- **The free tier is built.** Download a copy and Restore from a file are in
+  the Reading panel, alongside a clear for each store and one for everything.
+  Every store — bookmarks, favourites, history, searches — is a versioned,
+  record-shaped payload behind one interface, which is both what an export
+  writes and what an API would `POST`.
+- **The sales pitch is already on the page, and it is true.** The Reading
+  panel's note says the data is kept in this browser only, goes when browsing
+  data is cleared, and is deleted by Safari after about a week without a visit.
+  A paid tier would be fixing exactly that, which means it is selling a real
+  remedy rather than a manufactured worry. The note should not be softened to
+  make the upgrade look better; it is the honest version that makes the
+  upgrade defensible.
+
+---
+
+## Funding, and the rule against ads
+
+How this gets paid for, other than subscriptions.
+
+**No advertising.** Not a banner, not an interstitial, not a sponsored row in
+the shelf, not a native unit dressed up as a game tile. This is a constraint
+rather than a preference: a page of rules is read at a table, mid-game, by
+someone looking for one specific sentence, and anything competing for that
+attention is working against the only thing the site is for. Treat a proposal
+that "is not really an ad" as an ad.
+
+**What is allowed instead.** Four ideas, and they share a property worth
+naming: someone pays directly, and what they get is a link somewhere it makes
+sense. Nothing is auctioned, nothing is served by a third party, nothing
+follows the reader.
+
+1. **A sponsor page.** One curated page. A brand pays directly and their links
+   live there and nowhere else.
+2. **Retail links on game pages.** An online retailer sponsors the site and in
+   exchange their product page is linked from the games they carry.
+3. **Publisher links.** The same, pointing at the publisher's own sales page.
+4. **Affiliate links**, paid per purchase rather than per placement.
+
+**Why deferred:** all four are deals before they are code, and none of the code
+is interesting. The sponsor page is a page. The links are data.
+
+**What needs settling before the first one ships**, because it is a design
+decision and not a commercial one:
+
+- **Whether a game page can carry a buy link at all without becoming a
+  storefront.** (1) is far from the rules; (2), (3) and (4) are on the page
+  somebody came to read. That is the whole question, and it is worth answering
+  once, for all three, rather than per deal.
+- **Whether a paid link looks different from an unpaid one.** If the BGG link
+  and a sponsored retail link sit in the same list looking identical, the page
+  has quietly started recommending things. Disclosure is not only a legal
+  formality here; it is what keeps the rest of the page trustworthy.
+- **What happens when a publisher is both.** The footer says rules text appears
+  with its publisher's permission. A publisher who is also paying is a
+  different relationship from a publisher who has given permission, and the
+  reader cannot tell them apart from the outside. Worth thinking through before
+  the first conversation rather than after.
+
+**What already helps:**
+
+- **Outbound links are handled in one place.** `lib/external-links.js` marks
+  every link that leaves the site `target="_blank"` and *merges* into any
+  existing `rel` rather than replacing it — so an authored `rel="sponsored"`
+  survives the transform untouched.
+- **…but the same transform adds `noreferrer`**, which strips the `Referer`
+  header, and some affiliate programmes attribute by referrer. Anything paid
+  per click or per purchase has to be checked against that before it is
+  trusted. The fix is an exception in one function; the trap is that it fails
+  silently — the link works, the money does not arrive.
+- **A link is data, not markup.** `game.json` already carries `external_links`
+  as `{label, url}` and the `downloads` array takes an external entry in the
+  same shape. A retail or publisher link is an entry in a file, and the
+  publisher name and `bgg_id` are already there beside it.
+- **There is no analytics and no error reporting on this site.** Sponsorship
+  and affiliate arrangements normally come with an expectation of numbers, and
+  there is currently nothing that could produce them. That is a cost of these
+  ideas rather than a blocker, and it is better known before promising anyone a
+  monthly report than after — particularly given how much of the site's design
+  rests on collecting nothing.
