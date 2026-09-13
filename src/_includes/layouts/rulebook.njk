@@ -1,8 +1,6 @@
 ---
 layout: layouts/game.njk
 ---
-{% from "partials/prev-next.njk" import prevNext %}
-
 {#
   No inline table of contents any more: the section list lives in the sidebar
   at wide viewports and in the sticky bar below that, so it is available the
@@ -15,7 +13,3 @@ layout: layouts/game.njk
     anchorAliases: contentType.anchorAliases
   }) | safe }}
 </div>
-
-{% if contentType.sections.length %}
-  {{ prevNext(contentType, "inline") }}
-{% endif %}

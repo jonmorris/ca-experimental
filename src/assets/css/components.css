@@ -1617,63 +1617,59 @@ dialog::backdrop {
 /* ========================================================= prev / next */
 
 /*
- * The section pager rides along the bottom of the screen.
+ * The section pager: a bar across the foot of the screen.
  *
- * It is the last thing in the document, so for as long as there is rulebook
- * left below the fold its own place is off-screen and it stays pinned; when
- * the reader really does reach the end it settles into the flow and scrolls
- * away. One rule, no script, and it cannot get out of step with the page.
+ * Fixed rather than sticky, and edge to edge rather than inset, because it is
+ * chrome and not part of the column — the same standing offer at every point
+ * in the rules, sitting where a phone's own navigation sits. The page is
+ * padded by its height below, so the end of the rulebook still clears it.
  *
- * That is also the only arrangement in which it means anything. Sitting at the
- * foot of a page it was a control you could not reach until you no longer
- * needed it, describing sections you had already scrolled past.
- *
- * Two floating pills rather than a band across the screen: the gap between
- * them leaves the rules visible, which matters when the thing it is covering
- * is the paragraph you are reading. It sits under the header and the section
- * bar, which are the things that must never be covered.
+ * It matters most where there is nothing else: below the sidebar breakpoint
+ * the only other way between sections is the sticky bar's sheet, which costs
+ * a tap to open and a tap to choose.
  */
 .prev-next {
-  position: sticky;
-  bottom: var(--space-4);
+  position: fixed;
+  inset: auto 0 0;
   z-index: 20;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-3);
-  margin-top: var(--space-7);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--surface-raised);
+  border-top: 1px solid var(--line);
+  box-shadow: var(--shadow-up);
 }
 
 /*
- * Held in from the text on a phone. Flush with the measure, the pills read as
- * part of the column they are floating over — two edges in the same place,
- * one of them scrolling and one of them not — instead of as something laid on
- * top of it.
+ * The room it occupies. On the page rather than on the bar, because a fixed
+ * element takes no space in the flow and the last line of the rules would
+ * otherwise sit underneath it with no way to scroll it clear.
  */
-@media (max-width: 46rem) {
-  .prev-next {
-    margin-inline: var(--space-4);
-  }
+body[data-content-type="rulebook"] {
+  padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
 }
 
+/*
+ * Two halves of the bar rather than two objects on it: no border of their own,
+ * no corners, one rule down the middle to divide them. Each is a full-height
+ * tap target, which is most of the point of a bar at the bottom of a phone.
+ */
 .prev-next__link {
   display: grid;
+  align-content: center;
   gap: 2px;
   padding: var(--space-2) var(--space-4);
-  background: var(--surface-raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
   font-family: var(--font-ui);
   text-decoration: none;
   min-width: 0;
 }
 
 .prev-next__link:hover {
-  border-color: var(--line-strong);
   background: var(--surface-sunken);
 }
 
 .prev-next__link--next {
+  border-left: 1px solid var(--line);
   text-align: right;
 }
 
@@ -1698,6 +1694,75 @@ dialog::backdrop {
   opacity: 0.4;
   pointer-events: none;
 }
+
+@media (min-width: 64rem) {
+  /*
+   * The sidebar lists every section with the current one marked, so the bar
+   * has nothing to add and would only cover the rules to say it.
+   */
+  .prev-next {
+    display: none;
+  }
+
+  body[data-content-type="rulebook"] {
+    padding-bottom: 0;
+  }
+}
+
+/*
+ * Wider still, and the margin beside the measure is open enough to stand them
+ * in: the article stops at its reading width, the pager is its sibling rather
+ * than its last child, and the two links stack in the space that leaves. The
+ * threshold is where that margin is actually wide enough — below it the column
+ * runs nearly to the edge of the content area and there is nowhere to put them.
+ *
+ * Sticky again here, not fixed: it belongs to the column, and at the end of
+ * the rules it should come to rest with them rather than hang on over the
+ * footer.
+ */
+@media (min-width: 80rem) {
+  .prev-next {
+    position: sticky;
+    inset: auto auto var(--space-6) auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    width: 11rem;
+    margin-block-start: var(--space-7);
+    margin-inline-start: auto;
+    padding-bottom: 0;
+    background: none;
+    border-top: 0;
+    box-shadow: none;
+  }
+
+  .prev-next__link {
+    padding: var(--space-3) var(--space-4);
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .prev-next__link:hover {
+    border-color: var(--line-strong);
+    background: var(--surface-sunken);
+  }
+
+  /* Stacked and narrow: both read from the left, and a long section title
+     wraps rather than losing its second half to an ellipsis. */
+  .prev-next__link--next {
+    border-left: 1px solid var(--line);
+    text-align: left;
+  }
+
+  .prev-next__label {
+    overflow: visible;
+    line-height: var(--leading-snug);
+    white-space: normal;
+  }
+}
+
 
 /* ================================================ glossary and index */
 

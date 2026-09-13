@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 ---
+{% from "partials/prev-next.njk" import prevNext %}
 {#
   Shared chrome for every in-game content page.
 
@@ -46,5 +47,21 @@ layout: layouts/base.njk
 
       {{ content | safe }}
     </article>
+
+    {#
+      The section pager sits outside the article rather than inside it.
+
+      It is chrome for the column, not part of the piece: a bar across the foot
+      of a phone, and at desktop widths a pair of links standing in the open
+      margin beside the measure. That margin is only open because the article
+      stops at its reading width — so the pager has to be a sibling of the
+      article to reach it, not a last child confined to the same box.
+
+      Only the rulebook has it. The shorter documents are a screen or two and
+      the sidebar or the sticky bar already covers them.
+    #}
+    {% if contentTypeSlug == "rulebook" and contentType.sections.length %}
+      {{ prevNext(contentType, "inline") }}
+    {% endif %}
   </main>
 </div>
