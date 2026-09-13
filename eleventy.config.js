@@ -98,6 +98,13 @@ export default function (eleventyConfig) {
   // Exposed to templates and, via a body attribute, to the client modules that
   // build URLs themselves — those are out of the plugin's reach.
   eleventyConfig.addGlobalData("basePath", prefix);
+
+  /*
+   * The year in the footer's copyright line, taken from the build rather than
+   * typed into the template. A hardcoded year is wrong every January and wrong
+   * silently — nothing tests it and nobody reads the footer of their own site.
+   */
+  eleventyConfig.addGlobalData("buildYear", String(new Date().getFullYear()));
   eleventyConfig.addFilter("basePath", (url) => withBasePath(url, prefix));
 
   // Raw source material and working drafts are never read as templates and

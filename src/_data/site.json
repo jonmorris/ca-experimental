@@ -5,5 +5,23 @@
   "url": "https://cardboard-appendix.pages.dev",
   "lang": "en",
   "repo": "https://github.com/jonmorris/ca-experimental",
-  "design": "editorial"
+  "design": "editorial",
+  "issues": "https://github.com/jonmorris/ca-experimental/issues",
+  "social": [
+    {
+      "network": "discord",
+      "label": "Discord",
+      "url": ""
+    },
+    {
+      "network": "instagram",
+      "label": "Instagram",
+      "url": ""
+    },
+    {
+      "network": "patreon",
+      "label": "Patreon",
+      "url": ""
+    }
+  ]
 }
