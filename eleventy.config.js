@@ -7,6 +7,7 @@ import { buildGames } from "./lib/registry.js";
 import { cleanHeadingText, explicitHeadingId } from "./lib/headings.js";
 import { enhanceHeadings, bookmarkButton } from "./lib/heading-tools.js";
 import { markExternalLinks } from "./lib/external-links.js";
+import { parseRange } from "./lib/shelf.js";
 import site from "./src/_data/site.json" with { type: "json" };
 
 const GAME_URL_RE = /^\/games\/([^/]+)\//;
@@ -125,6 +126,9 @@ export default function (eleventyConfig) {
   // ---------------------------------------------------------------- filters
 
   eleventyConfig.addFilter("slug", slugify);
+
+  /** "2–5" → { min: 2, max: 5 }, for the shelf's filters. Null if unparseable. */
+  eleventyConfig.addFilter("numberRange", parseRange);
 
   eleventyConfig.addFilter("stripHtml", (content) =>
     String(content || "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim(),

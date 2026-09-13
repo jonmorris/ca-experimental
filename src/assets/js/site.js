@@ -18,6 +18,7 @@ import { initSectionNav } from "./section-nav.js";
 import { initNotFound } from "./not-found.js";
 import { initHeadingLinks } from "./heading-links.js";
 import { initHistoryRecorder } from "./history-recorder.js";
+import { initShelf } from "./shelf.js";
 import { initRecentGames } from "./recent-games.js";
 import { initJumpBookmarks } from "./jump-bookmarks.js";
 import { initMyReference, initReferenceCount } from "./my-reference.js";
@@ -35,6 +36,7 @@ function start() {
 
   // After the tracker: the recorder asks it which headings are sections.
   initHistoryRecorder();
+  initShelf();
   initFavorites();
   initRecentGames();
 

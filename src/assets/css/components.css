@@ -2473,3 +2473,209 @@ body[data-content-type="rulebook"] {
 .prefs__result.is-bad {
   color: var(--marker);
 }
+
+/* ================================================== shelf tools (home) */
+
+/*
+ * Sorting and filtering above the shelf. Quiet: it sits between a heading and
+ * a grid of box art, and a reader who wants the whole shelf should be able to
+ * read past it without stopping.
+ */
+.shelf-tools {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.shelf-tools__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--space-3);
+}
+
+/* The two ranges share the row evenly and fall to one column on a phone. */
+.shelf-tools__row--filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4) var(--space-6);
+}
+
+@media (min-width: 46rem) {
+  .shelf-tools__row--filters {
+    grid-template-columns: 1fr 1fr;
+    max-width: 44rem;
+  }
+}
+
+.shelf-field {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.shelf-field__label,
+.range__label {
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.shelf-select {
+  height: 2.25rem;
+  padding-inline: var(--space-3);
+  background: var(--surface-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.shelf-direction,
+.shelf-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 2.25rem;
+  padding-inline: var(--space-3);
+  background: var(--surface-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  color: var(--ink-muted);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.shelf-direction:hover,
+.shelf-reset:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+/* The arrow is the state: it points the way the list is running. */
+.shelf-direction svg {
+  transition: rotate 160ms ease;
+}
+
+.shelf-direction.is-descending svg {
+  rotate: 180deg;
+}
+
+.shelf-reset {
+  margin-inline-start: auto;
+}
+
+.shelf-empty {
+  margin-bottom: var(--space-5);
+  color: var(--ink-muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+/* ------------------------------------------------ the two-handled range */
+
+.range__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.range__value {
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.range.is-narrowed .range__value {
+  color: var(--accent-strong);
+  font-weight: 650;
+}
+
+/*
+ * Both inputs are laid over one track. They are transparent apart from their
+ * handles, so what the reader sees is the rail and the fill drawn underneath —
+ * one control rather than two sliders on top of each other.
+ */
+.range__track {
+  position: relative;
+  height: 1.5rem;
+}
+
+.range__track::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline: 0;
+  height: 4px;
+  translate: 0 -50%;
+  background: var(--surface-inset);
+  border-radius: 999px;
+}
+
+.range__fill {
+  position: absolute;
+  inset-block-start: 50%;
+  height: 4px;
+  translate: 0 -50%;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.range__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: none;
+  appearance: none;
+  pointer-events: none;
+}
+
+.range__input:focus {
+  outline: none;
+}
+
+/*
+ * Only the handles take the pointer. The track behind them belongs to the
+ * pointerdown handler, which decides which of the two a press is meant for.
+ */
+.range__input::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  background: var(--surface-raised);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  cursor: grab;
+  pointer-events: auto;
+}
+
+.range__input::-moz-range-thumb {
+  width: 1.125rem;
+  height: 1.125rem;
+  background: var(--surface-raised);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  cursor: grab;
+  pointer-events: auto;
+}
+
+.range__input:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.range__input:focus-visible::-moz-range-thumb {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

@@ -1,0 +1,40 @@
+{#
+  A range with two handles.
+
+  Two real `<input type="range">` elements stacked on one track rather than a
+  scripted widget: each handle is a slider the browser already knows how to
+  focus, move with the arrow keys, and announce. The rest is the track drawn
+  underneath and the rule that neither handle may pass the other.
+
+  `unit` is the singular noun for the readout — "2–5 players", "1 player".
+#}
+{% macro rangeSlider(name, label, bounds, unit) %}
+  <div class="range" data-range="{{ name }}"
+       data-range-unit="{{ unit }}"
+       data-range-min="{{ bounds.min }}"
+       data-range-max="{{ bounds.max }}">
+    <div class="range__head">
+      <span class="range__label" id="range-{{ name }}-label">{{ label }}</span>
+      {# The value is live text rather than a title on the handles: a reader
+         dragging with a thumb cannot hover, and a value nobody can see is not
+         a value. #}
+      <output class="range__value" data-range-value for="range-{{ name }}-min range-{{ name }}-max"></output>
+    </div>
+
+    <div class="range__track">
+      <div class="range__fill" data-range-fill></div>
+      <input class="range__input range__input--min" type="range"
+             id="range-{{ name }}-min" data-range-lower
+             min="{{ bounds.min }}" max="{{ bounds.max }}" step="{{ bounds.step }}"
+             value="{{ bounds.min }}"
+             aria-labelledby="range-{{ name }}-label"
+             aria-label="{{ label }}, fewest">
+      <input class="range__input range__input--max" type="range"
+             id="range-{{ name }}-max" data-range-upper
+             min="{{ bounds.min }}" max="{{ bounds.max }}" step="{{ bounds.step }}"
+             value="{{ bounds.max }}"
+             aria-labelledby="range-{{ name }}-label"
+             aria-label="{{ label }}, most">
+    </div>
+  </div>
+{% endmacro %}

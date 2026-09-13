@@ -107,12 +107,76 @@ bodyClass: page page--home
   <section class="home__section" aria-labelledby="games-title">
     <h2 class="section-title" id="games-title">
       All Games
-      <span class="section-title__count">{{ listed | length }}</span>
+      <span class="section-title__count" data-shelf-count>{{ listed | length }}</span>
     </h2>
 
-    <ul class="game-grid">
+    {#
+      Sorting and filtering the shelf.
+
+      Shipped `hidden` and revealed by `shelf.js`, like every other control
+      that cannot work without it — and everything it does is done by moving
+      and hiding tiles that are already on the page, so a reader without a
+      script still gets the whole shelf, alphabetically, which is the order
+      the build writes.
+
+      Two filters, both ranges, both about the table rather than about the
+      game: who is here and how long we have got. Weight and tags were the
+      obvious third and fourth and neither earns a control yet — every game on
+      this shelf is heavy, and most tags are on one game each.
+    #}
+    <div class="shelf-tools" data-shelf-tools hidden>
+      <div class="shelf-tools__row">
+        <label class="shelf-field">
+          <span class="shelf-field__label">Sort by</span>
+          <select class="shelf-select" data-shelf-sort>
+            <option value="title">Name</option>
+            <option value="year">Release date</option>
+          </select>
+        </label>
+
+        {#
+          Direction is its own control rather than four entries in the list
+          above: "A to Z / Z to A" and "newest / oldest first" are the same
+          question asked twice, and a list that spells out every combination
+          grows by multiplication every time a sort is added.
+        #}
+        <button type="button" class="shelf-direction" data-shelf-direction
+                aria-pressed="false">
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+            <path d="M8 13V3M4.5 6.5 8 3l3.5 3.5" fill="none" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span data-shelf-direction-label>Ascending</span>
+        </button>
+
+        <button type="button" class="shelf-reset" data-shelf-reset hidden>Clear filters</button>
+      </div>
+
+      <div class="shelf-tools__row shelf-tools__row--filters">
+        {% from "partials/range-slider.njk" import rangeSlider %}
+        {{ rangeSlider("players", "Players", shelf.players, "player") }}
+        {{ rangeSlider("time", "Playing time", shelf.time, "minute") }}
+      </div>
+    </div>
+
+    <p class="shelf-empty" data-shelf-empty hidden>
+      No games match those filters.
+    </p>
+
+    <ul class="game-grid" data-shelf-list>
       {% for slug, item in listed %}
-        <li class="game-tile" data-game-slug="{{ slug }}">
+        {% set players = item.meta.players | numberRange %}
+        {% set time = item.meta.time | numberRange %}
+        {#
+          Everything the shelf sorts and filters by, on the tile itself. The
+          page is the index: there is no second copy of the catalogue to fetch
+          or to keep in step.
+        #}
+        <li class="game-tile" data-game-slug="{{ slug }}"
+            data-title="{{ item.title }}"
+            data-year="{{ item.meta.year_published or '' }}"
+            {% if players %}data-players-min="{{ players.min }}" data-players-max="{{ players.max }}"{% endif %}
+            {% if time %}data-time-min="{{ time.min }}" data-time-max="{{ time.max }}"{% endif %}>
           {#
             The box art is shown as itself: contained in a fixed-ratio frame on
             a quiet ground, so covers of different proportions still line up
