@@ -1328,15 +1328,23 @@ button.palette__link {
   color: var(--ink);
 }
 
+/*
+ * The count and the label are one sentence — "eleven more, see all favourites"
+ * — so they are sized as one. Read at a display size against footnote type the
+ * number shouted and the words it needed were barely there; the two now meet
+ * near the middle, a step apart in size and a hair apart in weight, which is
+ * enough for the number to lead without the label having to whisper.
+ */
 .game-tile__more-count {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-variant-numeric: tabular-nums;
   font-weight: 650;
   line-height: 1;
 }
 
 .game-tile__more-label {
-  font-size: var(--text-xs);
+  font-size: var(--text-base);
+  font-weight: var(--ui-weight);
   line-height: var(--leading-snug);
 }
 
@@ -1354,7 +1362,7 @@ button.palette__link {
 }
 
 .game-tile--more-bar .game-tile__more-count {
-  font-size: var(--text-base);
+  font-size: var(--text-md);
 }
 
 /*
