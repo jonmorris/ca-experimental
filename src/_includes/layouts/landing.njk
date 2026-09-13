@@ -118,6 +118,71 @@ layout: layouts/base.njk
       {% if content | stripHtml %}
         <div class="prose">{{ content | safe }}</div>
       {% endif %}
+
+      {#
+        Where to go next.
+
+        Ranked at build time by credits — designer first, then publisher — and
+        topped up with whatever is left on the shelf so the row is never short.
+        A tile says why it is there when there is a why; the ones filling in
+        say nothing rather than claiming a connection they do not have. The
+        heading is deliberately plain for the same reason: on a game whose
+        designer and publisher are on nothing else here, "More like this" would
+        be a promise the row cannot keep.
+
+        Eight are written and four are shown. The four extra are not padding —
+        `related-games.js` re-ranks this row against the games the reader has
+        favourited and opened, and a re-rank with nothing held back could only
+        shuffle what was already visible.
+
+        Ignored by Pagefind: it is a way out of the page, not part of it, and
+        indexing it would put every game's name in every other game's results.
+      #}
+      {% set relatedGames = related.games[game.slug] %}
+      {% if relatedGames.length %}
+        <section class="landing__section" aria-labelledby="related-title"
+                 data-related-games data-pagefind-ignore>
+          <h2 class="section-title" id="related-title">More games</h2>
+          <ul class="game-grid game-grid--recent game-grid--related" data-related-list>
+            {% for item in relatedGames %}
+              {#
+                Everything the re-rank sorts by travels on the tile, the way
+                the shelf carries its own sort keys: the page is the index.
+              #}
+              <li class="game-tile"
+                  data-game-slug="{{ item.slug }}"
+                  data-order="{{ loop.index0 }}"
+                  data-score="{{ item.score }}"
+                  data-designers="{{ item.designers | join(' ') }}"
+                  data-publishers="{{ item.publishers | join(' ') }}"
+                  {% if loop.index0 >= related.shown %}hidden{% endif %}>
+                <a class="game-tile__link" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
+                  {% if item.boxArt %}
+                    <span class="game-tile__art">
+                      <img class="game-tile__image" src="{{ item.boxArt }}" alt=""
+                           sizes="220px" loading="lazy">
+                    </span>
+                  {% endif %}
+                </a>
+                <div class="game-tile__body">
+                  <h3 class="game-tile__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+                  {% if item.reason %}<p class="game-tile__meta">{{ item.reason }}</p>{% endif %}
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+
+          {#
+            Who made every game on the site, for the re-rank.
+
+            The row is scored against the reader's favourites and history,
+            which are games that are not on this page — so their credits have
+            to be here to be compared with. Slugs only, no URLs, so there is no
+            deploy prefix for it to lose travelling as data.
+          #}
+          <script type="application/json" data-related-affinity>{{ related.affinity | dump | safe }}</script>
+        </section>
+      {% endif %}
     </div>
   </main>
 </div>
