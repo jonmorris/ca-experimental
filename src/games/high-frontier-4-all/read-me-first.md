@@ -1,5 +1,6 @@
 ---
 title: 'Read Me First'
+official: true
 navOrder: 5
 subhead: 'Start here: what High Frontier is, and how to come at it.'
 ---

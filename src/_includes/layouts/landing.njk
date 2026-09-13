@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 ---
+{% from "partials/official-mark.njk" import officialMark %}
 <div class="shell shell--landing">
   {% include "partials/sidebar.njk" %}
 
@@ -87,7 +88,7 @@ layout: layouts/base.njk
         <ul class="card-grid">
           {% for type in game.contentTypes %}
             <li class="card">
-              <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
+              <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a>{{ officialMark(type.official) }}</h3>
               {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
               {#
                 Every other card counts what is in it at build time. My
@@ -113,7 +114,7 @@ layout: layouts/base.njk
           <ul class="card-grid">
             {% for type in expansion.contentTypes %}
               <li class="card">
-                <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
+                <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a>{{ officialMark(type.official) }}</h3>
                 {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
                 {% if type.sections.length %}
                   <p class="card__meta">{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</p>

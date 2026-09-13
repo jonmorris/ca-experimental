@@ -1,0 +1,19 @@
+{#
+  The mark that says a document is the publisher's own text.
+
+  Only the official side is ever marked. A summary, a glossary, an index —
+  anything written here — carries nothing, because marking both sides would
+  put a badge on every card in the library and a badge that is everywhere
+  stops being read. So the presence of this mark is the claim; its absence is
+  not a counter-claim, just silence.
+
+  Called from the content cards on a game's overview and from the header of
+  the document itself, which are the two places a reader decides whether what
+  they are about to read can settle an argument.
+#}
+
+{% macro officialMark(isOfficial) %}
+  {%- if isOfficial -%}
+    <span class="official-mark">Official</span>
+  {%- endif -%}
+{% endmacro %}

@@ -1,5 +1,6 @@
 ---
 title: 'Module 1 Terawatt'
+official: true
 navOrder: 30
 subhead: 'Terawatt: module 1, for 1 to 5 players.'
 ---

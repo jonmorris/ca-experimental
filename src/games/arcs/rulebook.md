@@ -1,5 +1,6 @@
 ---
 title: 'Rulebook'
+official: true
 subhead: 'The complete published rules for the base game.'
 ---
 

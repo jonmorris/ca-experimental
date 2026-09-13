@@ -1,5 +1,6 @@
 ---
 title: 'Appendix'
+official: true
 navOrder: 15
 subhead: 'Variants and scenarios for the core game.'
 ---

@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 ---
 {% from "partials/prev-next.njk" import prevNext %}
+{% from "partials/official-mark.njk" import officialMark %}
 {#
   Shared chrome for every in-game content page.
 
@@ -41,7 +42,7 @@ layout: layouts/base.njk
             <span aria-hidden="true">·</span> {{ expansion.title }}
           </p>
         {% endif %}
-        <h1 class="page-title">{{ title }}</h1>
+        <h1 class="page-title">{{ title }}{{ officialMark(contentType.official if contentType else false) }}</h1>
         {% if subhead %}<p class="page-subhead">{{ subhead }}</p>{% endif %}
       </header>
 

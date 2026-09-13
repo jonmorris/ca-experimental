@@ -1,5 +1,6 @@
 ---
 title: 'Module 2 Colonization'
+official: true
 navOrder: 31
 subhead: 'Colonization: module 2, for 1 to 5 players.'
 ---

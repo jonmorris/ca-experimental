@@ -1,5 +1,6 @@
 ---
 title: 'Rulebook'
+official: true
 subhead: 'The complete published rules, section by section.'
 anchorAliases:
 ---

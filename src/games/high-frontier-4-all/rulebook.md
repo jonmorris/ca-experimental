@@ -1,5 +1,6 @@
 ---
 title: 'Rulebook'
+official: true
 navOrder: 10
 subhead: 'The core rules of exoglobalization, for 1 to 5 players.'
 ---

@@ -1,5 +1,6 @@
 ---
 title: 'Module 3 Conflict'
+official: true
 navOrder: 32
 subhead: 'Conflict: module 3, for 1 to 6 players.'
 ---

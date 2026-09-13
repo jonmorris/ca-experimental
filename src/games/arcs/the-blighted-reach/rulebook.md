@@ -1,5 +1,6 @@
 ---
 title: 'Rulebook'
+official: true
 navLabel: 'Rulebook'
 subhead: 'The campaign rules for The Blighted Reach.'
 ---

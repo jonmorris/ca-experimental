@@ -1,5 +1,6 @@
 ---
 title: Official FAQ
+official: true
 navLabel: FAQ
 navOrder: 25
 subhead: Answers to the questions and edge cases that come up most often in play.

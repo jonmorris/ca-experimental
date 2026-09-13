@@ -1,5 +1,6 @@
 ---
 title: 'Aid Booklet'
+official: true
 subhead: 'The complete official rules for the game, exactly as published.'
 ---
 

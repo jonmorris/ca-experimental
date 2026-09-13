@@ -1,5 +1,6 @@
 ---
 title: 'Rulebook'
+official: true
 navOrder: 10
 subhead: 'The complete first-edition rules.'
 ---

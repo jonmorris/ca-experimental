@@ -190,6 +190,41 @@
   text-align: center;
 }
 
+/* =============================================================== official */
+
+/*
+ * The mark on a document the publisher wrote.
+ *
+ * Set in the accent, not the faint grey the counts use. A count is a detail
+ * about a document; this is a statement about where its words came from, and
+ * on a page full of cards it is the thing a reader checks before deciding
+ * whether what they are about to read can settle an argument. The accent is
+ * the site's only colour, so spending it here says "this is the fact that
+ * matters" without introducing a second hue for it.
+ *
+ * Inline rather than a flex item, so it wraps with the heading's own words
+ * instead of being stranded alone on a line after a long title. Centred on
+ * the text rather than sat on its baseline, for the reason the counts above
+ * are: the padding and the curve of the capsule hang below a shared baseline
+ * and read as droop against display type.
+ */
+.official-mark {
+  display: inline-block;
+  margin-inline-start: var(--space-2);
+  padding: 0.15em 0.5em;
+  background: var(--accent-wash);
+  border-radius: 999px;
+  color: var(--accent-strong);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  line-height: 1.4;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 /* ============================================================== controls */
 
 .button {

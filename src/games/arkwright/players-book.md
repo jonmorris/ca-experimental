@@ -1,5 +1,6 @@
 ---
 title: 'Players Book'
+official: true
 navOrder: 20
 subhead: 'The board, the cards and the components, piece by piece.'
 ---

@@ -1,5 +1,6 @@
 ---
 title: 'Module 4 Exodus'
+official: true
 navOrder: 34
 subhead: 'Exodus: module 4, for 1 to 6 players.'
 ---

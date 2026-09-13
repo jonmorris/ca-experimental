@@ -1,5 +1,6 @@
 ---
 title: Clockwork Prince Rules
+official: true
 subhead: >-
   A quick-reference sheet for common actions, turn order, and key rules during
   play.
