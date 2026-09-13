@@ -2086,7 +2086,22 @@ body[data-content-type="rulebook"] {
     box-shadow: none;
   }
 
+  /*
+   * A fixed height, and the words centred in it.
+   *
+   * The pair is pinned to the bottom of the viewport, so a pill that grew a
+   * line pushed its own top edge up and the other pill with it: the control
+   * changed size and shifted as the reader scrolled past a long heading, which
+   * is the kind of small unsteadiness that reads as unfinished. Reserving the
+   * room for two lines means the geometry never changes at all — and centring
+   * inside it means a one-line title does not leave the space it did not use
+   * sitting underneath it.
+   *
+   * Two lines rather than three because nothing on this shelf needs a third;
+   * the clamp on the label takes the rare title that would.
+   */
   .prev-next__link {
+    height: 5rem;
     padding: var(--space-3) var(--space-4);
     background: var(--surface-raised);
     border: 1px solid var(--line);
@@ -2133,8 +2148,24 @@ body[data-content-type="rulebook"] {
     translate: 0 2px;
   }
 
+  /*
+   * Two lines, always — whether the section is called Setup or Research &
+   * Development.
+   *
+   * The pair is pinned to the bottom of the viewport, so a pill that grew a
+   * line pushed its own top edge up and the other pill with it: the control
+   * changed size and moved as the reader scrolled past a long heading, which
+   * is the kind of small unsteadiness that reads as unfinished. Reserving the
+   * space means the geometry never changes at all. A third line would be
+   * over-generous — nothing on the shelf needs it — so the clamp takes the
+   * rare title that would want one.
+   */
   .prev-next__label {
-    overflow: visible;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
     line-height: var(--leading-snug);
     white-space: normal;
   }
