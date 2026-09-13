@@ -2129,11 +2129,10 @@ body[data-content-type="rulebook"] {
 }
 
 /*
- * Wider still, and the margin beside the measure is open enough to stand them
- * in: the article stops at its reading width, the pager is its sibling rather
- * than its last child, and the two links stack in the space that leaves. The
- * threshold is where that margin is actually wide enough — below it the column
- * runs nearly to the edge of the content area and there is nowhere to put them.
+ * Wider still, and the page has a column to put them in: the shell becomes
+ * three, the measure in the middle with a rail either side, and the pager
+ * stacks in the right-hand one. The threshold is the same as the layout's,
+ * because it is the layout that makes room for them.
  *
  * Sticky again here, not fixed: it belongs to the column, and at the end of
  * the rules it should come to rest with them rather than hang on over the
@@ -2146,9 +2145,7 @@ body[data-content-type="rulebook"] {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-2);
-    width: 11rem;
     margin-block-start: var(--space-7);
-    margin-inline-start: auto;
     padding-bottom: 0;
     background: none;
     border-top: 0;

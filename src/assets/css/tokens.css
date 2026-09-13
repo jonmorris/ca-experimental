@@ -92,7 +92,13 @@
   --measure: 38rem;
   --width-page: 78rem;
   --width-prose: 44rem;
-  --sidebar-width: 17rem;
+  /*
+   * Both rails, not just the sidebar's. Past the three-column breakpoint the
+   * page is a centred measure with an equal margin either side — the section
+   * list on the left, the pager on the right — and the two have to be the same
+   * width for the middle to read as centred rather than as pushed.
+   */
+  --rail-width: 14rem;
 
   --radius-sm: 3px;
   --radius: 7px;
