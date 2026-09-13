@@ -1,7 +1,7 @@
 {
   "format": "cardboard-appendix",
   "formatVersion": 1,
-  "exportedAt": "2026-09-13T12:37:29.862Z",
+  "exportedAt": "2026-09-13T17:02:29.688Z",
   "bookmarks": {
     "schemaVersion": 1,
     "bookmarks": [
@@ -133,7 +133,7 @@
         "anchor": "playing-a-chapter",
         "title": "Playing a Chapter",
         "url": "/games/arcs/aid-booklet/#playing-a-chapter",
-        "createdAt": 1767268812000
+        "createdAt": 1767268811000
       },
       {
         "gameSlug": "arcs",
@@ -146,7 +146,7 @@
         "anchor": "action-summaries",
         "title": "Action Summaries",
         "url": "/games/arcs/aid-booklet/#action-summaries",
-        "createdAt": 1767268813000
+        "createdAt": 1767268812000
       },
       {
         "gameSlug": "arcs",
@@ -159,7 +159,7 @@
         "anchor": "ending-a-chapter",
         "title": "Ending a Chapter",
         "url": "/games/arcs/aid-booklet/#ending-a-chapter",
-        "createdAt": 1767268814000
+        "createdAt": 1767268813000
       },
       {
         "gameSlug": "arcs",
@@ -172,7 +172,7 @@
         "anchor": "errata",
         "title": "Errata",
         "url": "/games/arcs/faq/#errata",
-        "createdAt": 1767268815000
+        "createdAt": 1767268814000
       },
       {
         "gameSlug": "arcs",
@@ -185,7 +185,7 @@
         "anchor": "clarifications",
         "title": "Clarifications",
         "url": "/games/arcs/faq/#clarifications",
-        "createdAt": 1767268816000
+        "createdAt": 1767268815000
       },
       {
         "gameSlug": "arcs",
@@ -198,7 +198,7 @@
         "anchor": "changelog",
         "title": "Changelog",
         "url": "/games/arcs/faq/#changelog",
-        "createdAt": 1767268817000
+        "createdAt": 1767268816000
       },
       {
         "gameSlug": "arcs",
@@ -211,7 +211,7 @@
         "anchor": "adjacent",
         "title": "Adjacent",
         "url": "/games/arcs/glossary/#adjacent",
-        "createdAt": 1767268818000
+        "createdAt": 1767268817000
       },
       {
         "gameSlug": "arcs",
@@ -224,7 +224,7 @@
         "anchor": "building",
         "title": "Building",
         "url": "/games/arcs/glossary/#building",
-        "createdAt": 1767268819000
+        "createdAt": 1767268818000
       },
       {
         "gameSlug": "arcs",
@@ -237,7 +237,7 @@
         "anchor": "bury",
         "title": "Bury",
         "url": "/games/arcs/glossary/#bury",
-        "createdAt": 1767268820000
+        "createdAt": 1767268819000
       },
       {
         "gameSlug": "arcs",
@@ -250,7 +250,7 @@
         "anchor": "capture",
         "title": "Capture",
         "url": "/games/arcs/glossary/#capture",
-        "createdAt": 1767268821000
+        "createdAt": 1767268820000
       },
       {
         "gameSlug": "arcs",
@@ -263,7 +263,7 @@
         "anchor": "chapter",
         "title": "Chapter",
         "url": "/games/arcs/glossary/#chapter",
-        "createdAt": 1767268822000
+        "createdAt": 1767268821000
       },
       {
         "gameSlug": "arcs",
@@ -276,7 +276,7 @@
         "anchor": "clear",
         "title": "Clear",
         "url": "/games/arcs/glossary/#clear",
-        "createdAt": 1767268823000
+        "createdAt": 1767268822000
       },
       {
         "gameSlug": "arcs",
@@ -289,7 +289,7 @@
         "anchor": "control",
         "title": "Control",
         "url": "/games/arcs/glossary/#control",
-        "createdAt": 1767268824000
+        "createdAt": 1767268823000
       },
       {
         "gameSlug": "arcs",
@@ -302,7 +302,7 @@
         "anchor": "damaged",
         "title": "Damaged",
         "url": "/games/arcs/glossary/#damaged",
-        "createdAt": 1767268825000
+        "createdAt": 1767268824000
       },
       {
         "gameSlug": "arcs",
@@ -315,7 +315,7 @@
         "anchor": "destroy",
         "title": "Destroy",
         "url": "/games/arcs/glossary/#destroy",
-        "createdAt": 1767268826000
+        "createdAt": 1767268825000
       },
       {
         "gameSlug": "arcs",
@@ -328,7 +328,7 @@
         "anchor": "empty",
         "title": "Empty",
         "url": "/games/arcs/glossary/#empty",
-        "createdAt": 1767268827000
+        "createdAt": 1767268826000
       },
       {
         "gameSlug": "arcs",
@@ -341,7 +341,7 @@
         "anchor": "fresh",
         "title": "Fresh",
         "url": "/games/arcs/glossary/#fresh",
-        "createdAt": 1767268828000
+        "createdAt": 1767268827000
       },
       {
         "gameSlug": "arcs",
@@ -354,7 +354,7 @@
         "anchor": "gain",
         "title": "Gain",
         "url": "/games/arcs/glossary/#gain",
-        "createdAt": 1767268829000
+        "createdAt": 1767268828000
       },
       {
         "gameSlug": "arcs",
@@ -367,7 +367,7 @@
         "anchor": "give",
         "title": "Give",
         "url": "/games/arcs/glossary/#give",
-        "createdAt": 1767268830000
+        "createdAt": 1767268829000
       },
       {
         "gameSlug": "arcs",
@@ -380,7 +380,7 @@
         "anchor": "hit",
         "title": "Hit",
         "url": "/games/arcs/glossary/#hit",
-        "createdAt": 1767268831000
+        "createdAt": 1767268830000
       },
       {
         "gameSlug": "arcs",
@@ -393,7 +393,7 @@
         "anchor": "loyal",
         "title": "Loyal",
         "url": "/games/arcs/glossary/#loyal",
-        "createdAt": 1767268832000
+        "createdAt": 1767268831000
       },
       {
         "gameSlug": "arcs",
@@ -406,7 +406,7 @@
         "anchor": "out-of-play",
         "title": "Out of Play",
         "url": "/games/arcs/glossary/#out-of-play",
-        "createdAt": 1767268833000
+        "createdAt": 1767268832000
       },
       {
         "gameSlug": "arcs",
@@ -419,7 +419,7 @@
         "anchor": "piece",
         "title": "Piece",
         "url": "/games/arcs/glossary/#piece",
-        "createdAt": 1767268834000
+        "createdAt": 1767268833000
       },
       {
         "gameSlug": "arcs",
@@ -432,7 +432,7 @@
         "anchor": "place",
         "title": "Place",
         "url": "/games/arcs/glossary/#place",
-        "createdAt": 1767268835000
+        "createdAt": 1767268834000
       },
       {
         "gameSlug": "arcs",
@@ -445,7 +445,7 @@
         "anchor": "play-area",
         "title": "Play Area",
         "url": "/games/arcs/glossary/#play-area",
-        "createdAt": 1767268836000
+        "createdAt": 1767268835000
       },
       {
         "gameSlug": "arcs",
@@ -458,7 +458,7 @@
         "anchor": "prelude",
         "title": "Prelude",
         "url": "/games/arcs/glossary/#prelude",
-        "createdAt": 1767268837000
+        "createdAt": 1767268836000
       },
       {
         "gameSlug": "arcs",
@@ -471,7 +471,7 @@
         "anchor": "replace-return",
         "title": "Replace, Return",
         "url": "/games/arcs/glossary/#replace-return",
-        "createdAt": 1767268838000
+        "createdAt": 1767268837000
       },
       {
         "gameSlug": "arcs",
@@ -484,7 +484,7 @@
         "anchor": "rival",
         "title": "Rival",
         "url": "/games/arcs/glossary/#rival",
-        "createdAt": 1767268839000
+        "createdAt": 1767268838000
       },
       {
         "gameSlug": "arcs",
@@ -497,7 +497,7 @@
         "anchor": "round",
         "title": "Round",
         "url": "/games/arcs/glossary/#round",
-        "createdAt": 1767268840000
+        "createdAt": 1767268839000
       },
       {
         "gameSlug": "arcs",
@@ -510,7 +510,7 @@
         "anchor": "scrap",
         "title": "Scrap",
         "url": "/games/arcs/glossary/#scrap",
-        "createdAt": 1767268841000
+        "createdAt": 1767268840000
       },
       {
         "gameSlug": "arcs",
@@ -523,7 +523,7 @@
         "anchor": "seize-the-initiative",
         "title": "Seize the Initiative",
         "url": "/games/arcs/glossary/#seize-the-initiative",
-        "createdAt": 1767268842000
+        "createdAt": 1767268841000
       },
       {
         "gameSlug": "arcs",
@@ -536,7 +536,7 @@
         "anchor": "spend",
         "title": "Spend",
         "url": "/games/arcs/glossary/#spend",
-        "createdAt": 1767268843000
+        "createdAt": 1767268842000
       },
       {
         "gameSlug": "arcs",
@@ -549,7 +549,7 @@
         "anchor": "steal",
         "title": "Steal",
         "url": "/games/arcs/glossary/#steal",
-        "createdAt": 1767268844000
+        "createdAt": 1767268843000
       },
       {
         "gameSlug": "arcs",
@@ -562,7 +562,7 @@
         "anchor": "supply",
         "title": "Supply",
         "url": "/games/arcs/glossary/#supply",
-        "createdAt": 1767268845000
+        "createdAt": 1767268844000
       },
       {
         "gameSlug": "arcs",
@@ -575,7 +575,7 @@
         "anchor": "swap",
         "title": "Swap",
         "url": "/games/arcs/glossary/#swap",
-        "createdAt": 1767268846000
+        "createdAt": 1767268845000
       },
       {
         "gameSlug": "arcs",
@@ -588,7 +588,7 @@
         "anchor": "take",
         "title": "Take",
         "url": "/games/arcs/glossary/#take",
-        "createdAt": 1767268847000
+        "createdAt": 1767268846000
       },
       {
         "gameSlug": "arcs",
@@ -601,7 +601,7 @@
         "anchor": "turn",
         "title": "Turn",
         "url": "/games/arcs/glossary/#turn",
-        "createdAt": 1767268848000
+        "createdAt": 1767268847000
       },
       {
         "gameSlug": "arcs",
@@ -614,7 +614,7 @@
         "anchor": "turn-order",
         "title": "Turn Order",
         "url": "/games/arcs/glossary/#turn-order",
-        "createdAt": 1767268849000
+        "createdAt": 1767268848000
       },
       {
         "gameSlug": "arcs",
@@ -1056,7 +1056,7 @@
         "anchor": "1-1-game-board",
         "title": "1.1 Game Board",
         "url": "/games/arkwright/players-book/#1-1-game-board",
-        "createdAt": 1767268884000
+        "createdAt": 1767268883000
       },
       {
         "gameSlug": "arkwright",
@@ -1069,7 +1069,7 @@
         "anchor": "1-3-factory-mat-and-markers",
         "title": "1.3 Factory Mat and Markers",
         "url": "/games/arkwright/players-book/#1-3-factory-mat-and-markers",
-        "createdAt": 1767268885000
+        "createdAt": 1767268884000
       },
       {
         "gameSlug": "arkwright",
@@ -1082,7 +1082,7 @@
         "anchor": "1-4-harbor-mat-warehouse-contracts",
         "title": "1.4 Harbor Mat (Warehouse/Contracts)",
         "url": "/games/arkwright/players-book/#1-4-harbor-mat-warehouse-contracts",
-        "createdAt": 1767268886000
+        "createdAt": 1767268885000
       },
       {
         "gameSlug": "arkwright",
@@ -1095,7 +1095,7 @@
         "anchor": "1-5-markers",
         "title": "1.5 Markers",
         "url": "/games/arkwright/players-book/#1-5-markers",
-        "createdAt": 1767268887000
+        "createdAt": 1767268886000
       },
       {
         "gameSlug": "arkwright",
@@ -1108,7 +1108,7 @@
         "anchor": "1-6-wooden-components",
         "title": "1.6 Wooden Components",
         "url": "/games/arkwright/players-book/#1-6-wooden-components",
-        "createdAt": 1767268888000
+        "createdAt": 1767268887000
       },
       {
         "gameSlug": "arkwright",
@@ -1121,7 +1121,7 @@
         "anchor": "1-7-bills",
         "title": "1.7 Bills",
         "url": "/games/arkwright/players-book/#1-7-bills",
-        "createdAt": 1767268889000
+        "createdAt": 1767268888000
       },
       {
         "gameSlug": "arkwright",
@@ -1134,7 +1134,7 @@
         "anchor": "1-8-development-tiles",
         "title": "1.8 Development Tiles",
         "url": "/games/arkwright/players-book/#1-8-development-tiles",
-        "createdAt": 1767268890000
+        "createdAt": 1767268889000
       },
       {
         "gameSlug": "arkwright",
@@ -1147,7 +1147,7 @@
         "anchor": "1-9-event-markers",
         "title": "1.9 Event Markers",
         "url": "/games/arkwright/players-book/#1-9-event-markers",
-        "createdAt": 1767268891000
+        "createdAt": 1767268890000
       },
       {
         "gameSlug": "arkwright",
@@ -1160,7 +1160,7 @@
         "anchor": "2-strategy-tips",
         "title": "2. Strategy Tips",
         "url": "/games/arkwright/players-book/#2-strategy-tips",
-        "createdAt": 1767268892000
+        "createdAt": 1767268891000
       },
       {
         "gameSlug": "arkwright",
@@ -1173,7 +1173,7 @@
         "anchor": "2-1-the-specialist",
         "title": "2.1 The Specialist",
         "url": "/games/arkwright/players-book/#2-1-the-specialist",
-        "createdAt": 1767268893000
+        "createdAt": 1767268892000
       },
       {
         "gameSlug": "arkwright",
@@ -1186,7 +1186,7 @@
         "anchor": "2-2-the-shipowner",
         "title": "2.2 The Shipowner",
         "url": "/games/arkwright/players-book/#2-2-the-shipowner",
-        "createdAt": 1767268894000
+        "createdAt": 1767268893000
       },
       {
         "gameSlug": "arkwright",
@@ -1199,7 +1199,7 @@
         "anchor": "2-3-the-completist",
         "title": "2.3 The Completist",
         "url": "/games/arkwright/players-book/#2-3-the-completist",
-        "createdAt": 1767268895000
+        "createdAt": 1767268894000
       },
       {
         "gameSlug": "arkwright",
@@ -1212,7 +1212,7 @@
         "anchor": "2-4-the-flexible-player",
         "title": "2.4 The Flexible Player",
         "url": "/games/arkwright/players-book/#2-4-the-flexible-player",
-        "createdAt": 1767268896000
+        "createdAt": 1767268895000
       },
       {
         "gameSlug": "arkwright",
@@ -1225,7 +1225,7 @@
         "anchor": "3-game-variants",
         "title": "3. Game Variants",
         "url": "/games/arkwright/players-book/#3-game-variants",
-        "createdAt": 1767268897000
+        "createdAt": 1767268896000
       },
       {
         "gameSlug": "arkwright",
@@ -1238,7 +1238,7 @@
         "anchor": "3-1-spinning-mule",
         "title": "3.1 Spinning Mule",
         "url": "/games/arkwright/players-book/#3-1-spinning-mule",
-        "createdAt": 1767268898000
+        "createdAt": 1767268897000
       },
       {
         "gameSlug": "arkwright",
@@ -1251,7 +1251,7 @@
         "anchor": "3-2-self-actor",
         "title": "3.2 Self-Actor",
         "url": "/games/arkwright/players-book/#3-2-self-actor",
-        "createdAt": 1767268899000
+        "createdAt": 1767268898000
       },
       {
         "gameSlug": "arkwright",
@@ -1264,7 +1264,7 @@
         "anchor": "3-3-stock-exchange",
         "title": "3.3 Stock Exchange",
         "url": "/games/arkwright/players-book/#3-3-stock-exchange",
-        "createdAt": 1767268900000
+        "createdAt": 1767268899000
       },
       {
         "gameSlug": "arkwright",
@@ -1277,7 +1277,7 @@
         "anchor": "1-0-introduction",
         "title": "1.0 Introduction",
         "url": "/games/arkwright/rulebook/#1-0-introduction",
-        "createdAt": 1767268901000
+        "createdAt": 1767268900000
       },
       {
         "gameSlug": "arkwright",
@@ -1290,7 +1290,7 @@
         "anchor": "2-0-game-components",
         "title": "2.0 Game Components",
         "url": "/games/arkwright/rulebook/#2-0-game-components",
-        "createdAt": 1767268902000
+        "createdAt": 1767268901000
       },
       {
         "gameSlug": "arkwright",
@@ -1303,7 +1303,7 @@
         "anchor": "3-0-winning-the-game",
         "title": "3.0 Winning the Game",
         "url": "/games/arkwright/rulebook/#3-0-winning-the-game",
-        "createdAt": 1767268903000
+        "createdAt": 1767268902000
       },
       {
         "gameSlug": "arkwright",
@@ -1316,7 +1316,7 @@
         "anchor": "4-0-setting-up-the-game",
         "title": "4.0 Setting up the Game",
         "url": "/games/arkwright/rulebook/#4-0-setting-up-the-game",
-        "createdAt": 1767268904000
+        "createdAt": 1767268903000
       },
       {
         "gameSlug": "arkwright",
@@ -1329,7 +1329,7 @@
         "anchor": "5-0-sequence-of-play",
         "title": "5.0 Sequence of Play",
         "url": "/games/arkwright/rulebook/#5-0-sequence-of-play",
-        "createdAt": 1767268905000
+        "createdAt": 1767268904000
       },
       {
         "gameSlug": "arkwright",
@@ -1342,7 +1342,7 @@
         "anchor": "6-0-end-of-round-phase",
         "title": "6.0 End of Round Phase",
         "url": "/games/arkwright/rulebook/#6-0-end-of-round-phase",
-        "createdAt": 1767268906000
+        "createdAt": 1767268905000
       },
       {
         "gameSlug": "arkwright",
@@ -1355,7 +1355,7 @@
         "anchor": "7-0-emergency-sale-of-shares-loans",
         "title": "7.0 Emergency Sale of Shares, Loans",
         "url": "/games/arkwright/rulebook/#7-0-emergency-sale-of-shares-loans",
-        "createdAt": 1767268907000
+        "createdAt": 1767268906000
       },
       {
         "gameSlug": "arkwright",
@@ -1368,7 +1368,7 @@
         "anchor": "8-0-end-of-the-game-and-winner",
         "title": "8.0 End of the Game and Winner",
         "url": "/games/arkwright/rulebook/#8-0-end-of-the-game-and-winner",
-        "createdAt": 1767268908000
+        "createdAt": 1767268907000
       },
       {
         "gameSlug": "bus",
@@ -1381,7 +1381,7 @@
         "anchor": "beep-beep",
         "title": "Beep! Beep!",
         "url": "/games/bus/rulebook/#beep-beep",
-        "createdAt": 1767268910000
+        "createdAt": 1767268909000
       },
       {
         "gameSlug": "bus",
@@ -1394,7 +1394,7 @@
         "anchor": "components",
         "title": "Components",
         "url": "/games/bus/rulebook/#components",
-        "createdAt": 1767268911000
+        "createdAt": 1767268910000
       },
       {
         "gameSlug": "bus",
@@ -1407,7 +1407,7 @@
         "anchor": "setting-up",
         "title": "Setting Up",
         "url": "/games/bus/rulebook/#setting-up",
-        "createdAt": 1767268912000
+        "createdAt": 1767268911000
       },
       {
         "gameSlug": "bus",
@@ -1420,7 +1420,7 @@
         "anchor": "the-first-buildings",
         "title": "The First Buildings",
         "url": "/games/bus/rulebook/#the-first-buildings",
-        "createdAt": 1767268913000
+        "createdAt": 1767268912000
       },
       {
         "gameSlug": "bus",
@@ -1433,7 +1433,7 @@
         "anchor": "the-first-lines",
         "title": "The First Lines",
         "url": "/games/bus/rulebook/#the-first-lines",
-        "createdAt": 1767268914000
+        "createdAt": 1767268913000
       },
       {
         "gameSlug": "bus",
@@ -1446,7 +1446,7 @@
         "anchor": "choosing-actions",
         "title": "Choosing Actions",
         "url": "/games/bus/rulebook/#choosing-actions",
-        "createdAt": 1767268915000
+        "createdAt": 1767268914000
       },
       {
         "gameSlug": "bus",
@@ -1459,7 +1459,7 @@
         "anchor": "resolve-actions",
         "title": "Resolve Actions",
         "url": "/games/bus/rulebook/#resolve-actions",
-        "createdAt": 1767268916000
+        "createdAt": 1767268915000
       },
       {
         "gameSlug": "bus",
@@ -1472,7 +1472,7 @@
         "anchor": "the-maximum-number-of-buses",
         "title": "The Maximum Number of Buses",
         "url": "/games/bus/rulebook/#the-maximum-number-of-buses",
-        "createdAt": 1767268917000
+        "createdAt": 1767268916000
       },
       {
         "gameSlug": "bus",
@@ -1485,7 +1485,7 @@
         "anchor": "line-expansion",
         "title": "Line Expansion",
         "url": "/games/bus/rulebook/#line-expansion",
-        "createdAt": 1767268918000
+        "createdAt": 1767268917000
       },
       {
         "gameSlug": "bus",
@@ -1498,7 +1498,7 @@
         "anchor": "buses",
         "title": "Buses",
         "url": "/games/bus/rulebook/#buses",
-        "createdAt": 1767268919000
+        "createdAt": 1767268918000
       },
       {
         "gameSlug": "bus",
@@ -1511,7 +1511,7 @@
         "anchor": "passengers",
         "title": "Passengers",
         "url": "/games/bus/rulebook/#passengers",
-        "createdAt": 1767268920000
+        "createdAt": 1767268919000
       },
       {
         "gameSlug": "bus",
@@ -1524,7 +1524,7 @@
         "anchor": "buildings",
         "title": "Buildings",
         "url": "/games/bus/rulebook/#buildings",
-        "createdAt": 1767268921000
+        "createdAt": 1767268920000
       },
       {
         "gameSlug": "bus",
@@ -1537,7 +1537,7 @@
         "anchor": "the-clock",
         "title": "The Clock",
         "url": "/games/bus/rulebook/#the-clock",
-        "createdAt": 1767268922000
+        "createdAt": 1767268921000
       },
       {
         "gameSlug": "bus",
@@ -1550,7 +1550,7 @@
         "anchor": "vrrooomm",
         "title": "Vrrooomm!",
         "url": "/games/bus/rulebook/#vrrooomm",
-        "createdAt": 1767268923000
+        "createdAt": 1767268922000
       },
       {
         "gameSlug": "bus",
@@ -1563,7 +1563,7 @@
         "anchor": "starting-player-and-the-next-round",
         "title": "Starting Player &amp; The Next Round",
         "url": "/games/bus/rulebook/#starting-player-and-the-next-round",
-        "createdAt": 1767268924000
+        "createdAt": 1767268923000
       },
       {
         "gameSlug": "bus",
@@ -1576,7 +1576,7 @@
         "anchor": "end-of-the-game",
         "title": "End of the Game",
         "url": "/games/bus/rulebook/#end-of-the-game",
-        "createdAt": 1767268925000
+        "createdAt": 1767268924000
       },
       {
         "gameSlug": "bus",
@@ -1589,7 +1589,7 @@
         "anchor": "playing-with-5-players",
         "title": "Playing with 5 Players",
         "url": "/games/bus/rulebook/#playing-with-5-players",
-        "createdAt": 1767268926000
+        "createdAt": 1767268925000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1602,7 +1602,7 @@
         "anchor": "food-chain-magnate",
         "title": "Food Chain Magnate",
         "url": "/games/food-chain-magnate/rulebook/#food-chain-magnate",
-        "createdAt": 1767268928000
+        "createdAt": 1767268927000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1615,7 +1615,7 @@
         "anchor": "contents",
         "title": "Contents",
         "url": "/games/food-chain-magnate/rulebook/#contents",
-        "createdAt": 1767268929000
+        "createdAt": 1767268928000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1628,7 +1628,7 @@
         "anchor": "introducing-the-game",
         "title": "Introducing the Game",
         "url": "/games/food-chain-magnate/rulebook/#introducing-the-game",
-        "createdAt": 1767268930000
+        "createdAt": 1767268929000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1641,7 +1641,7 @@
         "anchor": "setting-up",
         "title": "Setting Up",
         "url": "/games/food-chain-magnate/rulebook/#setting-up",
-        "createdAt": 1767268931000
+        "createdAt": 1767268930000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1654,7 +1654,7 @@
         "anchor": "phase-by-phase",
         "title": "Phase by Phase",
         "url": "/games/food-chain-magnate/rulebook/#phase-by-phase",
-        "createdAt": 1767268932000
+        "createdAt": 1767268931000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1667,7 +1667,7 @@
         "anchor": "milestones",
         "title": "Milestones",
         "url": "/games/food-chain-magnate/rulebook/#milestones",
-        "createdAt": 1767268933000
+        "createdAt": 1767268932000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1680,7 +1680,7 @@
         "anchor": "introductory-game",
         "title": "Introductory Game",
         "url": "/games/food-chain-magnate/rulebook/#introductory-game",
-        "createdAt": 1767268934000
+        "createdAt": 1767268933000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1693,7 +1693,7 @@
         "anchor": "strategy-guide",
         "title": "Strategy Guide",
         "url": "/games/food-chain-magnate/rulebook/#strategy-guide",
-        "createdAt": 1767268935000
+        "createdAt": 1767268934000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1706,7 +1706,7 @@
         "anchor": "colofon",
         "title": "Colofon",
         "url": "/games/food-chain-magnate/rulebook/#colofon",
-        "createdAt": 1767268936000
+        "createdAt": 1767268935000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1719,7 +1719,7 @@
         "anchor": "game-materials",
         "title": "Game Materials",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#game-materials",
-        "createdAt": 1767268937000
+        "createdAt": 1767268936000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1732,7 +1732,7 @@
         "anchor": "general-rules",
         "title": "General Rules",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#general-rules",
-        "createdAt": 1767268938000
+        "createdAt": 1767268937000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1745,7 +1745,7 @@
         "anchor": "new-districts",
         "title": "New Districts",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#new-districts",
-        "createdAt": 1767268939000
+        "createdAt": 1767268938000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1758,7 +1758,7 @@
         "anchor": "lobbyists",
         "title": "Lobbyists",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#lobbyists",
-        "createdAt": 1767268940000
+        "createdAt": 1767268939000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1771,7 +1771,7 @@
         "anchor": "new-milestones",
         "title": "New Milestones",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#new-milestones",
-        "createdAt": 1767268941000
+        "createdAt": 1767268940000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1784,7 +1784,7 @@
         "anchor": "coffee",
         "title": "Coffee",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#coffee",
-        "createdAt": 1767268942000
+        "createdAt": 1767268941000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1797,7 +1797,7 @@
         "anchor": "kimchi",
         "title": "Kimchi",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#kimchi",
-        "createdAt": 1767268943000
+        "createdAt": 1767268942000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1810,7 +1810,7 @@
         "anchor": "sushi",
         "title": "Sushi",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#sushi",
-        "createdAt": 1767268944000
+        "createdAt": 1767268943000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1823,7 +1823,7 @@
         "anchor": "noodles",
         "title": "Noodles",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#noodles",
-        "createdAt": 1767268945000
+        "createdAt": 1767268944000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1836,7 +1836,7 @@
         "anchor": "ketchup",
         "title": "Ketchup",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#ketchup",
-        "createdAt": 1767268946000
+        "createdAt": 1767268945000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1849,7 +1849,7 @@
         "anchor": "fry-chefs",
         "title": "Fry Chefs",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#fry-chefs",
-        "createdAt": 1767268947000
+        "createdAt": 1767268946000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1862,7 +1862,7 @@
         "anchor": "night-shiftmanagers",
         "title": "Night Shiftmanagers",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#night-shiftmanagers",
-        "createdAt": 1767268948000
+        "createdAt": 1767268947000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1875,7 +1875,7 @@
         "anchor": "mass-marketeers",
         "title": "Mass Marketeers",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#mass-marketeers",
-        "createdAt": 1767268949000
+        "createdAt": 1767268948000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1888,7 +1888,7 @@
         "anchor": "rural-marketeers",
         "title": "Rural Marketeers",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#rural-marketeers",
-        "createdAt": 1767268950000
+        "createdAt": 1767268949000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1901,7 +1901,7 @@
         "anchor": "gourmet-food-critics",
         "title": "Gourmet Food Critics",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#gourmet-food-critics",
-        "createdAt": 1767268951000
+        "createdAt": 1767268950000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1914,7 +1914,7 @@
         "anchor": "movie-stars",
         "title": "Movie Stars",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#movie-stars",
-        "createdAt": 1767268952000
+        "createdAt": 1767268951000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1927,7 +1927,7 @@
         "anchor": "reserve-prices",
         "title": "Reserve Prices",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#reserve-prices",
-        "createdAt": 1767268953000
+        "createdAt": 1767268952000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1940,7 +1940,7 @@
         "anchor": "hard-choices",
         "title": "Hard Choices",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#hard-choices",
-        "createdAt": 1767268954000
+        "createdAt": 1767268953000
       },
       {
         "gameSlug": "food-chain-magnate",
@@ -1953,7 +1953,7 @@
         "anchor": "6-players",
         "title": "6 Players",
         "url": "/games/food-chain-magnate/the-ketchup-mechanism-and-other-ideas/rulebook/#6-players",
-        "createdAt": 1767268955000
+        "createdAt": 1767268954000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -1966,7 +1966,7 @@
         "anchor": "greed-incorporated",
         "title": "Greed, Incorporated",
         "url": "/games/greed-incorporated/rulebook/#greed-incorporated",
-        "createdAt": 1767268957000
+        "createdAt": 1767268956000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -1979,7 +1979,7 @@
         "anchor": "overview",
         "title": "Overview",
         "url": "/games/greed-incorporated/rulebook/#overview",
-        "createdAt": 1767268958000
+        "createdAt": 1767268957000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -1992,7 +1992,7 @@
         "anchor": "starting-the-game",
         "title": "Starting The Game",
         "url": "/games/greed-incorporated/rulebook/#starting-the-game",
-        "createdAt": 1767268959000
+        "createdAt": 1767268958000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2005,7 +2005,7 @@
         "anchor": "game-phases",
         "title": "Game Phases",
         "url": "/games/greed-incorporated/rulebook/#game-phases",
-        "createdAt": 1767268960000
+        "createdAt": 1767268959000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2018,7 +2018,7 @@
         "anchor": "phase-1-announcements",
         "title": "Phase 1: Announcements",
         "url": "/games/greed-incorporated/rulebook/#phase-1-announcements",
-        "createdAt": 1767268961000
+        "createdAt": 1767268960000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2031,7 +2031,7 @@
         "anchor": "phase-2-market-forces",
         "title": "Phase 2: Market Forces",
         "url": "/games/greed-incorporated/rulebook/#phase-2-market-forces",
-        "createdAt": 1767268962000
+        "createdAt": 1767268961000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2044,7 +2044,7 @@
         "anchor": "phase-3-investments",
         "title": "Phase 3: Investments",
         "url": "/games/greed-incorporated/rulebook/#phase-3-investments",
-        "createdAt": 1767268963000
+        "createdAt": 1767268962000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2057,7 +2057,7 @@
         "anchor": "phase-4-production",
         "title": "Phase 4: Production",
         "url": "/games/greed-incorporated/rulebook/#phase-4-production",
-        "createdAt": 1767268964000
+        "createdAt": 1767268963000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2070,7 +2070,7 @@
         "anchor": "phase-5-trade-and-process",
         "title": "Phase 5: Trade And Process",
         "url": "/games/greed-incorporated/rulebook/#phase-5-trade-and-process",
-        "createdAt": 1767268965000
+        "createdAt": 1767268964000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2083,7 +2083,7 @@
         "anchor": "phase-6-sales",
         "title": "Phase 6: Sales",
         "url": "/games/greed-incorporated/rulebook/#phase-6-sales",
-        "createdAt": 1767268966000
+        "createdAt": 1767268965000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2096,7 +2096,7 @@
         "anchor": "phase-7-close-the-books",
         "title": "Phase 7: Close The Books",
         "url": "/games/greed-incorporated/rulebook/#phase-7-close-the-books",
-        "createdAt": 1767268967000
+        "createdAt": 1767268966000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2109,7 +2109,7 @@
         "anchor": "phase-8-blame-game",
         "title": "Phase 8: Blame Game",
         "url": "/games/greed-incorporated/rulebook/#phase-8-blame-game",
-        "createdAt": 1767268968000
+        "createdAt": 1767268967000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2122,7 +2122,7 @@
         "anchor": "phase-9-work-hard-play-hard",
         "title": "Phase 9: Work Hard, Play Hard",
         "url": "/games/greed-incorporated/rulebook/#phase-9-work-hard-play-hard",
-        "createdAt": 1767268969000
+        "createdAt": 1767268968000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2135,7 +2135,7 @@
         "anchor": "phase-10-entrepreneurs",
         "title": "Phase 10: Entrepreneurs",
         "url": "/games/greed-incorporated/rulebook/#phase-10-entrepreneurs",
-        "createdAt": 1767268970000
+        "createdAt": 1767268969000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2148,7 +2148,7 @@
         "anchor": "game-end-and-victory-conditions",
         "title": "Game End And Victory Conditions",
         "url": "/games/greed-incorporated/rulebook/#game-end-and-victory-conditions",
-        "createdAt": 1767268971000
+        "createdAt": 1767268970000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2161,7 +2161,7 @@
         "anchor": "some-strategic-tips-for-all-too-honest-players",
         "title": "Some Strategic Tips For All Too Honest Players",
         "url": "/games/greed-incorporated/rulebook/#some-strategic-tips-for-all-too-honest-players",
-        "createdAt": 1767268972000
+        "createdAt": 1767268971000
       },
       {
         "gameSlug": "greed-incorporated",
@@ -2174,7 +2174,7 @@
         "anchor": "colofon",
         "title": "Colofon",
         "url": "/games/greed-incorporated/rulebook/#colofon",
-        "createdAt": 1767268973000
+        "createdAt": 1767268972000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2187,7 +2187,7 @@
         "anchor": "v-variants-and-scenarios",
         "title": "V. Variants &amp; Scenarios",
         "url": "/games/high-frontier-4-all/appendix/#v-variants-and-scenarios",
-        "createdAt": 1767268975000
+        "createdAt": 1767268973000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2200,7 +2200,7 @@
         "anchor": "w-strategy-guide",
         "title": "W. Strategy Guide",
         "url": "/games/high-frontier-4-all/appendix/#w-strategy-guide",
-        "createdAt": 1767268976000
+        "createdAt": 1767268974000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2213,7 +2213,7 @@
         "anchor": "y-essay",
         "title": "Y. Essay",
         "url": "/games/high-frontier-4-all/appendix/#y-essay",
-        "createdAt": 1767268977000
+        "createdAt": 1767268975000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2226,7 +2226,7 @@
         "anchor": "z-patent-card-descriptions",
         "title": "Z. Patent Card Descriptions",
         "url": "/games/high-frontier-4-all/appendix/#z-patent-card-descriptions",
-        "createdAt": 1767268978000
+        "createdAt": 1767268976000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2239,7 +2239,7 @@
         "anchor": "1a-module-1",
         "title": "1A. Module 1",
         "url": "/games/high-frontier-4-all/module-1-terawatt/#1a-module-1",
-        "createdAt": 1767268979000
+        "createdAt": 1767268978000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2252,7 +2252,7 @@
         "anchor": "1b-freighters",
         "title": "1B. Freighters",
         "url": "/games/high-frontier-4-all/module-1-terawatt/#1b-freighters",
-        "createdAt": 1767268980000
+        "createdAt": 1767268979000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2265,7 +2265,7 @@
         "anchor": "1c-gw-tw-thrusters",
         "title": "1C. GW/TW Thrusters",
         "url": "/games/high-frontier-4-all/module-1-terawatt/#1c-gw-tw-thrusters",
-        "createdAt": 1767268981000
+        "createdAt": 1767268980000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2278,7 +2278,7 @@
         "anchor": "1d-futures",
         "title": "1D. Futures",
         "url": "/games/high-frontier-4-all/module-1-terawatt/#1d-futures",
-        "createdAt": 1767268982000
+        "createdAt": 1767268981000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2291,7 +2291,7 @@
         "anchor": "1e-module-1-endgame",
         "title": "1E. Module 1 Endgame",
         "url": "/games/high-frontier-4-all/module-1-terawatt/#1e-module-1-endgame",
-        "createdAt": 1767268983000
+        "createdAt": 1767268982000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2304,7 +2304,7 @@
         "anchor": "1f-module-1-solitaire-werners-star",
         "title": "1F. Module 1 Solitaire: Werner’s Star",
         "url": "/games/high-frontier-4-all/module-1-terawatt/#1f-module-1-solitaire-werners-star",
-        "createdAt": 1767268984000
+        "createdAt": 1767268983000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2317,7 +2317,7 @@
         "anchor": "1w-futures-planning",
         "title": "1W. Futures Planning",
         "url": "/games/high-frontier-4-all/module-1-terawatt/#1w-futures-planning",
-        "createdAt": 1767268985000
+        "createdAt": 1767268984000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2330,7 +2330,7 @@
         "anchor": "1y-about-futures",
         "title": "1Y. About Futures",
         "url": "/games/high-frontier-4-all/module-1-terawatt/#1y-about-futures",
-        "createdAt": 1767268986000
+        "createdAt": 1767268985000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2343,7 +2343,7 @@
         "anchor": "1z-module-1-patent-card-descriptions",
         "title": "1Z. Module 1 Patent Card Descriptions",
         "url": "/games/high-frontier-4-all/module-1-terawatt/#1z-module-1-patent-card-descriptions",
-        "createdAt": 1767268987000
+        "createdAt": 1767268986000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2356,7 +2356,7 @@
         "anchor": "notes",
         "title": "Notes",
         "url": "/games/high-frontier-4-all/module-1-terawatt/#notes",
-        "createdAt": 1767268988000
+        "createdAt": 1767268987000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2369,7 +2369,7 @@
         "anchor": "2a-module-2",
         "title": "2A. Module 2",
         "url": "/games/high-frontier-4-all/module-2-colonization/#2a-module-2",
-        "createdAt": 1767268989000
+        "createdAt": 1767268988000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2382,7 +2382,7 @@
         "anchor": "2b-bernals",
         "title": "2B. Bernals",
         "url": "/games/high-frontier-4-all/module-2-colonization/#2b-bernals",
-        "createdAt": 1767268990000
+        "createdAt": 1767268989000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2395,7 +2395,7 @@
         "anchor": "2c-colonists",
         "title": "2C. Colonists",
         "url": "/games/high-frontier-4-all/module-2-colonization/#2c-colonists",
-        "createdAt": 1767268991000
+        "createdAt": 1767268990000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2408,7 +2408,7 @@
         "anchor": "2d-module-2-endgame",
         "title": "2D. Module 2 Endgame",
         "url": "/games/high-frontier-4-all/module-2-colonization/#2d-module-2-endgame",
-        "createdAt": 1767268992000
+        "createdAt": 1767268991000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2421,7 +2421,7 @@
         "anchor": "2w-modules-1-and-2-strategy-guide",
         "title": "2W. Modules 1 &amp; 2 Strategy Guide",
         "url": "/games/high-frontier-4-all/module-2-colonization/#2w-modules-1-and-2-strategy-guide",
-        "createdAt": 1767268993000
+        "createdAt": 1767268992000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2434,7 +2434,7 @@
         "anchor": "2x-experimental-rules-for-hf-core",
         "title": "2X. Experimental Rules for HF Core",
         "url": "/games/high-frontier-4-all/module-2-colonization/#2x-experimental-rules-for-hf-core",
-        "createdAt": 1767268994000
+        "createdAt": 1767268993000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2447,7 +2447,7 @@
         "anchor": "2y-colonization-of-the-outer-solar-system",
         "title": "2Y. Colonization of the Outer Solar System",
         "url": "/games/high-frontier-4-all/module-2-colonization/#2y-colonization-of-the-outer-solar-system",
-        "createdAt": 1767268995000
+        "createdAt": 1767268994000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2460,7 +2460,7 @@
         "anchor": "2z-suggested-early-destinations-from-geoffs-almanac",
         "title": "2Z. Suggested Early Destinations from Geoff’s Almanac",
         "url": "/games/high-frontier-4-all/module-2-colonization/#2z-suggested-early-destinations-from-geoffs-almanac",
-        "createdAt": 1767268996000
+        "createdAt": 1767268995000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2473,7 +2473,7 @@
         "anchor": "notes",
         "title": "Notes",
         "url": "/games/high-frontier-4-all/module-2-colonization/#notes",
-        "createdAt": 1767268997000
+        "createdAt": 1767268996000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2486,7 +2486,7 @@
         "anchor": "3i-panspermia-war",
         "title": "3I. Panspermia War",
         "url": "/games/high-frontier-4-all/module-3-conflict-strategy/#3i-panspermia-war",
-        "createdAt": 1767268998000
+        "createdAt": 1767268997000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2499,7 +2499,7 @@
         "anchor": "notes",
         "title": "Notes",
         "url": "/games/high-frontier-4-all/module-3-conflict-strategy/#notes",
-        "createdAt": 1767268999000
+        "createdAt": 1767268998000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2512,7 +2512,7 @@
         "anchor": "3a-module-3",
         "title": "3A. Module 3",
         "url": "/games/high-frontier-4-all/module-3-conflict/#3a-module-3",
-        "createdAt": 1767269000000
+        "createdAt": 1767268999000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2525,7 +2525,7 @@
         "anchor": "3b-playmat-and-political-assembly",
         "title": "3B. Playmat &amp; Political Assembly",
         "url": "/games/high-frontier-4-all/module-3-conflict/#3b-playmat-and-political-assembly",
-        "createdAt": 1767269001000
+        "createdAt": 1767269000000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2538,7 +2538,7 @@
         "anchor": "3c-war-of-independence-outbreak",
         "title": "3C. War Of Independence Outbreak",
         "url": "/games/high-frontier-4-all/module-3-conflict/#3c-war-of-independence-outbreak",
-        "createdAt": 1767269002000
+        "createdAt": 1767269001000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2551,7 +2551,7 @@
         "anchor": "3d-war-or-anarchy",
         "title": "3D. War or Anarchy",
         "url": "/games/high-frontier-4-all/module-3-conflict/#3d-war-or-anarchy",
-        "createdAt": 1767269003000
+        "createdAt": 1767269002000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2564,7 +2564,7 @@
         "anchor": "3e-combat-battles",
         "title": "3E. Combat Battles",
         "url": "/games/high-frontier-4-all/module-3-conflict/#3e-combat-battles",
-        "createdAt": 1767269004000
+        "createdAt": 1767269003000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2577,7 +2577,7 @@
         "anchor": "3f-et-home-bernals-and-postwar",
         "title": "3F. ET Home Bernals &amp; Postwar",
         "url": "/games/high-frontier-4-all/module-3-conflict/#3f-et-home-bernals-and-postwar",
-        "createdAt": 1767269005000
+        "createdAt": 1767269004000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2590,7 +2590,7 @@
         "anchor": "3g-module-3-endgame",
         "title": "3G. Module 3 Endgame",
         "url": "/games/high-frontier-4-all/module-3-conflict/#3g-module-3-endgame",
-        "createdAt": 1767269006000
+        "createdAt": 1767269005000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2603,7 +2603,7 @@
         "anchor": "notes-28",
         "title": "Notes",
         "url": "/games/high-frontier-4-all/module-3-conflict/#notes-28",
-        "createdAt": 1767269007000
+        "createdAt": 1767269006000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2616,7 +2616,7 @@
         "anchor": "table-of-contents",
         "title": "Table of Contents",
         "url": "/games/high-frontier-4-all/module-4-exodus/#table-of-contents",
-        "createdAt": 1767269008000
+        "createdAt": 1767269007000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2629,7 +2629,7 @@
         "anchor": "4a-module-4",
         "title": "4A. Module 4",
         "url": "/games/high-frontier-4-all/module-4-exodus/#4a-module-4",
-        "createdAt": 1767269009000
+        "createdAt": 1767269008000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2642,7 +2642,7 @@
         "anchor": "4b-contracts-and-enterprises",
         "title": "4B. Contracts &amp; Enterprises",
         "url": "/games/high-frontier-4-all/module-4-exodus/#4b-contracts-and-enterprises",
-        "createdAt": 1767269010000
+        "createdAt": 1767269009000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2655,7 +2655,7 @@
         "anchor": "4c-isobank-module-1",
         "title": "4C. Isobank (Module 1)",
         "url": "/games/high-frontier-4-all/module-4-exodus/#4c-isobank-module-1",
-        "createdAt": 1767269011000
+        "createdAt": 1767269010000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2668,7 +2668,7 @@
         "anchor": "4d-spaceborns-and-cybernetic-augmentations",
         "title": "4D. Spaceborns &amp; Cybernetic Augmentations",
         "url": "/games/high-frontier-4-all/module-4-exodus/#4d-spaceborns-and-cybernetic-augmentations",
-        "createdAt": 1767269012000
+        "createdAt": 1767269011000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2681,7 +2681,7 @@
         "anchor": "4e-module-4-endgame",
         "title": "4E. Module 4 Endgame",
         "url": "/games/high-frontier-4-all/module-4-exodus/#4e-module-4-endgame",
-        "createdAt": 1767269013000
+        "createdAt": 1767269012000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2694,7 +2694,7 @@
         "anchor": "4f-exodus-scenarios-module-3-competitive",
         "title": "4F. Exodus Scenarios (Module 3 competitive)",
         "url": "/games/high-frontier-4-all/module-4-exodus/#4f-exodus-scenarios-module-3-competitive",
-        "createdAt": 1767269014000
+        "createdAt": 1767269013000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2707,7 +2707,7 @@
         "anchor": "4g-module-4-solitaire-games",
         "title": "4G. Module 4 Solitaire Games",
         "url": "/games/high-frontier-4-all/module-4-exodus/#4g-module-4-solitaire-games",
-        "createdAt": 1767269015000
+        "createdAt": 1767269014000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2720,7 +2720,7 @@
         "anchor": "4h-module-4-strategy-geoff-speare",
         "title": "4H. Module 4 Strategy (Geoff Speare)",
         "url": "/games/high-frontier-4-all/module-4-exodus/#4h-module-4-strategy-geoff-speare",
-        "createdAt": 1767269016000
+        "createdAt": 1767269015000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2733,7 +2733,7 @@
         "anchor": "4i-list-of-spaceborn-colonist-futures",
         "title": "4I. List of Spaceborn Colonist Futures",
         "url": "/games/high-frontier-4-all/module-4-exodus/#4i-list-of-spaceborn-colonist-futures",
-        "createdAt": 1767269017000
+        "createdAt": 1767269016000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2746,7 +2746,7 @@
         "anchor": "notes-15",
         "title": "Notes",
         "url": "/games/high-frontier-4-all/module-4-exodus/#notes-15",
-        "createdAt": 1767269018000
+        "createdAt": 1767269017000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2759,7 +2759,7 @@
         "anchor": "race-for-glory-the-essential-high-frontier",
         "title": "Race FOR Glory: The Essential High Frontier",
         "url": "/games/high-frontier-4-all/race-for-glory/#race-for-glory-the-essential-high-frontier",
-        "createdAt": 1767269019000
+        "createdAt": 1767269018000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2772,7 +2772,7 @@
         "anchor": "iia-race-for-glory-introduction",
         "title": "iiA. Race for Glory Introduction",
         "url": "/games/high-frontier-4-all/race-for-glory/#iia-race-for-glory-introduction",
-        "createdAt": 1767269020000
+        "createdAt": 1767269019000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2785,7 +2785,7 @@
         "anchor": "iib-rfg-components",
         "title": "iiB. RfG Components",
         "url": "/games/high-frontier-4-all/race-for-glory/#iib-rfg-components",
-        "createdAt": 1767269021000
+        "createdAt": 1767269020000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2798,7 +2798,7 @@
         "anchor": "iic-what-next",
         "title": "iiC. What Next?",
         "url": "/games/high-frontier-4-all/race-for-glory/#iic-what-next",
-        "createdAt": 1767269022000
+        "createdAt": 1767269021000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2811,7 +2811,7 @@
         "anchor": "iid-rfg-scenarios",
         "title": "iiD. RfG Scenarios",
         "url": "/games/high-frontier-4-all/race-for-glory/#iid-rfg-scenarios",
-        "createdAt": 1767269023000
+        "createdAt": 1767269022000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2824,7 +2824,7 @@
         "anchor": "ta-introduction",
         "title": "tA. Introduction",
         "url": "/games/high-frontier-4-all/race-for-glory/#ta-introduction",
-        "createdAt": 1767269024000
+        "createdAt": 1767269023000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2837,7 +2837,7 @@
         "anchor": "tb-components-and-anatomies",
         "title": "tB. Components &amp; Anatomies",
         "url": "/games/high-frontier-4-all/race-for-glory/#tb-components-and-anatomies",
-        "createdAt": 1767269025000
+        "createdAt": 1767269024000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2850,7 +2850,7 @@
         "anchor": "tc-setup",
         "title": "tC. Setup",
         "url": "/games/high-frontier-4-all/race-for-glory/#tc-setup",
-        "createdAt": 1767269026000
+        "createdAt": 1767269025000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2863,7 +2863,7 @@
         "anchor": "td-gravity-well",
         "title": "tD. ‘Gravity Well’",
         "url": "/games/high-frontier-4-all/race-for-glory/#td-gravity-well",
-        "createdAt": 1767269027000
+        "createdAt": 1767269026000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2876,7 +2876,7 @@
         "anchor": "te-red-planet-or-bust",
         "title": "tE. ‘Red Planet or Bust’",
         "url": "/games/high-frontier-4-all/race-for-glory/#te-red-planet-or-bust",
-        "createdAt": 1767269028000
+        "createdAt": 1767269027000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2889,7 +2889,7 @@
         "anchor": "tf-pale-blue-dot",
         "title": "tF. Pale Blue Dot",
         "url": "/games/high-frontier-4-all/race-for-glory/#tf-pale-blue-dot",
-        "createdAt": 1767269029000
+        "createdAt": 1767269028000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2902,7 +2902,7 @@
         "anchor": "tg-the-final-score",
         "title": "tG. The Final Score",
         "url": "/games/high-frontier-4-all/race-for-glory/#tg-the-final-score",
-        "createdAt": 1767269030000
+        "createdAt": 1767269029000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2915,7 +2915,7 @@
         "anchor": "designer-notes",
         "title": "Designer Notes",
         "url": "/games/high-frontier-4-all/race-for-glory/#designer-notes",
-        "createdAt": 1767269031000
+        "createdAt": 1767269030000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2928,7 +2928,7 @@
         "anchor": "dont-panic-sup-sup-1-designer-note-1-sup-sup",
         "title": "Don’t Panic 1",
         "url": "/games/high-frontier-4-all/read-me-first/#dont-panic-sup-sup-1-designer-note-1-sup-sup",
-        "createdAt": 1767269032000
+        "createdAt": 1767269031000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2941,7 +2941,7 @@
         "anchor": "a-progressive-learning-path",
         "title": "A Progressive Learning Path",
         "url": "/games/high-frontier-4-all/read-me-first/#a-progressive-learning-path",
-        "createdAt": 1767269033000
+        "createdAt": 1767269032000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2954,7 +2954,7 @@
         "anchor": "components-hf4-core-box",
         "title": "Components – HF4 Core Box",
         "url": "/games/high-frontier-4-all/read-me-first/#components-hf4-core-box",
-        "createdAt": 1767269034000
+        "createdAt": 1767269033000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2967,7 +2967,7 @@
         "anchor": "high-frontier-learning-faq",
         "title": "High Frontier Learning Faq",
         "url": "/games/high-frontier-4-all/read-me-first/#high-frontier-learning-faq",
-        "createdAt": 1767269035000
+        "createdAt": 1767269034000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2980,7 +2980,7 @@
         "anchor": "changes-from-high-frontier-3",
         "title": "Changes from High Frontier 3",
         "url": "/games/high-frontier-4-all/read-me-first/#changes-from-high-frontier-3",
-        "createdAt": 1767269036000
+        "createdAt": 1767269035000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -2993,7 +2993,7 @@
         "anchor": "map-compared-to-hf3",
         "title": "Map Compared to HF3",
         "url": "/games/high-frontier-4-all/read-me-first/#map-compared-to-hf3",
-        "createdAt": 1767269037000
+        "createdAt": 1767269036000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3006,7 +3006,7 @@
         "anchor": "notes",
         "title": "Notes",
         "url": "/games/high-frontier-4-all/read-me-first/#notes",
-        "createdAt": 1767269038000
+        "createdAt": 1767269037000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3019,7 +3019,7 @@
         "anchor": "a-introduction",
         "title": "A. Introduction",
         "url": "/games/high-frontier-4-all/rulebook/#a-introduction",
-        "createdAt": 1767269039000
+        "createdAt": 1767269038000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3032,7 +3032,7 @@
         "anchor": "b-components-and-anatomies",
         "title": "B. Components &amp; Anatomies",
         "url": "/games/high-frontier-4-all/rulebook/#b-components-and-anatomies",
-        "createdAt": 1767269040000
+        "createdAt": 1767269039000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3045,7 +3045,7 @@
         "anchor": "c-core-setup",
         "title": "C. Core Setup",
         "url": "/games/high-frontier-4-all/rulebook/#c-core-setup",
-        "createdAt": 1767269041000
+        "createdAt": 1767269040000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3058,7 +3058,7 @@
         "anchor": "d-yearly-play-sequence",
         "title": "D. Yearly Play Sequence",
         "url": "/games/high-frontier-4-all/rulebook/#d-yearly-play-sequence",
-        "createdAt": 1767269042000
+        "createdAt": 1767269041000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3071,7 +3071,7 @@
         "anchor": "e-hands-and-stacks",
         "title": "E. Hands &amp; Stacks",
         "url": "/games/high-frontier-4-all/rulebook/#e-hands-and-stacks",
-        "createdAt": 1767269043000
+        "createdAt": 1767269042000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3084,7 +3084,7 @@
         "anchor": "f-spacecraft-mass-and-fuel-management",
         "title": "F. Spacecraft Mass &amp; Fuel Management",
         "url": "/games/high-frontier-4-all/rulebook/#f-spacecraft-mass-and-fuel-management",
-        "createdAt": 1767269044000
+        "createdAt": 1767269043000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3097,7 +3097,7 @@
         "anchor": "g-free-actions",
         "title": "G. Free Actions",
         "url": "/games/high-frontier-4-all/rulebook/#g-free-actions",
-        "createdAt": 1767269045000
+        "createdAt": 1767269044000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3110,7 +3110,7 @@
         "anchor": "h-movement",
         "title": "H. Movement",
         "url": "/games/high-frontier-4-all/rulebook/#h-movement",
-        "createdAt": 1767269046000
+        "createdAt": 1767269045000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3123,7 +3123,7 @@
         "anchor": "i-operations",
         "title": "I. Operations",
         "url": "/games/high-frontier-4-all/rulebook/#i-operations",
-        "createdAt": 1767269047000
+        "createdAt": 1767269046000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3136,7 +3136,7 @@
         "anchor": "j-supports",
         "title": "J. Supports",
         "url": "/games/high-frontier-4-all/rulebook/#j-supports",
-        "createdAt": 1767269048000
+        "createdAt": 1767269047000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3149,7 +3149,7 @@
         "anchor": "k-sunspot-cycle-events",
         "title": "K. Sunspot Cycle Events",
         "url": "/games/high-frontier-4-all/rulebook/#k-sunspot-cycle-events",
-        "createdAt": 1767269049000
+        "createdAt": 1767269048000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3162,7 +3162,7 @@
         "anchor": "l-glories",
         "title": "L. Glories",
         "url": "/games/high-frontier-4-all/rulebook/#l-glories",
-        "createdAt": 1767269050000
+        "createdAt": 1767269049000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3175,7 +3175,7 @@
         "anchor": "m-game-end-and-scoring",
         "title": "M. Game End &amp; Scoring",
         "url": "/games/high-frontier-4-all/rulebook/#m-game-end-and-scoring",
-        "createdAt": 1767269051000
+        "createdAt": 1767269050000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3188,7 +3188,7 @@
         "anchor": "n-negotiation",
         "title": "N. Negotiation",
         "url": "/games/high-frontier-4-all/rulebook/#n-negotiation",
-        "createdAt": 1767269052000
+        "createdAt": 1767269051000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3201,7 +3201,7 @@
         "anchor": "o-module-0-politics",
         "title": "O. Module 0 – Politics",
         "url": "/games/high-frontier-4-all/rulebook/#o-module-0-politics",
-        "createdAt": 1767269053000
+        "createdAt": 1767269052000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3214,7 +3214,7 @@
         "anchor": "glossary",
         "title": "Glossary",
         "url": "/games/high-frontier-4-all/rulebook/#glossary",
-        "createdAt": 1767269054000
+        "createdAt": 1767269053000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3227,7 +3227,7 @@
         "anchor": "notes",
         "title": "Notes",
         "url": "/games/high-frontier-4-all/rulebook/#notes",
-        "createdAt": 1767269055000
+        "createdAt": 1767269054000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3240,7 +3240,7 @@
         "anchor": "ia-introduction",
         "title": "iA. Introduction",
         "url": "/games/high-frontier-4-all/space-diamonds/#ia-introduction",
-        "createdAt": 1767269056000
+        "createdAt": 1767269055000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3253,7 +3253,7 @@
         "anchor": "ib-components-and-anatomies",
         "title": "iB. Components &amp; Anatomies",
         "url": "/games/high-frontier-4-all/space-diamonds/#ib-components-and-anatomies",
-        "createdAt": 1767269057000
+        "createdAt": 1767269056000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3266,7 +3266,7 @@
         "anchor": "ic-setup",
         "title": "iC. Setup",
         "url": "/games/high-frontier-4-all/space-diamonds/#ic-setup",
-        "createdAt": 1767269058000
+        "createdAt": 1767269057000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3279,7 +3279,7 @@
         "anchor": "id-sequence-of-play",
         "title": "iD. Sequence of Play",
         "url": "/games/high-frontier-4-all/space-diamonds/#id-sequence-of-play",
-        "createdAt": 1767269059000
+        "createdAt": 1767269058000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3292,7 +3292,7 @@
         "anchor": "ie-movement-and-net-thrust",
         "title": "iE. Movement and Net Thrust",
         "url": "/games/high-frontier-4-all/space-diamonds/#ie-movement-and-net-thrust",
-        "createdAt": 1767269060000
+        "createdAt": 1767269059000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3305,7 +3305,7 @@
         "anchor": "if-operations",
         "title": "iF. Operations",
         "url": "/games/high-frontier-4-all/space-diamonds/#if-operations",
-        "createdAt": 1767269061000
+        "createdAt": 1767269060000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3318,7 +3318,7 @@
         "anchor": "ig-missions",
         "title": "iG. Missions",
         "url": "/games/high-frontier-4-all/space-diamonds/#ig-missions",
-        "createdAt": 1767269062000
+        "createdAt": 1767269061000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3331,7 +3331,7 @@
         "anchor": "ih-game-end-and-scoring",
         "title": "iH. Game End &amp; Scoring",
         "url": "/games/high-frontier-4-all/space-diamonds/#ih-game-end-and-scoring",
-        "createdAt": 1767269063000
+        "createdAt": 1767269062000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3344,7 +3344,7 @@
         "anchor": "ii-starship-builder-variant",
         "title": "iI. Starship Builder Variant",
         "url": "/games/high-frontier-4-all/space-diamonds/#ii-starship-builder-variant",
-        "createdAt": 1767269064000
+        "createdAt": 1767269063000
       },
       {
         "gameSlug": "high-frontier-4-all",
@@ -3357,7 +3357,7 @@
         "anchor": "notes",
         "title": "Notes",
         "url": "/games/high-frontier-4-all/space-diamonds/#notes",
-        "createdAt": 1767269065000
+        "createdAt": 1767269064000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3370,7 +3370,7 @@
         "anchor": "introduction",
         "title": "Introduction",
         "url": "/games/horseless-carriage/rulebook/#introduction",
-        "createdAt": 1767269067000
+        "createdAt": 1767269066000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3383,7 +3383,7 @@
         "anchor": "game-components-and-terminology",
         "title": "Game Components and Terminology",
         "url": "/games/horseless-carriage/rulebook/#game-components-and-terminology",
-        "createdAt": 1767269068000
+        "createdAt": 1767269067000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3396,7 +3396,7 @@
         "anchor": "setup",
         "title": "Setup",
         "url": "/games/horseless-carriage/rulebook/#setup",
-        "createdAt": 1767269069000
+        "createdAt": 1767269068000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3409,7 +3409,7 @@
         "anchor": "overview",
         "title": "Overview",
         "url": "/games/horseless-carriage/rulebook/#overview",
-        "createdAt": 1767269070000
+        "createdAt": 1767269069000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3422,7 +3422,7 @@
         "anchor": "research",
         "title": "Research",
         "url": "/games/horseless-carriage/rulebook/#research",
-        "createdAt": 1767269071000
+        "createdAt": 1767269070000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3435,7 +3435,7 @@
         "anchor": "set-focus",
         "title": "Set Focus",
         "url": "/games/horseless-carriage/rulebook/#set-focus",
-        "createdAt": 1767269072000
+        "createdAt": 1767269071000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3448,7 +3448,7 @@
         "anchor": "build-factory",
         "title": "Build Factory",
         "url": "/games/horseless-carriage/rulebook/#build-factory",
-        "createdAt": 1767269073000
+        "createdAt": 1767269072000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3461,7 +3461,7 @@
         "anchor": "print-sales-brochures",
         "title": "Print Sales Brochures",
         "url": "/games/horseless-carriage/rulebook/#print-sales-brochures",
-        "createdAt": 1767269074000
+        "createdAt": 1767269073000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3474,7 +3474,7 @@
         "anchor": "sell-sell-sell",
         "title": "Sell, Sell, Sell!",
         "url": "/games/horseless-carriage/rulebook/#sell-sell-sell",
-        "createdAt": 1767269075000
+        "createdAt": 1767269074000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3487,7 +3487,7 @@
         "anchor": "finish",
         "title": "Finish?",
         "url": "/games/horseless-carriage/rulebook/#finish",
-        "createdAt": 1767269076000
+        "createdAt": 1767269075000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3500,7 +3500,7 @@
         "anchor": "advance-expectations",
         "title": "Advance Expectations",
         "url": "/games/horseless-carriage/rulebook/#advance-expectations",
-        "createdAt": 1767269077000
+        "createdAt": 1767269076000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3513,7 +3513,7 @@
         "anchor": "grow-demand",
         "title": "Grow Demand",
         "url": "/games/horseless-carriage/rulebook/#grow-demand",
-        "createdAt": 1767269078000
+        "createdAt": 1767269077000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3526,7 +3526,7 @@
         "anchor": "introductory-rules",
         "title": "Introductory Rules",
         "url": "/games/horseless-carriage/rulebook/#introductory-rules",
-        "createdAt": 1767269079000
+        "createdAt": 1767269078000
       },
       {
         "gameSlug": "horseless-carriage",
@@ -3539,7 +3539,7 @@
         "anchor": "note-on-strategy",
         "title": "Note on Strategy",
         "url": "/games/horseless-carriage/rulebook/#note-on-strategy",
-        "createdAt": 1767269080000
+        "createdAt": 1767269079000
       },
       {
         "gameSlug": "indonesia",
@@ -3552,7 +3552,7 @@
         "anchor": "acquisition",
         "title": "Acquisition",
         "url": "/games/indonesia/glossary/#acquisition",
-        "createdAt": 1767269082000
+        "createdAt": 1767269080000
       },
       {
         "gameSlug": "indonesia",
@@ -3565,7 +3565,7 @@
         "anchor": "era",
         "title": "Era",
         "url": "/games/indonesia/glossary/#era",
-        "createdAt": 1767269083000
+        "createdAt": 1767269081000
       },
       {
         "gameSlug": "indonesia",
@@ -3578,7 +3578,7 @@
         "anchor": "hull",
         "title": "Hull",
         "url": "/games/indonesia/glossary/#hull",
-        "createdAt": 1767269084000
+        "createdAt": 1767269082000
       },
       {
         "gameSlug": "indonesia",
@@ -3591,7 +3591,7 @@
         "anchor": "merger",
         "title": "Merger",
         "url": "/games/indonesia/glossary/#merger",
-        "createdAt": 1767269085000
+        "createdAt": 1767269083000
       },
       {
         "gameSlug": "indonesia",
@@ -3604,7 +3604,7 @@
         "anchor": "nominal-value",
         "title": "Nominal value",
         "url": "/games/indonesia/glossary/#nominal-value",
-        "createdAt": 1767269086000
+        "createdAt": 1767269084000
       },
       {
         "gameSlug": "indonesia",
@@ -3617,7 +3617,7 @@
         "anchor": "production-zone",
         "title": "Production zone",
         "url": "/games/indonesia/glossary/#production-zone",
-        "createdAt": 1767269087000
+        "createdAt": 1767269085000
       },
       {
         "gameSlug": "indonesia",
@@ -3630,7 +3630,7 @@
         "anchor": "rupiah",
         "title": "Rupiah",
         "url": "/games/indonesia/glossary/#rupiah",
-        "createdAt": 1767269088000
+        "createdAt": 1767269086000
       },
       {
         "gameSlug": "indonesia",
@@ -3643,7 +3643,7 @@
         "anchor": "siap-faji",
         "title": "Siap faji",
         "url": "/games/indonesia/glossary/#siap-faji",
-        "createdAt": 1767269089000
+        "createdAt": 1767269087000
       },
       {
         "gameSlug": "indonesia",
@@ -3656,7 +3656,7 @@
         "anchor": "slot",
         "title": "Slot",
         "url": "/games/indonesia/glossary/#slot",
-        "createdAt": 1767269090000
+        "createdAt": 1767269088000
       },
       {
         "gameSlug": "indonesia",
@@ -3669,7 +3669,7 @@
         "anchor": "contents",
         "title": "Contents",
         "url": "/games/indonesia/rulebook/#contents",
-        "createdAt": 1767269091000
+        "createdAt": 1767269090000
       },
       {
         "gameSlug": "indonesia",
@@ -3682,7 +3682,7 @@
         "anchor": "introducing-the-game",
         "title": "Introducing the Game",
         "url": "/games/indonesia/rulebook/#introducing-the-game",
-        "createdAt": 1767269092000
+        "createdAt": 1767269091000
       },
       {
         "gameSlug": "indonesia",
@@ -3695,7 +3695,7 @@
         "anchor": "overview",
         "title": "Overview",
         "url": "/games/indonesia/rulebook/#overview",
-        "createdAt": 1767269093000
+        "createdAt": 1767269092000
       },
       {
         "gameSlug": "indonesia",
@@ -3708,7 +3708,7 @@
         "anchor": "setup-and-phase-overview",
         "title": "Setup &amp; Phase Overview",
         "url": "/games/indonesia/rulebook/#setup-and-phase-overview",
-        "createdAt": 1767269094000
+        "createdAt": 1767269093000
       },
       {
         "gameSlug": "indonesia",
@@ -3721,7 +3721,7 @@
         "anchor": "new-era",
         "title": "New Era",
         "url": "/games/indonesia/rulebook/#new-era",
-        "createdAt": 1767269095000
+        "createdAt": 1767269094000
       },
       {
         "gameSlug": "indonesia",
@@ -3734,7 +3734,7 @@
         "anchor": "bid-for-turn-order",
         "title": "Bid for Turn Order",
         "url": "/games/indonesia/rulebook/#bid-for-turn-order",
-        "createdAt": 1767269096000
+        "createdAt": 1767269095000
       },
       {
         "gameSlug": "indonesia",
@@ -3747,7 +3747,7 @@
         "anchor": "mergers",
         "title": "Mergers",
         "url": "/games/indonesia/rulebook/#mergers",
-        "createdAt": 1767269097000
+        "createdAt": 1767269096000
       },
       {
         "gameSlug": "indonesia",
@@ -3760,7 +3760,7 @@
         "anchor": "acquisitions",
         "title": "Acquisitions",
         "url": "/games/indonesia/rulebook/#acquisitions",
-        "createdAt": 1767269098000
+        "createdAt": 1767269097000
       },
       {
         "gameSlug": "indonesia",
@@ -3773,7 +3773,7 @@
         "anchor": "research-and-development",
         "title": "Research &amp; Development",
         "url": "/games/indonesia/rulebook/#research-and-development",
-        "createdAt": 1767269099000
+        "createdAt": 1767269098000
       },
       {
         "gameSlug": "indonesia",
@@ -3786,7 +3786,7 @@
         "anchor": "operations",
         "title": "Operations",
         "url": "/games/indonesia/rulebook/#operations",
-        "createdAt": 1767269100000
+        "createdAt": 1767269099000
       },
       {
         "gameSlug": "indonesia",
@@ -3799,7 +3799,7 @@
         "anchor": "city-growth",
         "title": "City Growth",
         "url": "/games/indonesia/rulebook/#city-growth",
-        "createdAt": 1767269101000
+        "createdAt": 1767269100000
       },
       {
         "gameSlug": "indonesia",
@@ -3812,7 +3812,7 @@
         "anchor": "two-player-game",
         "title": "Two-player Game",
         "url": "/games/indonesia/rulebook/#two-player-game",
-        "createdAt": 1767269102000
+        "createdAt": 1767269101000
       },
       {
         "gameSlug": "indonesia",
@@ -3825,7 +3825,7 @@
         "anchor": "victory-conditions",
         "title": "Victory Conditions",
         "url": "/games/indonesia/rulebook/#victory-conditions",
-        "createdAt": 1767269103000
+        "createdAt": 1767269102000
       },
       {
         "gameSlug": "indonesia",
@@ -3838,7 +3838,7 @@
         "anchor": "rules-clarifications",
         "title": "Rules Clarifications",
         "url": "/games/indonesia/rulebook/#rules-clarifications",
-        "createdAt": 1767269104000
+        "createdAt": 1767269103000
       },
       {
         "gameSlug": "indonesia",
@@ -3851,7 +3851,7 @@
         "anchor": "strategic-hints",
         "title": "Strategic Hints",
         "url": "/games/indonesia/rulebook/#strategic-hints",
-        "createdAt": 1767269105000
+        "createdAt": 1767269104000
       },
       {
         "gameSlug": "indonesia",
@@ -3864,7 +3864,7 @@
         "anchor": "colophon",
         "title": "Colophon",
         "url": "/games/indonesia/rulebook/#colophon",
-        "createdAt": 1767269106000
+        "createdAt": 1767269105000
       },
       {
         "gameSlug": "indonesia",
@@ -3877,7 +3877,7 @@
         "anchor": "overview",
         "title": "Overview",
         "url": "/games/indonesia/summary/#overview",
-        "createdAt": 1767269107000
+        "createdAt": 1767269106000
       },
       {
         "gameSlug": "indonesia",
@@ -3890,7 +3890,7 @@
         "anchor": "setup",
         "title": "Setup",
         "url": "/games/indonesia/summary/#setup",
-        "createdAt": 1767269108000
+        "createdAt": 1767269107000
       },
       {
         "gameSlug": "indonesia",
@@ -3903,7 +3903,7 @@
         "anchor": "gameplay",
         "title": "Gameplay",
         "url": "/games/indonesia/summary/#gameplay",
-        "createdAt": 1767269109000
+        "createdAt": 1767269108000
       },
       {
         "gameSlug": "indonesia",
@@ -3916,7 +3916,7 @@
         "anchor": "new-era",
         "title": "New Era",
         "url": "/games/indonesia/summary/#new-era",
-        "createdAt": 1767269110000
+        "createdAt": 1767269109000
       },
       {
         "gameSlug": "indonesia",
@@ -3929,7 +3929,7 @@
         "anchor": "bid-for-turn-order",
         "title": "Bid for Turn Order",
         "url": "/games/indonesia/summary/#bid-for-turn-order",
-        "createdAt": 1767269111000
+        "createdAt": 1767269110000
       },
       {
         "gameSlug": "indonesia",
@@ -3942,7 +3942,7 @@
         "anchor": "mergers",
         "title": "Mergers",
         "url": "/games/indonesia/summary/#mergers",
-        "createdAt": 1767269112000
+        "createdAt": 1767269111000
       },
       {
         "gameSlug": "indonesia",
@@ -3955,7 +3955,7 @@
         "anchor": "acquisitions",
         "title": "Acquisitions",
         "url": "/games/indonesia/summary/#acquisitions",
-        "createdAt": 1767269113000
+        "createdAt": 1767269112000
       },
       {
         "gameSlug": "indonesia",
@@ -3968,7 +3968,7 @@
         "anchor": "research-and-development",
         "title": "Research &amp; Development",
         "url": "/games/indonesia/summary/#research-and-development",
-        "createdAt": 1767269114000
+        "createdAt": 1767269113000
       },
       {
         "gameSlug": "indonesia",
@@ -3981,7 +3981,7 @@
         "anchor": "operations",
         "title": "Operations",
         "url": "/games/indonesia/summary/#operations",
-        "createdAt": 1767269115000
+        "createdAt": 1767269114000
       },
       {
         "gameSlug": "indonesia",
@@ -3994,7 +3994,7 @@
         "anchor": "city-growth",
         "title": "City Growth",
         "url": "/games/indonesia/summary/#city-growth",
-        "createdAt": 1767269116000
+        "createdAt": 1767269115000
       },
       {
         "gameSlug": "indonesia",
@@ -4007,7 +4007,7 @@
         "anchor": "victory-and-end-game",
         "title": "Victory &amp; End Game",
         "url": "/games/indonesia/summary/#victory-and-end-game",
-        "createdAt": 1767269117000
+        "createdAt": 1767269116000
       },
       {
         "gameSlug": "indonesia",
@@ -4020,7 +4020,7 @@
         "anchor": "two-player-rules",
         "title": "Two Player Rules",
         "url": "/games/indonesia/summary/#two-player-rules",
-        "createdAt": 1767269118000
+        "createdAt": 1767269117000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4033,7 +4033,7 @@
         "anchor": "components",
         "title": "Components",
         "url": "/games/john-company-second-edition/rulebook/#components",
-        "createdAt": 1767269120000
+        "createdAt": 1767269119000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4046,7 +4046,7 @@
         "anchor": "setup",
         "title": "Setup",
         "url": "/games/john-company-second-edition/rulebook/#setup",
-        "createdAt": 1767269121000
+        "createdAt": 1767269120000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4059,7 +4059,7 @@
         "anchor": "cash-flow",
         "title": "Cash Flow",
         "url": "/games/john-company-second-edition/rulebook/#cash-flow",
-        "createdAt": 1767269122000
+        "createdAt": 1767269121000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4072,7 +4072,7 @@
         "anchor": "the-presidencies",
         "title": "The Presidencies",
         "url": "/games/john-company-second-edition/rulebook/#the-presidencies",
-        "createdAt": 1767269123000
+        "createdAt": 1767269122000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4085,7 +4085,7 @@
         "anchor": "the-map-of-india-and-how-to-read-it",
         "title": "The Map of India and How to Read It",
         "url": "/games/john-company-second-edition/rulebook/#the-map-of-india-and-how-to-read-it",
-        "createdAt": 1767269124000
+        "createdAt": 1767269123000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4098,7 +4098,7 @@
         "anchor": "final-scoring",
         "title": "Final Scoring",
         "url": "/games/john-company-second-edition/rulebook/#final-scoring",
-        "createdAt": 1767269125000
+        "createdAt": 1767269124000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4111,7 +4111,7 @@
         "anchor": "game-turn",
         "title": "Game Turn",
         "url": "/games/john-company-second-edition/rulebook/#game-turn",
-        "createdAt": 1767269126000
+        "createdAt": 1767269125000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4124,7 +4124,7 @@
         "anchor": "the-london-season",
         "title": "The London Season",
         "url": "/games/john-company-second-edition/rulebook/#the-london-season",
-        "createdAt": 1767269127000
+        "createdAt": 1767269126000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4137,7 +4137,7 @@
         "anchor": "family",
         "title": "Family",
         "url": "/games/john-company-second-edition/rulebook/#family",
-        "createdAt": 1767269128000
+        "createdAt": 1767269127000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4150,7 +4150,7 @@
         "anchor": "hiring",
         "title": "Hiring",
         "url": "/games/john-company-second-edition/rulebook/#hiring",
-        "createdAt": 1767269129000
+        "createdAt": 1767269128000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4163,7 +4163,7 @@
         "anchor": "company-operation",
         "title": "Company Operation",
         "url": "/games/john-company-second-edition/rulebook/#company-operation",
-        "createdAt": 1767269130000
+        "createdAt": 1767269129000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4176,7 +4176,7 @@
         "anchor": "bonuses",
         "title": "Bonuses",
         "url": "/games/john-company-second-edition/rulebook/#bonuses",
-        "createdAt": 1767269131000
+        "createdAt": 1767269130000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4189,7 +4189,7 @@
         "anchor": "revenue",
         "title": "Revenue",
         "url": "/games/john-company-second-edition/rulebook/#revenue",
-        "createdAt": 1767269132000
+        "createdAt": 1767269131000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4202,7 +4202,7 @@
         "anchor": "events-in-india",
         "title": "Events in India",
         "url": "/games/john-company-second-edition/rulebook/#events-in-india",
-        "createdAt": 1767269133000
+        "createdAt": 1767269132000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4215,7 +4215,7 @@
         "anchor": "parliament-meets",
         "title": "Parliament Meets",
         "url": "/games/john-company-second-edition/rulebook/#parliament-meets",
-        "createdAt": 1767269134000
+        "createdAt": 1767269133000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4228,7 +4228,7 @@
         "anchor": "upkeep-and-refresh",
         "title": "Upkeep and Refresh",
         "url": "/games/john-company-second-edition/rulebook/#upkeep-and-refresh",
-        "createdAt": 1767269135000
+        "createdAt": 1767269134000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4241,7 +4241,7 @@
         "anchor": "deregulation",
         "title": "Deregulation",
         "url": "/games/john-company-second-edition/rulebook/#deregulation",
-        "createdAt": 1767269136000
+        "createdAt": 1767269135000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4254,7 +4254,7 @@
         "anchor": "solo-and-two-player-game",
         "title": "Solo and Two-Player Game",
         "url": "/games/john-company-second-edition/rulebook/#solo-and-two-player-game",
-        "createdAt": 1767269137000
+        "createdAt": 1767269136000
       },
       {
         "gameSlug": "john-company-second-edition",
@@ -4267,7 +4267,7 @@
         "anchor": "reading-empires-origin-story",
         "title": "Reading Empire’s Origin Story",
         "url": "/games/john-company-second-edition/rulebook/#reading-empires-origin-story",
-        "createdAt": 1767269138000
+        "createdAt": 1767269137000
       },
       {
         "gameSlug": "john-company",
@@ -4280,7 +4280,7 @@
         "anchor": "general-rules",
         "title": "General Rules",
         "url": "/games/john-company/rulebook/#general-rules",
-        "createdAt": 1767269140000
+        "createdAt": 1767269139000
       },
       {
         "gameSlug": "john-company",
@@ -4293,7 +4293,7 @@
         "anchor": "components",
         "title": "Components",
         "url": "/games/john-company/rulebook/#components",
-        "createdAt": 1767269141000
+        "createdAt": 1767269140000
       },
       {
         "gameSlug": "john-company",
@@ -4306,7 +4306,7 @@
         "anchor": "setup",
         "title": "Setup",
         "url": "/games/john-company/rulebook/#setup",
-        "createdAt": 1767269142000
+        "createdAt": 1767269141000
       },
       {
         "gameSlug": "john-company",
@@ -4319,7 +4319,7 @@
         "anchor": "sequence-of-play",
         "title": "Sequence of Play",
         "url": "/games/john-company/rulebook/#sequence-of-play",
-        "createdAt": 1767269143000
+        "createdAt": 1767269142000
       },
       {
         "gameSlug": "john-company",
@@ -4332,7 +4332,7 @@
         "anchor": "family-phase",
         "title": "Family Phase",
         "url": "/games/john-company/rulebook/#family-phase",
-        "createdAt": 1767269144000
+        "createdAt": 1767269143000
       },
       {
         "gameSlug": "john-company",
@@ -4345,7 +4345,7 @@
         "anchor": "company-phase",
         "title": "Company Phase",
         "url": "/games/john-company/rulebook/#company-phase",
-        "createdAt": 1767269145000
+        "createdAt": 1767269144000
       },
       {
         "gameSlug": "john-company",
@@ -4358,7 +4358,7 @@
         "anchor": "trade",
         "title": "Trade",
         "url": "/games/john-company/rulebook/#trade",
-        "createdAt": 1767269146000
+        "createdAt": 1767269145000
       },
       {
         "gameSlug": "john-company",
@@ -4371,7 +4371,7 @@
         "anchor": "evening-post",
         "title": "Evening Post",
         "url": "/games/john-company/rulebook/#evening-post",
-        "createdAt": 1767269147000
+        "createdAt": 1767269146000
       },
       {
         "gameSlug": "john-company",
@@ -4384,7 +4384,7 @@
         "anchor": "deregulation",
         "title": "Deregulation",
         "url": "/games/john-company/rulebook/#deregulation",
-        "createdAt": 1767269148000
+        "createdAt": 1767269147000
       },
       {
         "gameSlug": "john-company",
@@ -4397,7 +4397,7 @@
         "anchor": "victory",
         "title": "Victory",
         "url": "/games/john-company/rulebook/#victory",
-        "createdAt": 1767269149000
+        "createdAt": 1767269148000
       },
       {
         "gameSlug": "john-company",
@@ -4410,7 +4410,7 @@
         "anchor": "scenarios",
         "title": "Scenarios",
         "url": "/games/john-company/rulebook/#scenarios",
-        "createdAt": 1767269150000
+        "createdAt": 1767269149000
       },
       {
         "gameSlug": "john-company",
@@ -4423,7 +4423,7 @@
         "anchor": "notes",
         "title": "Notes",
         "url": "/games/john-company/rulebook/#notes",
-        "createdAt": 1767269151000
+        "createdAt": 1767269150000
       },
       {
         "gameSlug": "oath",
@@ -4436,7 +4436,7 @@
         "anchor": "chronicle-summary",
         "title": "Chronicle Summary",
         "url": "/games/oath/chronicle-aid/#chronicle-summary",
-        "createdAt": 1767269153000
+        "createdAt": 1767269151000
       },
       {
         "gameSlug": "oath",
@@ -4449,7 +4449,7 @@
         "anchor": "the-clockwork-prince",
         "title": "The Clockwork Prince",
         "url": "/games/oath/clockwork-prince/#the-clockwork-prince",
-        "createdAt": 1767269154000
+        "createdAt": 1767269152000
       },
       {
         "gameSlug": "oath",
@@ -4462,7 +4462,7 @@
         "anchor": "rules-conflicts-and-changes",
         "title": "Rules Conflicts and Changes",
         "url": "/games/oath/clockwork-prince/#rules-conflicts-and-changes",
-        "createdAt": 1767269155000
+        "createdAt": 1767269153000
       },
       {
         "gameSlug": "oath",
@@ -4475,7 +4475,7 @@
         "anchor": "tiebreakers",
         "title": "Tiebreakers",
         "url": "/games/oath/clockwork-prince/#tiebreakers",
-        "createdAt": 1767269156000
+        "createdAt": 1767269154000
       },
       {
         "gameSlug": "oath",
@@ -4488,7 +4488,7 @@
         "anchor": "turn-structure",
         "title": "Turn Structure",
         "url": "/games/oath/clockwork-prince/#turn-structure",
-        "createdAt": 1767269157000
+        "createdAt": 1767269155000
       },
       {
         "gameSlug": "oath",
@@ -4501,7 +4501,7 @@
         "anchor": "1-assess-threat",
         "title": "1. Assess Threat",
         "url": "/games/oath/clockwork-prince/#1-assess-threat",
-        "createdAt": 1767269158000
+        "createdAt": 1767269156000
       },
       {
         "gameSlug": "oath",
@@ -4514,7 +4514,7 @@
         "anchor": "search-and-play-one-card",
         "title": "Search and Play One Card",
         "url": "/games/oath/clockwork-prince/#search-and-play-one-card",
-        "createdAt": 1767269159000
+        "createdAt": 1767269157000
       },
       {
         "gameSlug": "oath",
@@ -4527,7 +4527,7 @@
         "anchor": "3-take-actions",
         "title": "3. Take Actions",
         "url": "/games/oath/clockwork-prince/#3-take-actions",
-        "createdAt": 1767269160000
+        "createdAt": 1767269158000
       },
       {
         "gameSlug": "oath",
@@ -4540,7 +4540,7 @@
         "anchor": "4-cleanup",
         "title": "4. Cleanup",
         "url": "/games/oath/clockwork-prince/#4-cleanup",
-        "createdAt": 1767269161000
+        "createdAt": 1767269159000
       },
       {
         "gameSlug": "oath",
@@ -4553,7 +4553,7 @@
         "anchor": "powers-and-permission-as-the-prince",
         "title": "Powers and Permission as the Prince",
         "url": "/games/oath/clockwork-prince/#powers-and-permission-as-the-prince",
-        "createdAt": 1767269162000
+        "createdAt": 1767269160000
       },
       {
         "gameSlug": "oath",
@@ -4566,7 +4566,7 @@
         "anchor": "writing-the-chronicle-as-the-winner",
         "title": "Writing the Chronicle as the Winner",
         "url": "/games/oath/clockwork-prince/#writing-the-chronicle-as-the-winner",
-        "createdAt": 1767269163000
+        "createdAt": 1767269161000
       },
       {
         "gameSlug": "oath",
@@ -4579,7 +4579,7 @@
         "anchor": "1-setup",
         "title": "1. Setup",
         "url": "/games/oath/rulebook/#1-setup",
-        "createdAt": 1767269164000
+        "createdAt": 1767269163000
       },
       {
         "gameSlug": "oath",
@@ -4592,7 +4592,7 @@
         "anchor": "2-key-components",
         "title": "2. Key Components",
         "url": "/games/oath/rulebook/#2-key-components",
-        "createdAt": 1767269165000
+        "createdAt": 1767269164000
       },
       {
         "gameSlug": "oath",
@@ -4605,7 +4605,7 @@
         "anchor": "3-victory",
         "title": "3. Victory",
         "url": "/games/oath/rulebook/#3-victory",
-        "createdAt": 1767269166000
+        "createdAt": 1767269165000
       },
       {
         "gameSlug": "oath",
@@ -4618,7 +4618,7 @@
         "anchor": "4-sequence-of-play",
         "title": "4. Sequence of Play",
         "url": "/games/oath/rulebook/#4-sequence-of-play",
-        "createdAt": 1767269167000
+        "createdAt": 1767269166000
       },
       {
         "gameSlug": "oath",
@@ -4631,7 +4631,7 @@
         "anchor": "5-major-actions",
         "title": "5. Major Actions",
         "url": "/games/oath/rulebook/#5-major-actions",
-        "createdAt": 1767269168000
+        "createdAt": 1767269167000
       },
       {
         "gameSlug": "oath",
@@ -4644,7 +4644,7 @@
         "anchor": "6-minor-actions",
         "title": "6. Minor Actions",
         "url": "/games/oath/rulebook/#6-minor-actions",
-        "createdAt": 1767269169000
+        "createdAt": 1767269168000
       },
       {
         "gameSlug": "oath",
@@ -4657,7 +4657,7 @@
         "anchor": "7-powers",
         "title": "7. Powers",
         "url": "/games/oath/rulebook/#7-powers",
-        "createdAt": 1767269170000
+        "createdAt": 1767269169000
       },
       {
         "gameSlug": "oath",
@@ -4670,7 +4670,7 @@
         "anchor": "8-writing-the-chronicle",
         "title": "8. Writing the Chronicle",
         "url": "/games/oath/rulebook/#8-writing-the-chronicle",
-        "createdAt": 1767269171000
+        "createdAt": 1767269170000
       },
       {
         "gameSlug": "oath",
@@ -4683,7 +4683,7 @@
         "anchor": "9-technical-rules",
         "title": "9. Technical Rules",
         "url": "/games/oath/rulebook/#9-technical-rules",
-        "createdAt": 1767269172000
+        "createdAt": 1767269171000
       },
       {
         "gameSlug": "oath",
@@ -4696,7 +4696,7 @@
         "anchor": "10-glossary",
         "title": "10. Glossary",
         "url": "/games/oath/rulebook/#10-glossary",
-        "createdAt": 1767269173000
+        "createdAt": 1767269172000
       },
       {
         "gameSlug": "oath",
@@ -4709,7 +4709,7 @@
         "anchor": "11-index-rulebook-index",
         "title": "11. Index {.Rulebook-index}",
         "url": "/games/oath/rulebook/#11-index-rulebook-index",
-        "createdAt": 1767269174000
+        "createdAt": 1767269173000
       },
       {
         "gameSlug": "oath",
@@ -4722,7 +4722,7 @@
         "anchor": "credits",
         "title": "Credits",
         "url": "/games/oath/rulebook/#credits",
-        "createdAt": 1767269175000
+        "createdAt": 1767269174000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
@@ -4735,7 +4735,7 @@
         "anchor": "rules-of-play",
         "title": "Rules of Play",
         "url": "/games/pax-pamir-second-edition/rulebook/#rules-of-play",
-        "createdAt": 1767269177000
+        "createdAt": 1767269176000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
@@ -4748,7 +4748,7 @@
         "anchor": "components",
         "title": "Components",
         "url": "/games/pax-pamir-second-edition/rulebook/#components",
-        "createdAt": 1767269178000
+        "createdAt": 1767269177000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
@@ -4761,7 +4761,7 @@
         "anchor": "setup",
         "title": "Setup",
         "url": "/games/pax-pamir-second-edition/rulebook/#setup",
-        "createdAt": 1767269179000
+        "createdAt": 1767269178000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
@@ -4774,7 +4774,7 @@
         "anchor": "key-terms-and-concepts",
         "title": "Key Terms and Concepts",
         "url": "/games/pax-pamir-second-edition/rulebook/#key-terms-and-concepts",
-        "createdAt": 1767269180000
+        "createdAt": 1767269179000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
@@ -4787,7 +4787,7 @@
         "anchor": "general-rules",
         "title": "General Rules",
         "url": "/games/pax-pamir-second-edition/rulebook/#general-rules",
-        "createdAt": 1767269181000
+        "createdAt": 1767269180000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
@@ -4800,7 +4800,7 @@
         "anchor": "sequence-of-play",
         "title": "Sequence of Play",
         "url": "/games/pax-pamir-second-edition/rulebook/#sequence-of-play",
-        "createdAt": 1767269182000
+        "createdAt": 1767269181000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
@@ -4813,7 +4813,7 @@
         "anchor": "core-actions",
         "title": "Core Actions",
         "url": "/games/pax-pamir-second-edition/rulebook/#core-actions",
-        "createdAt": 1767269183000
+        "createdAt": 1767269182000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
@@ -4826,7 +4826,7 @@
         "anchor": "card-based-actions",
         "title": "Card-Based Actions",
         "url": "/games/pax-pamir-second-edition/rulebook/#card-based-actions",
-        "createdAt": 1767269184000
+        "createdAt": 1767269183000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
@@ -4839,7 +4839,7 @@
         "anchor": "dominance-checks",
         "title": "Dominance Checks",
         "url": "/games/pax-pamir-second-edition/rulebook/#dominance-checks",
-        "createdAt": 1767269185000
+        "createdAt": 1767269184000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
@@ -4852,7 +4852,7 @@
         "anchor": "playing-with-wakhan",
         "title": "Playing with Wakhan",
         "url": "/games/pax-pamir-second-edition/rulebook/#playing-with-wakhan",
-        "createdAt": 1767269186000
+        "createdAt": 1767269185000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
@@ -4865,7 +4865,7 @@
         "anchor": "notes",
         "title": "Notes",
         "url": "/games/pax-pamir-second-edition/rulebook/#notes",
-        "createdAt": 1767269187000
+        "createdAt": 1767269186000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -4878,7 +4878,7 @@
         "anchor": "m-beginners-playthrough",
         "title": "M. Beginner’s Playthrough",
         "url": "/games/pax-renaissance-second-edition/players-guide/#m-beginners-playthrough",
-        "createdAt": 1767269189000
+        "createdAt": 1767269188000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -4891,7 +4891,7 @@
         "anchor": "o-solitaire-rules",
         "title": "O. Solitaire Rules",
         "url": "/games/pax-renaissance-second-edition/players-guide/#o-solitaire-rules",
-        "createdAt": 1767269190000
+        "createdAt": 1767269189000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -4904,7 +4904,7 @@
         "anchor": "n-strategy-guide",
         "title": "N. Strategy Guide",
         "url": "/games/pax-renaissance-second-edition/players-guide/#n-strategy-guide",
-        "createdAt": 1767269191000
+        "createdAt": 1767269190000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -4917,7 +4917,7 @@
         "anchor": "why-not-the-east",
         "title": "Why Not the East?",
         "url": "/games/pax-renaissance-second-edition/players-guide/#why-not-the-east",
-        "createdAt": 1767269192000
+        "createdAt": 1767269191000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -4930,7 +4930,7 @@
         "anchor": "banking-then-and-now",
         "title": "Banking Then &amp; Now",
         "url": "/games/pax-renaissance-second-edition/players-guide/#banking-then-and-now",
-        "createdAt": 1767269193000
+        "createdAt": 1767269192000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -4943,7 +4943,7 @@
         "anchor": "gaming-the-longue-duree",
         "title": "Gaming the Longue Durée",
         "url": "/games/pax-renaissance-second-edition/players-guide/#gaming-the-longue-duree",
-        "createdAt": 1767269194000
+        "createdAt": 1767269193000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -4956,7 +4956,7 @@
         "anchor": "a-summary",
         "title": "A. Summary",
         "url": "/games/pax-renaissance-second-edition/rulebook/#a-summary",
-        "createdAt": 1767269195000
+        "createdAt": 1767269194000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -4969,7 +4969,7 @@
         "anchor": "b-components",
         "title": "B. Components",
         "url": "/games/pax-renaissance-second-edition/rulebook/#b-components",
-        "createdAt": 1767269196000
+        "createdAt": 1767269195000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -4982,7 +4982,7 @@
         "anchor": "c-setup",
         "title": "C. Setup",
         "url": "/games/pax-renaissance-second-edition/rulebook/#c-setup",
-        "createdAt": 1767269197000
+        "createdAt": 1767269196000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -4995,7 +4995,7 @@
         "anchor": "d-sequence-of-play",
         "title": "D. Sequence of Play",
         "url": "/games/pax-renaissance-second-edition/rulebook/#d-sequence-of-play",
-        "createdAt": 1767269198000
+        "createdAt": 1767269197000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -5008,7 +5008,7 @@
         "anchor": "e-actions",
         "title": "E. Actions",
         "url": "/games/pax-renaissance-second-edition/rulebook/#e-actions",
-        "createdAt": 1767269199000
+        "createdAt": 1767269198000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -5021,7 +5021,7 @@
         "anchor": "f-tableau-ops",
         "title": "F. Tableau Ops",
         "url": "/games/pax-renaissance-second-edition/rulebook/#f-tableau-ops",
-        "createdAt": 1767269200000
+        "createdAt": 1767269199000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -5034,7 +5034,7 @@
         "anchor": "g-trade-fair",
         "title": "G. Trade Fair",
         "url": "/games/pax-renaissance-second-edition/rulebook/#g-trade-fair",
-        "createdAt": 1767269201000
+        "createdAt": 1767269200000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -5047,7 +5047,7 @@
         "anchor": "h-trade-shift",
         "title": "H. Trade Shift",
         "url": "/games/pax-renaissance-second-edition/rulebook/#h-trade-shift",
-        "createdAt": 1767269202000
+        "createdAt": 1767269201000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -5060,7 +5060,7 @@
         "anchor": "i-coronations",
         "title": "I. Coronations",
         "url": "/games/pax-renaissance-second-edition/rulebook/#i-coronations",
-        "createdAt": 1767269203000
+        "createdAt": 1767269202000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -5073,7 +5073,7 @@
         "anchor": "j-civil-wars",
         "title": "J. Civil Wars",
         "url": "/games/pax-renaissance-second-edition/rulebook/#j-civil-wars",
-        "createdAt": 1767269204000
+        "createdAt": 1767269203000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -5086,7 +5086,7 @@
         "anchor": "k-religious-wars-and-apostasy",
         "title": "K. Religious Wars &amp; Apostasy",
         "url": "/games/pax-renaissance-second-edition/rulebook/#k-religious-wars-and-apostasy",
-        "createdAt": 1767269205000
+        "createdAt": 1767269204000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -5099,7 +5099,7 @@
         "anchor": "l-endgame-and-victory",
         "title": "L. Endgame &amp; Victory",
         "url": "/games/pax-renaissance-second-edition/rulebook/#l-endgame-and-victory",
-        "createdAt": 1767269206000
+        "createdAt": 1767269205000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
@@ -5112,7 +5112,7 @@
         "anchor": "glossary-capitalized-terms",
         "title": "Glossary (Capitalized Terms)",
         "url": "/games/pax-renaissance-second-edition/rulebook/#glossary-capitalized-terms",
-        "createdAt": 1767269207000
+        "createdAt": 1767269206000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5125,7 +5125,7 @@
         "anchor": "a-summary-of-pax-renaissance",
         "title": "A. Summary of Pax Renaissance",
         "url": "/games/pax-renaissance/rulebook/#a-summary-of-pax-renaissance",
-        "createdAt": 1767269209000
+        "createdAt": 1767269208000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5138,7 +5138,7 @@
         "anchor": "b-components",
         "title": "B. Components",
         "url": "/games/pax-renaissance/rulebook/#b-components",
-        "createdAt": 1767269210000
+        "createdAt": 1767269209000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5151,7 +5151,7 @@
         "anchor": "c-setup",
         "title": "C. Setup",
         "url": "/games/pax-renaissance/rulebook/#c-setup",
-        "createdAt": 1767269211000
+        "createdAt": 1767269210000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5164,7 +5164,7 @@
         "anchor": "d-sequence-of-play",
         "title": "D. Sequence of Play",
         "url": "/games/pax-renaissance/rulebook/#d-sequence-of-play",
-        "createdAt": 1767269212000
+        "createdAt": 1767269211000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5177,7 +5177,7 @@
         "anchor": "e-actions",
         "title": "E. Actions",
         "url": "/games/pax-renaissance/rulebook/#e-actions",
-        "createdAt": 1767269213000
+        "createdAt": 1767269212000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5190,7 +5190,7 @@
         "anchor": "f-tableau-ops",
         "title": "F. Tableau Ops",
         "url": "/games/pax-renaissance/rulebook/#f-tableau-ops",
-        "createdAt": 1767269214000
+        "createdAt": 1767269213000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5203,7 +5203,7 @@
         "anchor": "g-trade-fairs",
         "title": "G. Trade Fairs",
         "url": "/games/pax-renaissance/rulebook/#g-trade-fairs",
-        "createdAt": 1767269215000
+        "createdAt": 1767269214000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5216,7 +5216,7 @@
         "anchor": "h-trade-shifts",
         "title": "H. Trade Shifts",
         "url": "/games/pax-renaissance/rulebook/#h-trade-shifts",
-        "createdAt": 1767269216000
+        "createdAt": 1767269215000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5229,7 +5229,7 @@
         "anchor": "i-coronations",
         "title": "I. Coronations",
         "url": "/games/pax-renaissance/rulebook/#i-coronations",
-        "createdAt": 1767269217000
+        "createdAt": 1767269216000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5242,7 +5242,7 @@
         "anchor": "j-civil-wars",
         "title": "J. Civil Wars",
         "url": "/games/pax-renaissance/rulebook/#j-civil-wars",
-        "createdAt": 1767269218000
+        "createdAt": 1767269217000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5255,7 +5255,7 @@
         "anchor": "k-religious-wars",
         "title": "K. Religious Wars",
         "url": "/games/pax-renaissance/rulebook/#k-religious-wars",
-        "createdAt": 1767269219000
+        "createdAt": 1767269218000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5268,7 +5268,7 @@
         "anchor": "l-victory",
         "title": "L. Victory",
         "url": "/games/pax-renaissance/rulebook/#l-victory",
-        "createdAt": 1767269220000
+        "createdAt": 1767269219000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5281,7 +5281,7 @@
         "anchor": "glossary-40",
         "title": "Glossary [40]",
         "url": "/games/pax-renaissance/rulebook/#glossary-40",
-        "createdAt": 1767269221000
+        "createdAt": 1767269220000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5294,7 +5294,7 @@
         "anchor": "battle-table",
         "title": "Battle Table",
         "url": "/games/pax-renaissance/rulebook/#battle-table",
-        "createdAt": 1767269222000
+        "createdAt": 1767269221000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5307,7 +5307,7 @@
         "anchor": "trade-fair-table",
         "title": "Trade Fair Table",
         "url": "/games/pax-renaissance/rulebook/#trade-fair-table",
-        "createdAt": 1767269223000
+        "createdAt": 1767269222000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5320,7 +5320,7 @@
         "anchor": "notes",
         "title": "Notes",
         "url": "/games/pax-renaissance/rulebook/#notes",
-        "createdAt": 1767269224000
+        "createdAt": 1767269223000
       },
       {
         "gameSlug": "pax-renaissance",
@@ -5333,7 +5333,7 @@
         "anchor": "credits",
         "title": "Credits",
         "url": "/games/pax-renaissance/rulebook/#credits",
-        "createdAt": 1767269225000
+        "createdAt": 1767269224000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5346,7 +5346,7 @@
         "anchor": "introduction",
         "title": "Introduction",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#introduction",
-        "createdAt": 1767269227000
+        "createdAt": 1767269225000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5359,7 +5359,7 @@
         "anchor": "overview",
         "title": "Overview",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#overview",
-        "createdAt": 1767269228000
+        "createdAt": 1767269226000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5372,7 +5372,7 @@
         "anchor": "electricity",
         "title": "Electricity",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#electricity",
-        "createdAt": 1767269229000
+        "createdAt": 1767269227000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5385,7 +5385,7 @@
         "anchor": "management",
         "title": "Management",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#management",
-        "createdAt": 1767269230000
+        "createdAt": 1767269228000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5398,7 +5398,7 @@
         "anchor": "art",
         "title": "Art",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#art",
-        "createdAt": 1767269231000
+        "createdAt": 1767269229000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5411,7 +5411,7 @@
         "anchor": "trade",
         "title": "Trade",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#trade",
-        "createdAt": 1767269232000
+        "createdAt": 1767269230000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5424,7 +5424,7 @@
         "anchor": "polder",
         "title": "Polder",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#polder",
-        "createdAt": 1767269233000
+        "createdAt": 1767269231000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5437,7 +5437,7 @@
         "anchor": "city",
         "title": "City",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#city",
-        "createdAt": 1767269234000
+        "createdAt": 1767269232000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5450,7 +5450,7 @@
         "anchor": "jumpstart",
         "title": "Jumpstart",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#jumpstart",
-        "createdAt": 1767269235000
+        "createdAt": 1767269233000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5463,7 +5463,7 @@
         "anchor": "fundamental-research",
         "title": "Fundamental Research",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#fundamental-research",
-        "createdAt": 1767269236000
+        "createdAt": 1767269234000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5476,7 +5476,7 @@
         "anchor": "planes",
         "title": "Planes",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#planes",
-        "createdAt": 1767269237000
+        "createdAt": 1767269235000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5489,7 +5489,7 @@
         "anchor": "trains",
         "title": "Trains",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#trains",
-        "createdAt": 1767269238000
+        "createdAt": 1767269236000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5502,7 +5502,7 @@
         "anchor": "bombs",
         "title": "Bombs",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#bombs",
-        "createdAt": 1767269239000
+        "createdAt": 1767269237000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5515,7 +5515,7 @@
         "anchor": "5-and-6-players",
         "title": "5&amp;6 Players",
         "url": "/games/roads-and-boats/and-cetera/rulebook/#5-and-6-players",
-        "createdAt": 1767269240000
+        "createdAt": 1767269238000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5528,7 +5528,7 @@
         "anchor": "introduction",
         "title": "Introduction",
         "url": "/games/roads-and-boats/rulebook/#introduction",
-        "createdAt": 1767269241000
+        "createdAt": 1767269240000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5541,7 +5541,7 @@
         "anchor": "summary-of-play",
         "title": "Summary of Play",
         "url": "/games/roads-and-boats/rulebook/#summary-of-play",
-        "createdAt": 1767269242000
+        "createdAt": 1767269241000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5554,7 +5554,7 @@
         "anchor": "game-material",
         "title": "Game Material",
         "url": "/games/roads-and-boats/rulebook/#game-material",
-        "createdAt": 1767269243000
+        "createdAt": 1767269242000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5567,7 +5567,7 @@
         "anchor": "setting-up",
         "title": "Setting Up",
         "url": "/games/roads-and-boats/rulebook/#setting-up",
-        "createdAt": 1767269244000
+        "createdAt": 1767269243000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5580,7 +5580,7 @@
         "anchor": "order-of-play",
         "title": "Order Of Play",
         "url": "/games/roads-and-boats/rulebook/#order-of-play",
-        "createdAt": 1767269245000
+        "createdAt": 1767269244000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5593,7 +5593,7 @@
         "anchor": "re-production-phase",
         "title": "(Re-)Production Phase",
         "url": "/games/roads-and-boats/rulebook/#re-production-phase",
-        "createdAt": 1767269246000
+        "createdAt": 1767269245000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5606,7 +5606,7 @@
         "anchor": "movement-phase",
         "title": "Movement Phase",
         "url": "/games/roads-and-boats/rulebook/#movement-phase",
-        "createdAt": 1767269247000
+        "createdAt": 1767269246000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5619,7 +5619,7 @@
         "anchor": "building-phase",
         "title": "Building Phase",
         "url": "/games/roads-and-boats/rulebook/#building-phase",
-        "createdAt": 1767269248000
+        "createdAt": 1767269247000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5632,7 +5632,7 @@
         "anchor": "wonder-phase",
         "title": "Wonder Phase",
         "url": "/games/roads-and-boats/rulebook/#wonder-phase",
-        "createdAt": 1767269249000
+        "createdAt": 1767269248000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5645,7 +5645,7 @@
         "anchor": "research",
         "title": "Research",
         "url": "/games/roads-and-boats/rulebook/#research",
-        "createdAt": 1767269250000
+        "createdAt": 1767269249000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5658,7 +5658,7 @@
         "anchor": "conflict-2",
         "title": "Conflict",
         "url": "/games/roads-and-boats/rulebook/#conflict-2",
-        "createdAt": 1767269251000
+        "createdAt": 1767269250000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5671,7 +5671,7 @@
         "anchor": "end-of-the-game",
         "title": "End Of The Game",
         "url": "/games/roads-and-boats/rulebook/#end-of-the-game",
-        "createdAt": 1767269252000
+        "createdAt": 1767269251000
       },
       {
         "gameSlug": "roads-and-boats",
@@ -5684,7 +5684,7 @@
         "anchor": "colophon",
         "title": "Colophon",
         "url": "/games/roads-and-boats/rulebook/#colophon",
-        "createdAt": 1767269253000
+        "createdAt": 1767269252000
       },
       {
         "gameSlug": "root",
@@ -5697,7 +5697,7 @@
         "anchor": "reading-the-law",
         "title": "Reading the Law",
         "url": "/games/root/rulebook/#reading-the-law",
-        "createdAt": 1767269255000
+        "createdAt": 1767269254000
       },
       {
         "gameSlug": "root",
@@ -5710,7 +5710,7 @@
         "anchor": "1-golden-rules",
         "title": "1. Golden Rules",
         "url": "/games/root/rulebook/#1-golden-rules",
-        "createdAt": 1767269256000
+        "createdAt": 1767269255000
       },
       {
         "gameSlug": "root",
@@ -5723,7 +5723,7 @@
         "anchor": "2-key-concepts",
         "title": "2. Key Concepts",
         "url": "/games/root/rulebook/#2-key-concepts",
-        "createdAt": 1767269257000
+        "createdAt": 1767269256000
       },
       {
         "gameSlug": "root",
@@ -5736,7 +5736,7 @@
         "anchor": "3-victory-and-dominance",
         "title": "3. Victory and Dominance",
         "url": "/games/root/rulebook/#3-victory-and-dominance",
-        "createdAt": 1767269258000
+        "createdAt": 1767269257000
       },
       {
         "gameSlug": "root",
@@ -5749,7 +5749,7 @@
         "anchor": "4-actions",
         "title": "4. Actions",
         "url": "/games/root/rulebook/#4-actions",
-        "createdAt": 1767269259000
+        "createdAt": 1767269258000
       },
       {
         "gameSlug": "root",
@@ -5762,7 +5762,7 @@
         "anchor": "5-setup",
         "title": "5. Setup",
         "url": "/games/root/rulebook/#5-setup",
-        "createdAt": 1767269260000
+        "createdAt": 1767269259000
       },
       {
         "gameSlug": "root",
@@ -5775,7 +5775,7 @@
         "anchor": "6-marquise-de-cat",
         "title": "6. Marquise de Cat",
         "url": "/games/root/rulebook/#6-marquise-de-cat",
-        "createdAt": 1767269261000
+        "createdAt": 1767269260000
       },
       {
         "gameSlug": "root",
@@ -5788,7 +5788,7 @@
         "anchor": "7-eyrie-dynasties",
         "title": "7. Eyrie Dynasties",
         "url": "/games/root/rulebook/#7-eyrie-dynasties",
-        "createdAt": 1767269262000
+        "createdAt": 1767269261000
       },
       {
         "gameSlug": "root",
@@ -5801,7 +5801,7 @@
         "anchor": "8-woodland-alliance",
         "title": "8. Woodland Alliance",
         "url": "/games/root/rulebook/#8-woodland-alliance",
-        "createdAt": 1767269263000
+        "createdAt": 1767269262000
       },
       {
         "gameSlug": "root",
@@ -5814,7 +5814,7 @@
         "anchor": "9-vagabond",
         "title": "9. Vagabond",
         "url": "/games/root/rulebook/#9-vagabond",
-        "createdAt": 1767269264000
+        "createdAt": 1767269263000
       },
       {
         "gameSlug": "root",
@@ -5827,7 +5827,7 @@
         "anchor": "10-lizard-cult",
         "title": "10. Lizard Cult",
         "url": "/games/root/rulebook/#10-lizard-cult",
-        "createdAt": 1767269265000
+        "createdAt": 1767269264000
       },
       {
         "gameSlug": "root",
@@ -5840,7 +5840,7 @@
         "anchor": "11-riverfolk-company",
         "title": "11. Riverfolk Company",
         "url": "/games/root/rulebook/#11-riverfolk-company",
-        "createdAt": 1767269266000
+        "createdAt": 1767269265000
       },
       {
         "gameSlug": "root",
@@ -5853,7 +5853,7 @@
         "anchor": "12-underground-duchy",
         "title": "12. Underground Duchy",
         "url": "/games/root/rulebook/#12-underground-duchy",
-        "createdAt": 1767269267000
+        "createdAt": 1767269266000
       },
       {
         "gameSlug": "root",
@@ -5866,7 +5866,7 @@
         "anchor": "13-corvid-conspiracy",
         "title": "13. Corvid Conspiracy",
         "url": "/games/root/rulebook/#13-corvid-conspiracy",
-        "createdAt": 1767269268000
+        "createdAt": 1767269267000
       },
       {
         "gameSlug": "root",
@@ -5879,7 +5879,7 @@
         "anchor": "14-lord-of-the-hundreds",
         "title": "14. Lord of the Hundreds",
         "url": "/games/root/rulebook/#14-lord-of-the-hundreds",
-        "createdAt": 1767269269000
+        "createdAt": 1767269268000
       },
       {
         "gameSlug": "root",
@@ -5892,7 +5892,7 @@
         "anchor": "15-keepers-in-iron",
         "title": "15. Keepers in Iron",
         "url": "/games/root/rulebook/#15-keepers-in-iron",
-        "createdAt": 1767269270000
+        "createdAt": 1767269269000
       },
       {
         "gameSlug": "root",
@@ -5905,7 +5905,7 @@
         "anchor": "16-lilypad-diaspora",
         "title": "16. Lilypad Diaspora",
         "url": "/games/root/rulebook/#16-lilypad-diaspora",
-        "createdAt": 1767269271000
+        "createdAt": 1767269270000
       },
       {
         "gameSlug": "root",
@@ -5918,7 +5918,7 @@
         "anchor": "17-twilight-council",
         "title": "17. Twilight Council",
         "url": "/games/root/rulebook/#17-twilight-council",
-        "createdAt": 1767269272000
+        "createdAt": 1767269271000
       },
       {
         "gameSlug": "root",
@@ -5931,7 +5931,7 @@
         "anchor": "18-knaves-of-the-deepwood",
         "title": "18. Knaves of the Deepwood",
         "url": "/games/root/rulebook/#18-knaves-of-the-deepwood",
-        "createdAt": 1767269273000
+        "createdAt": 1767269272000
       },
       {
         "gameSlug": "root",
@@ -5944,7 +5944,7 @@
         "anchor": "a-advanced-setup",
         "title": "A. Advanced Setup",
         "url": "/games/root/rulebook/#a-advanced-setup",
-        "createdAt": 1767269274000
+        "createdAt": 1767269273000
       },
       {
         "gameSlug": "root",
@@ -5957,7 +5957,7 @@
         "anchor": "c-components",
         "title": "C. Components",
         "url": "/games/root/rulebook/#c-components",
-        "createdAt": 1767269275000
+        "createdAt": 1767269274000
       },
       {
         "gameSlug": "root",
@@ -5970,7 +5970,7 @@
         "anchor": "g-glossary",
         "title": "G. Glossary",
         "url": "/games/root/rulebook/#g-glossary",
-        "createdAt": 1767269276000
+        "createdAt": 1767269275000
       },
       {
         "gameSlug": "root",
@@ -5983,7 +5983,7 @@
         "anchor": "h-hirelings",
         "title": "H. Hirelings",
         "url": "/games/root/rulebook/#h-hirelings",
-        "createdAt": 1767269277000
+        "createdAt": 1767269276000
       },
       {
         "gameSlug": "root",
@@ -5996,7 +5996,7 @@
         "anchor": "k-knave-characters",
         "title": "K. Knave Characters",
         "url": "/games/root/rulebook/#k-knave-characters",
-        "createdAt": 1767269278000
+        "createdAt": 1767269277000
       },
       {
         "gameSlug": "root",
@@ -6009,7 +6009,7 @@
         "anchor": "l-landmarks",
         "title": "L. Landmarks",
         "url": "/games/root/rulebook/#l-landmarks",
-        "createdAt": 1767269279000
+        "createdAt": 1767269278000
       },
       {
         "gameSlug": "root",
@@ -6022,7 +6022,7 @@
         "anchor": "m-maps",
         "title": "M. Maps",
         "url": "/games/root/rulebook/#m-maps",
-        "createdAt": 1767269280000
+        "createdAt": 1767269279000
       },
       {
         "gameSlug": "root",
@@ -6035,7 +6035,7 @@
         "anchor": "v-vagabond-characters",
         "title": "V. Vagabond Characters",
         "url": "/games/root/rulebook/#v-vagabond-characters",
-        "createdAt": 1767269281000
+        "createdAt": 1767269280000
       },
       {
         "gameSlug": "root",
@@ -6048,7 +6048,7 @@
         "anchor": "credits",
         "title": "Credits",
         "url": "/games/root/rulebook/#credits",
-        "createdAt": 1767269282000
+        "createdAt": 1767269281000
       },
       {
         "gameSlug": "root",
@@ -6061,7 +6061,7 @@
         "anchor": "index",
         "title": "Index",
         "url": "/games/root/rulebook/#index",
-        "createdAt": 1767269283000
+        "createdAt": 1767269282000
       },
       {
         "gameSlug": "the-great-zimbabwe",
@@ -6074,7 +6074,7 @@
         "anchor": "the-great-zimbabwe",
         "title": "The Great Zimbabwe",
         "url": "/games/the-great-zimbabwe/rulebook/#the-great-zimbabwe",
-        "createdAt": 1767269285000
+        "createdAt": 1767269284000
       },
       {
         "gameSlug": "the-great-zimbabwe",
@@ -6087,7 +6087,7 @@
         "anchor": "contents",
         "title": "Contents",
         "url": "/games/the-great-zimbabwe/rulebook/#contents",
-        "createdAt": 1767269286000
+        "createdAt": 1767269285000
       },
       {
         "gameSlug": "the-great-zimbabwe",
@@ -6100,7 +6100,7 @@
         "anchor": "game-concepts",
         "title": "Game Concepts",
         "url": "/games/the-great-zimbabwe/rulebook/#game-concepts",
-        "createdAt": 1767269287000
+        "createdAt": 1767269286000
       },
       {
         "gameSlug": "the-great-zimbabwe",
@@ -6113,7 +6113,7 @@
         "anchor": "preparing-for-play",
         "title": "Preparing for Play",
         "url": "/games/the-great-zimbabwe/rulebook/#preparing-for-play",
-        "createdAt": 1767269288000
+        "createdAt": 1767269287000
       },
       {
         "gameSlug": "the-great-zimbabwe",
@@ -6126,7 +6126,7 @@
         "anchor": "phases",
         "title": "Phases",
         "url": "/games/the-great-zimbabwe/rulebook/#phases",
-        "createdAt": 1767269289000
+        "createdAt": 1767269288000
       },
       {
         "gameSlug": "the-great-zimbabwe",
@@ -6139,7 +6139,7 @@
         "anchor": "the-gods",
         "title": "The Gods",
         "url": "/games/the-great-zimbabwe/rulebook/#the-gods",
-        "createdAt": 1767269290000
+        "createdAt": 1767269289000
       },
       {
         "gameSlug": "the-great-zimbabwe",
@@ -6152,7 +6152,7 @@
         "anchor": "strategy-tips",
         "title": "Strategy Tips",
         "url": "/games/the-great-zimbabwe/rulebook/#strategy-tips",
-        "createdAt": 1767269291000
+        "createdAt": 1767269290000
       },
       {
         "gameSlug": "the-great-zimbabwe",
@@ -6165,7 +6165,7 @@
         "anchor": "colofon",
         "title": "Colofon",
         "url": "/games/the-great-zimbabwe/rulebook/#colofon",
-        "createdAt": 1767269292000
+        "createdAt": 1767269291000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6178,7 +6178,7 @@
         "anchor": "general-questions",
         "title": "General Questions",
         "url": "/games/xia-legends-of-a-drift-system/faq/#general-questions",
-        "createdAt": 1767269294000
+        "createdAt": 1767269292000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6191,7 +6191,7 @@
         "anchor": "rule-clarifications-questions",
         "title": "Rule Clarifications / Questions",
         "url": "/games/xia-legends-of-a-drift-system/faq/#rule-clarifications-questions",
-        "createdAt": 1767269295000
+        "createdAt": 1767269293000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6204,7 +6204,7 @@
         "anchor": "xia-embers-of-a-forsaken-star-updated-05-16-17",
         "title": "Xia: Embers of a Forsaken Star (Updated 05/16/17)",
         "url": "/games/xia-legends-of-a-drift-system/faq/#xia-embers-of-a-forsaken-star-updated-05-16-17",
-        "createdAt": 1767269296000
+        "createdAt": 1767269294000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6217,7 +6217,7 @@
         "anchor": "general",
         "title": "General",
         "url": "/games/xia-legends-of-a-drift-system/faq/#general",
-        "createdAt": 1767269297000
+        "createdAt": 1767269295000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6230,7 +6230,7 @@
         "anchor": "base-game",
         "title": "Base Game",
         "url": "/games/xia-legends-of-a-drift-system/faq/#base-game",
-        "createdAt": 1767269298000
+        "createdAt": 1767269296000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6243,7 +6243,7 @@
         "anchor": "explore-tokens",
         "title": "Explore Tokens",
         "url": "/games/xia-legends-of-a-drift-system/faq/#explore-tokens",
-        "createdAt": 1767269299000
+        "createdAt": 1767269297000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6256,7 +6256,7 @@
         "anchor": "events",
         "title": "Events",
         "url": "/games/xia-legends-of-a-drift-system/faq/#events",
-        "createdAt": 1767269300000
+        "createdAt": 1767269298000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6269,7 +6269,7 @@
         "anchor": "titles",
         "title": "Titles",
         "url": "/games/xia-legends-of-a-drift-system/faq/#titles",
-        "createdAt": 1767269301000
+        "createdAt": 1767269299000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6282,7 +6282,7 @@
         "anchor": "ship-abilities",
         "title": "Ship Abilities",
         "url": "/games/xia-legends-of-a-drift-system/faq/#ship-abilities",
-        "createdAt": 1767269302000
+        "createdAt": 1767269300000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6295,7 +6295,7 @@
         "anchor": "solo",
         "title": "Solo",
         "url": "/games/xia-legends-of-a-drift-system/faq/#solo",
-        "createdAt": 1767269303000
+        "createdAt": 1767269301000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6308,7 +6308,7 @@
         "anchor": "events-2",
         "title": "Events",
         "url": "/games/xia-legends-of-a-drift-system/faq/#events-2",
-        "createdAt": 1767269304000
+        "createdAt": 1767269302000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6321,7 +6321,7 @@
         "anchor": "campaign-mode-goals-and-goal-rewards",
         "title": "Campaign Mode - Goals and Goal Rewards",
         "url": "/games/xia-legends-of-a-drift-system/faq/#campaign-mode-goals-and-goal-rewards",
-        "createdAt": 1767269305000
+        "createdAt": 1767269303000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6334,7 +6334,7 @@
         "anchor": "campaign-mode-upgrades",
         "title": "Campaign Mode - Upgrades",
         "url": "/games/xia-legends-of-a-drift-system/faq/#campaign-mode-upgrades",
-        "createdAt": 1767269306000
+        "createdAt": 1767269304000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6347,7 +6347,7 @@
         "anchor": "setup",
         "title": "Setup",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#setup",
-        "createdAt": 1767269307000
+        "createdAt": 1767269306000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6360,7 +6360,7 @@
         "anchor": "overview-become-a-legend",
         "title": "Overview: Become a Legend",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#overview-become-a-legend",
-        "createdAt": 1767269308000
+        "createdAt": 1767269307000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6373,7 +6373,7 @@
         "anchor": "ships-she-may-not-look-like-much",
         "title": "Ships: She May Not Look Like Much…",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#ships-she-may-not-look-like-much",
-        "createdAt": 1767269309000
+        "createdAt": 1767269308000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6386,7 +6386,7 @@
         "anchor": "movement",
         "title": "Movement",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#movement",
-        "createdAt": 1767269310000
+        "createdAt": 1767269309000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6399,7 +6399,7 @@
         "anchor": "stranded",
         "title": "Stranded",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#stranded",
-        "createdAt": 1767269311000
+        "createdAt": 1767269310000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6412,7 +6412,7 @@
         "anchor": "action-phase",
         "title": "Action Phase",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#action-phase",
-        "createdAt": 1767269312000
+        "createdAt": 1767269311000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6425,7 +6425,7 @@
         "anchor": "business-phase",
         "title": "Business Phase",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#business-phase",
-        "createdAt": 1767269313000
+        "createdAt": 1767269312000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6438,7 +6438,7 @@
         "anchor": "status-phase",
         "title": "Status Phase",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#status-phase",
-        "createdAt": 1767269314000
+        "createdAt": 1767269313000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6451,7 +6451,7 @@
         "anchor": "sectors",
         "title": "Sectors",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#sectors",
-        "createdAt": 1767269315000
+        "createdAt": 1767269314000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6464,7 +6464,7 @@
         "anchor": "exploration",
         "title": "Exploration",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#exploration",
-        "createdAt": 1767269316000
+        "createdAt": 1767269315000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6477,7 +6477,7 @@
         "anchor": "borders",
         "title": "Borders",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#borders",
-        "createdAt": 1767269317000
+        "createdAt": 1767269316000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6490,7 +6490,7 @@
         "anchor": "planets",
         "title": "Planets",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#planets",
-        "createdAt": 1767269318000
+        "createdAt": 1767269317000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6503,7 +6503,7 @@
         "anchor": "adjacency",
         "title": "Adjacency",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#adjacency",
-        "createdAt": 1767269319000
+        "createdAt": 1767269318000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6516,7 +6516,7 @@
         "anchor": "titles",
         "title": "Titles",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#titles",
-        "createdAt": 1767269320000
+        "createdAt": 1767269319000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6529,7 +6529,7 @@
         "anchor": "missions-overview",
         "title": "Missions Overview",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#missions-overview",
-        "createdAt": 1767269321000
+        "createdAt": 1767269320000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6542,7 +6542,7 @@
         "anchor": "capitalism-cargo-cubes-and-credits",
         "title": "Capitalism: Cargo Cubes and Credits",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#capitalism-cargo-cubes-and-credits",
-        "createdAt": 1767269322000
+        "createdAt": 1767269321000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6555,7 +6555,7 @@
         "anchor": "non-player-ships",
         "title": "Non-Player Ships",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#non-player-ships",
-        "createdAt": 1767269323000
+        "createdAt": 1767269322000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6568,7 +6568,7 @@
         "anchor": "npc-details",
         "title": "NPC Details",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#npc-details",
-        "createdAt": 1767269324000
+        "createdAt": 1767269323000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6581,7 +6581,7 @@
         "anchor": "npc-types",
         "title": "NPC Types",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#npc-types",
-        "createdAt": 1767269325000
+        "createdAt": 1767269324000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
@@ -6594,7 +6594,7 @@
         "anchor": "ties-disputes",
         "title": "Ties / Disputes",
         "url": "/games/xia-legends-of-a-drift-system/rulebook/#ties-disputes",
-        "createdAt": 1767269326000
+        "createdAt": 1767269325000
       }
     ]
   },
@@ -6611,109 +6611,103 @@
         "gameSlug": "arcs",
         "gameTitle": "Arcs",
         "gameUrl": "/games/arcs/",
-        "addedAt": 1767268811000
-      },
-      {
-        "gameSlug": "arkwright",
-        "gameTitle": "Arkwright",
-        "gameUrl": "/games/arkwright/",
-        "addedAt": 1767268883000
+        "addedAt": 1767268849000
       },
       {
         "gameSlug": "bus",
         "gameTitle": "Bus",
         "gameUrl": "/games/bus/",
-        "addedAt": 1767268909000
+        "addedAt": 1767268908000
       },
       {
         "gameSlug": "food-chain-magnate",
         "gameTitle": "Food Chain Magnate",
         "gameUrl": "/games/food-chain-magnate/",
-        "addedAt": 1767268927000
+        "addedAt": 1767268926000
       },
       {
         "gameSlug": "greed-incorporated",
         "gameTitle": "Greed Incorporated",
         "gameUrl": "/games/greed-incorporated/",
-        "addedAt": 1767268956000
+        "addedAt": 1767268955000
       },
       {
         "gameSlug": "high-frontier-4-all",
         "gameTitle": "High Frontier 4 All",
         "gameUrl": "/games/high-frontier-4-all/",
-        "addedAt": 1767268974000
+        "addedAt": 1767268977000
       },
       {
         "gameSlug": "horseless-carriage",
         "gameTitle": "Horseless Carriage",
         "gameUrl": "/games/horseless-carriage/",
-        "addedAt": 1767269066000
+        "addedAt": 1767269065000
       },
       {
         "gameSlug": "indonesia",
         "gameTitle": "Indonesia",
         "gameUrl": "/games/indonesia/",
-        "addedAt": 1767269081000
+        "addedAt": 1767269089000
       },
       {
         "gameSlug": "john-company-second-edition",
         "gameTitle": "John Company: Second Edition",
         "gameUrl": "/games/john-company-second-edition/",
-        "addedAt": 1767269119000
+        "addedAt": 1767269118000
       },
       {
         "gameSlug": "john-company",
         "gameTitle": "John Company",
         "gameUrl": "/games/john-company/",
-        "addedAt": 1767269139000
+        "addedAt": 1767269138000
       },
       {
         "gameSlug": "oath",
         "gameTitle": "Oath",
         "gameUrl": "/games/oath/",
-        "addedAt": 1767269152000
+        "addedAt": 1767269162000
       },
       {
         "gameSlug": "pax-pamir-second-edition",
         "gameTitle": "Pax Pamir: Second Edition",
         "gameUrl": "/games/pax-pamir-second-edition/",
-        "addedAt": 1767269176000
+        "addedAt": 1767269175000
       },
       {
         "gameSlug": "pax-renaissance-second-edition",
         "gameTitle": "Pax Renaissance: 2nd Edition",
         "gameUrl": "/games/pax-renaissance-second-edition/",
-        "addedAt": 1767269188000
+        "addedAt": 1767269187000
       },
       {
         "gameSlug": "pax-renaissance",
         "gameTitle": "Pax Renaissance",
         "gameUrl": "/games/pax-renaissance/",
-        "addedAt": 1767269208000
+        "addedAt": 1767269207000
       },
       {
         "gameSlug": "roads-and-boats",
         "gameTitle": "Roads & Boats",
         "gameUrl": "/games/roads-and-boats/",
-        "addedAt": 1767269226000
+        "addedAt": 1767269239000
       },
       {
         "gameSlug": "root",
         "gameTitle": "Root",
         "gameUrl": "/games/root/",
-        "addedAt": 1767269254000
+        "addedAt": 1767269253000
       },
       {
         "gameSlug": "the-great-zimbabwe",
         "gameTitle": "The Great Zimbabwe",
         "gameUrl": "/games/the-great-zimbabwe/",
-        "addedAt": 1767269284000
+        "addedAt": 1767269283000
       },
       {
         "gameSlug": "xia-legends-of-a-drift-system",
         "gameTitle": "Xia: Legends of a Drift System",
         "gameUrl": "/games/xia-legends-of-a-drift-system/",
-        "addedAt": 1767269293000
+        "addedAt": 1767269305000
       }
     ]
   },

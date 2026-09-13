@@ -35,11 +35,23 @@ layout: layouts/base.njk
             {% if game.hasRulebook %}
               <a class="button button--primary" href="{{ game.url }}rulebook/">Open the rulebook</a>
             {% endif %}
-            <button type="button" class="button button--quiet favorite-toggle"
-                    data-favorite-toggle aria-pressed="false" hidden>
-              <span class="favorite-toggle__icon" data-favorite-icon></span>
-              <span data-favorite-label>Favorite</span>
-            </button>
+            {#
+              Only a listed game can be favourited.
+
+              Unlisted means the pages build and the URLs work but the game is
+              not advertised — and a favourite is advertising: it puts the game
+              on the front page, in the reader's own row, above the shelf it was
+              deliberately kept off. Where the right to publish a game is still
+              being settled, the one control that would publish it should not be
+              on the page.
+            #}
+            {% if game.visibility == "listed" %}
+              <button type="button" class="button button--quiet favorite-toggle"
+                      data-favorite-toggle aria-pressed="false" hidden>
+                <span class="favorite-toggle__icon" data-favorite-icon></span>
+                <span data-favorite-label>Favorite</span>
+              </button>
+            {% endif %}
           </div>
         </div>
       </header>

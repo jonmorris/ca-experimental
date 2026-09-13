@@ -42,7 +42,15 @@ for (const rel of pages.sort()) {
 
   const gameTitle = unescape(attr(body, "data-game-title"));
   const gameUrl = attr(body, "data-game-url");
-  if (gameUrl && !favorites.has(gameSlug)) {
+
+  /*
+   * Only a game the site will let you favourite. An unlisted one has no
+   * favourite control on its overview, so a file that starred it would be a
+   * state no reader could reach — and this fixture is meant to be the most a
+   * reader can actually do, not the most the stores will hold.
+   */
+  const favouritable = html.includes("data-favorite-toggle");
+  if (gameUrl && favouritable && !favorites.has(gameSlug)) {
     favorites.set(gameSlug, { gameSlug, gameTitle, gameUrl, addedAt: (stamp += 1000) });
   }
 
