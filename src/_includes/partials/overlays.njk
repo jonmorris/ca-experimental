@@ -68,7 +68,7 @@
       you need while reading a long list — and because a scrollbar running the
       full height of the panel cuts across its rounded corners.
     #}
-    <div class="palette__scroll">
+    <div class="overlay-scroll">
       <p class="palette__empty" data-palette-empty></p>
 
       <ul class="palette__results" id="palette-results" role="listbox"
@@ -106,52 +106,59 @@
       </div>
     </header>
 
-    <div class="prefs__body" data-preferences-body></div>
-
     {#
-      Everything the site has stored, under one label like the settings above
-      it — but set apart by a rule, because these are not settings. Every
-      control above changes how a page looks; every control here moves or
-      destroys what the reader has made.
+      Same shape as the palette: the header stays, everything under it scrolls.
+      The reset button lives up there, and a panel long enough to scroll is
+      exactly the one where you would want it still in reach.
     #}
-    <section class="prefs__section" aria-labelledby="prefs-data-label">
-      <p class="pref-group__label" id="prefs-data-label">Your data</p>
+    <div class="overlay-scroll">
+      <div class="prefs__body" data-preferences-body></div>
 
       {#
-        The note has to name the cost, not just the privacy. "Saved in this
-        browser only" reads as reassurance — nothing is uploaded — and buries
-        the part a reader would want to act on, which is that a browser is a
-        place things get deleted from.
+        Everything the site has stored, under one label like the settings
+        above it — but set apart by a rule, because these are not settings.
+        Every control above changes how a page looks; every control here moves
+        or destroys what the reader has made.
       #}
-      <p class="prefs__note">
-        Saved in this browser only: nothing is uploaded and nothing is shared
-        with your other devices. Clearing your browsing data removes it, and
-        Safari deletes it after about a week without a visit.
-      </p>
+      <section class="prefs__section" aria-labelledby="prefs-data-label">
+        <p class="pref-group__label" id="prefs-data-label">Your data</p>
 
-      {#
-        Taking it with you, above the clear buttons — "keep a copy" should be
-        the easier of the two things to find in a panel that also destroys
-        data. And the history is why the clearing is here at all: bookmarks are
-        things the reader chose to keep, but the history is a record the site
-        wrote down on their behalf, and that should never be something only the
-        developer can erase.
-      #}
-      <div class="prefs__data">
-        <button type="button" class="prefs__transfer" data-export>Download a copy</button>
-        <button type="button" class="prefs__transfer" data-import-open>Restore from a file</button>
-        <input class="visually-hidden" type="file" accept="application/json,.json"
-               data-import-file tabindex="-1" aria-hidden="true">
-      </div>
+        {#
+          The note has to name the cost, not just the privacy. "Saved in this
+          browser only" reads as reassurance — nothing is uploaded — and buries
+          the part a reader would want to act on, which is that a browser is a
+          place things get deleted from.
+        #}
+        <p class="prefs__note">
+          Saved in this browser only: nothing is uploaded and nothing is shared
+          with your other devices. Clearing your browsing data removes it, and
+          Safari deletes it after about a week without a visit.
+        </p>
 
-      <p class="prefs__result" data-transfer-result role="status" hidden></p>
+        {#
+          Taking it with you, above the clear buttons — "keep a copy" should be
+          the easier of the two things to find in a panel that also destroys
+          data. And the history is why the clearing is here at all: bookmarks are
+          things the reader chose to keep, but the history is a record the site
+          wrote down on their behalf, and that should never be something only the
+          developer can erase.
+        #}
+        <div class="prefs__data">
+          <button type="button" class="prefs__transfer" data-export>Download a copy</button>
+          <button type="button" class="prefs__transfer" data-import-open>Restore from a file</button>
+          <input class="visually-hidden" type="file" accept="application/json,.json"
+                 data-import-file tabindex="-1" aria-hidden="true">
+        </div>
 
-      <div class="prefs__data">
-        <button type="button" class="prefs__clear" data-clear-favorites>Clear favorites</button>
-        <button type="button" class="prefs__clear" data-clear-history>Clear history</button>
-        <button type="button" class="prefs__clear" data-clear-bookmarks>Clear bookmarks</button>
-      </div>
-    </section>
+        <p class="prefs__result" data-transfer-result role="status" hidden></p>
+
+        <div class="prefs__data">
+          <button type="button" class="prefs__clear" data-clear-favorites>Clear favorites</button>
+          <button type="button" class="prefs__clear" data-clear-history>Clear history</button>
+          <button type="button" class="prefs__clear" data-clear-bookmarks>Clear bookmarks</button>
+        </div>
+      </section>
+    </div>
   </div>
 </dialog>
 
