@@ -2072,9 +2072,10 @@ a.home-update:hover .home-update__go {
 }
 
 /*
- * Built to match the bookmark toggle beside it: same padding, same icon size,
- * same label that drops away on a narrow screen. The two are a pair of actions
- * on the same heading and should not read as two different kinds of thing.
+ * Built to match the bookmark toggle beside it: same padding, same label that
+ * drops away on a narrow screen, and a glyph drawn to the same weight and
+ * height. The two are a pair of actions on the same heading and should not
+ * read as two different kinds of thing.
  */
 .heading-permalink {
   display: inline-flex;
@@ -2087,10 +2088,21 @@ a.home-update:hover .home-update__go {
   text-decoration: none;
 }
 
+/*
+ * Weight is set in the viewBox and paid for in pixels.
+ *
+ * This one is drawn on a 24-unit grid and the bookmark on a 16-unit one, so
+ * the same number means two different line widths on screen: at 15px square
+ * the chain's 1.7 came out at about 1.06 real pixels against the bookmark's
+ * 1.6, and the pair read as two icons from two different sets — the link
+ * thinner as well as smaller. 18px at 2.1 puts both at roughly 1.6 drawn, and
+ * leaves the square glyph a little shorter than the tall one beside it, which
+ * is what makes two different shapes look the same size.
+ */
 .heading-permalink__icon {
   fill: none;
   stroke: currentcolor;
-  stroke-width: 1.7;
+  stroke-width: 2.1;
   stroke-linecap: round;
 }
 
