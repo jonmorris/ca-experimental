@@ -824,7 +824,13 @@ dialog::backdrop {
   gap: var(--space-2);
 }
 
-.prefs__data + .prefs__data {
+/*
+ * `~`, not `+`. The result line sits between the two rows, and it is `hidden`
+ * until something has happened — but a hidden element is still a sibling, so
+ * the adjacent combinator never matched and the rows sat flush against each
+ * other. The general one holds whether the line is showing or not.
+ */
+.prefs__data ~ .prefs__data {
   margin-top: var(--space-3);
 }
 
