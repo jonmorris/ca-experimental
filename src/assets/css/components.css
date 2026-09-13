@@ -328,18 +328,40 @@
 }
 
 /*
- * Given room to be seen for what it is. Sized to its own label, it read as
- * another of the icon buttons beside it; a field wants a field's proportions,
- * and there is space in the header for one.
+ * Given room to be seen for what it is, and more of it as the header gets
+ * more. Sized to its own label it read as another of the icon buttons beside
+ * it; a field wants a field's proportions, and the space it takes here is
+ * space the header has nothing else to do with.
  */
 @media (min-width: 46rem) {
   .search-trigger {
-    min-width: 10rem;
+    min-width: 12rem;
   }
 }
 
+@media (min-width: 64rem) {
+  .search-trigger {
+    min-width: 18rem;
+  }
+}
+
+@media (min-width: 88rem) {
+  .search-trigger {
+    min-width: 22rem;
+  }
+}
+
+/*
+ * The words take the slack, which pushes the shortcut to the far end — the
+ * same shape as the home page's field, where the icon and the label sit
+ * together on the left and the key sits alone on the right. Packed left, the
+ * three read as a row of three things rather than as a field with a hint in
+ * the corner.
+ */
 .search-trigger__label {
+  flex: 1 1 auto;
   overflow: hidden;
+  text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
