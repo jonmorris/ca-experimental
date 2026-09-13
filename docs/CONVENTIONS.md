@@ -86,6 +86,47 @@ mirror the path — `/games/{game}/{expansion}/{type}/`. There is no
 Content is base-level by default. Put a file in an expansion directory only
 when it is exclusively about that expansion.
 
+### Downloads
+
+Files a game offers alongside its pages — the publisher's original PDF, and
+anything made for this site. Declared in `game.json` and rendered as a
+**Downloads** section on the game's overview, below the contents cards.
+
+```json
+"downloads": [
+  { "title": "Arcs Rulebook", "file": "downloads/arcs-rulebook.pdf", "note": "Leder Games, 2024" },
+  { "title": "Campaign Reference Sheet", "file": "downloads/arcs-campaign-reference.pdf", "note": "Made for Cardboard Appendix" },
+  { "title": "Official FAQ", "url": "https://…/faq.pdf", "size": "1.2 MB" }
+]
+```
+
+An entry carries **either** `file` or `url`, and that is what tells the two
+kinds apart — no `type` field to keep in step with reality:
+
+- `file` is a plain filename in the game's own `downloads/` directory
+  (`src/games/{slug}/downloads/`). It is copied to `/games/{slug}/downloads/`
+  untouched, and the link carries `download`.
+- `url` is somebody else's copy. It opens in a new tab like every other
+  external link, and may state `size` and `format` since neither can be
+  measured from here.
+
+`title` is required. `note` is optional and is the line under the title — use
+it to say whose file it is.
+
+**Format and size are measured at build time** for a local file, never typed
+into `game.json`: a hand-written size goes stale silently the first time the
+file is replaced. An entry whose file is not on disk is dropped with a build
+warning rather than rendered, so the page never offers a download that 404s,
+and `verify:links` fails on a download link with no file behind it.
+
+`downloads/` is never touched by `npm run sync`, and the `downloads` key is
+carried across a sync like `tags` — both are written here and have no upstream
+equivalent.
+
+> Files committed here live in git forever, and GitHub Pages wants the built
+> site under 1GB. A dozen 20MB rulebooks is fine; the whole shelf at that size
+> is not. Link out with `url` where the publisher hosts a copy worth linking.
+
 ### Source and working files
 
 - `_source/` — raw source material, OCR dumps, copied draft text. **Read-only.**

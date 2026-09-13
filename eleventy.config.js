@@ -106,6 +106,15 @@ export default function (eleventyConfig) {
   eleventyConfig.ignores.add("src/games/**/_working/**");
 
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+
+  /*
+   * A game's downloadable files, copied byte for byte to sit beside its pages.
+   *
+   * Not run through the image transform or any other pipeline: these are the
+   * publisher's own PDF and the aids made for this site, and the point of
+   * offering them is that the reader gets the file itself.
+   */
+  eleventyConfig.addPassthroughCopy("src/games/*/downloads/**");
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
 
   eleventyConfig.setServerOptions({ showAllHosts: true });

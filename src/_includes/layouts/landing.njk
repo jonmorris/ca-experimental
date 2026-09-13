@@ -124,6 +124,19 @@ layout: layouts/base.njk
         </section>
       {% endfor %}
 
+      {#
+        The files, under the pages.
+
+        Below Contents and the expansions because those are this site's own
+        rendering of the rules — the thing somebody came here for — and a
+        download is the alternative to reading them here. Above the bookmarks
+        panel, which is about what this reader has done rather than about what
+        the game has.
+      #}
+      {% if game.downloads.length %}
+        {% include "partials/downloads.njk" %}
+      {% endif %}
+
       {# Nothing to save yet if the game has no content to save from. #}
       {% if game.allContentTypes.length %}
         {% include "partials/bookmarks-panel.njk" %}
