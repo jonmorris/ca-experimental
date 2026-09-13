@@ -27,7 +27,7 @@ A static web platform for board game rules. Each game gets a set of authored con
 
 - Text-highlight annotations
 - User accounts / server-synced bookmarks (storage shape must be forward-compatible)
-- Cross-game similarity / recommendations
+- Cross-game similarity / recommendations — **partly built, see Amendment 6**
 - Any authoring UI (content is git-committed)
 
 ## 3. Content model
@@ -302,15 +302,15 @@ Applies to every change regardless of who is making it.
 
 ## 14. Out of scope (intentionally)
 
-Accounts, comments, authoring UI, bookmarks sync in phase 1, text highlights,
-cross-game similarity.
+Accounts, comments, authoring UI, bookmarks sync in phase 1, text highlights.
+Cross-game similarity was brought into scope — see Amendment 6.
 
 ---
 
 ## Amendments
 
 This document is the specification of record and has been amended as the
-product changed. Five departures from the original:
+product changed. Six departures from the original:
 
 1. **Navigation (§6) was reopened.** The original pinned an inline nav bar
    above 1024px, a hamburger below, and a bottom-pinned prev/next bar. The
@@ -342,6 +342,18 @@ product changed. Five departures from the original:
    to a 404, because the palette's index travels to the browser as JSON and so
    was never rewritten for the prefix — and neither was anything else that
    reaches the client as data, including every self-hosted webfont.
+
+6. **Cross-game similarity was brought into scope**, in the narrow form the
+   catalogue can support. Every game's overview ends with a row of other games
+   ranked by shared designer and publisher, re-ranked in the browser against
+   the reader's favourites and reading history. The original deferred this on
+   the grounds that two games is not a corpus; there are twenty, and credits
+   cluster hard enough across them to be worth acting on. The recommendation
+   *taxonomy* — filtering and similarity by mechanism, which is what `tags`
+   were reserved for — stays deferred, because tags cover six games of twenty
+   and a similarity score on inconsistent tags is confidently wrong with
+   nothing on the page to say so. See `DECISIONS.md` for the shipped shape and
+   `DEFERRED.md` for the rest.
 
 Everything else — the URL contract, the content model, cross-link semantics,
 the bookmark storage schema, print as a first-class output and the

@@ -103,7 +103,7 @@ src/
     games.11tydata.js      Permalinks, layouts and game context for everything under games/
     {game-slug}/           One directory per game
 scripts/                 Verification scripts
-docs/                    Requirements, conventions, deferred features
+docs/                    Requirements, conventions, decisions, deferred features
 ```
 
 ## Adding a game
@@ -165,5 +165,8 @@ still gets the full build and verification from `ci.yml`.
   implements.
 - [docs/CONVENTIONS.md](docs/CONVENTIONS.md) — content model, URL contract,
   cross-linking, anchors, and the engineering rules that apply to every change.
+- [docs/DECISIONS.md](docs/DECISIONS.md) — how the shipped features work and
+  why they are shaped that way, including the options rejected along the way.
+  Read the entry before changing a feature.
 - [docs/DEFERRED.md](docs/DEFERRED.md) — features deliberately not built, and
   what the current code already does to keep the door open for them.

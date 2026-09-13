@@ -8,7 +8,6 @@
 
 import { preferences, applyPreferences } from "./preferences.js";
 import { initPreferences } from "./preferences-ui.js";
-import { initAccount } from "./account-ui.js";
 import { initMenu } from "./menu.js";
 import { initCommandPalette } from "./command-palette.js";
 import { initBookmarkToggles } from "./bookmarks-ui.js";
@@ -21,6 +20,7 @@ import { initHeadingLinks } from "./heading-links.js";
 import { initHistoryRecorder } from "./history-recorder.js";
 import { initShelf } from "./shelf.js";
 import { initRecentGames } from "./recent-games.js";
+import { initRelatedGames } from "./related-games.js";
 import { initJumpBookmarks } from "./jump-bookmarks.js";
 import { initMyReference, initReferenceCount } from "./my-reference.js";
 import { initPrint } from "./print.js";
@@ -40,10 +40,10 @@ function start() {
   initShelf();
   initFavorites();
   initRecentGames();
+  initRelatedGames();
 
   initMenu();
   initPreferences();
-  initAccount();
   initCommandPalette();
   initBookmarkToggles();
   initJumpBookmarks();

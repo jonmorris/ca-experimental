@@ -30,17 +30,6 @@
   text-decoration: none;
 }
 
-/* A menu row that acts rather than navigates; everything else about it is a
-   nav-link, including being the full width of the list. */
-.nav-link--button {
-  width: 100%;
-  background: none;
-  border: 0;
-  cursor: pointer;
-  font: inherit;
-  text-align: inherit;
-}
-
 .nav-link:hover {
   background: var(--surface-sunken);
   color: var(--ink);
@@ -247,21 +236,6 @@
   border-radius: var(--radius);
   color: var(--ink-muted);
   cursor: pointer;
-}
-
-/*
- * The header carries four controls on a phone, and a fifth would cost the
- * wordmark its place. Your data is the one nobody reaches for in the middle of
- * a game, so below tablet width it leaves the header for a line in the menu —
- * see the entry in header.njk.
- *
- * Here rather than in layout.css because it has to out-rank `.icon-button`
- * above, which sets a display of its own and is loaded after it.
- */
-@media (max-width: 46rem) {
-  .icon-button[data-account-toggle] {
-    display: none;
-  }
 }
 
 .icon-button:hover {
@@ -1096,49 +1070,6 @@ button.palette__link {
 }
 
 /*
- * What the browser is holding, as a short column of figures.
- *
- * Numbers first and left-aligned in their own column so the eye can run down
- * them, which is the whole reason to count things rather than list them. Rows
- * at zero stay, greyed: a summary that dropped its empty rows would change
- * shape as the reader used the site, and "no bookmarks" answers the question
- * this panel was opened to ask.
- */
-.data-summary {
-  display: grid;
-  gap: var(--space-2);
-  margin: 0 0 var(--space-5);
-  padding: 0;
-  list-style: none;
-}
-
-.data-summary__row {
-  display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  align-items: baseline;
-  gap: var(--space-3);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-}
-
-.data-summary__value {
-  color: var(--ink);
-  font-size: var(--text-lg);
-  font-variant-numeric: tabular-nums;
-  font-weight: 650;
-  text-align: right;
-}
-
-.data-summary__label {
-  color: var(--ink-muted);
-}
-
-.data-summary__row.is-empty .data-summary__value,
-.data-summary__row.is-empty .data-summary__label {
-  color: var(--ink-faint);
-}
-
-/*
  * The wide door, set apart from the four narrow ones by a rule and given the
  * room to be read before it is pressed.
  */
@@ -1371,6 +1302,26 @@ button.palette__link {
   font-size: var(--text-md);
 }
 
+/*
+ * The same row again, one step tighter, for the foot of a game's overview.
+ *
+ * It is the recent row's tiles in a narrower column: the landing page loses
+ * the sidebar's width to the sidebar, and at 10.5rem tracks the fourth tile
+ * drops onto a line of its own and reads as an afterthought rather than as the
+ * end of a row. Four across a laptop, two across a phone, and the tiles stay
+ * the size of a thing you glance at on the way out.
+ */
+.game-grid--related {
+  /*
+   * `auto-fit`, not `auto-fill`. The row holds exactly four, and auto-fill
+   * reserves as many tracks as the column could hold — six on a wide screen,
+   * so four tiles sat bunched to the left under a heading spanning the whole
+   * measure. auto-fit collapses the empty tracks and lets the four it has
+   * share the room.
+   */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
+}
+
 /* Where the reader was, and the way straight back to it. */
 .game-tile__place {
   color: var(--ink-faint);
@@ -1440,7 +1391,7 @@ button.palette__link {
 /*
  * The cover sits beside the title on the page's own surface. No blurred
  * backdrop, no scrim: nothing is laid over the art, so the type reads in the
- * page's colours and the cover is shown at its own proportions.
+ * page's colours and the cover is shown as an object beside the title.
  */
 .landing__hero {
   display: grid;
@@ -1450,18 +1401,44 @@ button.palette__link {
   border-bottom: 1px solid var(--line);
 }
 
+/*
+ * The same frame the shelf gives a cover: a fixed-ratio box on a quieter
+ * ground, with the art contained and centred inside it. A reader arrives here
+ * from a tile, so the art carrying its treatment across the jump makes the two
+ * read as one object rather than two pictures of it.
+ *
+ * The frame also settles the size question the way the shelf settles it. Sized
+ * to the artwork, a tall box and a wide one took different amounts of the hero
+ * and dropped the title at a different height on each game's page; the box is
+ * now the same on every page and the art is what varies within it.
+ */
 .landing__cover {
+  --cover-width: 87%;
+
   display: block;
   justify-self: start;
+  width: min(100%, 16rem);
+  aspect-ratio: 4 / 3;
+  padding: var(--space-5);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
 }
 
+/*
+ * Sized as a box and centred by `object-fit`, matching the tile: giving the
+ * picture the height and letting the width be held back is what keeps the
+ * padding honest whatever proportions the cover has. `drop-shadow` follows
+ * what is actually drawn, so it hugs the artwork rather than tracing the empty
+ * space beside a letterboxed one.
+ */
 .landing__cover img {
   display: block;
-  width: auto;
-  max-width: min(100%, 16rem);
-  max-height: 16rem;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow);
+  width: var(--cover-width);
+  height: 100%;
+  margin-inline: auto;
+  object-fit: contain;
+  filter: drop-shadow(var(--shadow-art));
 }
 
 .landing__title {

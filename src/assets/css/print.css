@@ -46,7 +46,9 @@ body {
 .reference-removed,
 .chip-row,
 dialog,
-[data-palette-index] {
+[data-palette-index],
+/* A way onwards from a page that is now a sheet of paper. */
+[data-related-games] {
   display: none !important;
 }
 
