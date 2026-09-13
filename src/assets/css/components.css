@@ -1564,6 +1564,33 @@ button.palette__link {
  * what is actually drawn, so it hugs the artwork rather than tracing the empty
  * space beside a letterboxed one.
  */
+/*
+ * On a phone the frame is shorter, and shorter again where the screen is.
+ *
+ * Two separate cuts, because the hero has two separate problems on a small
+ * screen. The first is the frame: at 4/3 it stands a band of empty ground
+ * above and below a wide cover, which is room spent on nothing. 16/10 is
+ * closer to what box art actually is and takes about a sixth off the height
+ * everywhere without the art inside it changing size much at all.
+ *
+ * The second is that everything under the frame — title, description, two
+ * buttons — costs roughly the same number of pixels on every phone, so on a
+ * short screen it eats a far larger share of it and the hero runs past the
+ * fold with nothing below it visible. Only the frame can give, so it gives.
+ *
+ * `svh` and not a height media query. The viewport height on Android changes
+ * as the URL bar collapses, and the interesting thresholds sit inside that
+ * range — a phone with a 640px viewport has a 740px one a moment into the
+ * scroll — so a `max-height` query would resize the cover under the reader's
+ * thumb. `svh` is the height with the toolbars showing and does not move.
+ */
+@media (max-width: 45.99rem) {
+  .landing__cover {
+    aspect-ratio: 16 / 10;
+    max-height: 30svh;
+  }
+}
+
 .landing__cover img {
   display: block;
   width: var(--cover-width);
