@@ -24,6 +24,27 @@
   margin-top: var(--space-4);
 }
 
+/*
+ * A section heading gets more room above it than a paragraph break does. It is
+ * the largest division on the page and has to read as one — set flush with the
+ * paragraph before it, a new section of the rules looked like a new sentence.
+ *
+ * `.section-heading` in components.css has said `margin: var(--space-7) 0 …`
+ * all along, and lost: it is the same specificity as the rule above and
+ * components.css loads first, so the generic gap overwrote it on every heading
+ * in every rulebook. Naming the parent here is what settles it, and putting it
+ * beside the rule it is arguing with is what stops it being settled again by
+ * accident.
+ *
+ * Bare `h2` as well as the wrapper, because the bookmarkable content types get
+ * the wrapper from `enhanceHeadings` and the rest — About, a glossary's prose —
+ * write their headings straight into the markdown.
+ */
+.prose > * + .section-heading,
+.prose > * + h2 {
+  margin-top: var(--space-7);
+}
+
 .prose h2 {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
