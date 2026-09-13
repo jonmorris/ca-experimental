@@ -275,3 +275,68 @@ go today except a panel titled Reading, where they do not belong.
 or a page — a summary with per-type counts, sizes and a clear each is closer
 to a settings page than to a sheet, and it would have somewhere to explain the
 storage limits that the note currently has to compress into three sentences.
+
+---
+
+## Localization
+
+The rules in more than one language, and a site that speaks whichever the
+reader does.
+
+**Why deferred:** the hard part is not the plumbing. Eleventy ships
+`EleventyI18nPlugin` (exported from `@11ty/eleventy`, no install needed): it
+takes a directory-per-language URL structure, gives templates `locale_url` and
+`locale_links` for switching between versions of the same page, and falls back
+to a default language for anything not yet translated. That is a day's work.
+The translating is the project, and there are three separate problems in it.
+
+**Rights.** Rules text here is reproduced by permission, and the footer says as
+much. A translation is a derivative work: permission to reproduce a rulebook is
+not automatically permission to translate it, and a publisher who has licensed
+or sold foreign-language editions has usually given those rights to someone
+else entirely. So this starts with asking, one publisher at a time, and the
+answer may be no for exactly the games that most need it.
+
+**Official translations usually already exist**, and they are better than
+anything this project would produce: a German or French edition of a game has
+had its terms settled by people who know both the language and the game, and a
+reader looking up a rule needs the words printed on their own cards. Finding
+and getting permission for those is a smaller job than translating, and the
+result is more correct. It is also a different pipeline — sourcing a second
+rulebook per language rather than transforming the one we have.
+
+**Machine translation is the wrong first tool here** even where it is allowed.
+Rules text is dense with terms of art that are also ordinary words — a suit, a
+turn, a trick, a hand, initiative, a slot — and every one of them has a precise
+meaning in one game and a different one in the next. A translation that is
+fluent and subtly wrong about which noun is a game term is worse than none,
+because nothing on the page tells the reader it happened. If it is ever used it
+belongs as a first pass for a human who knows the game, not as the published
+text.
+
+**What already helps:**
+
+- **URLs are built from one place.** `lib/registry.js` composes every page URL,
+  and `withBasePath` is the only thing that rewrites them. A language segment
+  would go in alongside the deployment prefix rather than being threaded
+  through templates.
+- **Content is files on disk**, one markdown document per content type, already
+  keyed by game and expansion in the registry. A translation is another file
+  beside the original, not a new content model.
+- **Anchors are slugs of headings**, which means a translated document produces
+  different anchors — and bookmarks are stored against anchors. Whatever this
+  becomes, `anchorAliases` is the existing mechanism for "this section is also
+  known as", and the bookmark record already carries enough to be re-homed.
+- **Pagefind indexes by language**, reading the `lang` attribute of each page
+  and building a separate index per language, so search does not need solving
+  separately — the pages just have to declare what they are.
+- **UI strings are not extracted.** They are written into the templates and a
+  few JS modules (`"All games"`, `"Searching {game}"`, `"2 sections"`, the
+  empty states). That is the one piece of present code that a language switch
+  would force a change to, and it is worth knowing before starting: the count
+  is small, under a hundred, but they are everywhere.
+
+**Worth settling first:** whether a language is a property of a game (this
+rulebook exists in German) or of the site (this reader wants German). They lead
+to different URL shapes and different fallbacks, and the honest answer for a
+long time will be that most games have one language and a few have several.
