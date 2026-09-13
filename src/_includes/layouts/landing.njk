@@ -75,7 +75,16 @@ layout: layouts/base.njk
             <li class="card">
               <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
               {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
-              {% if type.sections.length %}
+              {#
+                Every other card counts what is in it at build time. My
+                Reference holds whatever this reader has bookmarked, which only
+                the browser knows — so it gets the same line from the same
+                place in the card, filled in by the client and hidden until
+                there is a number worth showing.
+              #}
+              {% if type.slug == "my-reference" %}
+                <p class="card__meta" data-reference-count hidden></p>
+              {% elif type.sections.length %}
                 <p class="card__meta">{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</p>
               {% endif %}
             </li>

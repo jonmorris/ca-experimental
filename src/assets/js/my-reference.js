@@ -208,6 +208,29 @@ function buildOrphan(bookmark) {
   return section;
 }
 
+/**
+ * The count on the game's contents card.
+ *
+ * Phrased as the other cards phrase it — "2 sections" — because it is the same
+ * question asked of a page whose answer happens to live in the browser. Hidden
+ * at zero rather than showing "0 sections": a card that has nothing in it yet
+ * is described by its line above, and a zero would read as an error.
+ */
+export function initReferenceCount() {
+  const slot = document.querySelector("[data-reference-count]");
+  const gameSlug = document.body.dataset.game;
+  if (!slot || !gameSlug) return;
+
+  function render() {
+    const saved = bookmarkStore.list({ gameSlug }).length;
+    slot.textContent = `${saved} section${saved === 1 ? "" : "s"}`;
+    slot.hidden = saved === 0;
+  }
+
+  render();
+  bookmarkStore.subscribe(render);
+}
+
 export function initMyReference() {
   const root = document.querySelector("[data-my-reference]");
   const body = root?.querySelector("[data-reference-body]");

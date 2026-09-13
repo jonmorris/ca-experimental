@@ -20,7 +20,7 @@ import { initHeadingLinks } from "./heading-links.js";
 import { initHistoryRecorder } from "./history-recorder.js";
 import { initRecentGames } from "./recent-games.js";
 import { initJumpBookmarks } from "./jump-bookmarks.js";
-import { initMyReference } from "./my-reference.js";
+import { initMyReference, initReferenceCount } from "./my-reference.js";
 import { initPrint } from "./print.js";
 import { initFavorites } from "./favorites-ui.js";
 import { initAboutDemos } from "./about-demos.js";
@@ -44,6 +44,7 @@ function start() {
   initBookmarkToggles();
   initJumpBookmarks();
   initMyReference();
+  initReferenceCount();
   initPrint();
   initBookmarksPanel();
   initBookmarksDrawer();
