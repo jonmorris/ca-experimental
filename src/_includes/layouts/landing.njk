@@ -124,11 +124,12 @@ layout: layouts/base.njk
 
         Ranked at build time by credits — designer first, then publisher — and
         topped up with whatever is left on the shelf so the row is never short.
-        A tile says why it is there when there is a why; the ones filling in
-        say nothing rather than claiming a connection they do not have. The
-        heading is deliberately plain for the same reason: on a game whose
-        designer and publisher are on nothing else here, "More like this" would
-        be a promise the row cannot keep.
+        Covers and names, and nothing about why: a line per tile explaining the
+        connection was four lines of bookkeeping under one heading, which is
+        more than anybody glancing at the foot of a page wants to read. The
+        heading is plain for the same reason — on a game whose designer and
+        publisher are on nothing else here, "More like this" would be a promise
+        the row cannot keep.
 
         Eight are written and four are shown. The four extra are not padding —
         `related-games.js` re-ranks this row against the games the reader has
@@ -166,7 +167,6 @@ layout: layouts/base.njk
                 </a>
                 <div class="game-tile__body">
                   <h3 class="game-tile__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
-                  {% if item.reason %}<p class="game-tile__meta">{{ item.reason }}</p>{% endif %}
                 </div>
               </li>
             {% endfor %}
