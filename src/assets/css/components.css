@@ -1915,13 +1915,47 @@ body[data-content-type="rulebook"] {
  * tap target, which is most of the point of a bar at the bottom of a phone.
  */
 .prev-next__link {
-  display: grid;
-  align-content: center;
-  gap: 2px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
   padding: var(--space-2) var(--space-4);
   font-family: var(--font-ui);
   text-decoration: none;
   min-width: 0;
+}
+
+/* The two lines of words, beside the arrow rather than under it. */
+.prev-next__text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+/*
+ * The arrow leans the way it is going when the link is under the pointer. Two
+ * pixels — enough to feel like the control answered, not enough to look like
+ * something moved.
+ */
+.prev-next__arrow {
+  flex: none;
+  color: var(--ink-faint);
+  transition: translate 140ms ease, color 140ms ease;
+}
+
+.prev-next__link:hover .prev-next__arrow {
+  color: var(--accent);
+}
+
+.prev-next__link--prev .prev-next__arrow {
+  rotate: 180deg;
+}
+
+.prev-next__link--prev:hover .prev-next__arrow {
+  translate: -2px 0;
+}
+
+.prev-next__link--next:hover .prev-next__arrow {
+  translate: 2px 0;
 }
 
 .prev-next__link:hover {
@@ -1929,6 +1963,7 @@ body[data-content-type="rulebook"] {
 }
 
 .prev-next__link--next {
+  justify-content: flex-end;
   border-left: 1px solid var(--line);
   text-align: right;
 }
@@ -2012,8 +2047,35 @@ body[data-content-type="rulebook"] {
   /* Stacked and narrow: both read from the left, and a long section title
      wraps rather than losing its second half to an ellipsis. */
   .prev-next__link--next {
+    justify-content: space-between;
     border-left: 1px solid var(--line);
     text-align: left;
+  }
+
+  .prev-next__link--prev {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  /*
+   * Stacked, the pair is a vertical move: previous is the section above and
+   * next is the one below, so the arrows say up and down rather than back and
+   * forward. The same glyph, turned a quarter instead of a half.
+   */
+  .prev-next__link--prev .prev-next__arrow {
+    rotate: -90deg;
+  }
+
+  .prev-next__link--next .prev-next__arrow {
+    rotate: 90deg;
+  }
+
+  .prev-next__link--prev:hover .prev-next__arrow {
+    translate: 0 -2px;
+  }
+
+  .prev-next__link--next:hover .prev-next__arrow {
+    translate: 0 2px;
   }
 
   .prev-next__label {
