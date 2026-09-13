@@ -1346,8 +1346,25 @@ dialog::backdrop {
  */
 .home {
   display: grid;
+  /*
+   * `minmax(0, 1fr)`, not `1fr`. A grid track's default minimum is the widest
+   * thing inside it, and the search field's label is one unbreakable line — so
+   * on a 320px screen the track grew to fit the label and took the whole page
+   * with it, four pixels wider than the window. Capped, the label ellipsises,
+   * which is what it was built to do.
+   */
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-7);
   align-content: start;
+}
+
+/*
+ * And the same again on the items. Capping the track is only half of it: a
+ * grid item's own automatic minimum is also its content's width, so the hero
+ * would still push out past a track that had agreed to be narrower.
+ */
+.home > * {
+  min-width: 0;
 }
 
 /*
@@ -1362,8 +1379,18 @@ dialog::backdrop {
  * leaving behind. Nothing is hidden behind an Explore More.
  */
 .home__hero {
+  /*
+   * Centred with `justify-self`, not with auto margins. A grid item with auto
+   * inline margins is sized fit-content rather than stretched — and
+   * fit-content has a floor of the content's min-content width, which here is
+   * the search field's one unbreakable label. That floor is what pushed the
+   * whole page four pixels wider than a 320px screen. An explicit width takes
+   * the track's, the cap still holds on a wide one, and the item is centred by
+   * the grid instead.
+   */
+  width: 100%;
   max-width: 44rem;
-  margin-inline: auto;
+  justify-self: center;
   padding-block: var(--space-7) var(--space-6);
   text-align: center;
 }
@@ -1391,6 +1418,7 @@ dialog::backdrop {
    * a control rather than as a band.
    */
   width: 100%;
+  min-width: 0;
   max-width: 38rem;
   margin-block-start: var(--space-7);
   margin-inline: auto;
@@ -2477,8 +2505,27 @@ body[data-content-type="rulebook"] {
 /* ================================================== shelf tools (home) */
 
 /*
- * The handle on the tray, on the heading's own line. Quiet until it is doing
- * something: a shelf that is being filtered says so, in the accent, with the
+ * The heading and the tray's handle share a line: the control sits with the
+ * thing it acts on, and the row it would otherwise take belongs to the games.
+ * It wraps at the width where the two stop fitting.
+ */
+.shelf-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+/* The row carries the space now, so neither child brings its own. */
+.shelf-head .section-title,
+.shelf-head .shelf-toggle {
+  margin-bottom: 0;
+}
+
+/*
+ * The handle itself. Quiet until it is doing something: a shelf that is being filtered says so, in the accent, with the
  * number of filters running.
  */
 .shelf-toggle {
