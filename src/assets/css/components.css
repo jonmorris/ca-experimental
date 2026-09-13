@@ -2312,23 +2312,9 @@ a.home-update:hover .home-update__go {
  */
 @media (max-width: 63.99rem) {
   /*
-   * Down onto the real edge of the screen.
-   *
-   * `--viewport-gap` is how far the visible area reaches past the bottom of
-   * the layout viewport, which is the only place a fixed element can be
-   * pinned — see `viewport-gap.js`. It is zero everywhere except an iOS tab
-   * whose toolbar has collapsed, and there it is exactly the height of the
-   * band the toolbar gave up.
-   */
-  .prev-next {
-    translate: 0 var(--viewport-gap, 0px);
-  }
-
-  /*
-   * And the strip stays, for the frame or two in which the toolbar is still
-   * sliding and the measurement is a step behind it. It is the same surface
-   * in the same colour, so being early or late costs nothing; without it a
-   * sliver of rules text flickers under the bar through the animation.
+   * Unverified: it is not yet known whether iOS clips this at the same edge
+   * it pins the bar to. Harmless either way — off screen and clipped on every
+   * browser where `bottom: 0` really is the bottom.
    */
   .prev-next::after {
     content: "";

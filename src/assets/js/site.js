@@ -14,7 +14,6 @@ import { initBookmarkToggles } from "./bookmarks-ui.js";
 import { initBookmarksPanel } from "./bookmarks-panel.js";
 import { initBookmarksDrawer } from "./bookmarks-drawer.js";
 import { initSectionTracker } from "./section-tracker.js";
-import { initViewportGap } from "./viewport-gap.js";
 import { initSectionNav } from "./section-nav.js";
 import { initNotFound } from "./not-found.js";
 import { initHeadingLinks } from "./heading-links.js";
@@ -35,9 +34,6 @@ function start() {
 
   initSectionTracker();
   initSectionNav();
-
-  // Before anything reads a viewport length: the pinned pager is placed off it.
-  initViewportGap();
 
   // After the tracker: the recorder asks it which headings are sections.
   initHistoryRecorder();
