@@ -11,22 +11,38 @@
  */
 
 :root[data-design="editorial"] {
-  --font-serif: "Literata", var(--fallback-serif);
-  --font-sans: "Libre Franklin", var(--fallback-sans);
-  --font-mono: var(--fallback-mono);
   /*
-   * Headings are the sans, not a display serif. Two serifs were tried above
-   * this line and neither held up: Fraunces was too mannered for a page of
-   * rules, and Literata — the body face heavier — left a title reading as a
-   * bold paragraph rather than a title.
+   * Three faces, and the reader only ever swaps one of them.
    *
-   * A serif for the rules and a gothic for everything around them is how a
-   * reference book has always been set. The change of species is what makes a
-   * heading legible as a heading at a glance, which is the whole job here: at
-   * a table nobody reads a title, they look for one.
+   * `--font-serif` and `--font-sans` are the two answers to "what are the
+   * rules set in", which is the choice in reading preferences. Literata is
+   * the serif; Atkinson Hyperlegible Next is the sans, chosen for the job it
+   * was drawn for — its letters are pulled apart from each other so that the
+   * ones that collapse into one another in most gothics (I l 1, O 0, r n m)
+   * stay distinct. That is worth having in any body text and worth a great
+   * deal in rules read across a table in bad light.
    */
-  --font-display: var(--font-sans);
-  --font-ui: var(--font-sans);
+  --font-serif: "Literata", var(--fallback-serif);
+  --font-sans: "Atkinson Hyperlegible Next", var(--fallback-sans);
+  --font-mono: var(--fallback-mono);
+
+  /*
+   * Headings and UI are a third face, fixed — Public Sans, a plain grotesque
+   * with no voice of its own.
+   *
+   * Fixed, because a heading has to stay legible as a heading whichever face
+   * the rules are in, and it does that by not being that face. Were this
+   * `var(--font-sans)` the reader's sans setting would take the titles and
+   * the navigation with it, and a page set entirely in one gothic loses the
+   * change of species that makes a title findable at a glance — which is the
+   * whole job here: at a table nobody reads a title, they look for one.
+   *
+   * Two serifs were tried for this and neither held up: Fraunces was too
+   * mannered for a page of rules, and Literata — the body face heavier — left
+   * a title reading as a bold paragraph rather than a title.
+   */
+  --font-display: "Public Sans", var(--fallback-sans);
+  --font-ui: var(--font-display);
 
   /* The default body face; a reader preference overrides it. */
   --font-body-default: var(--font-serif);

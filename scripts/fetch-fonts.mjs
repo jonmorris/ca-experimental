@@ -46,11 +46,18 @@ const FAMILIES = [
     note: "Editorial body text — designed for long-form reading on screen.",
   },
   {
-    name: "Libre Franklin",
-    dir: "libre-franklin",
-    query: "Libre+Franklin:ital,wght@0,400..700;1,400",
-    licence: "ofl/librefranklin/OFL.txt",
+    name: "Public Sans",
+    dir: "public-sans",
+    query: "Public+Sans:ital,wght@0,400..700;1,400..700",
+    licence: "ofl/publicsans/OFL.txt",
     note: "Editorial headings and UI — page titles, navigation, labels, controls.",
+  },
+  {
+    name: "Atkinson Hyperlegible Next",
+    dir: "atkinson-hyperlegible-next",
+    query: "Atkinson+Hyperlegible+Next:ital,wght@0,400..700;1,400..700",
+    licence: "ofl/atkinsonhyperlegiblenext/OFL.txt",
+    note: "Editorial body sans — the sans option in reading preferences.",
   },
   {
     name: "IBM Plex Sans",
