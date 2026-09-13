@@ -143,6 +143,8 @@ export function initShelf() {
   const direction = tools.querySelector("[data-shelf-direction]");
   const directionLabel = tools.querySelector("[data-shelf-direction-label]");
   const reset = tools.querySelector("[data-shelf-reset]");
+  const toggle = document.querySelector("[data-shelf-toggle]");
+  const badge = document.querySelector("[data-shelf-badge]");
   const count = document.querySelector("[data-shelf-count]");
   const empty = document.querySelector("[data-shelf-empty]");
 
@@ -205,8 +207,17 @@ export function initShelf() {
     if (count) count.textContent = String(shown.length);
     if (empty) empty.hidden = shown.length > 0;
 
-    const filtered = Object.values(ranges).some((range) => !range.isDefault);
-    if (reset) reset.hidden = !filtered;
+    /*
+     * How many filters are doing something. Shown on the closed tray, because
+     * a shelf that is quietly narrowed reads as a shelf with games missing.
+     */
+    const narrowed = Object.values(ranges).filter((range) => !range.isDefault).length;
+    if (reset) reset.hidden = narrowed === 0;
+    if (badge) {
+      badge.hidden = narrowed === 0;
+      badge.textContent = String(narrowed);
+    }
+    toggle?.classList.toggle("is-filtering", narrowed > 0);
   }
 
   function setDirection(next) {
@@ -227,6 +238,22 @@ export function initShelf() {
     apply();
   });
 
-  tools.hidden = false;
+  /*
+   * The tray is a disclosure rather than an overlay: it pushes the grid down
+   * instead of covering it, so what you are filtering stays in view while you
+   * filter it. Opening it moves focus nowhere — the reader pressed a button
+   * beside the thing that appeared, and they are already looking at it.
+   */
+  function setOpen(open) {
+    tools.hidden = !open;
+    toggle?.setAttribute("aria-expanded", String(open));
+  }
+
+  toggle?.addEventListener("click", () => {
+    setOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+
+  toggle?.removeAttribute("hidden");
+  setOpen(false);
   setDirection(false);
 }

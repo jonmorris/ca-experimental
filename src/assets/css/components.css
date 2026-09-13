@@ -2477,6 +2477,58 @@ body[data-content-type="rulebook"] {
 /* ================================================== shelf tools (home) */
 
 /*
+ * The handle on the tray, on the heading's own line. Quiet until it is doing
+ * something: a shelf that is being filtered says so, in the accent, with the
+ * number of filters running.
+ */
+.shelf-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 2rem;
+  margin-bottom: var(--space-4);
+  padding-inline: var(--space-3);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink-muted);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.shelf-toggle:hover {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.shelf-toggle.is-filtering {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.shelf-toggle__badge {
+  min-width: 1.25rem;
+  padding: 1px var(--space-1);
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Pointing at what pressing it does, like the section bar's. */
+.shelf-toggle__chevron {
+  color: var(--ink-faint);
+  transition: rotate 160ms ease;
+}
+
+.shelf-toggle[aria-expanded="true"] .shelf-toggle__chevron {
+  rotate: 180deg;
+}
+
+/*
  * Sorting and filtering above the shelf. Quiet: it sits between a heading and
  * a grid of box art, and a reader who wants the whole shelf should be able to
  * read past it without stopping.
@@ -2485,6 +2537,10 @@ body[data-content-type="rulebook"] {
   display: grid;
   gap: var(--space-4);
   margin-bottom: var(--space-5);
+  padding: var(--space-4);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
 }
 
 .shelf-tools__row {

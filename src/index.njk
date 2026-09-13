@@ -111,20 +111,48 @@ bodyClass: page page--home
     </h2>
 
     {#
+      The tray's handle.
+
+      A funnel rather than the faders glyph, which the header already spends on
+      reading preferences — two controls with the same icon doing different
+      things is worse than an icon that is only approximately right. The word
+      is there too: a funnel alone says "filter" and this also sorts.
+
+      The count beside it is what makes collapsing safe. A tray that is shut is
+      a tray whose state cannot be seen, and a reader who has narrowed the
+      shelf and scrolled away needs to know the shelf is narrowed — otherwise
+      the missing games read as missing.
+    #}
+    <button type="button" class="shelf-toggle" data-shelf-toggle
+            aria-expanded="false" aria-controls="shelf-tools" hidden>
+      <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false">
+        <path d="M2 3.5h12L9.5 8.7v4.1l-3 1.7V8.7z" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <span>Sort &amp; filter</span>
+      <span class="shelf-toggle__badge" data-shelf-badge hidden></span>
+      <svg class="shelf-toggle__chevron" viewBox="0 0 16 16" width="13" height="13"
+           aria-hidden="true" focusable="false">
+        <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    {#
       Sorting and filtering the shelf.
 
-      Shipped `hidden` and revealed by `shelf.js`, like every other control
-      that cannot work without it — and everything it does is done by moving
-      and hiding tiles that are already on the page, so a reader without a
-      script still gets the whole shelf, alphabetically, which is the order
-      the build writes.
+      Folded away behind the button above, and shipped `hidden` besides — like
+      every other control that cannot work without a script. Everything it does
+      is done by moving and hiding tiles that are already on the page, so a
+      reader without one still gets the whole shelf, alphabetically, which is
+      the order the build writes.
 
       Two filters, both ranges, both about the table rather than about the
       game: who is here and how long we have got. Weight and tags were the
       obvious third and fourth and neither earns a control yet — every game on
       this shelf is heavy, and most tags are on one game each.
     #}
-    <div class="shelf-tools" data-shelf-tools hidden>
+    <div class="shelf-tools" id="shelf-tools" data-shelf-tools hidden>
       <div class="shelf-tools__row">
         <label class="shelf-field">
           <span class="shelf-field__label">Sort by</span>
