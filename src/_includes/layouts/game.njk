@@ -25,10 +25,10 @@ layout: layouts/base.njk
     <div class="page-top">
       {% include "partials/breadcrumbs.njk" %}
       <button type="button" class="print-button" data-print hidden>
-        <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true" focusable="false">
-          <path d="M6 7.5V3h8v4.5M6 14H4.5A1.5 1.5 0 0 1 3 12.5v-3A1.5 1.5 0 0 1 4.5 8h11A1.5 1.5 0 0 1 17 9.5v3a1.5 1.5 0 0 1-1.5 1.5H14"
-                fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M6 12.5h8V17H6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <svg class="print-button__icon" viewBox="0 0 20 20" width="21" height="21"
+             aria-hidden="true" focusable="false">
+          <path d="M6 7.5V3h8v4.5M6 14H4.5A1.5 1.5 0 0 1 3 12.5v-3A1.5 1.5 0 0 1 4.5 8h11A1.5 1.5 0 0 1 17 9.5v3a1.5 1.5 0 0 1-1.5 1.5H14"/>
+          <path d="M6 12.5h8V17H6z"/>
         </svg>
         <span class="print-button__label">Print</span>
       </button>
