@@ -71,6 +71,20 @@ const NON_CONTENT = new Set(["_source", "_working", "images", "downloads"]);
  */
 const SKIP_FILES = new Set(["bookmarks.md", "rules-summary.md", "content.md", "landing.njk"]);
 
+/*
+ * Games not carried across at all, whatever upstream has for them.
+ *
+ * `site_visibility: "hidden"` in a game.json keeps a game out of the build;
+ * this keeps it out of the repository. The difference matters when the reason
+ * is rights rather than readiness: the footer says everything here appears
+ * with its publisher's permission, and a game whose permission is still being
+ * settled should not be sitting in `src/games/` waiting for somebody to flip a
+ * word. Without this a sync would restore it on the next run.
+ *
+ * Delete the entry to bring one back — its content is upstream, not here.
+ */
+const SKIP_GAMES = new Set(["arkwright"]);
+
 /** Written here, with no upstream equivalent: a sync must not clear them. */
 const LOCAL_ONLY = new Set(["glossary.md", "landing.njk", "arcs/index.md"]);
 
@@ -116,8 +130,6 @@ const EXPANSION_TITLES = {
  * these apply only the first time a page appears.
  */
 const NEW_PAGES = {
-  "arkwright/rulebook.md": ["The full Water Frame rules, section by section.", 10],
-  "arkwright/players-book.md": ["The board, the cards and the components, piece by piece.", 20],
   "pax-renaissance/rulebook.md": ["The complete first-edition rules.", 10],
   "pax-renaissance-second-edition/rulebook.md": ["The complete second-edition rules.", 10],
   "pax-renaissance-second-edition/players-guide.md": ["A guided playthrough, turn by turn.", 20],
@@ -136,7 +148,6 @@ const NEW_PAGES = {
 /** A landing page is one authored line; upstream's has none to take. */
 const LANDING_SUBHEADS = {
   antiquity: "Build cities, choke on your own pollution, and outrun starvation.",
-  arkwright: "Build mills, set wages, and float the shares that decide who wins.",
   bus: "Route the buses, carry the passengers, and bend time until it breaks.",
   "duck-dealer": "Intergalactic trade, planned several moves further ahead than feels comfortable.",
   "food-chain-magnate": "Hire, train and undercut your way to a fast food empire.",
@@ -290,6 +301,7 @@ function portDir(fromDir, toDir, prefix) {
 
 for (const game of readdirSync(SOURCE, { withFileTypes: true }).filter((e) => e.isDirectory())) {
   const slug = game.name;
+  if (SKIP_GAMES.has(slug)) continue;
   const fromDir = join(SOURCE, slug);
   const toDir = join(TARGET, slug);
   const start = log.length;

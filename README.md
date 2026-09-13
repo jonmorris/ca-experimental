@@ -57,10 +57,10 @@ A game's `site_visibility` in `game.json` controls whether it is built at all
 
 **Corrections live in `scripts/sync-content.mjs`, not in the synced files.** A
 sync overwrites, so anything fixed by hand in `src/games/` is lost the next time
-it runs. Descriptions rewritten here, Arkwright's cover, expansion titles an
-ampersand cannot survive in a slug, the glossaries and landing subheads written
-on this side — each is recorded in that script as an override with a note on
-why. Fix one upstream and its entry can go.
+it runs. Descriptions rewritten here, expansion titles an ampersand cannot
+survive in a slug, the glossaries and landing subheads written on this side,
+and the games not carried across at all — each is recorded in that script as an
+override with a note on why. Fix one upstream and its entry can go.
 
 **Box art is resized at build time.** `@11ty/eleventy-img` rewrites every
 `<img>` in the output into a `<picture>` with WebP and JPEG at up to three
