@@ -2245,9 +2245,28 @@ body[data-content-type="rulebook"] {
    * over-generous — nothing on the shelf needs it — so the clamp takes the
    * rare title that would want one.
    */
-  /* However many lines it takes. */
+  /*
+   * Two lines of room, with the words sitting in the bottom of it.
+   *
+   * Widening the card took two-line titles from most of the shelf down to five
+   * — but five is not none, and on Xia two of twenty sections still made the
+   * pair jump seven pixels as the reader scrolled past them. So the label
+   * reserves the second line whether it needs it or not, and bottom-aligns
+   * inside that, which keeps the last line of a title exactly where the last
+   * line of every other title is. A card is one height now, and the space a
+   * short name does not use falls between the direction and the title rather
+   * than under it.
+   *
+   * `lh` rather than a measured pixel value: it is this element's own line
+   * height, so the floor still fits two lines if the reader turns the text
+   * size up. Where the unit is not supported the rule is dropped and the card
+   * simply sizes to its content, which is where it started.
+   */
   .prev-next__label {
+    display: flex;
+    align-items: flex-end;
     overflow: visible;
+    min-height: 2lh;
     line-height: var(--leading-snug);
     white-space: normal;
   }
