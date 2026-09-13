@@ -189,22 +189,33 @@
 }
 
 /*
- * The wordmark collapses to its mark wherever a game is open, up to the
- * sidebar breakpoint: in that range the header is carrying two names and the
- * game's is the one worth reading. The mark still links home.
+ * Below the sidebar breakpoint the header keeps the site's name and drops the
+ * game's.
  *
- * The divider goes with it. It is there to separate two names, and once the
- * wordmark is gone there is only one — a rule floating between the mark and
- * the game reads as a piece of the wordmark that failed to load.
+ * It used to be the other way round: on a game page the wordmark collapsed to
+ * its mark and the game's name took the space, on the grounds that the game is
+ * what you are reading. But a header that says something different on every
+ * page stops being the thing you orient by, and the game's name is already on
+ * the page under it — in the breadcrumbs, in the section bar, in the title.
+ * The one place it was not was anywhere the reader could rely on.
+ *
+ * The divider goes with the name it separates. Left behind, a rule floating
+ * between the mark and nothing reads as a piece of the wordmark that failed to
+ * load.
  */
 @media (max-width: 64rem) {
-  body[data-game] .site-logo__text,
-  body[data-game] .site-header__divider {
+  .site-header__game,
+  .site-header__divider {
     display: none;
   }
 }
 
-@media (max-width: 26rem) {
+/*
+ * Except where the words genuinely will not fit beside four controls. Measured
+ * rather than guessed: at 22rem the wordmark and the actions meet, so below
+ * that the mark carries the link on its own.
+ */
+@media (max-width: 22rem) {
   .site-logo__text,
   .site-header__divider {
     display: none;
