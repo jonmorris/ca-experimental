@@ -1440,7 +1440,7 @@ button.palette__link {
 /*
  * The cover sits beside the title on the page's own surface. No blurred
  * backdrop, no scrim: nothing is laid over the art, so the type reads in the
- * page's colours and the cover is shown at its own proportions.
+ * page's colours and the cover is shown as an object beside the title.
  */
 .landing__hero {
   display: grid;
@@ -1450,18 +1450,44 @@ button.palette__link {
   border-bottom: 1px solid var(--line);
 }
 
+/*
+ * The same frame the shelf gives a cover: a fixed-ratio box on a quieter
+ * ground, with the art contained and centred inside it. A reader arrives here
+ * from a tile, so the art carrying its treatment across the jump makes the two
+ * read as one object rather than two pictures of it.
+ *
+ * The frame also settles the size question the way the shelf settles it. Sized
+ * to the artwork, a tall box and a wide one took different amounts of the hero
+ * and dropped the title at a different height on each game's page; the box is
+ * now the same on every page and the art is what varies within it.
+ */
 .landing__cover {
+  --cover-width: 87%;
+
   display: block;
   justify-self: start;
+  width: min(100%, 16rem);
+  aspect-ratio: 4 / 3;
+  padding: var(--space-5);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
 }
 
+/*
+ * Sized as a box and centred by `object-fit`, matching the tile: giving the
+ * picture the height and letting the width be held back is what keeps the
+ * padding honest whatever proportions the cover has. `drop-shadow` follows
+ * what is actually drawn, so it hugs the artwork rather than tracing the empty
+ * space beside a letterboxed one.
+ */
 .landing__cover img {
   display: block;
-  width: auto;
-  max-width: min(100%, 16rem);
-  max-height: 16rem;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow);
+  width: var(--cover-width);
+  height: 100%;
+  margin-inline: auto;
+  object-fit: contain;
+  filter: drop-shadow(var(--shadow-art));
 }
 
 .landing__title {

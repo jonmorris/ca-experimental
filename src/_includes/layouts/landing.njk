@@ -10,13 +10,15 @@ layout: layouts/base.njk
     <div class="landing" data-pagefind-body>
       {#
         The cover is shown plainly beside the title rather than blurred up
-        behind it. Nothing is laid over the art, so the type sits on the page's
-        own surface and reads in the page's own colours.
+        behind it, framed the same way it is on the shelf: contained in a
+        fixed-ratio box on a quiet ground. Nothing is laid over the art, so the
+        type sits on the page's own surface and reads in the page's own
+        colours.
       #}
       <header class="landing__hero">
         {% if game.meta.box_art %}
           <span class="landing__cover">
-            <img src="{{ game.meta.box_art }}" alt="Box art for {{ game.title }}" sizes="260px">
+            <img src="{{ game.meta.box_art }}" alt="Box art for {{ game.title }}" sizes="224px">
           </span>
         {% endif %}
 
