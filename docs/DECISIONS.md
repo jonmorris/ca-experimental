@@ -53,9 +53,12 @@ matching both scores the sum. The eight best go into the page; the first four
 are shown and the rest ship `hidden`.
 
 Once the credits run out, the rest of the shelf fills in at zero, so the row is
-never short. Those tiles carry no reason line. Their order is a hash of the two
-slugs — arbitrary, different on every game's page, and identical on every
-build, which is what `verify:links` and a readable diff both need.
+never short. Their order is a hash of the two slugs — arbitrary, different on
+every game's page, and identical on every build, which is what `verify:links`
+and a readable diff both need.
+
+A tile is a cover and a name. Nothing on the page says why a game is in the
+row.
 
 **In the browser**, `related-games.js` re-ranks those eight against the games
 this reader has favourited (weight 2) and opened (weight 1), reading their
@@ -76,10 +79,16 @@ and the row is complete and correct if the script never runs.
   the bottom of a Splotter page is the right answer at this catalogue size.
   Expanding somebody's horizons is a thing to do when there is a taxonomy to do
   it with.
+- **The ranking is not explained.** Each tile shipped with a line under the
+  name — "Also by Cole Wehrle" — and it was wrong twice over: four of them
+  under one heading is a paragraph of bookkeeping about a row somebody is
+  glancing at on their way out, and the reader did not ask how the sausage is
+  made. Removed. Why these four is the scoring's business.
 - **The row is never empty and never overclaims.** Xia shares a designer and a
-  publisher with nothing else here. It still gets four games, and they say
-  nothing about why — which is also why the heading is the flat "More games"
-  rather than "More like this".
+  publisher with nothing else here. It still gets four games, and the heading
+  is the flat "More games" rather than "More like this" because of it — the
+  one place the row's honesty still has to be visible is the only line of copy
+  it has.
 - **Eight written, four shown.** A browser re-rank that can only reorder what
   is already visible cannot surface anything, and four extra tiles is the
   cheapest way to give it room. They are `loading="lazy"`.
@@ -111,10 +120,6 @@ and the row is complete and correct if the script never runs.
   is Pax Renaissance: Second Edition, and John Company's is its own 2nd
   edition. Useful — there *is* a newer edition — but it is not really "another
   game you might like", and nothing in the scoring knows the difference.
-- **One reason line, not all of them.** A game sharing both a designer and a
-  publisher says only "Also by …". Adding the publisher reads as padding
-  beside a designer's name.
-
 ### Where it goes next
 
 `DEFERRED.md` → *Cross-game similarity and recommendations*, which now holds
