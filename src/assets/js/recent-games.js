@@ -1,7 +1,8 @@
-import { historyStore } from "./reading-history.js";
+import { historyStore, MAX_GAMES } from "./reading-history.js";
 import { withBasePath } from "./base-path.js";
 import { favoriteStore } from "./favorites.js";
 import { favoriteSlugs } from "./favorites-ui.js";
+import { collapseToRow } from "./row-collapse.js";
 
 /**
  * "Recently opened" on the home page.
@@ -18,8 +19,12 @@ import { favoriteSlugs } from "./favorites-ui.js";
  * URL — still gets a row; it simply gets one without a picture.
  */
 
-/** How many to show. The store keeps more than this, for a fuller history later. */
-const SHOWN = 4;
+/*
+ * How many the row has to offer. What it *shows* is a line of whatever fits
+ * across, with the rest behind the last card — see `row-collapse.js` — so the
+ * cap here is the store's own: the point past which a game is old enough that
+ * nobody is coming back to it from this row.
+ */
 
 function borrowArt(gameSlug) {
   const tile = document.querySelector(`[data-game-slug="${CSS.escape(gameSlug)}"] .game-tile__art`);
@@ -88,6 +93,8 @@ export function initRecentGames() {
   const list = section?.querySelector("[data-recent-list]");
   if (!section || !list) return;
 
+  let recollapse = null;
+
   function render() {
     /*
      * A starred game is already on the shelf above this one. Showing it twice
@@ -98,10 +105,12 @@ export function initRecentGames() {
     const entries = historyStore
       .list()
       .filter((entry) => !starred.has(entry.gameSlug))
-      .slice(0, SHOWN);
+      .slice(0, MAX_GAMES);
 
     list.replaceChildren(...entries.map(buildTile));
     section.hidden = entries.length === 0;
+    // One row, with the rest behind the last card. See `row-collapse.js`.
+    recollapse ? recollapse() : (recollapse = collapseToRow(list, { label: "See all recent" }));
   }
 
   render();

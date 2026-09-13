@@ -1,5 +1,6 @@
 import { favoriteStore } from "./favorites.js";
 import { withBasePath } from "./base-path.js";
+import { collapseToRow } from "./row-collapse.js";
 
 /**
  * Everywhere a favourite is made or shown.
@@ -77,6 +78,8 @@ function initHome() {
   const list = section?.querySelector("[data-favorite-list]");
   if (!section || !list) return;
 
+  let recollapse = null;
+
   function render() {
     const favorites = favoriteStore.list();
 
@@ -118,6 +121,8 @@ function initHome() {
     }
 
     section.hidden = favorites.length === 0;
+    // One row, with the rest behind the last card. See `row-collapse.js`.
+    recollapse ? recollapse() : (recollapse = collapseToRow(list, { label: "See all favorites" }));
 
     // And mark them where they sit on the shelf.
     for (const tile of document.querySelectorAll(".game-grid [data-game-slug]")) {
