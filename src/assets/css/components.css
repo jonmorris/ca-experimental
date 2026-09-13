@@ -2087,26 +2087,36 @@ body[data-content-type="rulebook"] {
   }
 
   /*
-   * A fixed height, and the words centred in it.
+   * A floor, not a ceiling — and everything measured from the bottom.
    *
-   * The pair is pinned to the bottom of the viewport, so a pill that grew a
-   * line pushed its own top edge up and the other pill with it: the control
-   * changed size and shifted as the reader scrolled past a long heading, which
-   * is the kind of small unsteadiness that reads as unfinished. Reserving the
-   * room for two lines means the geometry never changes at all — and centring
-   * inside it means a one-line title does not leave the space it did not use
-   * sitting underneath it.
+   * The pair is pinned to the bottom of the viewport, so whatever a card does
+   * it does upward: its bottom edge cannot move. Put the title against that
+   * edge and its last line is the one thing that never moves either, so a
+   * title that takes two lines puts the second one *above* where the first was
+   * rather than shoving the whole control around. The direction sits at the
+   * top of whatever height that leaves, and the arrow stays on the middle of
+   * the card.
    *
-   * Two lines rather than three because nothing on this shelf needs a third;
-   * the clamp on the label takes the rare title that would.
+   * `min-height` gives short titles a card worth the name; nothing caps it, so
+   * no title is ever cut.
    */
   .prev-next__link {
-    height: 5rem;
+    min-height: 5rem;
     padding: var(--space-3) var(--space-4);
     background: var(--surface-raised);
     border: 1px solid var(--line);
     border-radius: var(--radius);
     box-shadow: var(--shadow-sm);
+  }
+
+  /* Fills the card's height so there is something for the two to sit at the
+     ends of; the arrow keeps the centring it has from the row. */
+  .prev-next__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: stretch;
+    gap: var(--space-2);
   }
 
   .prev-next__link:hover {
@@ -2160,12 +2170,9 @@ body[data-content-type="rulebook"] {
    * over-generous — nothing on the shelf needs it — so the clamp takes the
    * rare title that would want one.
    */
+  /* However many lines it takes. */
   .prev-next__label {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    overflow: hidden;
+    overflow: visible;
     line-height: var(--leading-snug);
     white-space: normal;
   }
