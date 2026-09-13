@@ -158,6 +158,26 @@
           <button type="button" class="prefs__clear" data-clear-searches>Clear searches</button>
           <button type="button" class="prefs__clear" data-clear-bookmarks>Clear bookmarks</button>
         </div>
+
+        {#
+          Everything at once, last and on its own line.
+
+          Below the four so that a reader working down the panel meets the
+          narrow doors before the wide one, and set apart by a rule because it
+          is a different size of decision — the four above erase one thing each,
+          this erases the lot. It asks twice like the others, in its own words,
+          and names what it takes so that "everything" is not left to mean
+          whatever the reader fears it means.
+        #}
+        <div class="prefs__data prefs__data--all">
+          <button type="button" class="prefs__clear prefs__clear--all" data-clear-all>
+            Clear everything
+          </button>
+          <p class="prefs__note prefs__note--inline">
+            Bookmarks, favorites, history and searches. Your reading settings
+            are kept — Reset, at the top, is the one for those.
+          </p>
+        </div>
       </section>
     </div>
   </div>

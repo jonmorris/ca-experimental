@@ -77,8 +77,11 @@ function buildGroup(key, spec, current, onChange) {
  * mis-tap in a panel full of radio buttons is easy. The second press is the
  * confirmation — no native dialog, and it forgets the question on its own if
  * the reader does something else, which closing the panel counts as.
+ *
+ * `store` is anything with `list`, `clear` and `subscribe`, which is every
+ * store here and also the composite one below that stands for all of them.
  */
-function armClearButton(button, { label, store }) {
+function armClearButton(button, { label, store, confirm = "Sure?" }) {
   if (!button) return () => {};
 
   let armed = false;
@@ -98,7 +101,7 @@ function armClearButton(button, { label, store }) {
   button.addEventListener("click", () => {
     if (!armed) {
       armed = true;
-      button.textContent = "Sure?";
+      button.textContent = confirm;
       button.classList.add("is-armed");
       return;
     }
@@ -179,6 +182,23 @@ export function initPreferences() {
 
   initTransfer(panel);
 
+  /*
+   * All four stores as one, so the everything button gets the same arming, the
+   * same "nothing to erase" disabling and the same subscription for free —
+   * rather than a second implementation of a button that destroys more.
+   */
+  const stores = [bookmarkStore, favoriteStore, historyStore, searchHistory];
+  const everything = {
+    list: () => stores.flatMap((store) => store.list()),
+    clear: () => {
+      for (const store of stores) store.clear();
+    },
+    subscribe: (listener) => {
+      const offs = stores.map((store) => store.subscribe(listener));
+      return () => offs.forEach((off) => off());
+    },
+  };
+
   const disarm = [
     armClearButton(panel.querySelector("[data-clear-favorites]"), {
       label: "Clear favorites",
@@ -195,6 +215,11 @@ export function initPreferences() {
     armClearButton(panel.querySelector("[data-clear-bookmarks]"), {
       label: "Clear bookmarks",
       store: bookmarkStore,
+    }),
+    armClearButton(panel.querySelector("[data-clear-all]"), {
+      label: "Clear everything",
+      confirm: "Erase all of it?",
+      store: everything,
     }),
   ];
 
