@@ -14,7 +14,10 @@ import { rank } from "./fuzzy.js";
  * bookmarks, which are pinned to the top because a bookmarked rule is one you
  * have already decided matters.
  *
- * Typing `>` at the start widens the search to every game.
+ * That scope is stated in the field itself — the placeholder reads "Search
+ * Indonesia" — and the bar under it carries the way out: a button that widens
+ * the search to every game, and the `>` prefix that does the same thing from
+ * the keyboard. An invisible default is the one people argue with.
  *
  * It is also the site's only search interface. Navigation targets resolve
  * instantly from the embedded index; full-text results arrive a moment later
@@ -33,7 +36,11 @@ export function initCommandPalette() {
   const input = panel.querySelector("[data-palette-input]");
   const list = panel.querySelector("[data-palette-results]");
   const empty = panel.querySelector("[data-palette-empty]");
-  const scopeNote = panel.querySelector("[data-palette-scope]");
+  const scopeBar = panel.querySelector("[data-palette-scope]");
+  const scopeNote = panel.querySelector("[data-palette-scope-note]");
+  const scopeAction = panel.querySelector("[data-palette-scope-action]");
+  const scopeKey = panel.querySelector("[data-palette-scope-key]");
+  const scopeToggle = panel.querySelector("[data-palette-scope-toggle]");
   if (!input || !list) return;
 
   trigger?.removeAttribute("hidden");
@@ -49,6 +56,17 @@ export function initCommandPalette() {
   const gameSlug = document.body.dataset.game || null;
   const gameTitle = document.body.dataset.gameTitle || "this game";
   let activeIndex = 0;
+
+  /*
+   * The placeholder names the scope rather than listing what can be found in
+   * it. "Jump to a section, term or rule" describes every search box on the
+   * site equally; "Search Indonesia" answers the question a reader actually
+   * brings to this one, which is whether the eighteen other games are about to
+   * turn up. What it can find is said by the empty state instead, which is
+   * read at the moment it matters — before anything has been typed.
+   */
+  input.placeholder = gameSlug ? `Search ${gameTitle}` : "Search all games";
+  if (scopeBar && gameSlug) scopeBar.hidden = false;
   let entries = [];
 
   const overlay = createOverlay({
@@ -84,12 +102,28 @@ export function initCommandPalette() {
     const global = rawQuery.startsWith(">");
     const query = (global ? rawQuery.slice(1) : rawQuery).trim();
 
-    if (scopeNote) {
-      scopeNote.textContent = global
-        ? "Searching all games"
-        : gameSlug
-          ? `Searching ${gameTitle} — type > to search all games`
-          : "Searching all games";
+    /*
+     * Both halves are written out each render because the prefix can be typed
+     * as well as clicked, and the bar has to agree with the field either way.
+     * The button is labelled with what it does rather than with what is
+     * selected — there is no state to read back, only a direction to go — so
+     * it carries no pressed state, and the `>` hint is shown only on the leg
+     * where `>` is what does it.
+     */
+    if (gameSlug) {
+      if (scopeNote) {
+        scopeNote.textContent = global ? "Searching all games" : `Searching ${gameTitle}`;
+      }
+      if (scopeAction) {
+        scopeAction.textContent = global ? `Only ${gameTitle}` : "All games";
+      }
+      if (scopeKey) scopeKey.hidden = global;
+      if (scopeToggle) {
+        scopeToggle.setAttribute(
+          "aria-label",
+          global ? `Search only ${gameTitle}` : "Search all games",
+        );
+      }
     }
 
     const scoped = global || !gameSlug
@@ -138,7 +172,7 @@ export function initCommandPalette() {
         empty.hidden = false;
         empty.textContent = query
           ? `Nothing matching “${query}”.`
-          : "Start typing to jump to a section or a term.";
+          : "Start typing to jump to a section, a term or a rule.";
       }
       return;
     }
@@ -269,14 +303,28 @@ export function initCommandPalette() {
   }
 
   let queryToken = 0;
-  input.addEventListener("input", () => {
-    const value = input.value;
+  function runQuery(value) {
     render(value);
     const token = ++queryToken;
     // A short delay so a fast typist does not queue a query per keystroke.
     setTimeout(() => {
       if (token === queryToken && input.value === value) appendTextResults(value);
     }, 160);
+  }
+
+  input.addEventListener("input", () => runQuery(input.value));
+
+  /*
+   * The button edits the prefix rather than holding a flag of its own, so the
+   * query string stays the single account of what is being searched and the
+   * two ways in cannot drift apart. Focus goes back to the field: widening a
+   * search is something done in the middle of typing one.
+   */
+  scopeToggle?.addEventListener("click", () => {
+    const raw = input.value;
+    input.value = raw.startsWith(">") ? raw.slice(1) : `>${raw}`;
+    input.focus();
+    runQuery(input.value);
   });
 
   input.addEventListener("keydown", (event) => {

@@ -33,7 +33,7 @@
         type="text"
         autocomplete="off"
         spellcheck="false"
-        placeholder="Jump to a section, term or rule…"
+        placeholder="Search"
         role="combobox"
         aria-expanded="true"
         aria-controls="palette-results"
@@ -42,12 +42,33 @@
       {{ closeButton("search") }}
     </div>
 
+    {#
+      Where the search is looking, and the way out of it.
+
+      The scope is not something the reader chose — it is a consequence of the
+      page they opened the search from — so it is stated plainly rather than
+      left to be inferred from the results. It sits under the field and not at
+      the foot of the panel because "where am I searching" is a question asked
+      on opening, not after scrolling past forty results, and the way to widen
+      it is a button beside the statement rather than a keystroke only a
+      keyboard user would ever find. The keystroke still works, and the button
+      shows it.
+
+      Hidden off a game, where there is nothing to widen and the placeholder
+      has already said so.
+    #}
+    <div class="palette__scope" data-palette-scope hidden>
+      <p class="palette__scope-note" data-palette-scope-note aria-live="polite"></p>
+      <button type="button" class="palette__scope-toggle" data-palette-scope-toggle>
+        <span data-palette-scope-action></span>
+        <kbd class="palette__scope-key" data-palette-scope-key>&gt;</kbd>
+      </button>
+    </div>
+
     <p class="palette__empty" data-palette-empty></p>
 
     <ul class="palette__results" id="palette-results" role="listbox"
         aria-label="Results" data-palette-results></ul>
-
-    <p class="palette__scope" data-palette-scope aria-live="polite"></p>
   </div>
 </dialog>
 
