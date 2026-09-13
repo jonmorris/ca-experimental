@@ -6,6 +6,8 @@ import { basePath, withBasePath } from "./lib/base-path.js";
 import { buildGames } from "./lib/registry.js";
 import { cleanHeadingText, explicitHeadingId } from "./lib/headings.js";
 import { enhanceHeadings, bookmarkButton } from "./lib/heading-tools.js";
+import { markExternalLinks } from "./lib/external-links.js";
+import site from "./src/_data/site.json" with { type: "json" };
 
 const GAME_URL_RE = /^\/games\/([^/]+)\//;
 
@@ -106,6 +108,19 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
 
   eleventyConfig.setServerOptions({ showAllHosts: true });
+
+  /*
+   * Every link that leaves the site opens in a new tab.
+   *
+   * Applied to the built page rather than at each call site, because the rule
+   * has to hold for markdown written by whoever adds the next rulebook as much
+   * as for the links in the templates — and a rule nobody has to remember is
+   * the only kind that stays true.
+   */
+  eleventyConfig.addTransform("externalLinks", function (content) {
+    if (!String(this.page?.outputPath || "").endsWith(".html")) return content;
+    return markExternalLinks(content, { siteUrl: site.url });
+  });
 
   // ---------------------------------------------------------------- filters
 
