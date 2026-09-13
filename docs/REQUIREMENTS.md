@@ -190,8 +190,10 @@ never disagree.
 
 ### Command palette
 
-Cmd-K / Ctrl-K opens a single search surface, scoped to the current game;
-typing `>` widens it to every game. It resolves navigation targets instantly
+Cmd-K / Ctrl-K opens a single search surface, scoped to the current game. The
+scope is stated in the field — the placeholder reads "Search Indonesia" — and
+the bar under it carries the button that widens the search to every game, and
+back. It resolves navigation targets instantly
 from an index embedded at build time, and appends Pagefind full-text results
 as they arrive. Bookmarked sections are pinned to the top.
 
@@ -209,7 +211,7 @@ Present on every in-game page. `Home > {Game Name} > {Section}`.
 - Powered by Pagefind (or equivalent static-site search). Index built as a post-build step; not available in dev mode without an explicit rebuild.
 - Every page tagged with `data-pagefind-filter="game:{slug}"` on `<body>`. Main content wrapped in `data-pagefind-body`.
 - **Per-game search** on every in-game page: filter results by `{ game: [slug] }` so a search on Indonesia's page cannot surface Arcs results.
-- **Global search** on the homepage, and from any page by typing `>` in the palette: no filter applied, results span all games.
+- **Global search** on the homepage, and from any page via the palette's "All games" button: no filter applied, results span all games.
 - The palette is the only search interface. It must handle empty state, be fully keyboard operable, and clear when the input is emptied.
 - Dev-mode caveat is expected: the widget silently fails when the index doesn't exist yet. Optionally surface a "search unavailable — run `npm run build`" fallback.
 

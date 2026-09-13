@@ -16,8 +16,8 @@ import { rank } from "./fuzzy.js";
  *
  * That scope is stated in the field itself — the placeholder reads "Search
  * Indonesia" — and the bar under it carries the way out: a button that widens
- * the search to every game, and back. The `>` prefix still does the same thing
- * from the keyboard. An invisible default is the one people argue with.
+ * the search to every game, and back. An invisible default is the one people
+ * argue with.
  *
  * It is also the site's only search interface. Navigation targets resolve
  * instantly from the embedded index; full-text results arrive a moment later
@@ -55,6 +55,19 @@ export function initCommandPalette() {
   const gameSlug = document.body.dataset.game || null;
   const gameTitle = document.body.dataset.gameTitle || "this game";
   let activeIndex = 0;
+  let entries = [];
+
+  /*
+   * Whether the search is looking past this game. A flag rather than something
+   * spelled into the query, so the field only ever holds what the reader
+   * typed: widening is a property of the search, not a word in it.
+   *
+   * It lasts as long as the panel is open and no longer. Somebody who widened
+   * a search to find one thing in another game has not asked to leave every
+   * later search that way, and reopening onto a scope set an hour ago would be
+   * the same invisible default this bar exists to be rid of.
+   */
+  let global = false;
 
   /*
    * The placeholder names the scope rather than listing what can be found in
@@ -66,13 +79,13 @@ export function initCommandPalette() {
    */
   input.placeholder = gameSlug ? `Search ${gameTitle}` : "Search all games";
   if (scopeBar && gameSlug) scopeBar.hidden = false;
-  let entries = [];
 
   const overlay = createOverlay({
     panel,
     trigger,
     onOpen: () => {
       input.value = "";
+      global = false;
       render("");
       requestAnimationFrame(() => input.focus());
     },
@@ -98,15 +111,16 @@ export function initCommandPalette() {
   }
 
   function render(rawQuery) {
-    const global = rawQuery.startsWith(">");
-    const query = (global ? rawQuery.slice(1) : rawQuery).trim();
+    const query = rawQuery.trim();
 
     /*
-     * Both halves are written out each render because the prefix can be typed
-     * as well as clicked, and the bar has to agree with the field either way.
+     * The bar is written on every render rather than only when the button is
+     * pressed, so that reopening the panel — which puts the scope back to this
+     * game — cannot leave the last state's wording behind.
+     *
      * The button is labelled with what it does rather than with what is
-     * selected — there is no state to read back, only a direction to go — so
-     * it carries no pressed state either.
+     * selected: there is no state to read back, only a direction to go, so it
+     * carries no pressed state either.
      */
     if (gameSlug) {
       if (scopeNote) {
@@ -228,17 +242,17 @@ export function initCommandPalette() {
   }
 
   /**
-   * Full-text results are appended after the instant ones. A slower query must
-   * never overwrite the results of a later keystroke, hence the guard.
+   * Full-text results are appended after the instant ones.
    */
-  async function appendTextResults(rawQuery) {
-    const global = rawQuery.startsWith(">");
-    const query = (global ? rawQuery.slice(1) : rawQuery).trim();
+  async function appendTextResults(rawQuery, token) {
+    const query = rawQuery.trim();
     if (query.length < 2) return;
 
     const scope = global || !gameSlug ? null : gameSlug;
     const found = await searchText(query, { gameSlug: scope });
-    if (input.value !== rawQuery) return;
+    // A slower query must never land on a later one's results, whether the
+    // later one came from a keystroke or from a change of scope.
+    if (token !== queryToken) return;
 
     if (!found.ok) {
       const note = document.createElement("li");
@@ -305,21 +319,20 @@ export function initCommandPalette() {
     const token = ++queryToken;
     // A short delay so a fast typist does not queue a query per keystroke.
     setTimeout(() => {
-      if (token === queryToken && input.value === value) appendTextResults(value);
+      if (token === queryToken) appendTextResults(value, token);
     }, 160);
   }
 
   input.addEventListener("input", () => runQuery(input.value));
 
   /*
-   * The button edits the prefix rather than holding a flag of its own, so the
-   * query string stays the single account of what is being searched and the
-   * two ways in cannot drift apart. Focus goes back to the field: widening a
-   * search is something done in the middle of typing one.
+   * Widening runs the query again as it stands rather than clearing it: the
+   * reader has just read a short list and wants the same words asked of more
+   * of the site. Focus returns to the field, since this is something done in
+   * the middle of typing.
    */
   scopeToggle?.addEventListener("click", () => {
-    const raw = input.value;
-    input.value = raw.startsWith(">") ? raw.slice(1) : `>${raw}`;
+    global = !global;
     input.focus();
     runQuery(input.value);
   });
