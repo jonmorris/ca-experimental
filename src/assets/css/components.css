@@ -30,17 +30,6 @@
   text-decoration: none;
 }
 
-/* A menu row that acts rather than navigates; everything else about it is a
-   nav-link, including being the full width of the list. */
-.nav-link--button {
-  width: 100%;
-  background: none;
-  border: 0;
-  cursor: pointer;
-  font: inherit;
-  text-align: inherit;
-}
-
 .nav-link:hover {
   background: var(--surface-sunken);
   color: var(--ink);
@@ -247,21 +236,6 @@
   border-radius: var(--radius);
   color: var(--ink-muted);
   cursor: pointer;
-}
-
-/*
- * The header carries four controls on a phone, and a fifth would cost the
- * wordmark its place. Your data is the one nobody reaches for in the middle of
- * a game, so below tablet width it leaves the header for a line in the menu —
- * see the entry in header.njk.
- *
- * Here rather than in layout.css because it has to out-rank `.icon-button`
- * above, which sets a display of its own and is loaded after it.
- */
-@media (max-width: 46rem) {
-  .icon-button[data-account-toggle] {
-    display: none;
-  }
 }
 
 .icon-button:hover {
@@ -1093,49 +1067,6 @@ button.palette__link {
 .prefs__clear:disabled {
   opacity: 0.45;
   cursor: default;
-}
-
-/*
- * What the browser is holding, as a short column of figures.
- *
- * Numbers first and left-aligned in their own column so the eye can run down
- * them, which is the whole reason to count things rather than list them. Rows
- * at zero stay, greyed: a summary that dropped its empty rows would change
- * shape as the reader used the site, and "no bookmarks" answers the question
- * this panel was opened to ask.
- */
-.data-summary {
-  display: grid;
-  gap: var(--space-2);
-  margin: 0 0 var(--space-5);
-  padding: 0;
-  list-style: none;
-}
-
-.data-summary__row {
-  display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  align-items: baseline;
-  gap: var(--space-3);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
-}
-
-.data-summary__value {
-  color: var(--ink);
-  font-size: var(--text-lg);
-  font-variant-numeric: tabular-nums;
-  font-weight: 650;
-  text-align: right;
-}
-
-.data-summary__label {
-  color: var(--ink-muted);
-}
-
-.data-summary__row.is-empty .data-summary__value,
-.data-summary__row.is-empty .data-summary__label {
-  color: var(--ink-faint);
 }
 
 /*
