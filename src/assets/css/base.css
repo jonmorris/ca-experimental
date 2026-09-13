@@ -9,6 +9,19 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /*
+   * The scrollbar's space is reserved whether there is a scrollbar or not.
+   *
+   * Pages here differ enormously in length — a rulebook is seventeen thousand
+   * pixels, an empty My Reference is under a thousand — so on any platform with
+   * classic scrollbars the gutter appears and disappears as you move between
+   * them, and the whole layout, header included, jumps by its width each time.
+   * Reserving it costs about fifteen pixels on the short pages and makes every
+   * page the same width as every other. It also holds the line when an overlay
+   * locks the body, which would otherwise shift the page underneath the thing
+   * that just opened.
+   */
+  scrollbar-gutter: stable;
   /* Anchored headings clear the sticky header instead of hiding under it. */
   scroll-padding-top: calc(var(--header-height) + var(--section-bar-height) + var(--space-4));
 }
