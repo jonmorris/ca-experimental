@@ -380,10 +380,10 @@ dialog::backdrop {
 }
 
 /*
- * On a phone these are sheets that rise from the bottom — reachable with a
- * thumb. At tablet width and up they become centred or side panels.
+ * On a phone the drawer and the preferences panel are sheets that rise from
+ * the bottom — reachable with a thumb. At tablet width and up they become
+ * side panels.
  */
-.palette__inner,
 .drawer__inner,
 .prefs__inner {
   position: fixed;
@@ -393,13 +393,35 @@ dialog::backdrop {
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
+/*
+ * The palette is not one of those, at either size. It is a card that floats
+ * clear of every edge, near the top — because the field is what opens with it
+ * and the reader is looking at the field, not at the bottom of the screen.
+ * Anchored to the bottom it left most of a phone screen empty above the thing
+ * that had just been opened, and on a small screen the software keyboard takes
+ * the bottom anyway.
+ *
+ * It clips rather than scrolls: the corners are rounded, and a scrollbar on
+ * this box would run straight across them. The scrolling belongs to the
+ * results alone, which is also what keeps the field and the scope bar in
+ * place while a long list moves under them.
+ */
+.palette__inner {
+  position: fixed;
+  inset: var(--space-3) var(--space-3) auto;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - var(--space-3) * 2);
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
 @media (min-width: 46rem) {
   .palette__inner {
     inset: 8vh 50% auto auto;
     translate: 50% 0;
     width: min(38rem, 92vw);
     max-height: 70dvh;
-    border-radius: var(--radius-lg);
   }
 
   .drawer__inner,
@@ -442,6 +464,7 @@ dialog::backdrop {
 /* --------------------------------------------------------- the palette */
 
 .palette__field {
+  flex: none;
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -471,6 +494,41 @@ dialog::backdrop {
 .palette__field .overlay-close {
   width: 2rem;
   height: 2rem;
+}
+
+/*
+ * The one scrolling part of the panel.
+ *
+ * The bottom margin is what keeps the scrollbar off the rounded bottom
+ * corners: a track runs the full height of its own box, so the box has to stop
+ * clear of the curve. Above, the field and the scope bar already do that job.
+ *
+ * The track itself is described twice because the two syntaxes cover different
+ * browsers, and left to itself a desktop scrollbar is a wide slab of system
+ * grey squared off against a border it knows nothing about — which is exactly
+ * what was cutting the corner.
+ */
+.palette__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-block-end: var(--space-3);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.palette__scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.palette__scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.palette__scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--line-strong);
 }
 
 .palette__results {
@@ -540,6 +598,7 @@ dialog::backdrop {
  * reader who already knows where they are can look straight past it.
  */
 .palette__scope {
+  flex: none;
   display: flex;
   align-items: center;
   justify-content: space-between;

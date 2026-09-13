@@ -62,10 +62,18 @@
               data-palette-scope-action></button>
     </div>
 
-    <p class="palette__empty" data-palette-empty></p>
+    {#
+      Only the results scroll. The field and the scope bar stay put, because
+      what you are searching and where you are searching it are the two things
+      you need while reading a long list — and because a scrollbar running the
+      full height of the panel cuts across its rounded corners.
+    #}
+    <div class="palette__scroll">
+      <p class="palette__empty" data-palette-empty></p>
 
-    <ul class="palette__results" id="palette-results" role="listbox"
-        aria-label="Results" data-palette-results></ul>
+      <ul class="palette__results" id="palette-results" role="listbox"
+          aria-label="Results" data-palette-results></ul>
+    </div>
   </div>
 </dialog>
 
