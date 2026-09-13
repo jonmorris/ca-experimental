@@ -11,6 +11,38 @@ bodyClass: page page--home
   </header>
 
   {#
+    Search, before any list of games.
+
+    The home page is where somebody arrives without a game in mind, and the
+    header's trigger is a small control in the corner among three others —
+    fine as a tool while reading, too quiet to be the way in. So this is the
+    same search, said at the size of the job: one field-shaped control across
+    the column, above everything it searches.
+
+    It is not a second search box. There is one search surface on this site and
+    this opens it, which is why it is a button and not an input — an input here
+    would have to grow its own results list, its own keyboard handling and its
+    own idea of scope, and then be kept in step with the palette's. Typing on
+    it still works: the first keystroke opens the panel and lands in the field.
+
+    Hidden until the script that opens it runs, like the header's trigger.
+  #}
+  <button
+    type="button"
+    class="home-search"
+    data-palette-open
+    aria-haspopup="dialog"
+    aria-label="Search all games"
+    hidden>
+    <svg class="home-search__icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
+      <circle cx="9" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M13.2 13.2 17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <span class="home-search__label">Search every game, section and term</span>
+    <kbd class="home-search__key" aria-hidden="true">⌘K</kbd>
+  </button>
+
+  {#
     Favorites, then recent. Both are shells the client fills, because only the
     browser knows what is in them — and both stay hidden until there is
     something to put in them, so a first-time reader meets the games and

@@ -358,4 +358,26 @@ export function initCommandPalette() {
     event.preventDefault();
     overlay?.toggle();
   });
+
+  /*
+   * Anything else on a page that opens this panel — the home page's field, the
+   * 404's button. They are separate controls rather than a second copy of the
+   * search, so there is one index, one scope and one set of results however
+   * the reader got here.
+   *
+   * A control shaped like a field will be typed into, so the first keystroke
+   * opens the panel and is carried into the real input rather than lost. Only
+   * printable keys: Tab and the arrows still have to work as navigation.
+   */
+  for (const opener of document.querySelectorAll("[data-palette-open]")) {
+    opener.removeAttribute("hidden");
+    opener.addEventListener("click", () => overlay?.open());
+    opener.addEventListener("keydown", (event) => {
+      if (event.key.length !== 1 || event.metaKey || event.ctrlKey || event.altKey) return;
+      event.preventDefault();
+      overlay?.open();
+      input.value = event.key;
+      runQuery(input.value);
+    });
+  }
 }

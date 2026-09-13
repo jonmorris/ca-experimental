@@ -225,3 +225,53 @@ anything is fetched — and on a page meant to be printed, contents at the top i
 where they belong anyway. `initStickyBar` now returns early when there is no
 jump list to open, so the bar correctly does not appear rather than appearing
 empty.
+
+---
+
+## Splitting Your data out of the Reading panel
+
+Two panels instead of one: reading settings on their own, and a data panel
+that opens on a summary of everything the site is holding — how many
+bookmarks, how many favourites, how many games of history, how much space —
+with a clear for each type beside its own count, and the download and restore
+that today sit under all three.
+
+**Why deferred:** neither half is big enough yet to need the room. There are
+four reading settings and three stores, and one panel with a rule across it
+holds both without anyone having to scroll to find anything. Splitting now
+would mean a second entry point in a header that carries four controls and is
+deliberately thin.
+
+The reason to expect it anyway is that both halves grow. More stores are
+likely — highlights, notes, a per-game reading position, whatever a reader
+ends up making — and each one adds a count to read and a thing to clear, which
+is a list wanting a page rather than three more buttons in a corner. On the
+other side, settings that are not about reading (a default theme, whether to
+count a visit as history at all, what the home page opens on) have nowhere to
+go today except a panel titled Reading, where they do not belong.
+
+**What already helps:**
+
+- Every store has the same surface — `list`, `clear`, `snapshot`, `merge`,
+  `subscribe` — so a summary is a loop over a list of stores, not a special
+  case per type. A count is `store.list().length` and a clear is `store.clear()`
+  for every one of them.
+- `data-transfer.js` already speaks in whole payloads rather than in panels:
+  `buildExport` and `applyImport` know nothing about where they are called
+  from, so moving the two buttons is moving two event listeners.
+- The export envelope is keyed by store name (`bookmarks`, `favorites`,
+  `history`, `preferences`), so a new store is a new key and an older file
+  missing that key already imports cleanly — which is what lets the data panel
+  grow a row at a time.
+- `overlays.njk` already renders each panel as its own `<dialog>` wired by
+  `overlay.js`, and the palette and the Reading panel now share one floating
+  shell and one `.overlay-scroll` region. A third panel is markup plus a
+  trigger, with no layout to invent.
+- The "Your data" section is already ruled off under its own heading with its
+  own note, so the split is a move of a block that exists, not a rewrite of
+  copy.
+
+**Worth settling when it is built:** whether the data panel is a panel at all
+or a page — a summary with per-type counts, sizes and a clear each is closer
+to a settings page than to a sheet, and it would have somewhere to explain the
+storage limits that the note currently has to compress into three sentences.

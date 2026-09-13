@@ -1328,6 +1328,78 @@ dialog::backdrop {
 }
 
 /*
+ * The home page's way in: a control the width of the column, shaped like the
+ * field it opens, sitting above every list of games on the page.
+ *
+ * It is a button, so it carries none of an input's affordances by accident —
+ * no caret, no text selection — but it is styled as the thing it produces so
+ * that what happens on a click is not a surprise. The dashed-looking quiet of
+ * the header's trigger would be wrong at this size: here it is the page's
+ * primary action and it is allowed to look like one.
+ */
+.home-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  margin-bottom: var(--space-7);
+  padding: var(--space-4);
+  background: var(--surface-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink-muted);
+  cursor: text;
+  font-family: var(--font-ui);
+  font-size: var(--text-md);
+  text-align: left;
+}
+
+.home-search:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.home-search:focus-visible {
+  border-color: var(--accent);
+}
+
+.home-search__icon {
+  flex: none;
+  color: var(--ink-faint);
+}
+
+.home-search__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The shortcut is a promise only a keyboard can collect. */
+.home-search__key {
+  flex: none;
+  padding: 2px var(--space-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-2xs);
+}
+
+@media (max-width: 46rem) {
+  .home-search {
+    padding: var(--space-3);
+    font-size: var(--text-base);
+  }
+
+  .home-search__key {
+    display: none;
+  }
+}
+
+/*
  * Space between the shelves. `:not([hidden])` is what keeps it honest: a
  * hidden section still matches an adjacent-sibling selector even though it
  * takes no room, so without this a reader with no history would get the gap
