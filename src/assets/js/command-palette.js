@@ -3,6 +3,7 @@ import { bookmarkStore } from "./bookmark-store.js";
 import { getSections } from "./section-tracker.js";
 import { searchText } from "./search.js";
 import { rank } from "./fuzzy.js";
+import { initShortcutHints } from "./shortcut.js";
 
 /**
  * The command palette — Cmd-K / Ctrl-K.
@@ -43,6 +44,7 @@ export function initCommandPalette() {
   if (!input || !list) return;
 
   trigger?.removeAttribute("hidden");
+  initShortcutHints();
 
   // Built at build time into a script tag — no fetch, works offline.
   let index = [];
