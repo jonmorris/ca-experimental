@@ -562,10 +562,7 @@ dialog::backdrop {
 /* The only control on the site that widens what you are looking at, so it is
    an accent link rather than another grey chip beside grey text. */
 .palette__scope-toggle {
-  display: inline-flex;
   flex: none;
-  align-items: center;
-  gap: var(--space-2);
   padding: var(--space-1) var(--space-2);
   border: 0;
   border-radius: var(--radius-sm);
@@ -582,23 +579,6 @@ dialog::backdrop {
   background: var(--accent-wash);
 }
 
-.palette__scope-key {
-  padding: 1px var(--space-1);
-  border: 1px solid currentcolor;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-ui);
-  font-size: var(--text-2xs);
-  line-height: 1;
-  opacity: 0.7;
-}
-
-/* On a phone there is no key to press, so the hint is noise beside the
-   button that does the same thing. */
-@media (max-width: 46rem) {
-  .palette__scope-key {
-    display: none;
-  }
-}
 
 /* -------------------------------------------------- drawer / prefs shell */
 

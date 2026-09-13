@@ -16,8 +16,8 @@ import { rank } from "./fuzzy.js";
  *
  * That scope is stated in the field itself — the placeholder reads "Search
  * Indonesia" — and the bar under it carries the way out: a button that widens
- * the search to every game, and the `>` prefix that does the same thing from
- * the keyboard. An invisible default is the one people argue with.
+ * the search to every game, and back. The `>` prefix still does the same thing
+ * from the keyboard. An invisible default is the one people argue with.
  *
  * It is also the site's only search interface. Navigation targets resolve
  * instantly from the embedded index; full-text results arrive a moment later
@@ -39,7 +39,6 @@ export function initCommandPalette() {
   const scopeBar = panel.querySelector("[data-palette-scope]");
   const scopeNote = panel.querySelector("[data-palette-scope-note]");
   const scopeAction = panel.querySelector("[data-palette-scope-action]");
-  const scopeKey = panel.querySelector("[data-palette-scope-key]");
   const scopeToggle = panel.querySelector("[data-palette-scope-toggle]");
   if (!input || !list) return;
 
@@ -107,8 +106,7 @@ export function initCommandPalette() {
      * as well as clicked, and the bar has to agree with the field either way.
      * The button is labelled with what it does rather than with what is
      * selected — there is no state to read back, only a direction to go — so
-     * it carries no pressed state, and the `>` hint is shown only on the leg
-     * where `>` is what does it.
+     * it carries no pressed state either.
      */
     if (gameSlug) {
       if (scopeNote) {
@@ -117,7 +115,6 @@ export function initCommandPalette() {
       if (scopeAction) {
         scopeAction.textContent = global ? `Only ${gameTitle}` : "All games";
       }
-      if (scopeKey) scopeKey.hidden = global;
       if (scopeToggle) {
         scopeToggle.setAttribute(
           "aria-label",

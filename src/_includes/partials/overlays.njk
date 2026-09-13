@@ -51,18 +51,16 @@
       the foot of the panel because "where am I searching" is a question asked
       on opening, not after scrolling past forty results, and the way to widen
       it is a button beside the statement rather than a keystroke only a
-      keyboard user would ever find. The keystroke still works, and the button
-      shows it.
+      keyboard user would ever find. The `>` prefix still works for anyone who
+      knows it; it is not advertised.
 
       Hidden off a game, where there is nothing to widen and the placeholder
       has already said so.
     #}
     <div class="palette__scope" data-palette-scope hidden>
       <p class="palette__scope-note" data-palette-scope-note aria-live="polite"></p>
-      <button type="button" class="palette__scope-toggle" data-palette-scope-toggle>
-        <span data-palette-scope-action></span>
-        <kbd class="palette__scope-key" data-palette-scope-key>&gt;</kbd>
-      </button>
+      <button type="button" class="palette__scope-toggle" data-palette-scope-toggle
+              data-palette-scope-action></button>
     </div>
 
     <p class="palette__empty" data-palette-empty></p>
