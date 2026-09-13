@@ -8,7 +8,6 @@
 
 import { preferences, applyPreferences } from "./preferences.js";
 import { initPreferences } from "./preferences-ui.js";
-import { initAccount } from "./account-ui.js";
 import { initMenu } from "./menu.js";
 import { initCommandPalette } from "./command-palette.js";
 import { initBookmarkToggles } from "./bookmarks-ui.js";
@@ -43,7 +42,6 @@ function start() {
 
   initMenu();
   initPreferences();
-  initAccount();
   initCommandPalette();
   initBookmarkToggles();
   initJumpBookmarks();
