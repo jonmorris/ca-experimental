@@ -725,13 +725,20 @@
  * Breadcrumbs and the page-level actions share a line. The breadcrumbs already
  * carried their own bottom margin, so the row takes it over and they keep none
  * of their own.
+ *
+ * The row is the breadcrumb's line and nothing else. A print button built
+ * around a 21px icon is half again as tall as a line of 12px breadcrumbs, and
+ * while it was a flex item at its full height it set the height of the row —
+ * so every page pushed its whole content down by the difference, for a control
+ * sitting in the corner. See `.print-button` below, which now hangs over the
+ * row instead of stretching it.
  */
 .page-top {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-2);
 }
 
 .page-top .breadcrumbs {
@@ -744,6 +751,15 @@
   align-items: center;
   flex: none;
   gap: var(--space-1);
+  /*
+   * The padding is real and the negative margin takes it back out of the flex
+   * line, so the button keeps its hover target and its centring but contributes
+   * less height than the breadcrumbs beside it — which means it cannot move the
+   * page. Written against the spacing scale rather than as the exact pixel
+   * difference so that a later change to the icon's size stays inside the
+   * headroom instead of silently reopening this.
+   */
+  margin-block: calc(-1 * var(--space-2));
   padding: var(--space-1) var(--space-2);
   background: none;
   border: 1px solid transparent;
