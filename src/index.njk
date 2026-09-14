@@ -3,6 +3,7 @@ layout: layouts/page.njk
 permalink: /
 bodyClass: page page--home
 ---
+{% from "partials/shelf-menu.njk" import shelfMenu %}
 <div class="home" data-pagefind-body>
   {#
     The site's name is the page's heading, and what it is for is the line under
@@ -164,58 +165,18 @@ bodyClass: page page--home
           face, which is the split that stops the list from multiplying: four
           entries for two keys today, eight for four keys later.
 
-          The menu is written here rather than being a `<select>`. A select's
-          open list is the operating system's, which meant the one moment this
-          control is actually being used looked like nothing else on the site —
-          and no amount of styling the closed box reaches it. What that costs
-          is the keyboard behaviour, which `shelf.js` now owns: arrows, Home
-          and End, Escape, and focus back to the button.
-
           The direction is words rather than only an arrow. Beside a name an
           arrow is unambiguous; beside a date it is a coin toss, because up
           reads as newest at the top about as often as oldest.
         #}
         <div class="shelf-sort">
-          <span class="shelf-sort__label" id="shelf-sort-label">Sort by</span>
+          <span class="shelf-label" id="shelf-sort-label">Sort by</span>
 
           <div class="shelf-sort__group">
-            <div class="shelf-menu" data-shelf-menu>
-              {#
-                Named by the caption and its own value together — "Sort by,
-                Name" — so the label beside it is part of the button rather
-                than a word floating next to one.
-              #}
-              <button type="button" class="shelf-menu__button" data-shelf-menu-button
-                      aria-haspopup="true" aria-expanded="false" aria-controls="shelf-sort-menu"
-                      aria-labelledby="shelf-sort-label shelf-sort-value">
-                <span id="shelf-sort-value" data-shelf-sort-value>Name</span>
-                <svg class="shelf-menu__chevron" viewBox="0 0 16 16" width="13" height="13"
-                     aria-hidden="true" focusable="false">
-                  <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"
-                        stroke-linecap="round"/>
-                </svg>
-              </button>
-
-              <div class="shelf-menu__list" id="shelf-sort-menu" role="menu"
-                   aria-labelledby="shelf-sort-label" data-shelf-menu-list hidden>
-                {% for option in [{ "key": "title", "label": "Name" }, { "key": "year", "label": "Release date" }] %}
-                  {#
-                    `menuitemradio`, because these are one choice and not a set
-                    of commands — the tick is the state and the role is what
-                    says so out loud.
-                  #}
-                  <button type="button" class="shelf-menu__item" role="menuitemradio"
-                          aria-checked="false" data-shelf-sort-option="{{ option.key }}">
-                    <svg class="shelf-menu__check" viewBox="0 0 16 16" width="13" height="13"
-                         aria-hidden="true" focusable="false">
-                      <path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>{{ option.label }}</span>
-                  </button>
-                {% endfor %}
-              </div>
-            </div>
+            {{ shelfMenu("sort", "shelf-sort-label", [
+              { "key": "title", "label": "Name" },
+              { "key": "year", "label": "Release date" }
+            ]) }}
 
             <button type="button" class="shelf-direction" data-shelf-direction>
               <svg class="shelf-direction__arrow" viewBox="0 0 16 16" width="13" height="13"
@@ -226,6 +187,25 @@ bodyClass: page page--home
               <span data-shelf-direction-label>A to Z</span>
             </button>
           </div>
+        </div>
+
+        {#
+          Publisher.
+
+          One house at a time rather than several at once: "what else is there
+          like this Splotter game" is the question this answers, and it is
+          asked about one house. Several would mean checkboxes, a button that
+          can only say "3 publishers", and a reader who has to open the menu to
+          find out what the shelf is showing.
+
+          A menu and not a row of chips, because the list is as long as the
+          catalogue has houses and a row of them would be the tallest thing
+          here. The first entry is the way out of the filter, which is why it
+          reads "All publishers" and not "None".
+        #}
+        <div class="shelf-filter">
+          <span class="shelf-label" id="shelf-publisher-label">Publisher</span>
+          {{ shelfMenu("publisher", "shelf-publisher-label", shelf.publishers, "All publishers") }}
         </div>
 
         <button type="button" class="shelf-reset" data-shelf-reset hidden>Clear filters</button>
@@ -254,6 +234,7 @@ bodyClass: page page--home
         <li class="game-tile" data-game-slug="{{ slug }}"
             data-title="{{ item.title }}"
             data-year="{{ item.meta.year_published or '' }}"
+            data-publishers="{% for publisher in item.meta.publishers %}{{ publisher.slug }}{{ " " if not loop.last }}{% endfor %}"
             {% if players %}data-players-min="{{ players.min }}" data-players-max="{{ players.max }}"{% endif %}
             {% if time %}data-time-min="{{ time.min }}" data-time-max="{{ time.max }}"{% endif %}>
           {#

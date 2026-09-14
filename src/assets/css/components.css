@@ -3374,7 +3374,7 @@ a.home-update:hover .home-update__go {
   }
 }
 
-.shelf-sort__label,
+.shelf-label,
 .range__label {
   /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   color: var(--ink-faint);
@@ -3386,15 +3386,16 @@ a.home-update:hover .home-update__go {
 }
 
 /*
- * Sort, as one object.
+ * A labelled control, as one object.
  *
- * The label sits on the line rather than above it. Stacked, it made the sort
- * two rows tall next to filters that are one, and the tray's tallest thing was
- * a caption — so the row set its own height from the piece that mattered
- * least. On a narrow screen it wraps above the control again, which is the
- * only place the stack was ever right.
+ * The label sits on the line rather than above it. Stacked, it made each
+ * control two rows tall next to filters that are one, and the tray's tallest
+ * thing was a caption — so the row set its own height from the piece that
+ * mattered least. On a narrow screen it wraps above the control again, which
+ * is the only place the stack was ever right.
  */
-.shelf-sort {
+.shelf-sort,
+.shelf-filter {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -3430,11 +3431,16 @@ a.home-update:hover .home-update__go {
   padding-inline: var(--space-3);
   background: var(--surface-raised);
   border: 1px solid var(--line-strong);
-  border-radius: var(--radius) 0 0 var(--radius);
+  border-radius: var(--radius);
   color: var(--ink);
   cursor: pointer;
   font-family: var(--font-ui);
   font-size: var(--text-sm);
+}
+
+/* Except where it has the direction button welded to it. */
+.shelf-sort__group .shelf-menu__button {
+  border-radius: var(--radius) 0 0 var(--radius);
 }
 
 .shelf-menu__chevron {
@@ -3468,6 +3474,16 @@ a.home-update:hover .home-update__go {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+
+  /*
+   * As long as the catalogue has publishers, which is a number that only goes
+   * up — so it scrolls rather than running off the bottom of the page, and it
+   * is capped against the window and not against a guess at how many there
+   * are.
+   */
+  max-height: min(60svh, 22rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .shelf-menu__item {

@@ -48,6 +48,8 @@ function readTile(tile) {
     el: tile,
     title: tile.dataset.title || "",
     year: number("year"),
+    // A game published by two houses belongs under both.
+    publishers: (tile.dataset.publishers || "").split(" ").filter(Boolean),
     players: [number("playersMin"), number("playersMax")],
     time: [number("timeMin"), number("timeMax")],
   };
@@ -150,6 +152,10 @@ function createRange(root, onChange) {
  * operating system, so the one moment the control is being used is the one
  * moment it stops looking like the site.
  *
+ * Both of the shelf's menus are this: what a menu is *for* is entirely in the
+ * callback, so sorting and filtering by publisher share the keyboard, the
+ * tick, and every way of closing.
+ *
  * What a select gave away for free is the keyboard, and that is most of what
  * follows: the arrows open the menu and walk it, Home and End jump, Escape and
  * Tab close it, and focus always ends up back on the button. Focus moves item
@@ -161,11 +167,11 @@ function createRange(root, onChange) {
  * @param {(key: string) => void} onChoose called with the chosen item's key
  */
 function createMenu(root, onChoose) {
-  const button = root.querySelector("[data-shelf-menu-button]");
-  const list = root.querySelector("[data-shelf-menu-list]");
+  const button = root.querySelector("[data-menu-button]");
+  const list = root.querySelector("[data-menu-list]");
   if (!button || !list) return null;
 
-  const items = [...list.querySelectorAll("[data-shelf-sort-option]")];
+  const items = [...list.querySelectorAll("[data-menu-item]")];
 
   const isOpen = () => !list.hidden;
 
@@ -203,7 +209,7 @@ function createMenu(root, onChoose) {
   });
 
   list.addEventListener("keydown", (event) => {
-    const item = event.target.closest("[data-shelf-sort-option]");
+    const item = event.target.closest("[data-menu-item]");
     switch (event.key) {
       case "ArrowDown":
         event.preventDefault();
@@ -235,7 +241,7 @@ function createMenu(root, onChoose) {
 
   for (const item of items) {
     item.addEventListener("click", () => {
-      onChoose(item.dataset.shelfSortOption);
+      onChoose(item.dataset.menuItem);
       close();
     });
   }
@@ -256,10 +262,10 @@ function createMenu(root, onChoose) {
     /** Marks the chosen item and writes its name onto the button. */
     set(key) {
       for (const item of items) {
-        const isCurrent = item.dataset.shelfSortOption === key;
+        const isCurrent = item.dataset.menuItem === key;
         item.setAttribute("aria-checked", String(isCurrent));
         if (isCurrent) {
-          const value = root.querySelector("[data-shelf-sort-value]");
+          const value = root.querySelector("[data-menu-value]");
           if (value) value.textContent = item.querySelector("span")?.textContent.trim() || "";
         }
       }
@@ -290,9 +296,17 @@ export function initShelf() {
    * A new key starts on its own default direction rather than inheriting the
    * last one, where "Z to A" would quietly have become "oldest first".
    */
-  const menu = createMenu(tools.querySelector("[data-shelf-menu]"), (key) =>
+  const menu = createMenu(tools.querySelector('[data-menu="sort"]'), (key) =>
     setSort(key, (SORTS[key] || SORTS.title).descending),
   );
+
+  /* The empty key is "all publishers", which is the filter doing nothing. */
+  let publisher = "";
+  const publisherMenu = createMenu(tools.querySelector('[data-menu="publisher"]'), (key) => {
+    publisher = key;
+    publisherMenu?.set(publisher);
+    apply();
+  });
 
   const ranges = {};
   for (const root of tools.querySelectorAll("[data-range]")) {
@@ -317,6 +331,7 @@ export function initShelf() {
       if (tile.time[0] === null) return false;
       if (!overlaps(tile.time[0], tile.time[1], time.from, time.to)) return false;
     }
+    if (publisher && !tile.publishers.includes(publisher)) return false;
     return true;
   }
 
@@ -361,7 +376,8 @@ export function initShelf() {
      * How many filters are doing something. Shown on the closed tray, because
      * a shelf that is quietly narrowed reads as a shelf with games missing.
      */
-    const narrowed = Object.values(ranges).filter((range) => !range.isDefault).length;
+    const narrowed =
+      Object.values(ranges).filter((range) => !range.isDefault).length + (publisher ? 1 : 0);
     if (reset) reset.hidden = narrowed === 0;
     if (badge) {
       badge.hidden = narrowed === 0;
@@ -396,6 +412,8 @@ export function initShelf() {
 
   reset?.addEventListener("click", () => {
     for (const range of Object.values(ranges)) range.reset();
+    publisher = "";
+    publisherMenu?.set(publisher);
     apply();
   });
 
@@ -416,5 +434,6 @@ export function initShelf() {
 
   toggle?.removeAttribute("hidden");
   setOpen(false);
+  publisherMenu?.set(publisher);
   setSort("title", SORTS.title.descending);
 }

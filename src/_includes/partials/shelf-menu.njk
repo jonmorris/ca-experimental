@@ -1,0 +1,65 @@
+{#
+  A menu button and its list, for the shelf's tray.
+
+  Written here rather than left to a `<select>`, because a select's open list
+  is drawn by the operating system: the closed box can be styled and the one
+  moment the control is actually being used cannot. `shelf.js` owns the
+  keyboard the select was giving away for free — arrows, Home and End, Escape,
+  and focus back to the button.
+
+  `menuitemradio`, since each of these is one choice out of a set and not a set
+  of commands: the tick is the state and the role is what says so out loud.
+
+  @param name      the menu's own name, which becomes its hooks and ids
+  @param labelId   the caption beside it, which is half the button's name
+  @param items     [{ key, label }], the choices
+  @param allLabel  an optional first entry meaning "do not narrow by this",
+                   whose key is the empty string
+#}
+{% macro shelfMenu(name, labelId, items, allLabel) %}
+  <div class="shelf-menu" data-menu="{{ name }}">
+    {#
+      Named by the caption and its own value together — "Publisher, All" — so
+      the label beside it is part of the button rather than a word floating
+      next to one.
+    #}
+    <button type="button" class="shelf-menu__button" data-menu-button
+            aria-haspopup="true" aria-expanded="false" aria-controls="shelf-{{ name }}-menu"
+            aria-labelledby="{{ labelId }} shelf-{{ name }}-value">
+      <span id="shelf-{{ name }}-value" data-menu-value>{{ allLabel or items[0].label }}</span>
+      <svg class="shelf-menu__chevron" viewBox="0 0 16 16" width="13" height="13"
+           aria-hidden="true" focusable="false">
+        <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="shelf-menu__list" id="shelf-{{ name }}-menu" role="menu"
+         aria-labelledby="{{ labelId }}" data-menu-list hidden>
+      {% if allLabel %}
+        <button type="button" class="shelf-menu__item" role="menuitemradio"
+                aria-checked="false" data-menu-item="">
+          {{ check() }}<span>{{ allLabel }}</span>
+        </button>
+      {% endif %}
+      {% for option in items %}
+        <button type="button" class="shelf-menu__item" role="menuitemradio"
+                aria-checked="false" data-menu-item="{{ option.key }}">
+          {{ check() }}<span>{{ option.label }}</span>
+        </button>
+      {% endfor %}
+    </div>
+  </div>
+{% endmacro %}
+
+{#
+  The tick. It holds its column whether or not it is showing — see the CSS —
+  so the names line up rather than shifting sideways as the choice moves.
+#}
+{% macro check() %}
+  <svg class="shelf-menu__check" viewBox="0 0 16 16" width="13" height="13"
+       aria-hidden="true" focusable="false">
+    <path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+{% endmacro %}
