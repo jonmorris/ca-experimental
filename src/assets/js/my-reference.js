@@ -172,71 +172,6 @@ function rehome(nodes, sourceUrl) {
   return nodes;
 }
 
-/**
- * What is on this page, at the top of it.
- *
- * Every other page states its own shape before the reader starts: a rulebook
- * was written in an order somebody chose, and the nav says so. This one is
- * whatever that reader saved, out of whatever mix of documents they saved it
- * from, and until they scroll there is nothing on the page itself that says
- * what they built. The sidebar answers that on a wide screen, the sticky bar
- * answers it one section at a time, and Just read mode and the printer take
- * both away — none of them is the page.
- *
- * Grouped by source, because the mix is the part a reader cannot guess. Four
- * headings in a row tell you nothing about whether you are looking at the
- * rulebook, the FAQ or an expansion, and on this page those can be adjacent.
- * The group heading is not a link: a contents list whose headings leave the
- * page is not a contents list. Every section already carries its own way back
- * to where it was written.
- *
- * Nothing here is a second source of truth — it is the same `entries` the
- * sections are built from, in the same order, so the list cannot disagree with
- * the page it describes.
- */
-function buildContents(entries) {
-  const nav = document.createElement("nav");
-  nav.className = "reference-contents";
-  nav.setAttribute("aria-labelledby", "reference-contents-title");
-
-  const title = document.createElement("h2");
-  title.className = "reference-contents__title";
-  title.id = "reference-contents-title";
-  title.textContent = "Contents";
-  nav.append(title);
-
-  /*
-   * `plan()` walks the documents in nav order, so entries from one document
-   * are already adjacent and a group is a run rather than a bucket to collect
-   * into. The same pass that proves the order is the pass that renders it.
-   */
-  let group = null;
-  let list = null;
-  for (const entry of entries) {
-    const key = `${entry.doc.expansion}::${entry.doc.slug}`;
-    if (key !== group) {
-      group = key;
-      const source = document.createElement("p");
-      source.className = "eyebrow reference-contents__source";
-      source.textContent = sourceLabel(entry.doc);
-      list = document.createElement("ul");
-      list.className = "reference-contents__list";
-      nav.append(source, list);
-    }
-
-    const item = document.createElement("li");
-    const link = document.createElement("a");
-    link.className = "reference-contents__link";
-    link.href = `#${refId(entry.doc, entry.anchor)}`;
-    link.textContent = entry.title;
-    link.dataset.refKey = `${entry.doc.expansion}::${entry.doc.slug}::${entry.anchor}`;
-    item.append(link);
-    list.append(item);
-  }
-
-  return nav;
-}
-
 function buildOrphan(bookmark) {
   const section = document.createElement("section");
   section.className = "reference-section reference-section--missing";
@@ -301,26 +236,6 @@ export function initMyReference() {
   for (const orphan of orphans) body.append(buildOrphan(orphan));
 
   /*
-   * The contents list, above everything it lists.
-   *
-   * Built from `entries` rather than from the headings, so an orphan is left
-   * out: a bookmark whose section the rules no longer have is a note about
-   * housekeeping, not a part of the reference, and it is the one block on this
-   * page a reader cannot go to — it has no anchor because it has no section.
-   *
-   * Each link keeps the key of the section it points at, so the two stay in
-   * step when one is removed.
-   */
-  if (entries.length) {
-    const contents = buildContents(entries);
-    body.before(contents);
-    for (const link of contents.querySelectorAll("[data-ref-key]")) {
-      const record = sections.get(link.dataset.refKey);
-      if (record) record.link = link;
-    }
-  }
-
-  /*
    * The headings exist now, so the rest of the site can see them.
    *
    * This page used to carry its own contents list, built right here, because
@@ -353,8 +268,6 @@ export function initMyReference() {
 
     bookmarkStore.remove(record.entry.bookmark);
     section.classList.add("is-removed");
-    // The contents list describes the page, and the page now says this is gone.
-    record.link?.classList.add("is-removed");
     button.remove();
 
     const undo = document.createElement("p");
@@ -363,7 +276,6 @@ export function initMyReference() {
     undo.querySelector("button").addEventListener("click", () => {
       bookmarkStore.add(record.entry.bookmark);
       section.classList.remove("is-removed");
-      record.link?.classList.remove("is-removed");
       undo.remove();
       section.querySelector(".heading-tools").append(button);
     });
