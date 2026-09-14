@@ -98,6 +98,22 @@
    */
   --cover-ratio: 4 / 3;
 
+  /*
+   * And how much of that frame's width the art may take.
+   *
+   * It is a cap on width alone, which is what makes it the control for this:
+   * a portrait cover is limited by the frame's height and never reaches the
+   * cap, so lowering it leaves every tall cover exactly as it was and only
+   * pulls in the wide ones. Those were reading as the larger object — a
+   * landscape cover ran the width of the frame while a portrait one stood
+   * narrow in the middle of it, so the same shelf showed two scales.
+   *
+   * It cannot equalise them: area falls away as a cover gets wider, so any
+   * single cap leaves the near-square ones largest and the letterbox ones
+   * smallest. It closes the gap, which is the useful part.
+   */
+  --cover-width: 78%;
+
   --tracking-tight: -0.018em;
   --tracking-normal: 0;
   --tracking-wide: 0.02em;

@@ -1296,10 +1296,6 @@ button.palette__link {
  * covers that were largest, which is the trade worth making on a shelf where
  * nothing should look more important than its neighbour.
  */
-.game-tile__art {
-  --cover-width: 87%;
-}
-
 .game-tile__image {
   display: block;
   width: var(--cover-width);
@@ -1556,8 +1552,6 @@ button.palette__link {
  * now the same on every page and the art is what varies within it.
  */
 .landing__cover {
-  --cover-width: 87%;
-
   display: block;
   /*
    * The width of the column on a phone, and a box that grows with the page
