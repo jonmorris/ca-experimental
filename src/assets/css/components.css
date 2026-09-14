@@ -1264,6 +1264,16 @@ button.palette__link {
   line-height: var(--leading-snug);
 }
 
+/*
+ * An exception to the 14px floor, at the size it had before it. See
+ * CONVENTIONS.md §4b.
+ *
+ * The foot of a contents card: how many sections are in the document, and
+ * whether it is the publisher's own text. Neither is why anybody is looking at
+ * the card — the name at the top is — and both are there to be glanced at once
+ * while choosing between cards. At the floor the line matched the description
+ * above it and the card had two paragraphs instead of a body and a footnote.
+ */
 .card__meta {
   display: flex;
   align-items: center;
@@ -1271,7 +1281,7 @@ button.palette__link {
   margin-top: var(--space-2);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
+  font-size: var(--text-micro);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1696,10 +1706,22 @@ button.palette__link {
   border-bottom: 1px solid var(--line);
 }
 
+/*
+ * An exception to the 14px floor, at the size it had before it. See
+ * CONVENTIONS.md §4b.
+ *
+ * "Designer", "Players", "Play time" — the labels, not the facts. What a
+ * reader takes from this block is the values, and the labels only have to say
+ * which is which; most of them are guessable from the value alone. At the
+ * floor each pair was two lines of the same size and the block read as a
+ * paragraph of alternating words rather than as a table.
+ *
+ * The values themselves stay on the floor, a step above at `--text-sm`.
+ */
 .game-facts dt {
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
+  font-size: var(--text-micro);
   font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;

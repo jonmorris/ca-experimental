@@ -336,7 +336,7 @@ calibration. Picking a fresh number each time is what turns a short list of
 exceptions into a long list of near-misses, and the old size is the only one
 that has already been looked at and agreed.
 
-There are eight, and all sit under the floor at the size they had before it:
+There are ten, and all sit under the floor at the size they had before it:
 
 - **The bookmark count over the header icon.** A one- or two-digit number taken
   in at a glance as a change of state. At 14px it was the loudest thing in the
@@ -368,6 +368,16 @@ There are eight, and all sit under the floor at the size they had before it:
   equal-weight things and the panel had no structure to scan by. The buttons
   themselves stay on the floor: they are what a reader is looking for and
   pressing.
+- **The section count and Official mark at the foot of a contents card.**
+  Neither is why anybody is looking at the card — the name at the top is — and
+  both are glanced at once while choosing between cards. At the floor the line
+  matched the description above it and the card had two paragraphs instead of a
+  body and a footnote.
+- **The labels in a game's facts block**, not the facts. What a reader takes
+  from it is the values, and the labels only say which is which — most are
+  guessable from the value alone. At the floor each pair was two lines of one
+  size and the block read as alternating words rather than as a table. The
+  values stay on the floor, a step above.
 - **The game's name above the document's in the open section sheet.** An
   eyebrow is not read on its own account: it is context for the title under it
   and works by being visibly the smaller of the two. At the floor it came
