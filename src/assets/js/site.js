@@ -26,6 +26,7 @@ import { initMyReference, initReferenceCount } from "./my-reference.js";
 import { initPrint } from "./print.js";
 import { initFavorites } from "./favorites-ui.js";
 import { initAboutDemos } from "./about-demos.js";
+import { initDebugProbe } from "./debug-probe.js";
 
 function start() {
   // The inline head script already applied these before first paint; this
@@ -55,6 +56,9 @@ function start() {
   initNotFound();
   initHeadingLinks();
   initAboutDemos();
+
+  // Temporary, and only with ?probe in the URL. See debug-probe.js.
+  initDebugProbe();
 }
 
 if (document.readyState === "loading") {
