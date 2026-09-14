@@ -1787,11 +1787,20 @@ button.palette__link {
  * `nowrap` because "12.4 MB" broken across two lines is not a size any more,
  * and the title beside it is what gives when the row is narrow.
  */
+/*
+ * An exception to the 14px floor, at the size it had before it. See
+ * CONVENTIONS.md §4b.
+ *
+ * "PDF · 3.7 MB" is the cost of the tap, not the name of the thing — two
+ * facts stated so nobody starts a twenty-megabyte download on a train by
+ * accident. It is read once, before deciding, and never again. At the floor it
+ * matched the file's name across the row and the row had two headlines.
+ */
 .download__meta {
   flex: 0 0 auto;
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
+  font-size: var(--text-micro);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }

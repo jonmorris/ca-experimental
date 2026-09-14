@@ -336,7 +336,7 @@ calibration. Picking a fresh number each time is what turns a short list of
 exceptions into a long list of near-misses, and the old size is the only one
 that has already been looked at and agreed.
 
-There are six, and all sit under the floor at the size they had before it:
+There are seven, and all sit under the floor at the size they had before it:
 
 - **The bookmark count over the header icon.** A one- or two-digit number taken
   in at a glance as a change of state. At 14px it was the loudest thing in the
@@ -358,6 +358,10 @@ There are six, and all sit under the floor at the size they had before it:
   that never changes and never needs reading — the section name under each is
   what a reader takes from it, and which side of the bar it sits on says the
   rest. At the floor the standing word was heavier than the name it introduces.
+- **The format and size on a download row.** "PDF · 3.7 MB" is the cost of the
+  tap rather than the name of the thing — read once, before deciding, and never
+  again. At the floor it matched the file's name across the row and the row had
+  two headlines.
 - **The game's name above the document's in the open section sheet.** An
   eyebrow is not read on its own account: it is context for the title under it
   and works by being visibly the smaller of the two. At the floor it came
