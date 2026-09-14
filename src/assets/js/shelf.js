@@ -142,6 +142,131 @@ function createRange(root, onChange) {
   };
 }
 
+/**
+ * A menu button and its list.
+ *
+ * Small enough to live here because the shelf is the only thing that needs
+ * one — and written at all because a `<select>`'s open list belongs to the
+ * operating system, so the one moment the control is being used is the one
+ * moment it stops looking like the site.
+ *
+ * What a select gave away for free is the keyboard, and that is most of what
+ * follows: the arrows open the menu and walk it, Home and End jump, Escape and
+ * Tab close it, and focus always ends up back on the button. Focus moves item
+ * to item rather than staying on the list with `aria-activedescendant`,
+ * because a real focus ring is a thing browsers and screen readers already
+ * agree about.
+ *
+ * @param {HTMLElement} root    the wrapper, positioned
+ * @param {(key: string) => void} onChoose called with the chosen item's key
+ */
+function createMenu(root, onChoose) {
+  const button = root.querySelector("[data-shelf-menu-button]");
+  const list = root.querySelector("[data-shelf-menu-list]");
+  if (!button || !list) return null;
+
+  const items = [...list.querySelectorAll("[data-shelf-sort-option]")];
+
+  const isOpen = () => !list.hidden;
+
+  function open(focus = "checked") {
+    list.hidden = false;
+    button.setAttribute("aria-expanded", "true");
+
+    const checked = items.find((item) => item.getAttribute("aria-checked") === "true");
+    const target =
+      focus === "last" ? items[items.length - 1] : focus === "first" ? items[0] : checked || items[0];
+    target?.focus();
+  }
+
+  function close({ restoreFocus = true } = {}) {
+    if (!isOpen()) return;
+    list.hidden = true;
+    button.setAttribute("aria-expanded", "false");
+    if (restoreFocus) button.focus();
+  }
+
+  function step(from, delta) {
+    const index = items.indexOf(from);
+    // Wraps, which is what a menu of two badly wants: one press either way
+    // reaches the other item.
+    items[(index + delta + items.length) % items.length]?.focus();
+  }
+
+  button.addEventListener("click", () => (isOpen() ? close() : open()));
+
+  button.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      open(event.key === "ArrowUp" ? "last" : "first");
+    }
+  });
+
+  list.addEventListener("keydown", (event) => {
+    const item = event.target.closest("[data-shelf-sort-option]");
+    switch (event.key) {
+      case "ArrowDown":
+        event.preventDefault();
+        step(item, 1);
+        break;
+      case "ArrowUp":
+        event.preventDefault();
+        step(item, -1);
+        break;
+      case "Home":
+        event.preventDefault();
+        items[0]?.focus();
+        break;
+      case "End":
+        event.preventDefault();
+        items[items.length - 1]?.focus();
+        break;
+      case "Escape":
+        event.preventDefault();
+        close();
+        break;
+      case "Tab":
+        // Let the tab land where it was going; just do not leave this behind.
+        close({ restoreFocus: false });
+        break;
+      default:
+    }
+  });
+
+  for (const item of items) {
+    item.addEventListener("click", () => {
+      onChoose(item.dataset.shelfSortOption);
+      close();
+    });
+  }
+
+  /*
+   * Tapping anywhere else closes it. On `click` and not `pointerdown`, for the
+   * reason the header menu gives: every touch scroll starts with a
+   * pointerdown, and closing on that makes the menu vanish under a finger that
+   * was only scrolling.
+   */
+  document.addEventListener("click", (event) => {
+    if (!isOpen() || root.contains(event.target)) return;
+    close({ restoreFocus: false });
+  });
+
+  return {
+    close,
+    /** Marks the chosen item and writes its name onto the button. */
+    set(key) {
+      for (const item of items) {
+        const isCurrent = item.dataset.shelfSortOption === key;
+        item.setAttribute("aria-checked", String(isCurrent));
+        if (isCurrent) {
+          const value = root.querySelector("[data-shelf-sort-value]");
+          if (value) value.textContent = item.querySelector("span")?.textContent.trim() || "";
+        }
+      }
+    },
+  };
+}
+
 export function initShelf() {
   const tools = document.querySelector("[data-shelf-tools]");
   const list = document.querySelector("[data-shelf-list]");
@@ -150,7 +275,6 @@ export function initShelf() {
   const tiles = [...list.querySelectorAll(".game-tile")].map(readTile);
   if (!tiles.length) return;
 
-  const sort = tools.querySelector("[data-shelf-sort]");
   const direction = tools.querySelector("[data-shelf-direction]");
   const directionLabel = tools.querySelector("[data-shelf-direction-label]");
   const reset = tools.querySelector("[data-shelf-reset]");
@@ -161,6 +285,14 @@ export function initShelf() {
 
   let sortKey = "title";
   let descending = SORTS.title.descending;
+
+  /*
+   * A new key starts on its own default direction rather than inheriting the
+   * last one, where "Z to A" would quietly have become "oldest first".
+   */
+  const menu = createMenu(tools.querySelector("[data-shelf-menu]"), (key) =>
+    setSort(key, (SORTS[key] || SORTS.title).descending),
+  );
 
   const ranges = {};
   for (const root of tools.querySelectorAll("[data-range]")) {
@@ -250,7 +382,7 @@ export function initShelf() {
     sortKey = key;
     descending = next;
 
-    if (sort) sort.value = sortKey;
+    menu?.set(sortKey);
 
     const words = (SORTS[sortKey] || SORTS.title).labels[descending ? 1 : 0];
     direction?.classList.toggle("is-descending", descending);
@@ -260,11 +392,6 @@ export function initShelf() {
     apply();
   }
 
-  // A new key starts on its own default direction rather than inheriting the
-  // last one, where "Z to A" would quietly have become "oldest first".
-  sort?.addEventListener("change", () =>
-    setSort(sort.value, (SORTS[sort.value] || SORTS.title).descending),
-  );
   direction?.addEventListener("click", () => setSort(sortKey, !descending));
 
   reset?.addEventListener("click", () => {

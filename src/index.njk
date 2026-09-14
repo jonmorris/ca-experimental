@@ -159,35 +159,63 @@ bodyClass: page page--home
         {#
           Sort: what by, and which way.
 
-          A menu and a direction, joined into one unit — the select carries
+          A menu and a direction, joined into one unit — the menu carries
           however many keys there are and the button carries the two ways to
           face, which is the split that stops the list from multiplying: four
           entries for two keys today, eight for four keys later.
 
-          The select is the browser's, with its own chrome taken off. A native
-          menu is the right thing on a phone, where it opens as the platform's
-          own picker and is reachable with a thumb, and there is no keyboard
-          behaviour here that has to be re-implemented and got wrong.
+          The menu is written here rather than being a `<select>`. A select's
+          open list is the operating system's, which meant the one moment this
+          control is actually being used looked like nothing else on the site —
+          and no amount of styling the closed box reaches it. What that costs
+          is the keyboard behaviour, which `shelf.js` now owns: arrows, Home
+          and End, Escape, and focus back to the button.
 
           The direction is words rather than only an arrow. Beside a name an
           arrow is unambiguous; beside a date it is a coin toss, because up
           reads as newest at the top about as often as oldest.
         #}
         <div class="shelf-sort">
-          <label class="shelf-sort__label" for="shelf-sort">Sort by</label>
+          <span class="shelf-sort__label" id="shelf-sort-label">Sort by</span>
 
           <div class="shelf-sort__group">
-            <span class="shelf-select">
-              <select class="shelf-select__control" id="shelf-sort" data-shelf-sort>
-                <option value="title">Name</option>
-                <option value="year">Release date</option>
-              </select>
-              <svg class="shelf-select__chevron" viewBox="0 0 16 16" width="13" height="13"
-                   aria-hidden="true" focusable="false">
-                <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"
-                      stroke-linecap="round"/>
-              </svg>
-            </span>
+            <div class="shelf-menu" data-shelf-menu>
+              {#
+                Named by the caption and its own value together — "Sort by,
+                Name" — so the label beside it is part of the button rather
+                than a word floating next to one.
+              #}
+              <button type="button" class="shelf-menu__button" data-shelf-menu-button
+                      aria-haspopup="true" aria-expanded="false" aria-controls="shelf-sort-menu"
+                      aria-labelledby="shelf-sort-label shelf-sort-value">
+                <span id="shelf-sort-value" data-shelf-sort-value>Name</span>
+                <svg class="shelf-menu__chevron" viewBox="0 0 16 16" width="13" height="13"
+                     aria-hidden="true" focusable="false">
+                  <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round"/>
+                </svg>
+              </button>
+
+              <div class="shelf-menu__list" id="shelf-sort-menu" role="menu"
+                   aria-labelledby="shelf-sort-label" data-shelf-menu-list hidden>
+                {% for option in [{ "key": "title", "label": "Name" }, { "key": "year", "label": "Release date" }] %}
+                  {#
+                    `menuitemradio`, because these are one choice and not a set
+                    of commands — the tick is the state and the role is what
+                    says so out loud.
+                  #}
+                  <button type="button" class="shelf-menu__item" role="menuitemradio"
+                          aria-checked="false" data-shelf-sort-option="{{ option.key }}">
+                    <svg class="shelf-menu__check" viewBox="0 0 16 16" width="13" height="13"
+                         aria-hidden="true" focusable="false">
+                      <path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>{{ option.label }}</span>
+                  </button>
+                {% endfor %}
+              </div>
+            </div>
 
             <button type="button" class="shelf-direction" data-shelf-direction>
               <svg class="shelf-direction__arrow" viewBox="0 0 16 16" width="13" height="13"

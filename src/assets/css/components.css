@@ -3411,21 +3411,23 @@ a.home-update:hover .home-update__go {
   display: flex;
 }
 
-.shelf-select {
+/*
+ * The button is the current key and a chevron, and it is not a `<select>`: the
+ * list it opens is drawn below rather than by the operating system. Same
+ * closed shape either way — what changes is the half a reader is looking at
+ * while they are choosing.
+ */
+.shelf-menu {
   position: relative;
   display: inline-flex;
 }
 
-/*
- * `appearance: none` takes the platform's box away and leaves the platform's
- * menu, which is the half worth keeping — on a phone it opens as the system
- * picker. What it also takes away is the chevron, so the markup carries one:
- * without it this is a word with nothing to say it can be pressed.
- */
-.shelf-select__control {
-  appearance: none;
+.shelf-menu__button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
   height: 2rem;
-  padding-inline: var(--space-3) var(--space-6);
+  padding-inline: var(--space-3);
   background: var(--surface-raised);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius) 0 0 var(--radius);
@@ -3435,14 +3437,77 @@ a.home-update:hover .home-update__go {
   font-size: var(--text-sm);
 }
 
-.shelf-select__chevron {
-  position: absolute;
-  inset-inline-end: var(--space-2);
-  top: 50%;
-  translate: 0 -50%;
+.shelf-menu__chevron {
   color: var(--ink-faint);
-  /* The chevron is part of the target, not something to click instead of it. */
-  pointer-events: none;
+  transition: rotate 160ms ease;
+}
+
+.shelf-menu__button[aria-expanded="true"] .shelf-menu__chevron {
+  rotate: 180deg;
+}
+
+/*
+ * The open list.
+ *
+ * Hung under its own button rather than centred on the screen: it is a choice
+ * between two words, and a layer that dims the page for that would be
+ * answering a question nobody asked loudly. Aligned to the button's leading
+ * edge and free to be wider than it, because the button is only as wide as the
+ * name it happens to be showing and the list has to hold the longest one.
+ */
+.shelf-menu__list {
+  position: absolute;
+  z-index: 5;
+  inset-block-start: calc(100% + var(--space-1));
+  inset-inline-start: 0;
+  display: grid;
+  gap: 2px;
+  min-width: 100%;
+  padding: var(--space-1);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.shelf-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background: none;
+  border: 0;
+  border-radius: calc(var(--radius) - 2px);
+  color: var(--ink-muted);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  text-align: start;
+  white-space: nowrap;
+}
+
+.shelf-menu__item:hover {
+  background: var(--surface-sunken);
+  color: var(--ink);
+}
+
+.shelf-menu__item[aria-checked="true"] {
+  color: var(--ink);
+  font-weight: var(--ui-weight);
+}
+
+/*
+ * The tick holds its column whether or not it is showing, so the names line up
+ * with each other rather than shifting sideways as the choice moves.
+ */
+.shelf-menu__check {
+  flex: 0 0 auto;
+  color: var(--accent);
+  visibility: hidden;
+}
+
+.shelf-menu__item[aria-checked="true"] .shelf-menu__check {
+  visibility: visible;
 }
 
 .shelf-direction {
@@ -3462,14 +3527,14 @@ a.home-update:hover .home-update__go {
   font-size: var(--text-sm);
 }
 
-.shelf-select__control:hover,
+.shelf-menu__button:hover,
 .shelf-direction:hover {
   border-color: var(--accent);
   color: var(--ink);
 }
 
 /* A shared edge means one of them is underneath. Whichever is focused wins. */
-.shelf-select__control:focus-visible,
+.shelf-menu__button:focus-visible,
 .shelf-direction:focus-visible {
   position: relative;
   z-index: 1;
