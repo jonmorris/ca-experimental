@@ -157,42 +157,46 @@ bodyClass: page page--home
     <div class="shelf-tools" id="shelf-tools" data-shelf-tools hidden>
       <div class="shelf-tools__row">
         {#
-          Sort is one control.
+          Sort: what by, and which way.
 
-          It was three: a label stacked over a native select, and a separate
-          button for the direction sitting beside it. The select was the only
-          piece of browser chrome left in the interface and the tallest thing
-          in the tray, and the direction was a button that said "A to Z"
-          without saying what was in A to Z order.
+          A menu and a direction, joined into one unit — the select carries
+          however many keys there are and the button carries the two ways to
+          face, which is the split that stops the list from multiplying: four
+          entries for two keys today, eight for four keys later.
 
-          So the two keys are a segmented control — the same idiom the reading
-          panel uses for choosing between a few named options — and the
-          direction rides on the key it applies to. Pressing the key you are
-          already sorted by reverses it. Nothing spells out every combination,
-          which is what the separate button was avoiding.
+          The select is the browser's, with its own chrome taken off. A native
+          menu is the right thing on a phone, where it opens as the platform's
+          own picker and is reachable with a thumb, and there is no keyboard
+          behaviour here that has to be re-implemented and got wrong.
 
-          The direction is words rather than only an arrow. An arrow beside a
-          date is ambiguous in a way it is not beside a name: up could as
-          easily mean the newest at the top as the oldest, and both readings
-          are common enough elsewhere to make it a coin toss.
+          The direction is words rather than only an arrow. Beside a name an
+          arrow is unambiguous; beside a date it is a coin toss, because up
+          reads as newest at the top about as often as oldest.
         #}
-        <div class="shelf-sort" role="group" aria-labelledby="shelf-sort-label">
-          <span class="shelf-sort__label" id="shelf-sort-label">Sort by</span>
-          <div class="shelf-sort__track">
-            {% for option in [{ "key": "title", "label": "Name" }, { "key": "year", "label": "Release date" }] %}
-              <button type="button" class="shelf-sort__option"
-                      data-shelf-sort-option="{{ option.key }}" aria-pressed="false">
-                <span class="shelf-sort__name">{{ option.label }}</span>
-                <span class="shelf-sort__direction" data-shelf-direction hidden>
-                  <svg class="shelf-sort__arrow" viewBox="0 0 16 16" width="13" height="13"
-                       aria-hidden="true" focusable="false">
-                    <path d="M8 13V3M4.5 6.5 8 3l3.5 3.5" fill="none" stroke="currentColor"
-                          stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <span data-shelf-direction-label></span>
-                </span>
-              </button>
-            {% endfor %}
+        <div class="shelf-sort">
+          <label class="shelf-sort__label" for="shelf-sort">Sort by</label>
+
+          <div class="shelf-sort__group">
+            <span class="shelf-select">
+              <select class="shelf-select__control" id="shelf-sort" data-shelf-sort>
+                <option value="title">Name</option>
+                <option value="year">Release date</option>
+              </select>
+              <svg class="shelf-select__chevron" viewBox="0 0 16 16" width="13" height="13"
+                   aria-hidden="true" focusable="false">
+                <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round"/>
+              </svg>
+            </span>
+
+            <button type="button" class="shelf-direction" data-shelf-direction>
+              <svg class="shelf-direction__arrow" viewBox="0 0 16 16" width="13" height="13"
+                   aria-hidden="true" focusable="false">
+                <path d="M8 13V3M4.5 6.5 8 3l3.5 3.5" fill="none" stroke="currentColor"
+                      stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span data-shelf-direction-label>A to Z</span>
+            </button>
           </div>
         </div>
 

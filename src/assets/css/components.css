@@ -3391,8 +3391,8 @@ a.home-update:hover .home-update__go {
  * The label sits on the line rather than above it. Stacked, it made the sort
  * two rows tall next to filters that are one, and the tray's tallest thing was
  * a caption — so the row set its own height from the piece that mattered
- * least. On a narrow screen it wraps above the keys again, which is the only
- * place the stack was ever right.
+ * least. On a narrow screen it wraps above the control again, which is the
+ * only place the stack was ever right.
  */
 .shelf-sort {
   display: flex;
@@ -3402,58 +3402,85 @@ a.home-update:hover .home-update__go {
 }
 
 /*
- * A segmented control, built like the reading panel's: one recessed track, and
- * the chosen option raised out of it. Same idiom, so a reader who has met one
- * has met both — and no browser chrome, which is what the select brought with
- * it and could not be styled out of.
+ * The menu and the direction, joined: one border between them rather than a
+ * gap, because they are two halves of one sentence and reading them as two
+ * controls was the complaint. The negative margin is what collapses the shared
+ * edge to a single line.
  */
-.shelf-sort__track {
+.shelf-sort__group {
   display: flex;
-  gap: var(--space-1);
-  padding: 3px;
-  background: var(--surface-inset);
-  border-radius: var(--radius-full);
 }
 
-.shelf-sort__option {
+.shelf-select {
+  position: relative;
+  display: inline-flex;
+}
+
+/*
+ * `appearance: none` takes the platform's box away and leaves the platform's
+ * menu, which is the half worth keeping — on a phone it opens as the system
+ * picker. What it also takes away is the chevron, so the markup carries one:
+ * without it this is a word with nothing to say it can be pressed.
+ */
+.shelf-select__control {
+  appearance: none;
+  height: 2rem;
+  padding-inline: var(--space-3) var(--space-6);
+  background: var(--surface-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius) 0 0 var(--radius);
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.shelf-select__chevron {
+  position: absolute;
+  inset-inline-end: var(--space-2);
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--ink-faint);
+  /* The chevron is part of the target, not something to click instead of it. */
+  pointer-events: none;
+}
+
+.shelf-direction {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-1) var(--space-3);
-  background: none;
-  border: 0;
-  border-radius: var(--radius-full);
+  height: 2rem;
+  /* Over the select's edge, so the two share one border and not two. */
+  margin-inline-start: -1px;
+  padding-inline: var(--space-3);
+  background: var(--surface-raised);
+  border: 1px solid var(--line-strong);
+  border-radius: 0 var(--radius) var(--radius) 0;
   color: var(--ink-muted);
   cursor: pointer;
   font-family: var(--font-ui);
   font-size: var(--text-sm);
-  font-weight: var(--ui-weight);
 }
 
-.shelf-sort__option:hover {
+.shelf-select__control:hover,
+.shelf-direction:hover {
+  border-color: var(--accent);
   color: var(--ink);
 }
 
-.shelf-sort__option[aria-pressed="true"] {
-  background: var(--surface-raised);
-  box-shadow: var(--shadow-sm);
-  color: var(--ink);
-}
-
-/* Attached to the key it describes, and a step quieter than the key's name. */
-.shelf-sort__direction {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  color: var(--ink-faint);
+/* A shared edge means one of them is underneath. Whichever is focused wins. */
+.shelf-select__control:focus-visible,
+.shelf-direction:focus-visible {
+  position: relative;
+  z-index: 1;
 }
 
 /* The arrow is the state: it points the way the list is running. */
-.shelf-sort__arrow {
+.shelf-direction__arrow {
   transition: rotate 160ms ease;
 }
 
-.shelf-sort__option.is-descending .shelf-sort__arrow {
+.shelf-direction.is-descending .shelf-direction__arrow {
   rotate: 180deg;
 }
 
@@ -3461,8 +3488,9 @@ a.home-update:hover .home-update__go {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+  height: 2rem;
   margin-inline-start: auto;
-  padding: var(--space-1) var(--space-3);
+  padding-inline: var(--space-3);
   background: var(--surface-raised);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);

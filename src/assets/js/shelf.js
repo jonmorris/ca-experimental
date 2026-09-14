@@ -150,7 +150,9 @@ export function initShelf() {
   const tiles = [...list.querySelectorAll(".game-tile")].map(readTile);
   if (!tiles.length) return;
 
-  const options = [...tools.querySelectorAll("[data-shelf-sort-option]")];
+  const sort = tools.querySelector("[data-shelf-sort]");
+  const direction = tools.querySelector("[data-shelf-direction]");
+  const directionLabel = tools.querySelector("[data-shelf-direction-label]");
   const reset = tools.querySelector("[data-shelf-reset]");
   const toggle = document.querySelector("[data-shelf-toggle]");
   const badge = document.querySelector("[data-shelf-badge]");
@@ -239,51 +241,32 @@ export function initShelf() {
   /**
    * Draws the sort control and re-sorts.
    *
-   * The direction only ever appears on the key in force, because it is a fact
-   * about that key and not about the control: "Release date · Newest first"
-   * beside an unused "Name" would be describing a list nobody is looking at.
+   * The direction's words belong to the key in force — "A to Z" means nothing
+   * about a list of release dates — so they are rewritten whenever either
+   * changes, and the button says what the order is rather than what pressing
+   * it would do.
    */
   function setSort(key, next) {
     sortKey = key;
     descending = next;
 
-    for (const option of options) {
-      const isCurrent = option.dataset.shelfSortOption === sortKey;
-      const spec = SORTS[option.dataset.shelfSortOption] || SORTS.title;
-      const name = option.querySelector(".shelf-sort__name")?.textContent.trim() || "";
-      const direction = option.querySelector("[data-shelf-direction]");
-      const label = option.querySelector("[data-shelf-direction-label]");
-      const words = spec.labels[descending ? 1 : 0];
+    if (sort) sort.value = sortKey;
 
-      option.setAttribute("aria-pressed", String(isCurrent));
-      option.classList.toggle("is-descending", isCurrent && descending);
-      if (direction) direction.hidden = !isCurrent;
-      if (label) label.textContent = isCurrent ? words : "";
-
-      /*
-       * Said in full, because pressing the key already in force is what
-       * reverses it and nothing visible says so. The name is repeated inside
-       * the label so this reads as the button it is rather than as a
-       * replacement for it.
-       */
-      option.setAttribute(
-        "aria-label",
-        isCurrent ? `Sorted by ${name.toLowerCase()}, ${words}. Press to reverse.` : `Sort by ${name.toLowerCase()}`,
-      );
-    }
+    const words = (SORTS[sortKey] || SORTS.title).labels[descending ? 1 : 0];
+    direction?.classList.toggle("is-descending", descending);
+    direction?.setAttribute("aria-label", `Ordered ${words}. Press to reverse.`);
+    if (directionLabel) directionLabel.textContent = words;
 
     apply();
   }
 
-  for (const option of options) {
-    option.addEventListener("click", () => {
-      const key = option.dataset.shelfSortOption;
-      // The key you are already on reverses; any other one starts on its own
-      // default direction.
-      if (key === sortKey) setSort(key, !descending);
-      else setSort(key, (SORTS[key] || SORTS.title).descending);
-    });
-  }
+  // A new key starts on its own default direction rather than inheriting the
+  // last one, where "Z to A" would quietly have become "oldest first".
+  sort?.addEventListener("change", () =>
+    setSort(sort.value, (SORTS[sort.value] || SORTS.title).descending),
+  );
+  direction?.addEventListener("click", () => setSort(sortKey, !descending));
+
   reset?.addEventListener("click", () => {
     for (const range of Object.values(ranges)) range.reset();
     apply();
