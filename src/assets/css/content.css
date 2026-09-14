@@ -280,6 +280,96 @@
   font-size: var(--text-sm);
 }
 
+/* -------------------------------------------------------- contents */
+
+/*
+ * What the reader built, before they scroll into it.
+ *
+ * Set as a block rather than as prose: it is the page describing itself, and
+ * it has to be told apart at a glance from the first section, which begins
+ * directly under it and is the real content. A quiet ground and a rule of
+ * border do that without making it the loudest thing on the page.
+ *
+ * Held to the measure like everything else here, so on a wide screen it is a
+ * column and not a band.
+ */
+.reference-contents {
+  max-width: var(--measure);
+  margin-bottom: var(--space-7);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.prose .reference-contents__title {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-weight: var(--ui-weight);
+  letter-spacing: var(--tracking-normal);
+}
+
+/*
+ * The source of the run under it. `.eyebrow` carries the size — this is the
+ * same kind of label it is everywhere else, and an exception already granted
+ * to that class is not re-argued here. See CONVENTIONS.md §4b.
+ */
+/*
+ * Every one of these names `.prose` as well as itself. The page's sections are
+ * prose and this list is not, but it lives inside the same container, so
+ * `.prose h2` and `.prose ul` outrank a bare class and the contents list came
+ * out set as a chapter heading over an indented rulebook list. The same
+ * argument `.section-heading` has with the gap rule above, settled the same
+ * way.
+ */
+.prose .reference-contents__source {
+  margin-bottom: var(--space-1);
+}
+
+.prose .reference-contents__source + .reference-contents__list {
+  margin-top: 0;
+}
+
+.prose .reference-contents__list + .reference-contents__source {
+  margin-top: var(--space-4);
+}
+
+.prose .reference-contents__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prose .reference-contents__list li + li {
+  margin-top: var(--space-1);
+}
+
+/*
+ * A tap target on a phone, where this list is the whole of the page's
+ * navigation: the row, not just the words in it.
+ */
+.prose .reference-contents__link {
+  display: block;
+  padding: var(--space-1) 0;
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  line-height: var(--leading-snug);
+  text-decoration: none;
+}
+
+.prose .reference-contents__link:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
+/* Removed, and still on the page until the next load — said the same way. */
+.prose .reference-contents__link.is-removed {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+
 /* --------------------------------------------------------- sections */
 
 .reference-section + .reference-section {

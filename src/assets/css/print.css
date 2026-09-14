@@ -317,6 +317,28 @@ a {
   text-decoration: none;
 }
 
+/*
+ * The contents list stays, flattened. On paper it cannot be tapped, but it is
+ * still the only page that says what the other pages hold — and a reader with
+ * this beside the board reads it the way they read the back of a rulebook.
+ */
+.reference-contents {
+  padding: 0;
+  background: none;
+  border: 0;
+  break-inside: avoid-page;
+}
+
+.reference-contents__link {
+  padding: 0;
+  text-decoration: none;
+}
+
+/* A section removed but not yet gone is not printed, so nor is its line. */
+li:has(.reference-contents__link.is-removed) {
+  display: none !important;
+}
+
 /* A section removed but not yet gone is not part of the reference. */
 .reference-section.is-removed {
   display: none !important;
