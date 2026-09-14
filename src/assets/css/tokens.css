@@ -59,6 +59,21 @@
   --text-min: 0.875rem;
 
   /*
+   * The rung the floor covers up, kept so an exception has something to return
+   * to rather than a number somebody picks.
+   *
+   * This is exactly what `--text-2xs` resolved to before the floor existed, so
+   * granting an exception puts the element back where it was instead of
+   * inventing a third size — which is what turns a set of exceptions into a
+   * set of near-misses. It stays on the ladder, so it still moves with a
+   * design's own calibration.
+   *
+   * Only reachable by exception. Using it is a decision that needs granting
+   * and a comment saying why; see CONVENTIONS.md §4b.
+   */
+  --text-micro: calc(0.6875rem * var(--scale));
+
+  /*
    * Chrome type, outside the scale above.
    *
    * Text size is a control over the document — the headings and body of the

@@ -328,23 +328,32 @@ small end, which is the floor doing its job.
 **An exception is a decision, not a default.** Set the size in the rule that
 needs it, write the reason in a comment beside it, and expect to justify it.
 
-There are three, and all are counts rather than text:
+**A granted exception returns the element to the size it had before the floor
+— never to a new one chosen to be nearly that.** `--text-micro` is that size,
+kept for the purpose: it is what `--text-2xs` resolved to before the floor
+existed, and it is still on the ladder so it moves with a design's own
+calibration. Picking a fresh number each time is what turns a short list of
+exceptions into a long list of near-misses, and the old size is the only one
+that has already been looked at and agreed.
 
-- **The bookmark count over the header icon, at 11px.** A one- or two-digit
-  number taken in at a glance as a change of state. At 14px it was the loudest
-  thing in the header, a capsule as wide as the control under it.
-- **The section position in the sticky bar, at 12px.** Two figures and a slash
-  beside the name they qualify. At 14px it matched that name exactly, and a bar
-  whose two halves are the same size has no first half — the eye takes
-  "Playing a Chapter 1 / 3" as one string rather than as a name with a position
-  after it. Twelve rather than eleven because it sits inline against type it is
-  read alongside: it has to be quieter than the name, not as small as it can
-  get.
-- **The row numbers in the section list, at 12px.** Ordinals in their own
-  column, counted along rather than read. At the floor each row was two
-  equal-weight things instead of a name with a number in front of it. The same
-  12px as the bar the list drops from — the same figure in two places should
-  not be two sizes.
+There are four, and all sit under the floor at the size they had before it:
+
+- **The bookmark count over the header icon.** A one- or two-digit number taken
+  in at a glance as a change of state. At 14px it was the loudest thing in the
+  header, a capsule as wide as the control under it. This one keeps its own
+  `0.625rem` rather than `--text-micro`, because that is what it was.
+- **The section position in the sticky bar.** Two figures and a slash beside
+  the name they qualify. At 14px it matched that name exactly, and a bar whose
+  two halves are the same size has no first half — the eye takes "Playing a
+  Chapter 1 / 3" as one string rather than as a name with a position after it.
+- **The row numbers in the section list.** Ordinals in their own column,
+  counted along rather than read. At the floor each row was two equal-weight
+  things instead of a name with a number in front of it.
+- **The game's name above the document's in the open section sheet.** An
+  eyebrow is not read on its own account: it is context for the title under it
+  and works by being visibly the smaller of the two. At the floor it came
+  within a pixel of the name it qualifies, and uppercase at 700 with caps
+  tracking it read as the louder of the pair.
 
 That is the test an exception has to pass: not "this is hard to fit", but "this
 is not reading text, and holding it to the floor makes the page worse".

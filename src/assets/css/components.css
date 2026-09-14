@@ -117,12 +117,13 @@
  * An ordinal in its own column, not read so much as counted along. At the
  * floor it matched the section name beside it, which made every row two
  * equal-weight things rather than a name with a number in front of it.
- * Twelve, to agree with the "1 / 15" on the bar this list drops from: they
- * are the same figure in two places and should not be two sizes.
+ * Back to `--text-micro`, the size it had before the floor — which is also
+ * what the "1 / 15" on the bar this list drops from is back to. The same
+ * figure in two places should not be two sizes.
  */
 .jump-link__index {
   color: var(--ink-faint);
-  font-size: 0.75rem;
+  font-size: var(--text-micro);
   font-variant-numeric: tabular-nums;
   text-align: center;
 }
@@ -313,24 +314,24 @@
  * drawing the eye away from a search field that is the reason the header is
  * there at all.
  *
- * Eleven, not the ten it was before the floor. If it has to be an exception it
- * can at least be the largest one that still reads as a badge, and tabular
- * figures at 700 hold up at this size where prose would not.
+ * Back to the size it was before the floor, not a new one chosen to be nearly
+ * that: an exception returns an element to where it stood, which is the only
+ * version of it that has already been looked at and agreed.
  */
 .icon-button__badge {
   position: absolute;
-  top: -3px;
-  right: -4px;
-  min-width: 1.15rem;
-  padding: 0 0.25rem;
+  top: -2px;
+  right: -2px;
+  min-width: 1.05rem;
+  padding: 0 0.2rem;
   background: var(--marker);
   border-radius: var(--radius-full);
   color: var(--surface-raised);
   font-family: var(--font-ui);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  line-height: 1.15rem;
+  line-height: 1.05rem;
   text-align: center;
 }
 
@@ -616,11 +617,21 @@ dialog::backdrop {
   min-width: 0;
 }
 
+/*
+ * The game's name above the document's — an exception to the 14px floor, at
+ * the size it had before the floor. See CONVENTIONS.md §4b.
+ *
+ * An eyebrow is not read on its own account: it is context for the title under
+ * it, and it works by being visibly the smaller of the two. Held to the floor
+ * it came within a pixel of the name it was qualifying, and uppercase at 700
+ * with caps tracking, it read as the louder of the pair rather than the
+ * quieter.
+ */
 .jump-sheet__eyebrow {
   overflow: hidden;
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
+  font-size: var(--text-micro);
   font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-overflow: ellipsis;
