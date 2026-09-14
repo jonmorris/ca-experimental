@@ -43,6 +43,23 @@
   --text-3xl: calc(clamp(1.875rem, 1.6rem + 1.35vw, 2.625rem) * var(--scale));
   --text-4xl: calc(clamp(2.25rem, 1.8rem + 2.25vw, 3.5rem) * var(--scale));
 
+  /*
+   * Chrome type, outside the scale above.
+   *
+   * Text size is a control over the document — the headings and body of the
+   * thing the reader came to read. It is not a control over the furniture
+   * around it, and breadcrumbs are furniture: a line that says where you are,
+   * the same on every page whatever the reader has set. Scaling it with the
+   * ramp pushed it under 11px at Compact, which is too small to read and was
+   * never a size anybody chose.
+   *
+   * No `--scale`, so the reader's Text size cannot touch it, and no `clamp`,
+   * because it is not big enough to need to shrink on a phone. Still `rem`
+   * rather than `px`: it should follow the reader's own browser font size,
+   * which is a different setting and a real accessibility need.
+   */
+  --text-chrome-xs: 0.75rem;
+
   --leading-flat: 1.1;
   --leading-tight: 1.22;
   --leading-snug: 1.4;

@@ -2008,7 +2008,8 @@ a.home-update:hover .home-update__go {
   list-style: none;
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-xs);
+  /* Chrome, not content: fixed at 12px whatever the reader sets Text size to. */
+  font-size: var(--text-chrome-xs);
 }
 
 .breadcrumbs__list li + li::before {
