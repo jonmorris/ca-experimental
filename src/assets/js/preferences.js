@@ -69,6 +69,22 @@ export const PREFERENCES = {
     implicit: "normal",
     label: "Line spacing",
   },
+  /*
+   * Everything that is not the rules, out of the way: the sidebar, the sticky
+   * section bar, the pager. What is left is the header — a way back and a way
+   * to search — and the document.
+   *
+   * A preference and not a per-page toggle, because it is a way of reading
+   * rather than a thing you do to one page: a reader who wants the rules and
+   * nothing else wants that on the next rulebook too.
+   */
+  focus: {
+    attribute: "data-focus",
+    values: ["off", "on"],
+    default: "off",
+    implicit: "off",
+    label: "Just read",
+  },
 };
 
 export function defaultPreferences() {

@@ -1246,6 +1246,7 @@ button.palette__link {
  */
 .game-tile__art {
   display: block;
+  position: relative;
   min-height: 0;
   aspect-ratio: 4 / 3;
   padding: var(--space-5);
@@ -2337,7 +2338,7 @@ a.home-update:hover .home-update__go {
  * it until then. A page reserving the room for a bar that is not there would
  * end in four rems of nothing.
  */
-body:has(.prev-next:not([hidden])) {
+:root:not([data-focus="on"]) body:has(.prev-next:not([hidden])) {
   padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
 }
 
@@ -2431,7 +2432,7 @@ body:has(.prev-next:not([hidden])) {
     display: none;
   }
 
-  body:has(.prev-next:not([hidden])) {
+  :root:not([data-focus="on"]) body:has(.prev-next:not([hidden])) {
     padding-bottom: 0;
   }
 }
@@ -2892,12 +2893,38 @@ body:has(.prev-next:not([hidden])) {
 }
 
 /* The mark on a starred game in the shelf, beside its title. */
-.game-tile__star {
-  display: inline-flex;
-  align-items: center;
-  margin-left: var(--space-2);
-  color: var(--marker);
-  translate: 0 0.1em;
+/*
+ * A favourite's flag: a little banner hung over the top of the cover.
+ *
+ * It replaced a star set after the game's name, which had two problems. It
+ * read as part of the title — a punctuation mark on the name rather than a
+ * mark on the game — and it moved, because it sat at the end of a line whose
+ * length is whatever the game happens to be called. A shelf is scanned, not
+ * read, and a mark worth scanning has to be in the same place on every tile.
+ *
+ * So it hangs from the top edge of the frame, inset from the corner rather
+ * than jammed into it, the way a ribbon is sewn a little in from the spine.
+ * The notch at the foot is what makes it read as cloth rather than as a
+ * button, and it is cut rather than drawn so there is nothing to keep in step
+ * with the colour behind it.
+ */
+.game-tile__flag {
+  position: absolute;
+  top: 0;
+  left: var(--space-4);
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  width: 1.5rem;
+  padding-block: 0.3rem 0.75rem;
+  background: var(--marker);
+  color: var(--marker-wash);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%);
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.22));
+}
+
+.game-tile__flag svg {
+  display: block;
 }
 
 /* ========================================================= about: the brags */

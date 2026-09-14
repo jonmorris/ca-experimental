@@ -101,7 +101,8 @@ function initHome() {
         clone.querySelector(".game-tile__meta")?.remove();
         clone.querySelector(".game-tile__description")?.remove();
         clone.querySelector(".chip-row")?.remove();
-        clone.querySelector(".game-tile__star")?.remove();
+        clone.querySelector(".game-tile__flag")?.remove();
+        clone.querySelector(".game-tile__favorite-note")?.remove();
         list.append(clone);
         continue;
       }
@@ -117,19 +118,34 @@ function initHome() {
       const saved = favorites.some((favorite) => favorite.gameSlug === tile.dataset.gameSlug);
       tile.classList.toggle("is-favorite", saved);
 
-      const existing = tile.querySelector(".game-tile__star");
-      if (saved && !existing) {
-        const star = document.createElement("span");
-        star.className = "game-tile__star";
-        star.title = "Favorited";
-        star.innerHTML = STAR(true);
-        const hidden = document.createElement("span");
-        hidden.className = "visually-hidden";
-        hidden.textContent = " (favorited)";
-        star.append(hidden);
-        tile.querySelector(".game-tile__title")?.append(star);
-      } else if (!saved && existing) {
-        existing.remove();
+      /*
+       * The mark is two separate things, because it is two separate jobs.
+       *
+       * A little flag over the top of the cover, which is what a reader
+       * scanning the shelf sees without reading anything; and a word in the
+       * title, which is what a screen reader gets, since the artwork and
+       * everything laid over it is `aria-hidden` — it is the same link as the
+       * title beneath, announced twice otherwise.
+       */
+      const flag = tile.querySelector(".game-tile__flag");
+      if (saved && !flag) {
+        const banner = document.createElement("span");
+        banner.className = "game-tile__flag";
+        banner.title = "Favorited";
+        banner.innerHTML = STAR(true);
+        tile.querySelector(".game-tile__art")?.append(banner);
+      } else if (!saved && flag) {
+        flag.remove();
+      }
+
+      const said = tile.querySelector(".game-tile__favorite-note");
+      if (saved && !said) {
+        const note = document.createElement("span");
+        note.className = "game-tile__favorite-note visually-hidden";
+        note.textContent = " (favorited)";
+        tile.querySelector(".game-tile__title")?.append(note);
+      } else if (!saved && said) {
+        said.remove();
       }
     }
   }

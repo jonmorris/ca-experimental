@@ -21,6 +21,7 @@ function optionLabel(key, value) {
     density: { compact: "Compact", comfortable: "Comfortable", spacious: "Spacious" },
     face: { serif: "Serif", sans: "Sans" },
     spacing: { tight: "Tight", normal: "Normal", relaxed: "Relaxed" },
+    focus: { off: "Off", on: "On" },
   };
   return labels[key]?.[value] ?? value;
 }

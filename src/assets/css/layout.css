@@ -435,6 +435,44 @@
   letter-spacing: var(--display-tracking);
 }
 
+/* ------------------------------------------------------- just read */
+
+/*
+ * Everything that is not the rules, gone.
+ *
+ * Three things go — the sidebar, the sticky section bar, the pager — and the
+ * header stays, because a reader who wants no distractions still wants a way
+ * out and a way to search. No `!important` anywhere: an attribute on the root
+ * plus a class out-specifies every rule that places these, including the ones
+ * inside the width queries, which do not add specificity of their own.
+ */
+[data-focus="on"] .sidebar,
+[data-focus="on"] .section-bar,
+[data-focus="on"] .prev-next {
+  display: none;
+}
+
+/*
+ * And the shell becomes one column once there is nothing either side of the
+ * measure. The article already centres itself inside whatever it is given, so
+ * collapsing the grid is the whole job.
+ */
+[data-focus="on"] .shell {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/*
+ * And the breadcrumbs come with it. They sit outside the article, so a column
+ * the width of the page left them stranded against the far edge with the
+ * measure floating in the middle — the one row on the page that had stopped
+ * agreeing with everything under it.
+ */
+[data-focus="on"] .page-top,
+[data-focus="on"] .breadcrumbs {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
 /* ----------------------------------------------------------- footer */
 
 .site-footer {
