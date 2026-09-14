@@ -196,11 +196,14 @@
           the page that says which game those sections belong to — the header
           no longer does. An eyebrow rather than a second line of the heading:
           it is context for the title, not a title of its own.
+
+          The expansion is named here only when the title below is not already
+          its name — which it is whenever the expansion is a single document.
         #}
         <div class="jump-sheet__heading">
           {% if game %}
             <p class="jump-sheet__eyebrow">
-              {{ game.title }}{% if expansion %} <span aria-hidden="true">·</span> {{ expansion.title }}{% endif %}
+              {{ game.title }}{% if expansion and not expansion.single %} <span aria-hidden="true">·</span> {{ expansion.title }}{% endif %}
             </p>
           {% endif %}
           <h2 class="drawer__title">{{ contentType.title }}</h2>

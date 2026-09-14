@@ -36,10 +36,15 @@ layout: layouts/base.njk
 
     <article class="article"{% if not noIndex %} data-pagefind-body{% endif %}>
       <header class="page-header">
+        {#
+          Hidden on screen as a second copy of the breadcrumbs, and printed,
+          where there are none — see layout.css. The expansion is named only
+          when the title under it is not already its name.
+        #}
         {% if expansion %}
           <p class="eyebrow">
             <a href="{{ game.url }}">{{ game.title }}</a>
-            <span aria-hidden="true">·</span> {{ expansion.title }}
+            {%- if not expansion.single %} <span aria-hidden="true">·</span> {{ expansion.title }}{% endif %}
           </p>
         {% endif %}
         {#

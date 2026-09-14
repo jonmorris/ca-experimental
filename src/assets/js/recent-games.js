@@ -31,9 +31,18 @@ function borrowArt(gameSlug) {
   return tile ? tile.cloneNode(true) : null;
 }
 
-/** "The Blighted Reach · Rulebook · Setup" — as much of it as there is. */
+/**
+ * "The Blighted Reach · Rulebook · Setup" — as much of it as there is.
+ *
+ * A part equal to the one before it is dropped. An expansion of a single
+ * document hands that document its own name, so the first two would otherwise
+ * be the same word twice; a section titled the same as the document it opens
+ * would read the same way. Compared rather than looked up, because a record
+ * written before any of that is still correctly described by what it says.
+ */
 function placeLabel(doc) {
-  return [doc.expansionTitle, doc.ruleTitle, doc.sectionTitle].filter(Boolean).join(" · ");
+  const parts = [doc.expansionTitle, doc.ruleTitle, doc.sectionTitle].filter(Boolean);
+  return parts.filter((part, i) => part !== parts[i - 1]).join(" · ");
 }
 
 function placeHref(doc) {
