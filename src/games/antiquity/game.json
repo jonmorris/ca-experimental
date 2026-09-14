@@ -9,5 +9,11 @@
   "bgg_id": 13122,
   "description": "A heavy resource management game set in medieval Europe where players build cities, manage pollution, and race to achieve a victory condition before starvation ends the game.",
   "best_at": "2–3",
-  "weight": "4.32 / 5"
+  "weight": "4.32 / 5",
+  "downloads": [
+    {
+      "title": "Rulebook",
+      "file": "downloads/antiquity-rulebook.pdf"
+    }
+  ]
 }

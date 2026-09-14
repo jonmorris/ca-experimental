@@ -9,5 +9,11 @@
   "bgg_id": 55952,
   "description": "A game of corporate fraud: run your companies into crisis, collect the severance bonus, and spend it on status symbols before someone else does.",
   "best_at": "4",
-  "weight": "3.60 / 5"
+  "weight": "3.60 / 5",
+  "downloads": [
+    {
+      "title": "Rulebook",
+      "file": "downloads/greed-incorporated-rulebook.pdf"
+    }
+  ]
 }

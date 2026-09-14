@@ -9,5 +9,12 @@
   "bgg_id": 256960,
   "description": "Nineteenth-century Afghan leaders forging a new state from the wreckage of the Durrani Empire, backing whichever foreign power looks likeliest to win.",
   "best_at": "4",
-  "weight": "3.84 / 5"
+  "weight": "3.84 / 5",
+  "downloads": [
+    {
+      "title": "Rulebook",
+      "note": "Second printing",
+      "file": "downloads/pax-pamir-second-edition-rulebook-second-printing.pdf"
+    }
+  ]
 }

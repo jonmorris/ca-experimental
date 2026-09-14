@@ -31,5 +31,19 @@
       "slug": "player-driven",
       "label": "Player Driven"
     }
+  ],
+  "downloads": [
+    {
+      "title": "Rulebook",
+      "file": "downloads/xia-legends-of-a-drift-system-rules.pdf"
+    },
+    {
+      "title": "Embers of a Forsaken Star Rulebook",
+      "file": "downloads/xia-embers-rulebook.pdf"
+    },
+    {
+      "title": "Embers of a Forsaken Star Solo Rulebook",
+      "file": "downloads/xia-embers-solo-rulebook.pdf"
+    }
   ]
 }

@@ -7,5 +7,59 @@
   "time": "30–240 minutes",
   "box_art": "/games/high-frontier-4-all/images/highfrontier4allcover.webp",
   "bgg_id": 281655,
-  "description": "Use real rocket science in a race to industrialize the solar system."
+  "description": "Use real rocket science in a race to industrialize the solar system.",
+  "downloads": [
+    {
+      "title": "Core Rules",
+      "file": "downloads/high-frontier-4-all-core-rules.pdf"
+    },
+    {
+      "title": "Read Me First",
+      "file": "downloads/high-frontier-4-all-read-me-first-v0-936.pdf"
+    },
+    {
+      "title": "Appendix",
+      "file": "downloads/high-frontier-4-all-appendix.pdf"
+    },
+    {
+      "title": "Space Diamonds",
+      "file": "downloads/high-frontier-4-all-space-diamonds.pdf"
+    },
+    {
+      "title": "Race to Mars + Race for Glory",
+      "file": "downloads/high-frontier-4-all-race-to-mars-race-for-glory.pdf"
+    },
+    {
+      "title": "Module 1: Terawatt Rules",
+      "file": "downloads/high-frontier-4-all-m1-terawatt-rules.pdf"
+    },
+    {
+      "title": "Module 2: Colonization Rules",
+      "file": "downloads/high-frontier-4-all-m2-colonization-rules.pdf"
+    },
+    {
+      "title": "Module 2: Colonization Cards with Therms",
+      "file": "downloads/high-frontier-4-all-colonization-cards-with-therms-v05c.pdf"
+    },
+    {
+      "title": "Module 3: Conflict Rules (Book 1)",
+      "file": "downloads/high-frontier-4-all-m3-conflict-rules-book1.pdf"
+    },
+    {
+      "title": "Module 3: Conflict Strategy",
+      "file": "downloads/high-frontier-4-all-m3-conflict-strategy-v0-636.pdf"
+    },
+    {
+      "title": "Module 4: Exodus Rules",
+      "file": "downloads/high-frontier-4-all-module-4-exodus-rules-6sep2021.pdf"
+    },
+    {
+      "title": "Player Aid",
+      "file": "downloads/high-frontier-4-all-player-aid.pdf"
+    },
+    {
+      "title": "Player Aid (Core Only)",
+      "file": "downloads/high-frontier-4-all-player-aid-2021-02-14-core-only.pdf"
+    }
+  ]
 }

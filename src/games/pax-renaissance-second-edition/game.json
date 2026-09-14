@@ -14,5 +14,15 @@
       "label": "Pax Renaissance (First Edition)",
       "path": "/games/pax-renaissance/"
     }
+  ],
+  "downloads": [
+    {
+      "title": "Pax Renaissance 2 ed Rules BOOK I",
+      "file": "downloads/pax-renaissance-2-ed-rules-book-i.pdf"
+    },
+    {
+      "title": "Pax Renaissance 2 ed Rules BOOK II",
+      "file": "downloads/pax-renaissance-2-ed-rules-book-ii.pdf"
+    }
   ]
 }

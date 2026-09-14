@@ -15,5 +15,27 @@
     }
   ],
   "best_at": "4",
-  "weight": "4.12 / 5"
+  "weight": "4.12 / 5",
+  "downloads": [
+    {
+      "title": "Rulebook",
+      "file": "downloads/oath-rulebook.pdf"
+    },
+    {
+      "title": "Card Reference",
+      "file": "downloads/oath-card-reference.pdf"
+    },
+    {
+      "title": "Chronicle Aid",
+      "file": "downloads/oath-chronicle-aid.pdf"
+    },
+    {
+      "title": "Playbook",
+      "file": "downloads/oath-playbook.pdf"
+    },
+    {
+      "title": "The Clockwork Prince Rulebook",
+      "file": "downloads/oath-the-clockwork-prince-rulebook.pdf"
+    }
+  ]
 }

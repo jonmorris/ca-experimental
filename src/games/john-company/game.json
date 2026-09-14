@@ -33,5 +33,11 @@
     }
   ],
   "best_at": "4",
-  "weight": "4.15 / 5"
+  "weight": "4.15 / 5",
+  "downloads": [
+    {
+      "title": "Rulebook",
+      "file": "downloads/john-company-rulebook.pdf"
+    }
+  ]
 }
