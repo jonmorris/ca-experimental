@@ -43,6 +43,8 @@ function stripPrefix(url) {
 const URL_PATTERNS = [
   { name: "homepage", re: /^\/$/ },
   { name: "site page", re: /^\/(about)\/$/ },
+  // Temporary: the iOS bottom-bar diagnostic. Goes with src/viewport-probe.njk.
+  { name: "viewport probe", re: /^\/viewport-probe\/$/ },
   { name: "game landing", re: /^\/games\/[a-z0-9-]+\/$/ },
   { name: "glossary term", re: /^\/games\/[a-z0-9-]+\/glossary\/[a-z0-9-]+\/$/ },
   { name: "game content type", re: /^\/games\/[a-z0-9-]+\/[a-z0-9-]+\/$/ },

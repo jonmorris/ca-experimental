@@ -1,0 +1,321 @@
+---
+permalink: /viewport-probe/index.html
+eleventyExcludeFromCollections: true
+---
+{#
+  A temporary diagnostic page, served from the site root so it loads at the top
+  level of a real browser tab.
+
+  It exists because the bug it measures cannot be reproduced anywhere else: a
+  browser only collapses its bottom toolbar when the top-level document
+  scrolls, so a page inside an iframe — a preview, a hosted snippet — never
+  triggers it, and no desktop browser has the behaviour at all.
+
+  Standalone on purpose. No layout, no site CSS, no scripts from the bundle:
+  the site's own pinned pager is the thing under test, and a second one on the
+  page would be measuring itself. Delete this file, and its line in
+  `URL_PATTERNS` in `scripts/verify-links.mjs`, once the answer is in.
+#}
+<!doctype html>
+<html lang="en" data-pagefind-ignore>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Which bar lands on the edge?</title>
+<style>
+  :root {
+    --ground: #f4f2ee;
+    --surface: #fff;
+    --ink: #1b1d21;
+    --muted: #6b6f76;
+    --rule: #ddd9d2;
+    --a: #b3400b;
+    --b: #1746c4;
+    --c: #14702f;
+    --on-mark: #fff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #14161a;
+      --surface: #1e2127;
+      --ink: #e7e8ec;
+      --muted: #949aa4;
+      --rule: #2e323a;
+      --a: #f0824a;
+      --b: #7aa2ff;
+      --c: #57c47c;
+      --on-mark: #14161a;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0 18px 45vh;
+    background: var(--ground);
+    color: var(--ink);
+    font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  .wrap { max-width: 34rem; margin-inline: auto; }
+
+  /* The readout rides the top edge, which does not have the bug. */
+  .readout {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 5;
+    padding: 9px 14px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .readout dl {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1px 12px;
+    max-width: 34rem;
+    margin: 0 auto;
+    font: 700 12.5px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .readout dt { color: var(--muted); font-weight: 400; }
+  .readout dd { margin: 0; text-align: right; }
+  .readout .key dt, .readout .key dd { color: var(--a); font-weight: 700; }
+  .readout .row { display: contents; }
+
+  header { padding: 128px 0 4px; }
+  h1 { margin: 0; font-size: 25px; line-height: 1.15; letter-spacing: -0.02em; text-wrap: balance; }
+  .lede { margin: 10px 0 0; color: var(--muted); text-wrap: pretty; }
+
+  h2 {
+    margin: 30px 0 8px;
+    font-size: 12px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  p { margin: 0 0 12px; }
+  ol { margin: 0 0 12px; padding-left: 1.2em; }
+  li { margin-bottom: 7px; }
+
+  .key-list { display: grid; gap: 10px; margin: 0 0 14px; padding: 0; list-style: none; }
+  .key-list li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; margin: 0; }
+
+  .chip {
+    display: grid;
+    place-items: center;
+    height: 22px;
+    border-radius: 4px;
+    background: var(--a);
+    color: var(--on-mark);
+    font: 700 12px ui-monospace, monospace;
+  }
+
+  .chip.b { background: var(--b); }
+  .chip.c { background: var(--c); }
+
+  code { font: 0.86em ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+  button {
+    width: 100%;
+    padding: 13px;
+    background: var(--ink);
+    border: 0;
+    border-radius: 7px;
+    color: var(--ground);
+    font: 600 15px ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .more { margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); }
+
+  /* Three thirds of the width, each pinned a different way. */
+  .strip {
+    position: fixed;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    width: 33.34%;
+    height: 46px;
+    background: var(--a);
+    color: var(--on-mark);
+    font: 700 11px/1.25 ui-monospace, monospace;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgb(0 0 0 / 0.25);
+  }
+
+  .strip b { font-size: 14px; }
+
+  /* A — what the site does today. */
+  .a { left: 0; bottom: 0; }
+
+  /* B — bottom edge pinned to the dynamic viewport, no script. */
+  .b { left: 33.33%; top: 100dvh; translate: 0 -100%; background: var(--b); }
+
+  /* C — bottom: 0, shifted by the visualViewport arithmetic. */
+  .c { right: 0; bottom: 0; translate: 0 var(--gap, 0px); background: var(--c); }
+
+  /* A hidden ruler, so the page can report what 100dvh resolves to. */
+  #dvh { position: absolute; top: 0; left: 0; width: 1px; height: 100dvh; visibility: hidden; }
+</style>
+</head>
+<body>
+
+<div id="dvh"></div>
+
+<div class="readout">
+  <dl>
+    <div class="row"><dt>window.innerHeight</dt><dd id="v1">—</dd></div>
+    <div class="row"><dt>documentElement.clientHeight</dt><dd id="v2">—</dd></div>
+    <div class="row"><dt>visualViewport.height</dt><dd id="v3">—</dd></div>
+    <div class="row"><dt>visualViewport.offsetTop</dt><dd id="v4">—</dd></div>
+    <div class="row"><dt>100dvh resolves to</dt><dd id="v5">—</dd></div>
+    <div class="row key"><dt>gap (vv bottom − client)</dt><dd id="v6">—</dd></div>
+  </dl>
+</div>
+
+<div class="wrap">
+  <header>
+    <h1>Which bar lands on the edge?</h1>
+    <p class="lede">
+      Scroll until the browser's bottom toolbar collapses, then look at the
+      three coloured strips. Whichever sits flush against the bottom of the
+      screen is the technique that works in this browser.
+    </p>
+  </header>
+
+  <h2>The three candidates</h2>
+  <ul class="key-list">
+    <li><span class="chip">A</span><span><code>position: fixed; bottom: 0</code> — what the site does today.</span></li>
+    <li><span class="chip b">B</span><span><code>top: 100dvh; translate: 0 -100%</code> — the dynamic viewport unit, no script.</span></li>
+    <li><span class="chip c">C</span><span><code>bottom: 0</code> shifted by the <code>visualViewport</code> arithmetic — the one that vanished in Chrome.</span></li>
+  </ul>
+
+  <h2>What to send back</h2>
+  <ol>
+    <li>Which browser this is.</li>
+    <li>Which strip is flush with the bottom once the toolbar has collapsed, and whether any has gone off the screen.</li>
+    <li>The numbers, from the button.</li>
+  </ol>
+
+  <p><button id="copy" type="button">Copy the numbers</button></p>
+
+  <div class="more">
+    <h2>Keep scrolling</h2>
+    <p>
+      The toolbar only collapses once there is somewhere to scroll to, so this
+      column runs past the fold on purpose. The numbers above update live —
+      watch <code>gap</code>. On a browser without this bug it stays at zero all
+      the way down.
+    </p>
+    <p>
+      A is pinned to the bottom of the <em>layout</em> viewport, the only thing
+      <code>position: fixed</code> can anchor to. When a browser hands the space
+      its toolbar vacated to the <em>visual</em> viewport instead, the two stop
+      agreeing and A floats with page behind it.
+    </p>
+    <p>
+      B asks CSS for the answer. <code>100dvh</code> is the viewport as it
+      currently stands, toolbar or no toolbar, so a box whose bottom edge sits
+      there should track the real edge without any script.
+    </p>
+    <p>
+      C does the arithmetic by hand. That is the standard recipe, and it pushed
+      the bar clean off the screen in Chrome — so one of the two numbers it
+      subtracts is not what that browser reports it to be. The readout is there
+      to say which.
+    </p>
+  </div>
+</div>
+
+<div class="strip a"><span><b>A</b><br>fixed</span></div>
+<div class="strip b"><span><b>B</b><br>100dvh</span></div>
+<div class="strip c"><span><b>C</b><br>visualVP</span></div>
+
+<script>
+(function () {
+  "use strict";
+  var vv = window.visualViewport || null;
+  var root = document.documentElement;
+  var dvh = document.getElementById("dvh");
+  var el = function (id) { return document.getElementById(id); };
+  var last = {};
+
+  function r1(n) { return Math.round(n * 10) / 10; }
+
+  function measure() {
+    var client = root.clientHeight;
+    var h = vv ? vv.height : window.innerHeight;
+    var top = vv ? vv.offsetTop : 0;
+    var gap = top + h - client;
+
+    last = {
+      inner: window.innerHeight,
+      client: client,
+      vvh: r1(h),
+      vvtop: r1(top),
+      dvh: dvh.offsetHeight,
+      gap: r1(gap)
+    };
+
+    el("v1").textContent = last.inner + "px";
+    el("v2").textContent = last.client + "px";
+    el("v3").textContent = last.vvh + "px";
+    el("v4").textContent = last.vvtop + "px";
+    el("v5").textContent = last.dvh + "px";
+    el("v6").textContent = last.gap + "px";
+
+    root.style.setProperty("--gap", Math.max(0, Math.round(gap)) + "px");
+  }
+
+  var ticking = false;
+  function schedule() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { ticking = false; measure(); });
+  }
+
+  measure();
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", schedule);
+  if (vv) {
+    vv.addEventListener("resize", schedule);
+    vv.addEventListener("scroll", schedule);
+  }
+
+  el("copy").addEventListener("click", function () {
+    var button = this;
+    var edges = ["a", "b", "c"].map(function (id) {
+      var box = document.querySelector(".strip." + id).getBoundingClientRect();
+      return id.toUpperCase() + " bottom edge " + r1(box.bottom);
+    }).join("\n");
+
+    var text =
+      "innerHeight        " + last.inner + "\n" +
+      "clientHeight       " + last.client + "\n" +
+      "visualViewport.h   " + last.vvh + "\n" +
+      "visualViewport.top " + last.vvtop + "\n" +
+      "100dvh             " + last.dvh + "\n" +
+      "gap                " + last.gap + "\n" +
+      "dpr                " + window.devicePixelRatio + "\n\n" +
+      edges + "\n\n" + navigator.userAgent;
+
+    function done(ok) {
+      button.textContent = ok ? "Copied — paste it back" : "Could not copy; screenshot instead";
+      setTimeout(function () { button.textContent = "Copy the numbers"; }, 2600);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+    } else {
+      done(false);
+    }
+  });
+})();
+</script>
+</body>
+</html>
