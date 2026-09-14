@@ -216,6 +216,13 @@
  * justification, so it still lands hard right on a card whose document has no
  * section count to sit opposite. In the page header the auto margin is inert,
  * which is why the gap there comes from padding on the row instead.
+ *
+ * An exception to the 14px floor, at the size it had before it — see
+ * CONVENTIONS.md §4b. The mark is a claim about the document rather than a
+ * word in its name, and it sits against a page title and against a card's
+ * heading. At the floor, uppercase at 600 with caps tracking, it was a second
+ * piece of type competing with the name it qualifies; everything that makes it
+ * findable is doing that work already.
  */
 .official-mark {
   display: inline-block;
@@ -224,7 +231,7 @@
   border-radius: 999px;
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
+  font-size: var(--text-micro);
   font-weight: 600;
   letter-spacing: var(--tracking-caps);
   line-height: 1.4;

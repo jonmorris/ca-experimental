@@ -336,7 +336,7 @@ calibration. Picking a fresh number each time is what turns a short list of
 exceptions into a long list of near-misses, and the old size is the only one
 that has already been looked at and agreed.
 
-There are four, and all sit under the floor at the size they had before it:
+There are five, and all sit under the floor at the size they had before it:
 
 - **The bookmark count over the header icon.** A one- or two-digit number taken
   in at a glance as a change of state. At 14px it was the loudest thing in the
@@ -349,6 +349,11 @@ There are four, and all sit under the floor at the size they had before it:
 - **The row numbers in the section list.** Ordinals in their own column,
   counted along rather than read. At the floor each row was two equal-weight
   things instead of a name with a number in front of it.
+- **The Official mark.** A claim about the document rather than a word in its
+  name, set against a page title and against a card's heading. At the floor,
+  uppercase at 600 with caps tracking, it was a second piece of type competing
+  with the name it qualifies — and the capsule, the tracking and the weight
+  already make it findable without the size helping.
 - **The game's name above the document's in the open section sheet.** An
   eyebrow is not read on its own account: it is context for the title under it
   and works by being visibly the smaller of the two. At the floor it came
