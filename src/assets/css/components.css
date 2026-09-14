@@ -1264,7 +1264,7 @@ button.palette__link {
   display: block;
   position: relative;
   min-height: 0;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: var(--cover-ratio);
   padding: var(--space-5);
   background: var(--surface-sunken);
   border-bottom: 1px solid var(--line);
@@ -1567,7 +1567,7 @@ button.palette__link {
    */
   justify-self: stretch;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: var(--cover-ratio);
   padding: var(--space-5);
   background: var(--surface-sunken);
   border: 1px solid var(--line);
@@ -1581,42 +1581,6 @@ button.palette__link {
  * what is actually drawn, so it hugs the artwork rather than tracing the empty
  * space beside a letterboxed one.
  */
-/*
- * On a short phone the frame is shorter. On a tall one it is what it always
- * was.
- *
- * Two sizes and a line between them, rather than a height that slides with
- * the viewport. `30svh` was here and it was the wrong instrument: tying the
- * frame to a proportion of the screen meant it never settled at a size, and
- * it took as much off a large phone — which has the room — as off a small one.
- *
- * What actually goes wrong on a short screen is not the frame in isolation.
- * Everything under it — title, description, two buttons — costs about the same
- * number of pixels whatever the phone, so on a short screen that fixed cost
- * eats a far larger share and the hero runs past the fold with nothing below
- * it visible. Only the frame can give.
- *
- * So it gives once, by a sixth: 4/3 down to 16/10, which is also closer to what
- * box art is, so what goes is mostly the empty ground above and below a wide
- * cover rather than the picture.
- *
- * The line is at 49rem of viewport height: above the phones this is for, below
- * a large one held in portrait.
- *
- * The value is picked to sit in a gap rather than on a common height, because
- * a phone's viewport grows by about 90px when its URL bar collapses and a
- * device whose two heights straddle the line changes the size of its cover
- * mid-scroll. At 49rem the short phones are short at both their heights and
- * the largest are tall at both. A device that lands between the two — around
- * 730px with its bar showing — will still cross it; that is a cover at the top
- * of the page changing while it is being scrolled away from, which is the mild
- * version of this fault rather than the one worth designing around.
- */
-@media (max-width: 45.99rem) and (max-height: 49rem) {
-  .landing__cover {
-    aspect-ratio: 16 / 10;
-  }
-}
 
 .landing__cover img {
   display: block;

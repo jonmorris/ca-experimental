@@ -84,6 +84,20 @@
   --leading-normal: var(--leading-normal-default);
   --leading-reading: calc(var(--leading-normal-default) * var(--leading-scale));
 
+  /*
+   * The frame every cover sits in, as one number.
+   *
+   * A game's box art is shown in a fixed-ratio box in five places — the shelf,
+   * the favourites row, the recent row, the related-games row, and the cover
+   * on the game's own overview — and they are the same object seen at
+   * different sizes. A reader arrives at an overview from a tile, so the two
+   * agreeing is what makes it read as one picture rather than two of it.
+   *
+   * One token, therefore, and not a number repeated in five rules to be
+   * changed in four of them.
+   */
+  --cover-ratio: 4 / 3;
+
   --tracking-tight: -0.018em;
   --tracking-normal: 0;
   --tracking-wide: 0.02em;
@@ -326,6 +340,28 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
+}
+
+/*
+ * A sixth shorter where the screen is short.
+ *
+ * Not because a cover needs to be a different shape on a small phone, but
+ * because everything around it — a title, a description, two buttons, or a row
+ * of tiles — costs about the same number of pixels whatever the screen, so on
+ * a short one that fixed cost takes a far larger share and the picture is the
+ * only thing that can give. 16/10 is also closer to what box art is, so what
+ * goes is mostly the empty ground above and below a wide cover.
+ *
+ * The line is picked to sit in a gap rather than on a common device height: a
+ * phone's viewport grows by about 90px when its URL bar collapses, and a
+ * device whose two heights straddle the line would resize its covers
+ * mid-scroll. At 49rem the short phones are short at both of their heights and
+ * the largest are tall at both.
+ */
+@media (max-width: 45.99rem) and (max-height: 49rem) {
+  :root {
+    --cover-ratio: 16 / 10;
+  }
 }
 
 /* ========================================================== typefaces */
