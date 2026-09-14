@@ -754,6 +754,31 @@
   cursor: pointer;
 }
 
+/*
+ * Weight is set in the viewBox and paid for in pixels.
+ *
+ * This is drawn on a 20-unit grid and the bookmark on a 16-unit one, so the
+ * same stroke-width means two different line widths on screen: at 15px square
+ * this came out at about 1.2 real pixels against the bookmark's 1.6, and the
+ * glyph at 11.7 square against its 14.6 by 18.4 — smaller and thinner, which
+ * is the same pair of faults the heading's copy link had. 21px at 1.52 puts
+ * the stroke at 1.6 drawn and the glyph at 16.3 square, where the copy link
+ * landed, and leaves the square glyph a little shorter than the tall one it
+ * is being matched to — which is what makes two different shapes look the
+ * same size.
+ *
+ * Measured rather than eyeballed: `getBBox` excludes the stroke and the
+ * element box includes empty viewBox, so neither on its own says what is
+ * actually drawn.
+ */
+.print-button__icon {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.52;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .print-button:hover {
   background: var(--surface-sunken);
   border-color: var(--line-strong);
