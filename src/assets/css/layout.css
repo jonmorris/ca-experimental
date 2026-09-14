@@ -287,11 +287,25 @@
   white-space: nowrap;
 }
 
+/*
+ * Which section of how many — the second exception to the 14px floor, granted
+ * deliberately. See CONVENTIONS.md §4b.
+ *
+ * Not reading text: two figures and a slash, taken in at a glance beside the
+ * name they qualify. Held to the floor it matched the section's name exactly,
+ * and a bar whose two halves are the same size has no first half — the eye
+ * arrives at "Playing a Chapter 1 / 3" as one string rather than a name with a
+ * position after it.
+ *
+ * Twelve rather than the badge's eleven, because this one sits inline against
+ * type it has to be read alongside. It only has to be quieter than the name,
+ * not as small as it can get.
+ */
 .section-bar__position {
   flex: none;
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
+  font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
 

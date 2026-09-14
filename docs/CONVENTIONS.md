@@ -328,11 +328,20 @@ small end, which is the floor doing its job.
 **An exception is a decision, not a default.** Set the size in the rule that
 needs it, write the reason in a comment beside it, and expect to justify it.
 
-There is one: **the bookmark count over the header icon, at 11px.** What a
-floor protects is text that gets read, and that badge is not read — it is a
-one- or two-digit count taken in at a glance as a change of state. At 14px it
-was the loudest thing in the header, a capsule as wide as the control under it.
-It is the test an exception has to pass: not "this is hard to fit", but "this
+There are two, and both are counts rather than text:
+
+- **The bookmark count over the header icon, at 11px.** A one- or two-digit
+  number taken in at a glance as a change of state. At 14px it was the loudest
+  thing in the header, a capsule as wide as the control under it.
+- **The section position in the sticky bar, at 12px.** Two figures and a slash
+  beside the name they qualify. At 14px it matched that name exactly, and a bar
+  whose two halves are the same size has no first half — the eye takes
+  "Playing a Chapter 1 / 3" as one string rather than as a name with a position
+  after it. Twelve rather than eleven because it sits inline against type it is
+  read alongside: it has to be quieter than the name, not as small as it can
+  get.
+
+That is the test an exception has to pass: not "this is hard to fit", but "this
 is not reading text, and holding it to the floor makes the page worse".
 
 Two other things were under the floor when it went in and neither was granted
