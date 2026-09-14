@@ -500,9 +500,17 @@
   padding: var(--space-6) var(--space-4);
 }
 
+/*
+ * The site's name, a step up from the line under it.
+ *
+ * It had been the same size as the tagline it introduces, which left the foot
+ * of the page with two lines of equal weight and no answer to "whose site is
+ * this". A step is all it needs — this is a signature, not a masthead, and the
+ * wordmark in the header is where the name is announced.
+ */
 .site-footer__title {
   font-family: var(--font-ui);
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-weight: 700;
 }
 
