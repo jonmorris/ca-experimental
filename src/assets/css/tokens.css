@@ -38,6 +38,27 @@
   --reading-scale: var(--scale);
 
   /*
+   * The floor. Nothing on this site is set smaller than this.
+   *
+   * Not a step on the ladder — a limit under it. The ladder's bottom rungs are
+   * still written as the sizes they were designed to be, and `max()` stops
+   * them resolving below this wherever they land. A design's own calibration
+   * and the reader's Compact setting both multiply the ladder, and both used
+   * to be able to push the smallest text under 11px, which is not a size
+   * anybody chose so much as one that fell out of the arithmetic.
+   *
+   * Because it is a limit rather than a rung, the bottom of the ladder
+   * flattens: at the default scale the three smallest steps all resolve here.
+   * That is the cost of a floor and it is the intended one. Where two sizes
+   * genuinely need to differ down there, the answer is to raise the larger one
+   * onto a rung that clears the floor, never to duck under it.
+   *
+   * An exception is a decision, not a default: set the size in the rule that
+   * needs it, say why in a comment beside it, and expect to justify it.
+   */
+  --text-min: 0.875rem;
+
+  /*
    * Chrome type, outside the scale above.
    *
    * Text size is a control over the document — the headings and body of the
@@ -51,8 +72,12 @@
    * because it is not big enough to need to shrink on a phone. Still `rem`
    * rather than `px`: it should follow the reader's own browser font size,
    * which is a different setting and a real accessibility need.
+   *
+   * It sits on the floor below rather than naming a size of its own, so that
+   * raising the floor raises it too. Furniture is exactly the text that ends
+   * up at the smallest size available, and exactly the text a floor is for.
    */
-  --text-chrome-xs: 0.75rem;
+  --text-chrome: var(--text-min);
 
   --leading-flat: 1.1;
   --leading-tight: 1.22;
@@ -203,10 +228,15 @@
 :root,
 .article,
 .landing {
-  --text-2xs: calc(0.6875rem * var(--scale));
-  --text-xs: calc(0.75rem * var(--scale));
-  --text-sm: calc(0.8125rem * var(--scale));
-  --text-base: calc(0.9375rem * var(--scale));
+  /*
+   * The four rungs that can fall through the floor carry it; the rest cannot
+   * reach it even at the smallest density, so they are left to say plainly
+   * what size they are.
+   */
+  --text-2xs: max(var(--text-min), calc(0.6875rem * var(--scale)));
+  --text-xs: max(var(--text-min), calc(0.75rem * var(--scale)));
+  --text-sm: max(var(--text-min), calc(0.8125rem * var(--scale)));
+  --text-base: max(var(--text-min), calc(0.9375rem * var(--scale)));
   --text-md: calc(clamp(1rem, 0.97rem + 0.15vw, 1.0625rem) * var(--scale));
   --text-lg: calc(clamp(1.125rem, 1.08rem + 0.22vw, 1.25rem) * var(--scale));
   --text-xl: calc(clamp(1.3125rem, 1.23rem + 0.42vw, 1.5rem) * var(--scale));

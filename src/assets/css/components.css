@@ -292,20 +292,28 @@
   color: var(--accent-strong);
 }
 
+/*
+ * The count over the bookmarks icon.
+ *
+ * A badge is the text most likely to be set tiny — it is a number on top of
+ * something else and the temptation is to shrink it until it fits. It was at
+ * ten pixels. It is on the floor now like everything else, and the capsule
+ * grew to hold it rather than the number shrinking to fit the capsule.
+ */
 .icon-button__badge {
   position: absolute;
-  top: -2px;
-  right: -2px;
-  min-width: 1.05rem;
-  padding: 0 0.2rem;
+  top: -4px;
+  right: -6px;
+  min-width: 1.35rem;
+  padding: 0 0.3rem;
   background: var(--marker);
   border-radius: var(--radius-full);
   color: var(--surface-raised);
   font-family: var(--font-ui);
-  font-size: 0.625rem;
+  font-size: var(--text-min);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  line-height: 1.05rem;
+  line-height: 1.35rem;
   text-align: center;
 }
 
@@ -1994,7 +2002,7 @@ a.home-update:hover .home-update__go {
   color: var(--ink-faint);
   font-family: var(--font-ui);
   /* Chrome, not content: fixed at 12px whatever the reader sets Text size to. */
-  font-size: var(--text-chrome-xs);
+  font-size: var(--text-chrome);
 }
 
 .breadcrumbs__list li + li::before {

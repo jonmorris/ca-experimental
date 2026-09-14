@@ -305,6 +305,32 @@ shortcodes:
 Everything visual is a token in `src/assets/css/tokens.css`. No component
 stylesheet hard-codes a colour, size or space value.
 
+### 14px is the floor
+
+**No text on this site is set smaller than 14px.** `--text-min` holds it, the
+four rungs of the type ladder that could fall through it carry it in a `max()`,
+and `--text-chrome` — the breadcrumbs — sits on it directly.
+
+It is a limit under the ladder rather than a step on it, so the rungs still say
+what size they were designed to be. The consequence is that the bottom of the
+ladder flattens: at the default scale the three smallest steps all resolve to
+14px. That is the cost, and it is the intended one. **Where two pieces of text
+genuinely need to differ down there, raise the larger one onto a rung that
+clears the floor — never duck the smaller one under it.** Weight, colour and
+letter-spacing are the other ways to separate two things at one size, and they
+were always the better ones.
+
+Both multipliers are inside the floor: a design's own `--scale` and the
+reader's Compact setting can each shrink the ladder, and neither can push
+anything through. A reader choosing Compact gets less than they used to at the
+small end, which is the floor doing its job.
+
+**An exception is a decision, not a default.** Set the size in the rule that
+needs it, write the reason in a comment beside it, and expect to justify it.
+There are none today — the two that existed when the floor went in were a badge
+at 10px and an unstyled `h6` setting smaller than the body text it headed, and
+both were faults rather than choices.
+
 Five attributes on `<html>` drive the whole cascade, so no script ever writes a
 style property:
 

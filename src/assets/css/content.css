@@ -66,8 +66,25 @@
   color: var(--ink-muted);
 }
 
+/*
+ * Past h4 there is no smaller size to go to — and there never should have
+ * been. Unstyled, these fell to the browser's default, which is a fraction of
+ * the parent's size, so an h6 in the Arcs rulebook was setting at ten pixels:
+ * a heading smaller than the text it heads, which is not a heading. They take
+ * the same size as h4 and separate by weight instead.
+ */
+.prose h5,
+.prose h6 {
+  margin-top: var(--space-5);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  font-weight: 650;
+}
+
 .prose h3,
-.prose h4 {
+.prose h4,
+.prose h5,
+.prose h6 {
   scroll-margin-top: calc(var(--header-height) + var(--section-bar-height) + var(--space-4));
 }
 
