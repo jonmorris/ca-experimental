@@ -1,3 +1,5 @@
+import { repairRecord } from "./repair-titles.js";
+
 /**
  * Bookmark storage.
  *
@@ -91,7 +93,10 @@ function read(storage) {
 
   return {
     schemaVersion: SCHEMA_VERSION,
-    bookmarks: Array.isArray(parsed.bookmarks) ? parsed.bookmarks.filter(isValid) : [],
+    // `repairRecord` mends a title a badge was appended to — see its file.
+    bookmarks: Array.isArray(parsed.bookmarks)
+      ? parsed.bookmarks.filter(isValid).map(repairRecord)
+      : [],
   };
 }
 

@@ -1,3 +1,5 @@
+import { repairRecord } from "./repair-titles.js";
+
 /**
  * What the reader has opened, most recent first.
  *
@@ -78,7 +80,17 @@ function read(storage) {
 
   return {
     schemaVersion: SCHEMA_VERSION,
-    games: Array.isArray(parsed.games) ? parsed.games.filter(isValid) : [],
+    /*
+     * The title lives on the nested `lastDocument` here, not on the record
+     * itself — see `repair-titles.js` for what is being mended and why.
+     */
+    games: Array.isArray(parsed.games)
+      ? parsed.games.filter(isValid).map((game) =>
+          game.lastDocument
+            ? { ...game, lastDocument: repairRecord(game.lastDocument) }
+            : game,
+        )
+      : [],
   };
 }
 
