@@ -85,6 +85,7 @@ eleventyExcludeFromCollections: true
   .readout dt { color: var(--muted); font-weight: 400; }
   .readout dd { margin: 0; text-align: right; }
   .readout .key dt, .readout .key dd { color: var(--a); font-weight: 700; }
+  .readout .key2 dt, .readout .key2 dd { color: var(--b); font-weight: 700; }
   .readout .row { display: contents; }
 
   header { padding: 128px 0 4px; }
@@ -169,6 +170,9 @@ eleventyExcludeFromCollections: true
 
 <div class="readout">
   <dl>
+    <div class="row key2"><dt>viewport width</dt><dd id="w1">—</dd></div>
+    <div class="row"><dt>site breakpoint</dt><dd id="w2">—</dd></div>
+    <div class="row"><dt>keyboard takes</dt><dd id="w3">—</dd></div>
     <div class="row"><dt>window.innerHeight</dt><dd id="v1">—</dd></div>
     <div class="row"><dt>documentElement.clientHeight</dt><dd id="v2">—</dd></div>
     <div class="row"><dt>visualViewport.height</dt><dd id="v3">—</dd></div>
@@ -201,6 +205,14 @@ eleventyExcludeFromCollections: true
     <li>Which strip is flush with the bottom once the toolbar has collapsed, and whether any has gone off the screen.</li>
     <li>The numbers, from the button.</li>
   </ol>
+
+  <p>
+    <label for="kb" style="display:block;margin-bottom:6px;color:var(--muted);font-size:14px">
+      Tap here to raise the keyboard and watch the numbers move
+    </label>
+    <input id="kb" type="text" placeholder="anything"
+           style="width:100%;padding:12px;margin-bottom:12px;background:var(--surface);border:1px solid var(--rule);border-radius:7px;color:var(--ink);font:16px ui-sans-serif,system-ui,sans-serif">
+  </p>
 
   <p><button id="copy" type="button">Copy the numbers</button></p>
 
@@ -253,7 +265,25 @@ eleventyExcludeFromCollections: true
     var top = vv ? vv.offsetTop : 0;
     var gap = top + h - client;
 
+    /*
+     * Which layout the site would be using at this width, and how much of the
+     * screen a keyboard is currently taking. Tap the field below and watch
+     * both: with `interactive-widget=resizes-content` the keyboard should come
+     * out of clientHeight rather than only out of the visual viewport.
+     */
+    var width = root.clientWidth;
+    var rem = parseFloat(getComputedStyle(root).fontSize) || 16;
+    el("w1").textContent = width + "px / " + (width / rem).toFixed(1) + "rem";
+    el("w2").textContent = width >= 80 * rem ? "three columns (80rem+)"
+      : width >= 64 * rem ? "sidebar (64rem+)"
+      : width >= 46 * rem ? "tablet (46rem+)"
+      : "phone (under 46rem)";
+    el("w3").textContent = Math.max(0, Math.round(window.innerHeight - h)) + "px";
+
     last = {
+      width: width,
+      breakpoint: el("w2").textContent,
+      keyboard: el("w3").textContent,
       inner: window.innerHeight,
       client: client,
       vvh: r1(h),
@@ -295,6 +325,9 @@ eleventyExcludeFromCollections: true
     }).join("\n");
 
     var text =
+      "viewport width     " + last.width + "\n" +
+      "site breakpoint    " + last.breakpoint + "\n" +
+      "keyboard takes     " + last.keyboard + "\n" +
       "innerHeight        " + last.inner + "\n" +
       "clientHeight       " + last.client + "\n" +
       "visualViewport.h   " + last.vvh + "\n" +

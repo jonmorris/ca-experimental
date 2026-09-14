@@ -2,7 +2,21 @@
 <html lang="{{ site.lang }}" data-design="{{ design or site.design }}">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {#
+      `interactive-widget=resizes-content` is the whole of the keyboard story.
+
+      Without it, Android's default is that an on-screen keyboard shrinks the
+      visual viewport and leaves the layout viewport alone — so `vh`, `dvh` and
+      `position: fixed` all keep measuring a height that half the screen is no
+      longer showing. The search panel is sized and placed from those, so with
+      a keyboard up it ran past the bottom of the screen and its field went off
+      the top. With this, the keyboard resizes the page itself and every length
+      on it is already correct.
+
+      It applies to the preferences panel, the jump sheet and the bookmarks
+      drawer too, which are built the same way and had the same exposure.
+    #}
+    <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
     {#
       A game's landing page is titled with the game itself, so naming the game
       again would only repeat it.

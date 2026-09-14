@@ -502,11 +502,27 @@ dialog::backdrop {
 }
 
 @media (min-width: 46rem) {
+  /*
+   * Floated below the top of the window rather than pinned to it, and the
+   * height is what is left after that rather than a figure of its own.
+   *
+   * `70dvh` was a guess that happened to look right on a laptop. It is not
+   * related to where the panel starts, so on a tall window it left a margin
+   * at the bottom and on a short one — a phone in landscape, a window with a
+   * keyboard across it — the panel ran past the bottom edge and took the
+   * field with it, since the field is the first thing in it.
+   *
+   * The offset is capped as well as proportional. Eight per cent of a tall
+   * desktop window is a long way down for something that opens on a
+   * keystroke; eight per cent of a short one is where it should be. `min()`
+   * takes whichever is smaller, so it behaves as a proportion exactly while
+   * that is the sensible thing to be.
+   */
   .palette__inner,
   .prefs__inner {
-    inset: 8vh 50% auto auto;
+    inset: min(8vh, 4rem) 50% auto auto;
     translate: 50% 0;
-    max-height: 70dvh;
+    max-height: calc(100dvh - min(8vh, 4rem) - var(--space-5));
   }
 
   .palette__inner {
