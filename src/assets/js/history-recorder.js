@@ -44,7 +44,9 @@ function pageContext() {
 function documentContext(context) {
   if (context.contentType === "site" || context.contentType === "landing") return null;
 
-  const heading = document.querySelector(".page-title");
+  // The name alone: see the note in `bookmarks-ui.js`.
+  const heading = document.querySelector("[data-page-title]")
+    || document.querySelector(".page-title");
   return {
     ruleSlug: context.contentType,
     ruleTitle: heading?.textContent.trim() || context.contentType,

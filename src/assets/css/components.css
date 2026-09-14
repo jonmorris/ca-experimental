@@ -2204,7 +2204,13 @@ a.home-update:hover .home-update__go {
 
 .bookmarks-group__title {
   display: flex;
-  align-items: baseline;
+  /*
+   * Centred, not on a baseline. The count is a capsule and the name is a line
+   * of text, and putting the two baselines together hangs the capsule's
+   * padding and curve below the line — three pixels of droop, which reads as
+   * a mistake rather than as a choice. What should agree is the two shapes.
+   */
+  align-items: center;
   gap: var(--space-2);
   margin-bottom: var(--space-2);
   font-family: var(--font-ui);
@@ -2219,7 +2225,8 @@ a.home-update:hover .home-update__go {
 
 .bookmarks-group__list {
   display: grid;
-  gap: 2px;
+  /* Enough for each row to read as its own object rather than as a table. */
+  gap: var(--space-2);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -2242,18 +2249,37 @@ a.home-update:hover .home-update__go {
   text-decoration: none;
 }
 
+/*
+ * A cross, and no box around it.
+ *
+ * It was a bordered square holding a `×` character, which had two faults. The
+ * border drew a second object inside a row that is already a card, so the row
+ * read as containing a button rather than as offering one; and a text `×` sits
+ * where its font puts it, which is above the optical centre of the line, so no
+ * amount of centring the box centred the mark. It is drawn now, like every
+ * other icon here, so it is centred by its own geometry.
+ */
 .bookmarks-item__remove {
   display: grid;
   place-items: center;
-  width: 1.75rem;
-  height: 1.75rem;
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  margin-inline-end: calc(var(--space-1) * -1);
   background: none;
-  border: 1px solid var(--line);
+  border: 0;
   border-radius: var(--radius-sm);
-  color: var(--ink-muted);
-  font-size: var(--text-base);
-  line-height: 1;
+  color: var(--ink-faint);
   cursor: pointer;
+}
+
+.bookmarks-item__remove:hover {
+  background: var(--surface-sunken);
+  color: var(--ink);
+}
+
+.bookmarks-item__remove svg {
+  display: block;
 }
 
 /* ========================================================= prev / next */

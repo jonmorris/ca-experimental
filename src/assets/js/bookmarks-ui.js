@@ -13,7 +13,10 @@ function pageContext() {
   const ruleSlug = body.dataset.contentType;
   if (!gameSlug || !ruleSlug) return null;
 
-  const heading = document.querySelector(".page-title");
+  // The name alone — the heading also carries the Official mark, which is a
+  // badge on the document rather than part of what it is called.
+  const heading = document.querySelector("[data-page-title]")
+    || document.querySelector(".page-title");
   return {
     gameSlug,
     gameTitle: body.dataset.gameTitle || gameSlug,

@@ -42,7 +42,18 @@ layout: layouts/base.njk
             <span aria-hidden="true">·</span> {{ expansion.title }}
           </p>
         {% endif %}
-        <h1 class="page-title">{{ title }}{{ officialMark(contentType.official if contentType else false) }}</h1>
+        {#
+          The name is wrapped so it can be read back exactly.
+
+          Anything that records which document a reader is in — a bookmark, a
+          history entry — used to take this heading's `textContent`, and the
+          moment a badge was appended to it they started storing "RulebookOfficial".
+          The mark is a claim about the document, not part of its name, and
+          stripping it afterwards is not available: "Official FAQ" is a real
+          title. So the name gets an element of its own and the readers take
+          that.
+        #}
+        <h1 class="page-title"><span data-page-title>{{ title }}</span>{{ officialMark(contentType.official if contentType else false) }}</h1>
         {% if subhead %}<p class="page-subhead">{{ subhead }}</p>{% endif %}
       </header>
 
