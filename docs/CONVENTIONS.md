@@ -336,7 +336,7 @@ calibration. Picking a fresh number each time is what turns a short list of
 exceptions into a long list of near-misses, and the old size is the only one
 that has already been looked at and agreed.
 
-There are seven, and all sit under the floor at the size they had before it:
+There are eight, and all sit under the floor at the size they had before it:
 
 - **The bookmark count over the header icon.** A one- or two-digit number taken
   in at a glance as a change of state. At 14px it was the loudest thing in the
@@ -362,6 +362,12 @@ There are seven, and all sit under the floor at the size they had before it:
   tap rather than the name of the thing — read once, before deciding, and never
   again. At the floor it matched the file's name across the row and the row had
   two headlines.
+- **The group legends in the reading panel.** "Theme", "Text size" — each
+  names the row of choices under it, and the choices are what is read. At the
+  floor a legend matched the buttons it introduces, so every setting was two
+  equal-weight things and the panel had no structure to scan by. The buttons
+  themselves stay on the floor: they are what a reader is looking for and
+  pressing.
 - **The game's name above the document's in the open section sheet.** An
   eyebrow is not read on its own account: it is context for the title under it
   and works by being visibly the smaller of the two. At the floor it came

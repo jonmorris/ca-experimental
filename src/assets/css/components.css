@@ -1049,12 +1049,22 @@ button.palette__link {
   border: 0;
 }
 
+/*
+ * An exception to the 14px floor, at the size it had before it. See
+ * CONVENTIONS.md §4b.
+ *
+ * These name the row of choices under them — "Theme", "Text size" — and the
+ * choices are what is read: a reader opens this panel to find the one that
+ * says Dark and press it. Held to the floor the legend matched the buttons it
+ * introduces, so each setting was two equal-weight things and the panel became
+ * a list with no structure to scan by.
+ */
 .pref-group__label {
   padding: 0;
   margin-bottom: var(--space-2);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
+  font-size: var(--text-micro);
   font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
