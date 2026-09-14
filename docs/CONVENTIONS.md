@@ -426,7 +426,9 @@ title, the About page's captions, the place line on a recent-games tile.
 
 Three were judged genuinely borderline and left for now: the note under a
 download's title, the "Searching Arcs" line and its "All games" toggle in the
-search panel, and the reason line on a related-games tile.
+search panel, and the credit line under a shelf tile's name — designer and
+year. (A related-games tile carries no line of its own: the row is covers and
+names, as `landing.njk` says.)
 
 Two other things were under the floor when it went in and neither was granted
 anything, because both were faults rather than choices: the same badge at 10px,

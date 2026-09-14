@@ -46,13 +46,21 @@
           </span>
 
           {#
-            Read as one phrase — "PDF · 12.4 MB" — and hidden from assistive
+            Read as one phrase — "12.4 MB · PDF" — and hidden from assistive
             technology only as decoration would be, which it is not: it is
             repeated in the link's own label below, punctuated as a sentence
             rather than with a middot nobody wants read aloud.
+
+            Size first, format last. The block is flush to the end of the row,
+            so whichever fact is written last is the one that lines up down the
+            list — and the format is the fact that repeats. With the format
+            first it started at a different place on every row, because "820
+            KB" and "12.4 MB" are different widths, and a column of PDFs
+            zig-zagged. The size is a different number on every row anyway and
+            loses nothing by moving.
           #}
           <span class="download__meta" aria-hidden="true">
-            {{ item.format }}{% if item.format and item.size %} <span class="download__dot">·</span> {% endif %}{{ item.size }}
+            {{ item.size }}{% if item.format and item.size %} <span class="download__dot">·</span> {% endif %}{{ item.format }}
           </span>
         </a>
 

@@ -1828,7 +1828,7 @@ button.palette__link {
  * An exception to the 14px floor, at the size it had before it. See
  * CONVENTIONS.md §4b.
  *
- * "PDF · 3.7 MB" is the cost of the tap, not the name of the thing — two
+ * "3.7 MB · PDF" is the cost of the tap, not the name of the thing — two
  * facts stated so nobody starts a twenty-megabyte download on a train by
  * accident. It is read once, before deciding, and never again. At the floor it
  * matched the file's name across the row and the row had two headlines.
