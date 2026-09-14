@@ -23,4 +23,6 @@ nothing about today's count.
 
 `docs/CONVENTIONS.md` is the authority on the content model, URL contract,
 design tokens and engineering principles. `docs/DEFERRED.md` records what is
-deliberately not built and why — nothing in it is a TODO.
+deliberately not built and why — nothing in it is a TODO. `docs/BACKLOG.md` is
+the complement: work we do intend to do and have not picked up yet. Do not start
+an item in it without being asked to.

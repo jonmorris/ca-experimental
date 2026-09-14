@@ -170,3 +170,5 @@ still gets the full build and verification from `ci.yml`.
   Read the entry before changing a feature.
 - [docs/DEFERRED.md](docs/DEFERRED.md) — features deliberately not built, and
   what the current code already does to keep the door open for them.
+- [docs/BACKLOG.md](docs/BACKLOG.md) — work we do intend to do and have not
+  picked up yet. The complement to DEFERRED: everything in it is a TODO.
