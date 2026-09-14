@@ -327,9 +327,18 @@ small end, which is the floor doing its job.
 
 **An exception is a decision, not a default.** Set the size in the rule that
 needs it, write the reason in a comment beside it, and expect to justify it.
-There are none today — the two that existed when the floor went in were a badge
-at 10px and an unstyled `h6` setting smaller than the body text it headed, and
-both were faults rather than choices.
+
+There is one: **the bookmark count over the header icon, at 11px.** What a
+floor protects is text that gets read, and that badge is not read — it is a
+one- or two-digit count taken in at a glance as a change of state. At 14px it
+was the loudest thing in the header, a capsule as wide as the control under it.
+It is the test an exception has to pass: not "this is hard to fit", but "this
+is not reading text, and holding it to the floor makes the page worse".
+
+Two other things were under the floor when it went in and neither was granted
+anything, because both were faults rather than choices: the same badge at 10px,
+and an unstyled `h6` in a rulebook setting smaller than the body text it
+headed.
 
 Five attributes on `<html>` drive the whole cascade, so no script ever writes a
 style property:

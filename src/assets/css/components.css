@@ -293,27 +293,34 @@
 }
 
 /*
- * The count over the bookmarks icon.
+ * The count over the bookmarks icon — the site's one exception to the 14px
+ * floor, granted deliberately. See CONVENTIONS.md §4b.
  *
- * A badge is the text most likely to be set tiny — it is a number on top of
- * something else and the temptation is to shrink it until it fits. It was at
- * ten pixels. It is on the floor now like everything else, and the capsule
- * grew to hold it rather than the number shrinking to fit the capsule.
+ * What a floor protects is text that gets read, and this is not read: it is a
+ * one- or two-digit count laid over an icon, taken in at a glance as a change
+ * of state rather than as a number somebody works out. On the floor it was the
+ * loudest thing in the header — a capsule as wide as the control it sits on,
+ * drawing the eye away from a search field that is the reason the header is
+ * there at all.
+ *
+ * Eleven, not the ten it was before the floor. If it has to be an exception it
+ * can at least be the largest one that still reads as a badge, and tabular
+ * figures at 700 hold up at this size where prose would not.
  */
 .icon-button__badge {
   position: absolute;
-  top: -4px;
-  right: -6px;
-  min-width: 1.35rem;
-  padding: 0 0.3rem;
+  top: -3px;
+  right: -4px;
+  min-width: 1.15rem;
+  padding: 0 0.25rem;
   background: var(--marker);
   border-radius: var(--radius-full);
   color: var(--surface-raised);
   font-family: var(--font-ui);
-  font-size: var(--text-min);
+  font-size: 0.6875rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  line-height: 1.35rem;
+  line-height: 1.15rem;
   text-align: center;
 }
 
