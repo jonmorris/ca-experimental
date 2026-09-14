@@ -84,6 +84,19 @@ body[data-content-type="rulebook"] .main {
   border-bottom: 1pt solid #000;
 }
 
+/*
+ * On screen this is hidden as a second copy of the breadcrumbs. Here there are
+ * no breadcrumbs, so it is the only line saying which game a printed expansion
+ * rulebook came out of — which is the one fact a loose sheet beside a board
+ * cannot afford to lose.
+ */
+.page-header .eyebrow {
+  display: block;
+  margin-bottom: 2pt;
+  color: #333;
+  font-size: 9pt;
+}
+
 .page-title,
 .landing__title,
 .home__title {

@@ -421,6 +421,24 @@
   color: inherit;
 }
 
+/*
+ * The expansion eyebrow, off the screen.
+ *
+ * It says "Arcs · The Blighted Reach" two lines under breadcrumbs reading
+ * Home / Arcs / The Blighted Reach / Rulebook — the same two names in the same
+ * order, with the same link on the first. One of them had to go and it is this
+ * one: the breadcrumbs are the site's way of saying where you are, and they
+ * say it on every page rather than only on expansions.
+ *
+ * It stays in the markup because paper has no breadcrumbs — print.css hides
+ * them, and rightly, since "Home" means nothing on a sheet beside a board.
+ * There it is the only thing naming the game a printed expansion rulebook
+ * belongs to, so print.css brings it back.
+ */
+.page-header .eyebrow {
+  display: none;
+}
+
 .page-title {
   font-family: var(--font-display);
   font-size: var(--text-3xl);
