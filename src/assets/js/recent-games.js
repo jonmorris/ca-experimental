@@ -17,6 +17,12 @@ import { collapseToRow } from "./row-collapse.js";
  * second source of truth for it would be a second thing to get wrong. A game
  * with no tile to borrow from — one that is unlisted, reachable only by its
  * URL — still gets a row; it simply gets one without a picture.
+ *
+ * A cover and a name, and nothing else. The card used to carry the document
+ * and section it was last left at, which answered a question nobody had asked
+ * it: this row is for getting back to a game, and where inside the game the
+ * reader stopped is a different errand with its own places to be served from.
+ * The store still records it — the line is gone, not the history.
  */
 
 /*
@@ -29,16 +35,6 @@ import { collapseToRow } from "./row-collapse.js";
 function borrowArt(gameSlug) {
   const tile = document.querySelector(`[data-game-slug="${CSS.escape(gameSlug)}"] .game-tile__art`);
   return tile ? tile.cloneNode(true) : null;
-}
-
-/** "The Blighted Reach · Rulebook · Setup" — as much of it as there is. */
-function placeLabel(doc) {
-  return [doc.expansionTitle, doc.ruleTitle, doc.sectionTitle].filter(Boolean).join(" · ");
-}
-
-function placeHref(doc) {
-  const url = withBasePath(doc.url);
-  return doc.sectionAnchor ? `${url}#${doc.sectionAnchor}` : url;
 }
 
 function buildTile(entry) {
@@ -66,23 +62,6 @@ function buildTile(entry) {
   titleLink.textContent = entry.gameTitle;
   title.append(titleLink);
   body.append(title);
-
-  /*
-   * Two targets, and both are predictable: the name goes to the game, the line
-   * under it goes back to the exact place. Sending the whole tile to a spot
-   * halfway down a rulebook would surprise anyone who clicked it expecting the
-   * game.
-   */
-  const doc = entry.lastDocument;
-  if (doc?.url) {
-    const place = document.createElement("p");
-    place.className = "game-tile__place";
-    const placeLink = document.createElement("a");
-    placeLink.href = placeHref(doc);
-    placeLink.textContent = placeLabel(doc);
-    place.append(placeLink);
-    body.append(place);
-  }
 
   item.append(body);
   return item;
