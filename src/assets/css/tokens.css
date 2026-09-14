@@ -23,25 +23,19 @@
 
 :root {
   /*
-   * Fluid scales. Each step interpolates between a phone (20rem) and a large
-   * laptop (90rem) so there is no step-change at a breakpoint — the previous
-   * design had a single 1024px jump and everything between a phone and a small
-   * laptop got the phone's treatment.
+   * The multiplier the type scale is built on, in two parts — the same split
+   * body leading uses below, and for the same reason.
    *
-   * The multiplier lets density shift the whole scale at once.
+   * `--scale` is the design's own calibration, and a design may re-nominate
+   * it: the chrome is set at that size and stays there. `--reading-scale` is
+   * what the reader's text size writes, and only the content scope below
+   * reads it. It starts at the design's scale rather than at 1, so
+   * "Comfortable" means whatever that design nominated — a flat 1 here would
+   * quietly undo the editorial design's 0.97 the moment content stopped
+   * inheriting the root's value.
    */
   --scale: 1;
-
-  --text-2xs: calc(0.6875rem * var(--scale));
-  --text-xs: calc(0.75rem * var(--scale));
-  --text-sm: calc(0.8125rem * var(--scale));
-  --text-base: calc(0.9375rem * var(--scale));
-  --text-md: calc(clamp(1rem, 0.97rem + 0.15vw, 1.0625rem) * var(--scale));
-  --text-lg: calc(clamp(1.125rem, 1.08rem + 0.22vw, 1.25rem) * var(--scale));
-  --text-xl: calc(clamp(1.3125rem, 1.23rem + 0.42vw, 1.5rem) * var(--scale));
-  --text-2xl: calc(clamp(1.5rem, 1.35rem + 0.75vw, 1.9375rem) * var(--scale));
-  --text-3xl: calc(clamp(1.875rem, 1.6rem + 1.35vw, 2.625rem) * var(--scale));
-  --text-4xl: calc(clamp(2.25rem, 1.8rem + 2.25vw, 3.5rem) * var(--scale));
+  --reading-scale: var(--scale);
 
   --leading-flat: 1.1;
   --leading-tight: 1.22;
@@ -111,6 +105,66 @@
   --ring: 0 0 0 3px var(--focus-ring);
 }
 
+/* --------------------------------------------------- the reading scope */
+
+/*
+ * Where the reader's text size applies: the content of the page, and nothing
+ * that surrounds it.
+ *
+ * These three are the content regions — a document (`.article`, which is also
+ * About and a glossary term), a game's overview, and the shelf on the front
+ * page. Everything else is chrome the reader navigates by rather than reads:
+ * the section list, the sticky bar, the pager, the header and footer, and the
+ * preferences panel itself, which grew and shrank under its own control while
+ * it was open.
+ *
+ * The boundary is the one line spacing already keeps a few lines above, for
+ * the reason given there: the control is for the passage being read, and a
+ * menu is not read at length. Text size was the half of that pair still
+ * moving everything.
+ */
+.article,
+.landing,
+.home {
+  --scale: var(--reading-scale);
+
+  /*
+   * The scope carries the base size as well as the ladder. Anything inside it
+   * that sets no size of its own inherits from here rather than from `body`,
+   * which is still at the chrome's scale — without this a glossary term's
+   * definition and a book index's entries, neither of which sizes itself, sat
+   * at one size while the headings above them moved.
+   */
+  font-size: var(--text-md);
+}
+
+/*
+ * The ladder, written once and resolved against whichever `--scale` is in
+ * effect where it lands: 1 at the root, the reader's in the content.
+ *
+ * It has to be declared in both places rather than inherited from one. A
+ * custom property's `var()` is substituted where the property is declared, not
+ * where it is used, so a `--text-base` declared at the root arrives in the
+ * content as a finished length — changing `--scale` underneath it does
+ * nothing. Each step interpolates between a phone (20rem) and a large laptop
+ * (90rem) so there is no step-change at a breakpoint.
+ */
+:root,
+.article,
+.landing,
+.home {
+  --text-2xs: calc(0.6875rem * var(--scale));
+  --text-xs: calc(0.75rem * var(--scale));
+  --text-sm: calc(0.8125rem * var(--scale));
+  --text-base: calc(0.9375rem * var(--scale));
+  --text-md: calc(clamp(1rem, 0.97rem + 0.15vw, 1.0625rem) * var(--scale));
+  --text-lg: calc(clamp(1.125rem, 1.08rem + 0.22vw, 1.25rem) * var(--scale));
+  --text-xl: calc(clamp(1.3125rem, 1.23rem + 0.42vw, 1.5rem) * var(--scale));
+  --text-2xl: calc(clamp(1.5rem, 1.35rem + 0.75vw, 1.9375rem) * var(--scale));
+  --text-3xl: calc(clamp(1.875rem, 1.6rem + 1.35vw, 2.625rem) * var(--scale));
+  --text-4xl: calc(clamp(2.25rem, 1.8rem + 2.25vw, 3.5rem) * var(--scale));
+}
+
 /* ----------------------------------------------------------- density */
 
 /*
@@ -119,11 +173,11 @@
  * variable and neither did what its label promised.
  */
 :root[data-density="compact"] {
-  --scale: 0.94;
+  --reading-scale: 0.94;
 }
 
 :root[data-density="spacious"] {
-  --scale: 1.09;
+  --reading-scale: 1.09;
 }
 
 /* ----------------------------------------------------------- line spacing */

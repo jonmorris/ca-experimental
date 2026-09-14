@@ -61,11 +61,11 @@
 }
 
 :root[data-design="precision"][data-density="compact"] {
-  --scale: 0.92;
+  --reading-scale: 0.92;
 }
 
 :root[data-design="precision"][data-density="spacious"] {
-  --scale: 1.08;
+  --reading-scale: 1.08;
 }
 
 /* Figures line up everywhere in a reference tool. */

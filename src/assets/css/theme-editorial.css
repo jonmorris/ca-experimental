@@ -74,11 +74,11 @@
 }
 
 :root[data-design="editorial"][data-density="compact"] {
-  --scale: 0.91;
+  --reading-scale: 0.91;
 }
 
 :root[data-design="editorial"][data-density="spacious"] {
-  --scale: 1.06;
+  --reading-scale: 1.06;
 }
 
 /* An old-style figure set suits running rules text; the UI wants lining. */
