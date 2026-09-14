@@ -329,14 +329,39 @@ small end, which is the floor doing its job.
 needs it, write the reason in a comment beside it, and expect to justify it.
 
 **A granted exception returns the element to the size it had before the floor
-— never to a new one chosen to be nearly that.** `--text-micro` is that size,
-kept for the purpose: it is what `--text-2xs` resolved to before the floor
-existed, and it is still on the ladder so it moves with a design's own
-calibration. Picking a fresh number each time is what turns a short list of
-exceptions into a long list of near-misses, and the old size is the only one
-that has already been looked at and agreed.
+— never to a new one chosen to be nearly that.** `--text-2xs-raw` and
+`--text-xs-raw` are those sizes, kept for the purpose: one per rung the floor
+covers, named for it, so an exception returns to the rung it came from rather
+than to whichever token was written first. Both are still on the ladder, so
+they move with a design's own calibration. Picking a fresh number each time is
+what turns a short list of exceptions into a long list of near-misses, and the
+old size is the only one that has already been looked at and agreed.
 
-There are ten, and all sit under the floor at the size they had before it:
+The granted exceptions are below, and all sit under the floor at the size they
+had before it. They fall into four kinds — **eyebrows, counts, key hints and
+group legends** — and that shape is the point: a new one is likely fine if it
+belongs to one of them and suspect if it does not.
+
+**Eyebrows** — a small label above or beside the thing it names, which works by
+being visibly the smaller of the two: the Official mark; the game's name in the
+open section sheet; the expansion name above a page title (`.eyebrow`) and in
+the nav (`.nav-subheading`); the sidebar's block headings; the source line on My
+Reference; "Previous" and "Next" on the pager; the group legends in the reading
+panel, the bookmarks panel, the bookmarks drawer and the search results; the
+labels in a game's facts block.
+
+**Counts** — a number read as a change of state rather than as text: the
+bookmark badge in the header, the section position in the sticky bar, the row
+numbers in the section list, the count beside a section title, a bookmarks
+group or a drawer group — one shared rule, so they cannot drift — the active
+filter count on Sort & filter, and the section count at the foot of a contents
+card.
+
+**Stated costs and key hints** — "PDF · 16.2 MB" on a download row, the `Ctrl K`
+chips on both search fields, the key in the 404's hint, and the **NEW** tag on
+the home page's update line.
+
+Notable ones by name:
 
 - **The bookmark count over the header icon.** A one- or two-digit number taken
   in at a glance as a change of state. At 14px it was the loudest thing in the
@@ -386,6 +411,22 @@ There are ten, and all sit under the floor at the size they had before it:
 
 That is the test an exception has to pass: not "this is hard to fit", but "this
 is not reading text, and holding it to the floor makes the page worse".
+
+### What was looked at and left on the floor
+
+Recorded so it is not re-argued. **Every control stays at 14** — the option
+buttons in the reading panel, its clear and transfer buttons, the drawer's
+scope toggle, the print button, the content-type chips on a shelf tile. A
+control is pressed by someone who had to read it first, and a button that is
+hard to read is not a small button, it is a bad one.
+
+**Everything that is a sentence stays too**: the note about where your data
+lives, the footer's rights statement, a search result's snippet, a callout's
+title, the About page's captions, the place line on a recent-games tile.
+
+Three were judged genuinely borderline and left for now: the note under a
+download's title, the "Searching Arcs" line and its "All games" toggle in the
+search panel, and the reason line on a related-games tile.
 
 Two other things were under the floor when it went in and neither was granted
 anything, because both were faults rather than choices: the same badge at 10px,

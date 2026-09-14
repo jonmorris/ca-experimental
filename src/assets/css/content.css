@@ -296,12 +296,13 @@
 }
 
 .reference-source a {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-xs);
+  font-size: var(--text-xs-raw);
   text-decoration: none;
 }
 

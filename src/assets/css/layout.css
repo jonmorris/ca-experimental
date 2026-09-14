@@ -232,10 +232,11 @@
  */
 .site-menu__heading,
 .sidebar__heading {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   margin-bottom: var(--space-2);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-xs);
+  font-size: var(--text-xs-raw);
   font-weight: 650;
 }
 
@@ -304,7 +305,7 @@
   flex: none;
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-micro);
+  font-size: var(--text-2xs-raw);
   font-variant-numeric: tabular-nums;
 }
 
@@ -407,10 +408,11 @@
 }
 
 .eyebrow {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   margin-bottom: var(--space-2);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-xs);
+  font-size: var(--text-xs-raw);
   font-weight: 600;
   letter-spacing: var(--tracking-wide);
 }

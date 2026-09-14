@@ -62,16 +62,20 @@
    * The rung the floor covers up, kept so an exception has something to return
    * to rather than a number somebody picks.
    *
-   * This is exactly what `--text-2xs` resolved to before the floor existed, so
+   * These are exactly what `--text-2xs` and `--text-xs` resolved to before the
+   * floor existed, so
    * granting an exception puts the element back where it was instead of
    * inventing a third size — which is what turns a set of exceptions into a
-   * set of near-misses. It stays on the ladder, so it still moves with a
-   * design's own calibration.
+   * set of near-misses. They stay on the ladder, so they still move with a
+   * design's own calibration. One per rung the floor covers, named for it, so
+   * an exception returns to the rung it came from rather than to whichever of
+   * these was written first.
    *
-   * Only reachable by exception. Using it is a decision that needs granting
+   * Only reachable by exception. Using one is a decision that needs granting
    * and a comment saying why; see CONVENTIONS.md §4b.
    */
-  --text-micro: calc(0.6875rem * var(--scale));
+  --text-2xs-raw: calc(0.6875rem * var(--scale));
+  --text-xs-raw: calc(0.75rem * var(--scale));
 
   /*
    * Chrome type, outside the scale above.

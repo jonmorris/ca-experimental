@@ -12,10 +12,11 @@
 
 /* The expansion heading in the nav: same treatment as the headings above it. */
 .nav-subheading {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   margin: var(--space-4) 0 var(--space-1);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-xs);
+  font-size: var(--text-xs-raw);
   font-weight: 650;
 }
 
@@ -123,7 +124,7 @@
  */
 .jump-link__index {
   color: var(--ink-faint);
-  font-size: var(--text-micro);
+  font-size: var(--text-2xs-raw);
   font-variant-numeric: tabular-nums;
   text-align: center;
 }
@@ -175,6 +176,7 @@
 .section-title__count,
 .drawer-group__count,
 .bookmarks-group__count {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   display: inline-block;
   /*
    * Centred on the heading, not sat on its baseline.
@@ -193,7 +195,7 @@
   border-radius: 999px;
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
+  font-size: var(--text-2xs-raw);
   font-variant-numeric: tabular-nums;
   font-weight: 600;
   letter-spacing: 0;
@@ -231,7 +233,7 @@
   border-radius: 999px;
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-micro);
+  font-size: var(--text-2xs-raw);
   font-weight: 600;
   letter-spacing: var(--tracking-caps);
   line-height: 1.4;
@@ -442,11 +444,12 @@
 }
 
 .search-trigger__key {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   padding: 1px var(--space-1);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
+  font-size: var(--text-2xs-raw);
 }
 
 /* The label is dead weight on a phone; the icon carries it. */
@@ -638,7 +641,7 @@ dialog::backdrop {
   overflow: hidden;
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-micro);
+  font-size: var(--text-2xs-raw);
   font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-overflow: ellipsis;
@@ -717,10 +720,11 @@ dialog::backdrop {
 /* Searching every game groups results under each game's name, so this one has
    to hold a title as well as a category. */
 .palette__group {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   padding: var(--space-3) var(--space-2) var(--space-1);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-xs);
+  font-size: var(--text-xs-raw);
   font-weight: 650;
 }
 
@@ -975,12 +979,13 @@ button.palette__link {
  * a single view.
  */
 .drawer-group__title {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   display: flex;
   align-items: baseline;
   gap: var(--space-2);
   margin-bottom: var(--space-2);
   font-family: var(--font-ui);
-  font-size: var(--text-xs);
+  font-size: var(--text-xs-raw);
   font-weight: 650;
 }
 
@@ -1064,7 +1069,7 @@ button.palette__link {
   margin-bottom: var(--space-2);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-micro);
+  font-size: var(--text-2xs-raw);
   font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
@@ -1281,7 +1286,7 @@ button.palette__link {
   margin-top: var(--space-2);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-micro);
+  font-size: var(--text-2xs-raw);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1721,7 +1726,7 @@ button.palette__link {
 .game-facts dt {
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-micro);
+  font-size: var(--text-2xs-raw);
   font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
@@ -1832,7 +1837,7 @@ button.palette__link {
   flex: 0 0 auto;
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-micro);
+  font-size: var(--text-2xs-raw);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -1993,12 +1998,13 @@ a.home-update:hover {
 }
 
 .home-update__tag {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   flex: none;
   padding: 2px var(--space-2);
   border-radius: 999px;
   background: var(--accent-wash);
   color: var(--accent-strong);
-  font-size: var(--text-2xs);
+  font-size: var(--text-2xs-raw);
   font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
@@ -2023,13 +2029,14 @@ a.home-update:hover .home-update__go {
 
 /* The shortcut is a promise only a keyboard can collect. */
 .home-search__key {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   flex: none;
   padding: 2px var(--space-2);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
+  font-size: var(--text-2xs-raw);
 }
 
 @media (max-width: 46rem) {
@@ -2281,6 +2288,7 @@ a.home-update:hover .home-update__go {
 }
 
 .bookmarks-group__title {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   display: flex;
   /*
    * Centred, not on a baseline. The count is a capsule and the name is a line
@@ -2292,7 +2300,7 @@ a.home-update:hover .home-update__go {
   gap: var(--space-2);
   margin-bottom: var(--space-2);
   font-family: var(--font-ui);
-  font-size: var(--text-xs);
+  font-size: var(--text-xs-raw);
   font-weight: 650;
 }
 
@@ -2508,7 +2516,7 @@ a.home-update:hover .home-update__go {
  */
 .prev-next__direction {
   color: var(--ink-faint);
-  font-size: var(--text-micro);
+  font-size: var(--text-2xs-raw);
   font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
@@ -2879,11 +2887,12 @@ a.home-update:hover .home-update__go {
 }
 
 .not-found__hint kbd {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   padding: 0 var(--space-1);
   border: 1px solid var(--line);
   border-radius: 4px;
   font-family: var(--font-ui);
-  font-size: var(--text-xs);
+  font-size: var(--text-xs-raw);
 }
 
 /* No keyboard to press it with, so the shortcut is not offered. */
@@ -3308,12 +3317,13 @@ a.home-update:hover .home-update__go {
 }
 
 .shelf-toggle__badge {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   min-width: 1.25rem;
   padding: 1px var(--space-1);
   border-radius: 999px;
   background: var(--accent);
   color: var(--accent-contrast);
-  font-size: var(--text-2xs);
+  font-size: var(--text-2xs-raw);
   font-weight: 700;
   text-align: center;
 }
@@ -3371,9 +3381,10 @@ a.home-update:hover .home-update__go {
 
 .shelf-field__label,
 .range__label {
+  /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   color: var(--ink-faint);
   font-family: var(--font-ui);
-  font-size: var(--text-2xs);
+  font-size: var(--text-2xs-raw);
   font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
