@@ -2,6 +2,21 @@
 layout: layouts/base.njk
 ---
 {% from "partials/official-mark.njk" import officialMark %}
+{% macro contentCard(type) %}
+  <li class="card">
+    <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
+    {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
+    {% if type.sections.length or type.official %}
+      <p class="card__meta">
+        {% if type.sections.length %}
+          <span>{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</span>
+        {% endif %}
+        {{ officialMark(type.official) }}
+      </p>
+    {% endif %}
+  </li>
+{% endmacro %}
+
 <div class="shell shell--landing">
   {% include "partials/sidebar.njk" %}
 
@@ -120,23 +135,35 @@ layout: layouts/base.njk
       </section>
       {% endif %}
 
-      {% for expansion in game.expansions %}
+      {#
+        Expansions.
+
+        An expansion of one document is a card, because a section heading over
+        a single card would be the expansion's name printed twice — the card
+        carries that name now. An expansion of several keeps a section of its
+        own below, where the heading is naming a group rather than repeating
+        its only member.
+      #}
+      {% set soloExpansions = game.expansions | where("single") %}
+      {% if soloExpansions.length %}
+        <section class="landing__section" aria-labelledby="expansions-title">
+          <h2 class="section-title" id="expansions-title">
+            {{ "Expansion" if soloExpansions.length == 1 else "Expansions" }}
+          </h2>
+          <ul class="card-grid">
+            {% for expansion in soloExpansions %}
+              {{ contentCard(expansion.contentTypes[0]) }}
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+
+      {% for expansion in game.expansions | where("single", false) %}
         <section class="landing__section" aria-labelledby="exp-title-{{ expansion.slug }}">
           <h2 class="section-title" id="exp-title-{{ expansion.slug }}">{{ expansion.title }}</h2>
           <ul class="card-grid">
             {% for type in expansion.contentTypes %}
-              <li class="card">
-                <h3 class="card__title"><a href="{{ type.url }}">{{ type.label }}</a></h3>
-                {% if type.subhead %}<p class="card__body">{{ type.subhead }}</p>{% endif %}
-                {% if type.sections.length or type.official %}
-                  <p class="card__meta">
-                    {% if type.sections.length %}
-                      <span>{{ type.sections.length }} section{{ "s" if type.sections.length != 1 }}</span>
-                    {% endif %}
-                    {{ officialMark(type.official) }}
-                  </p>
-                {% endif %}
-              </li>
+              {{ contentCard(type) }}
             {% endfor %}
           </ul>
         </section>

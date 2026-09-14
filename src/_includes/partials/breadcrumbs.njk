@@ -1,3 +1,12 @@
+{#
+  Where you are, from the top.
+
+  The last crumb is the page itself and is not a link. Everything before it is
+  a place you can go back to — except an expansion, which has no page of its
+  own: it is a heading in the game's nav and a section of the game's overview,
+  so it is passed through rather than returned to.
+#}
+{% set collapsedExpansion = expansion and expansion.single %}
 <nav class="breadcrumbs" aria-label="Breadcrumb">
   <ol class="breadcrumbs__list">
     <li><a href="/">Home</a></li>
@@ -10,9 +19,28 @@
         {% endif %}
       </li>
     {% endif %}
+
+    {#
+      An expansion of one document is that document, and the document carries
+      the expansion's name — so the crumb below it would repeat the crumb
+      above. It is dropped, and this becomes the last crumb. An expansion of
+      several keeps both: there the name is a group and the crumb under it says
+      which of the group you are reading.
+    #}
     {% if expansion %}
-      <li><span>{{ expansion.title }}</span></li>
+      <li>
+        {% if collapsedExpansion and not breadcrumbSection %}
+          <span aria-current="page">{{ expansion.title }}</span>
+        {% else %}
+          <span>{{ expansion.title }}</span>
+        {% endif %}
+      </li>
     {% endif %}
+
+    {#
+      A page deeper than the document — one glossary term, say — still names
+      itself, whether or not the document above it was collapsed away.
+    #}
     {% if breadcrumbSection %}
       <li>
         {% if breadcrumbSectionUrl %}
@@ -21,7 +49,7 @@
           <span aria-current="page">{{ breadcrumbSection }}</span>
         {% endif %}
       </li>
-    {% elif contentType %}
+    {% elif contentType and not collapsedExpansion %}
       <li><span aria-current="page">{{ contentType.label }}</span></li>
     {% elif breadcrumb %}
       <li><span aria-current="page">{{ breadcrumb }}</span></li>

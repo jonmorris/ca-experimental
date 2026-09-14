@@ -100,6 +100,20 @@ mirror the path — `/games/{game}/{expansion}/{type}/`. There is no
 Content is base-level by default. Put a file in an expansion directory only
 when it is exclusively about that expansion.
 
+**An expansion of one document is that document.** Its content type takes the
+expansion's name, so the page is titled "The Blighted Reach" rather than
+"Rulebook", and the surfaces that would then say the name twice drop their
+copy: the breadcrumbs end at the expansion, the nav lists it as a link instead
+of a heading with one link under it, and the overview gives it a card in a
+shared **Expansions** section rather than a section of its own.
+
+An expansion with more than one document keeps all of it — the name is a group
+there, and the crumb and heading under it say which member you are reading.
+Decided by counting the documents in `lib/registry.js`, not by a flag in
+`game.json`, so an expansion that grows a second one changes shape on the build
+that adds it. The file's own `title` and `navLabel` stay in its frontmatter and
+come back into use on that build.
+
 ### Downloads
 
 Files a game offers alongside its pages — the publisher's original PDF, and

@@ -146,6 +146,18 @@ export default function (eleventyConfig) {
   /** "2–5" → { min: 2, max: 5 }, for the shelf's filters. Null if unparseable. */
   eleventyConfig.addFilter("numberRange", parseRange);
 
+  /**
+   * The members of a list whose `key` matches — `expansions | where("single")`.
+   *
+   * Nunjucks has no `selectattr`, and its `{% set %}` inside a loop does not
+   * survive the loop, so a template that needs two groups out of one list has
+   * no way to make them. Defaulting to `true` is what lets a flag read as a
+   * flag at the call site.
+   */
+  eleventyConfig.addFilter("where", (list, key, value = true) =>
+    (list || []).filter((item) => item?.[key] === value),
+  );
+
   eleventyConfig.addFilter("stripHtml", (content) =>
     String(content || "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim(),
   );
@@ -190,6 +202,12 @@ export default function (eleventyConfig) {
    * URLs are prefixed here. They travel as JSON, and HtmlBasePlugin only ever
    * rewrites href and src.
    */
+  const expansionLabelFor = (game, expansionSlug) => {
+    if (!expansionSlug) return "";
+    const expansion = game.expansions.find((e) => e.slug === expansionSlug);
+    return expansion && !expansion.single ? expansion.title : "";
+  };
+
   eleventyConfig.addFilter("referenceOrder", (game) =>
     (game?.allContentTypes || [])
       .filter((type) => !type.synthetic)
@@ -197,10 +215,12 @@ export default function (eleventyConfig) {
         slug: type.slug,
         expansion: type.expansionSlug || "",
         label: type.label,
-        expansionLabel:
-          (type.expansionSlug &&
-            game.expansions.find((e) => e.slug === type.expansionSlug)?.title) ||
-          "",
+        /*
+         * Empty for a one-document expansion, whose document already carries
+         * the expansion's name — otherwise My Reference would head its
+         * sections "The Blighted Reach · The Blighted Reach".
+         */
+        expansionLabel: expansionLabelFor(game, type.expansionSlug),
         url: withBasePath(type.url, prefix),
         sections: type.sections.map((section) => section.slug),
       })),

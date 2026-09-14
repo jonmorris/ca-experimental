@@ -2,7 +2,7 @@
 title: Rulebook
 official: true
 navLabel: Rulebook
-subhead: The expansion rules for &Cetera.
+subhead: The complete published rules for the expansion.
 ---
 
 ## Introduction {: #introduction}

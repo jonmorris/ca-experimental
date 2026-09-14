@@ -2,7 +2,7 @@
 title: Rulebook
 official: true
 navLabel: Rulebook
-subhead: The expansion rules for The Ketchup Mechanism & Other Ideas.
+subhead: The complete published rules for the expansion.
 ---
 
 ## Game Materials {: #game-materials}

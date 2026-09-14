@@ -21,8 +21,13 @@
     {% endfor %}
   </ul>
 
+  {#
+    An expansion of one document is a link, not a heading with a link under it
+    — the two would be the same words twice. One with more than one document
+    keeps its heading, because then the heading is naming a group.
+  #}
   {% for expansion in game.expansions %}
-    <p class="nav-subheading">{{ expansion.title }}</p>
+    {% if not expansion.single %}<p class="nav-subheading">{{ expansion.title }}</p>{% endif %}
     <ul class="nav-list">
       {% for type in expansion.contentTypes %}
         <li>
