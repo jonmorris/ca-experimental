@@ -110,9 +110,19 @@
  * digit, 14px either side of a double — without moving the titles, so the
  * sidebar's alignment is untouched.
  */
+/*
+ * The row's number — the third exception to the 14px floor, and the same
+ * exception as the position in the bar above it. See CONVENTIONS.md §4b.
+ *
+ * An ordinal in its own column, not read so much as counted along. At the
+ * floor it matched the section name beside it, which made every row two
+ * equal-weight things rather than a name with a number in front of it.
+ * Twelve, to agree with the "1 / 15" on the bar this list drops from: they
+ * are the same figure in two places and should not be two sizes.
+ */
 .jump-link__index {
   color: var(--ink-faint);
-  font-size: var(--text-2xs);
+  font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
   text-align: center;
 }

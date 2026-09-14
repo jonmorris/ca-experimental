@@ -328,7 +328,7 @@ small end, which is the floor doing its job.
 **An exception is a decision, not a default.** Set the size in the rule that
 needs it, write the reason in a comment beside it, and expect to justify it.
 
-There are two, and both are counts rather than text:
+There are three, and all are counts rather than text:
 
 - **The bookmark count over the header icon, at 11px.** A one- or two-digit
   number taken in at a glance as a change of state. At 14px it was the loudest
@@ -340,6 +340,11 @@ There are two, and both are counts rather than text:
   after it. Twelve rather than eleven because it sits inline against type it is
   read alongside: it has to be quieter than the name, not as small as it can
   get.
+- **The row numbers in the section list, at 12px.** Ordinals in their own
+  column, counted along rather than read. At the floor each row was two
+  equal-weight things instead of a name with a number in front of it. The same
+  12px as the bar the list drops from — the same figure in two places should
+  not be two sizes.
 
 That is the test an exception has to pass: not "this is hard to fit", but "this
 is not reading text, and holding it to the floor makes the page worse".
