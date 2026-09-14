@@ -3356,7 +3356,7 @@ a.home-update:hover .home-update__go {
 .shelf-tools__row {
   display: flex;
   flex-wrap: wrap;
-  align-items: end;
+  align-items: center;
   gap: var(--space-3);
 }
 
@@ -3374,12 +3374,7 @@ a.home-update:hover .home-update__go {
   }
 }
 
-.shelf-field {
-  display: grid;
-  gap: var(--space-1);
-}
-
-.shelf-field__label,
+.shelf-sort__label,
 .range__label {
   /* Exception to the 14px floor, at the size it had. CONVENTIONS.md §4b. */
   color: var(--ink-faint);
@@ -3390,24 +3385,84 @@ a.home-update:hover .home-update__go {
   text-transform: uppercase;
 }
 
-.shelf-select {
-  height: 2.25rem;
-  padding-inline: var(--space-3);
-  background: var(--surface-raised);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius);
-  color: var(--ink);
-  font-family: var(--font-ui);
-  font-size: var(--text-sm);
+/*
+ * Sort, as one object.
+ *
+ * The label sits on the line rather than above it. Stacked, it made the sort
+ * two rows tall next to filters that are one, and the tray's tallest thing was
+ * a caption — so the row set its own height from the piece that mattered
+ * least. On a narrow screen it wraps above the keys again, which is the only
+ * place the stack was ever right.
+ */
+.shelf-sort {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
 }
 
-.shelf-direction,
+/*
+ * A segmented control, built like the reading panel's: one recessed track, and
+ * the chosen option raised out of it. Same idiom, so a reader who has met one
+ * has met both — and no browser chrome, which is what the select brought with
+ * it and could not be styled out of.
+ */
+.shelf-sort__track {
+  display: flex;
+  gap: var(--space-1);
+  padding: 3px;
+  background: var(--surface-inset);
+  border-radius: var(--radius-full);
+}
+
+.shelf-sort__option {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background: none;
+  border: 0;
+  border-radius: var(--radius-full);
+  color: var(--ink-muted);
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--ui-weight);
+}
+
+.shelf-sort__option:hover {
+  color: var(--ink);
+}
+
+.shelf-sort__option[aria-pressed="true"] {
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+}
+
+/* Attached to the key it describes, and a step quieter than the key's name. */
+.shelf-sort__direction {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--ink-faint);
+}
+
+/* The arrow is the state: it points the way the list is running. */
+.shelf-sort__arrow {
+  transition: rotate 160ms ease;
+}
+
+.shelf-sort__option.is-descending .shelf-sort__arrow {
+  rotate: 180deg;
+}
+
 .shelf-reset {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  height: 2.25rem;
-  padding-inline: var(--space-3);
+  margin-inline-start: auto;
+  padding: var(--space-1) var(--space-3);
   background: var(--surface-raised);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
@@ -3417,23 +3472,9 @@ a.home-update:hover .home-update__go {
   font-size: var(--text-sm);
 }
 
-.shelf-direction:hover,
 .shelf-reset:hover {
   border-color: var(--accent);
   color: var(--ink);
-}
-
-/* The arrow is the state: it points the way the list is running. */
-.shelf-direction svg {
-  transition: rotate 160ms ease;
-}
-
-.shelf-direction.is-descending svg {
-  rotate: 180deg;
-}
-
-.shelf-reset {
-  margin-inline-start: auto;
 }
 
 .shelf-empty {

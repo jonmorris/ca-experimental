@@ -11,9 +11,20 @@
  * about a game is four numbers and a title.
  */
 
-const DIRECTION_LABELS = {
-  title: ["A to Z", "Z to A"],
-  year: ["Oldest first", "Newest first"],
+/*
+ * What each key's two directions are called, ascending first — and which of
+ * them a key starts on.
+ *
+ * Names start at A and dates start at the newest, because those are the
+ * answers each question is usually asked for: nobody opens a shelf wanting the
+ * oldest game on it first, and the alphabet has no equivalent pull the other
+ * way. Switching key therefore sets a sensible direction rather than carrying
+ * the last one across, where "Z to A" would have quietly become "oldest
+ * first".
+ */
+const SORTS = {
+  title: { labels: ["A to Z", "Z to A"], descending: false },
+  year: { labels: ["Oldest first", "Newest first"], descending: true },
 };
 
 /**
@@ -139,16 +150,15 @@ export function initShelf() {
   const tiles = [...list.querySelectorAll(".game-tile")].map(readTile);
   if (!tiles.length) return;
 
-  const sort = tools.querySelector("[data-shelf-sort]");
-  const direction = tools.querySelector("[data-shelf-direction]");
-  const directionLabel = tools.querySelector("[data-shelf-direction-label]");
+  const options = [...tools.querySelectorAll("[data-shelf-sort-option]")];
   const reset = tools.querySelector("[data-shelf-reset]");
   const toggle = document.querySelector("[data-shelf-toggle]");
   const badge = document.querySelector("[data-shelf-badge]");
   const count = document.querySelector("[data-shelf-count]");
   const empty = document.querySelector("[data-shelf-empty]");
 
-  let descending = false;
+  let sortKey = "title";
+  let descending = SORTS.title.descending;
 
   const ranges = {};
   for (const root of tools.querySelectorAll("[data-range]")) {
@@ -176,27 +186,33 @@ export function initShelf() {
     return true;
   }
 
+  /*
+   * The whole comparison, direction included.
+   *
+   * It used to be flipped by the caller, with one exception bolted on for a
+   * game that has no year — which meant a shelf sorted by name and facing Z to
+   * A stopped inverting the moment one of the two games being compared had no
+   * year recorded, because the exception was written against the sort it was
+   * about but applied to both.
+   */
   function compare(a, b) {
-    const key = sort?.value || "title";
-    if (key === "year") {
+    if (sortKey === "year") {
       // A game with no year sorts to the end, whichever way the list is facing.
       if (a.year === null || b.year === null) {
         if (a.year === b.year) return a.title.localeCompare(b.title);
         return a.year === null ? 1 : -1;
       }
-      if (a.year !== b.year) return a.year - b.year;
+      if (a.year !== b.year) return descending ? b.year - a.year : a.year - b.year;
       return a.title.localeCompare(b.title);
     }
-    return a.title.localeCompare(b.title, undefined, { sensitivity: "base" });
+
+    const order = a.title.localeCompare(b.title, undefined, { sensitivity: "base" });
+    return descending ? -order : order;
   }
 
   function apply() {
     const shown = tiles.filter(matches);
-    shown.sort((a, b) => {
-      const order = compare(a, b);
-      // Titles never invert: a Z-to-A list of a tie is still alphabetical.
-      return descending && !(a.year === null || b.year === null) ? -order : order;
-    });
+    shown.sort(compare);
 
     for (const tile of tiles) tile.el.hidden = true;
     for (const tile of shown) {
@@ -220,19 +236,54 @@ export function initShelf() {
     toggle?.classList.toggle("is-filtering", narrowed > 0);
   }
 
-  function setDirection(next) {
+  /**
+   * Draws the sort control and re-sorts.
+   *
+   * The direction only ever appears on the key in force, because it is a fact
+   * about that key and not about the control: "Release date · Newest first"
+   * beside an unused "Name" would be describing a list nobody is looking at.
+   */
+  function setSort(key, next) {
+    sortKey = key;
     descending = next;
-    direction?.setAttribute("aria-pressed", String(descending));
-    direction?.classList.toggle("is-descending", descending);
-    if (directionLabel) {
-      const [up, down] = DIRECTION_LABELS[sort?.value || "title"] || DIRECTION_LABELS.title;
-      directionLabel.textContent = descending ? down : up;
+
+    for (const option of options) {
+      const isCurrent = option.dataset.shelfSortOption === sortKey;
+      const spec = SORTS[option.dataset.shelfSortOption] || SORTS.title;
+      const name = option.querySelector(".shelf-sort__name")?.textContent.trim() || "";
+      const direction = option.querySelector("[data-shelf-direction]");
+      const label = option.querySelector("[data-shelf-direction-label]");
+      const words = spec.labels[descending ? 1 : 0];
+
+      option.setAttribute("aria-pressed", String(isCurrent));
+      option.classList.toggle("is-descending", isCurrent && descending);
+      if (direction) direction.hidden = !isCurrent;
+      if (label) label.textContent = isCurrent ? words : "";
+
+      /*
+       * Said in full, because pressing the key already in force is what
+       * reverses it and nothing visible says so. The name is repeated inside
+       * the label so this reads as the button it is rather than as a
+       * replacement for it.
+       */
+      option.setAttribute(
+        "aria-label",
+        isCurrent ? `Sorted by ${name.toLowerCase()}, ${words}. Press to reverse.` : `Sort by ${name.toLowerCase()}`,
+      );
     }
+
     apply();
   }
 
-  sort?.addEventListener("change", () => setDirection(descending));
-  direction?.addEventListener("click", () => setDirection(!descending));
+  for (const option of options) {
+    option.addEventListener("click", () => {
+      const key = option.dataset.shelfSortOption;
+      // The key you are already on reverses; any other one starts on its own
+      // default direction.
+      if (key === sortKey) setSort(key, !descending);
+      else setSort(key, (SORTS[key] || SORTS.title).descending);
+    });
+  }
   reset?.addEventListener("click", () => {
     for (const range of Object.values(ranges)) range.reset();
     apply();
@@ -255,5 +306,5 @@ export function initShelf() {
 
   toggle?.removeAttribute("hidden");
   setOpen(false);
-  setDirection(false);
+  setSort("title", SORTS.title.descending);
 }
