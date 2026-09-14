@@ -2455,9 +2455,19 @@ a.home-update:hover .home-update__go {
   text-align: right;
 }
 
+/*
+ * An exception to the 14px floor, at the size it had before it. See
+ * CONVENTIONS.md §4b.
+ *
+ * "Previous" and "Next" are the one word on the control that never changes and
+ * never needs reading: what a reader takes from this pair is the section name
+ * under each, and which side of the bar it is on says the rest. At the floor,
+ * uppercase at 700 with caps tracking, the standing word was heavier than the
+ * name it introduces — the label reading louder than the thing it labels.
+ */
 .prev-next__direction {
   color: var(--ink-faint);
-  font-size: var(--text-2xs);
+  font-size: var(--text-micro);
   font-weight: 700;
   letter-spacing: var(--tracking-caps);
   text-transform: uppercase;
