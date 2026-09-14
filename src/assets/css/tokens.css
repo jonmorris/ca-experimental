@@ -158,12 +158,17 @@
  * Where the reader's text size applies: the content of the page, and nothing
  * that surrounds it.
  *
- * These three are the content regions — a document (`.article`, which is also
- * About and a glossary term), a game's overview, and the shelf on the front
- * page. Everything else is chrome the reader navigates by rather than reads:
- * the section list, the sticky bar, the pager, the header and footer, and the
- * preferences panel itself, which grew and shrank under its own control while
- * it was open.
+ * These two are the content regions — a document (`.article`, which is also
+ * About and a glossary term) and a game's overview. Everything else is chrome
+ * the reader navigates by rather than reads: the section list, the sticky
+ * bar, the pager, the header and footer, and the preferences panel itself,
+ * which grew and shrank under its own control while it was open.
+ *
+ * The front page is chrome too, and is the one that looks least like it. It
+ * is a hero, a search field and a shelf of covers — a way in to the reading
+ * rather than any of the reading, and nothing on it is a passage anybody
+ * settles down with. A reader who sets Text size larger is asking for the
+ * rules to be easier to read, not for the front door to be redrawn.
  *
  * The boundary is the one line spacing already keeps a few lines above, for
  * the reason given there: the control is for the passage being read, and a
@@ -171,8 +176,7 @@
  * moving everything.
  */
 .article,
-.landing,
-.home {
+.landing {
   --scale: var(--reading-scale);
 
   /*
@@ -198,8 +202,7 @@
  */
 :root,
 .article,
-.landing,
-.home {
+.landing {
   --text-2xs: calc(0.6875rem * var(--scale));
   --text-xs: calc(0.75rem * var(--scale));
   --text-sm: calc(0.8125rem * var(--scale));
