@@ -477,13 +477,28 @@
 }
 
 /*
- * And the breadcrumbs come with it. They sit outside the article, so a column
- * the width of the page left them stranded against the far edge with the
+ * And the breadcrumb row comes with it. It sits outside the article, so a
+ * column the width of the page left it stranded against the far edge with the
  * measure floating in the middle — the one row on the page that had stopped
  * agreeing with everything under it.
+ *
+ * `.page-top` and nothing else. It used to name `.breadcrumbs` as well, which
+ * was wrong twice over.
+ *
+ * On a content page the breadcrumbs are inside `.page-top`, which is a flex
+ * row — so they are a flex item sized to their own text, and `margin-inline:
+ * auto` on a flex item does not centre the row, it centres the item in the
+ * row's spare width. Just read indented the breadcrumbs by half the difference
+ * at every width: 58px in from the margin on a phone, 173px on a desktop,
+ * while the title underneath stayed where it was.
+ *
+ * A game overview has no `.page-top` and puts the breadcrumbs straight into
+ * `.main`, where they were being held to the measure — but a game overview is
+ * a wide grid and does not sit on the measure, so that stranded them 284px
+ * inside their own page's left edge. They need nothing: with the sidebar gone
+ * they take the column's width, which is what the page under them does too.
  */
-[data-focus="on"] .page-top,
-[data-focus="on"] .breadcrumbs {
+[data-focus="on"] .page-top {
   max-width: var(--measure);
   margin-inline: auto;
 }
