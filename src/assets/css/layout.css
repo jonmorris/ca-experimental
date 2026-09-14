@@ -784,6 +784,27 @@
   min-width: 0;
 }
 
+/*
+ * More air under the row on a phone.
+ *
+ * The gap is the same eight pixels at every width, and at every width it is
+ * measured against a different heading: on a desktop the title has the whole
+ * column's width to sit in, and on a phone it fills the line and stands three
+ * times the height of the breadcrumbs above it. Eight pixels of separation
+ * under a line of twelve-pixel furniture is enough; under a thirty-pixel
+ * display heading on a narrow screen it reads as the title crowding the
+ * breadcrumb rather than following it.
+ *
+ * On the row rather than on the heading, so it cannot collapse through the
+ * article's top edge and land somewhere else, and so the page that has no
+ * heading in this position is unaffected.
+ */
+@media (max-width: 45.99rem) {
+  .page-top {
+    margin-bottom: var(--space-4);
+  }
+}
+
 .print-button {
   display: inline-flex;
   align-items: center;
