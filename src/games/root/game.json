@@ -33,5 +33,39 @@
     }
   ],
   "best_at": "4",
-  "weight": "3.84 / 5"
+  "weight": "3.84 / 5",
+  "downloads": [
+    {
+      "title": "Rulebook",
+      "file": "downloads/root-base-law-oct-2025.pdf"
+    },
+    {
+      "title": "Learn to Play",
+      "file": "downloads/root-base-learn-to-play-web-oct-15-2020.pdf"
+    },
+    {
+      "title": "Walking Through Root",
+      "file": "downloads/root-base-walking-through-root-web-oct-15-2020.pdf"
+    },
+    {
+      "title": "Clockwork: Law of Rootbotics",
+      "file": "downloads/root-clockwork-law-of-rootbotics-july-11-2023-1.pdf"
+    },
+    {
+      "title": "Homeland Learn to Play",
+      "file": "downloads/root-homeland-learn-to-play.pdf"
+    },
+    {
+      "title": "Marauder Learn to Play",
+      "file": "downloads/root-marauder-expansion-learn-to-play-compressed.pdf"
+    },
+    {
+      "title": "Riverfolk Learn to Play",
+      "file": "downloads/root-riverfolk-learn-to-play-web-oct-15-2020.pdf"
+    },
+    {
+      "title": "Underworld Learn to Play",
+      "file": "downloads/root-underworld-learn-to-play-web-oct-15-2020.pdf"
+    }
+  ]
 }

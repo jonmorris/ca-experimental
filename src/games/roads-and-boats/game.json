@@ -14,5 +14,15 @@
     "and-cetera": {
       "title": "&Cetera"
     }
-  }
+  },
+  "downloads": [
+    {
+      "title": "Rulebook",
+      "file": "downloads/roads-and-boats-rulebook.pdf"
+    },
+    {
+      "title": "&cetera Rulebook",
+      "file": "downloads/roads-and-boats-and-cetera-rulebook.pdf"
+    }
+  ]
 }

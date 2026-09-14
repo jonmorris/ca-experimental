@@ -38,5 +38,15 @@
       "label": "BGS Card LIbrary",
       "url": "https://cards.buriedgiant.com/"
     }
+  ],
+  "downloads": [
+    {
+      "title": "Rulebook",
+      "file": "downloads/arcs-rulebook.pdf"
+    },
+    {
+      "title": "The Blighted Reach Rulebook",
+      "file": "downloads/arcs-the-blighted-reach-rulebook.pdf"
+    }
   ]
 }

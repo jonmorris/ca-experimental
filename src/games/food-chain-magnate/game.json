@@ -32,5 +32,15 @@
     "the-ketchup-mechanism-and-other-ideas": {
       "title": "The Ketchup Mechanism & Other Ideas"
     }
-  }
+  },
+  "downloads": [
+    {
+      "title": "Rulebook",
+      "file": "downloads/food-chain-magnate-rulebook.pdf"
+    },
+    {
+      "title": "The Ketchup Mechanisms Rulebook",
+      "file": "downloads/fcm-the-ketchup-mechanisms-and-other-ideas-rulebook.pdf"
+    }
+  ]
 }
