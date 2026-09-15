@@ -156,7 +156,7 @@
    * single cap leaves the near-square ones largest and the letterbox ones
    * smallest. It closes the gap, which is the useful part.
    */
-  --cover-width: 78%;
+  --cover-width: 0.78;
 
   --tracking-tight: -0.018em;
   --tracking-normal: 0;

@@ -1329,11 +1329,12 @@ button.palette__link {
  * across one row.
  */
 .game-tile__art {
+  --art-pad: var(--space-5);
+
   display: block;
   position: relative;
   min-height: 0;
   aspect-ratio: var(--cover-ratio);
-  padding: var(--space-5);
   background: var(--surface-sunken);
   border-bottom: 1px solid var(--line);
 }
@@ -1364,13 +1365,40 @@ button.palette__link {
  * covers that were largest, which is the trade worth making on a shelf where
  * nothing should look more important than its neighbour.
  */
-.game-tile__image {
+/*
+ * The frame's padding lives on the picture.
+ *
+ * This used to be `height: 100%` on an image inside a padded box whose own
+ * height came from `aspect-ratio`. A percentage height resolves against the
+ * containing block's height, and a height derived from a ratio is one Safari
+ * has long treated as indefinite: the percentage fell back to `auto`, the
+ * image drew at its intrinsic proportions, and a tall cover hung out of the
+ * bottom of its frame. Chromium resolves the same percentage and shows
+ * nothing wrong, which is why it survived this long.
+ *
+ * So there is no percentage height left to resolve. The picture is the frame's
+ * full width, carries the frame's ratio, and holds the padding inside its own
+ * border box, where `object-fit: contain` letterboxes the artwork into what is
+ * left. Percentage padding resolves against the width, which every engine
+ * agrees about.
+ *
+ * The horizontal inset is the old `--cover-width` written as the space around
+ * it rather than the width itself, measured against the padded box so the
+ * artwork lands exactly where it did before.
+ */
+.game-tile__image,
+.landing__cover img {
   display: block;
-  width: var(--cover-width);
-  height: 100%;
-  margin-inline: auto;
+  width: 100%;
+  aspect-ratio: var(--cover-ratio);
+  padding: var(--art-pad)
+    calc(var(--art-pad) + (100% - 2 * var(--art-pad)) * (1 - var(--cover-width)) / 2);
+  box-sizing: border-box;
   object-fit: contain;
   filter: drop-shadow(var(--shadow-art));
+}
+
+.game-tile__image {
   transition: scale 220ms ease;
 }
 
@@ -1498,7 +1526,7 @@ button.palette__link {
  */
 
 .game-grid--recent .game-tile__art {
-  padding: var(--space-4);
+  --art-pad: var(--space-4);
 }
 
 .game-grid--recent .game-tile__body {
@@ -1602,6 +1630,8 @@ button.palette__link {
  * now the same on every page and the art is what varies within it.
  */
 .landing__cover {
+  --art-pad: var(--space-5);
+
   display: block;
   /*
    * The width of the column on a phone, and a box that grows with the page
@@ -1612,7 +1642,6 @@ button.palette__link {
   justify-self: stretch;
   width: 100%;
   aspect-ratio: var(--cover-ratio);
-  padding: var(--space-5);
   background: var(--surface-sunken);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -1625,15 +1654,6 @@ button.palette__link {
  * what is actually drawn, so it hugs the artwork rather than tracing the empty
  * space beside a letterboxed one.
  */
-
-.landing__cover img {
-  display: block;
-  width: var(--cover-width);
-  height: 100%;
-  margin-inline: auto;
-  object-fit: contain;
-  filter: drop-shadow(var(--shadow-art));
-}
 
 .landing__title {
   font-family: var(--font-display);
@@ -2460,24 +2480,40 @@ a.home-update:hover .home-update__go {
   transition: translate 140ms ease, color 140ms ease;
 }
 
-.prev-next__link:hover .prev-next__arrow {
-  color: var(--accent);
-}
-
 .prev-next__link--prev .prev-next__arrow {
   rotate: 180deg;
 }
 
-.prev-next__link--prev:hover .prev-next__arrow {
-  translate: -2px 0;
-}
+/*
+ * Hover, only where there is a pointer to hover with.
+ *
+ * A touch screen leaves the last thing tapped in `:hover` until something else
+ * is tapped, and the pager is the one control this shows on: it is pinned to
+ * the foot of the screen and moving between sections never loads a page, so
+ * the tile a reader pressed sat there lit up behind them for the rest of the
+ * document. Everything else they press either goes away or takes the page with
+ * it.
+ *
+ * `hover: hover` is the question "can this pointer hover at all", so a device
+ * that cannot never enters the state rather than being talked out of it
+ * afterwards.
+ */
+@media (hover: hover) {
+  .prev-next__link:hover .prev-next__arrow {
+    color: var(--accent);
+  }
 
-.prev-next__link--next:hover .prev-next__arrow {
-  translate: 2px 0;
-}
+  .prev-next__link--prev:hover .prev-next__arrow {
+    translate: -2px 0;
+  }
 
-.prev-next__link:hover {
-  background: var(--surface-sunken);
+  .prev-next__link--next:hover .prev-next__arrow {
+    translate: 2px 0;
+  }
+
+  .prev-next__link:hover {
+    background: var(--surface-sunken);
+  }
 }
 
 .prev-next__link--next {
@@ -2598,11 +2634,6 @@ a.home-update:hover .home-update__go {
     gap: var(--space-2);
   }
 
-  .prev-next__link:hover {
-    border-color: var(--line-strong);
-    background: var(--surface-sunken);
-  }
-
   /* Stacked and narrow: both read from the left, and a long section title
      wraps rather than losing its second half to an ellipsis. */
   .prev-next__link--next {
@@ -2627,14 +2658,6 @@ a.home-update:hover .home-update__go {
 
   .prev-next__link--next .prev-next__arrow {
     rotate: 90deg;
-  }
-
-  .prev-next__link--prev:hover .prev-next__arrow {
-    translate: 0 -2px;
-  }
-
-  .prev-next__link--next:hover .prev-next__arrow {
-    translate: 0 2px;
   }
 
   /*
@@ -2674,6 +2697,29 @@ a.home-update:hover .home-update__go {
     min-height: calc(2em * var(--leading-snug));
     line-height: var(--leading-snug);
     white-space: normal;
+  }
+}
+
+/*
+ * The rail's own hover, behind the same pointer guard as the bar's.
+ *
+ * Stacked in the margin the pair is a vertical move, so the arrows nudge up
+ * and down rather than back and forward. A laptop with a touch screen reaches
+ * this width too, which is why the guard is on the pointer rather than on the
+ * width.
+ */
+@media (min-width: 80rem) and (hover: hover) {
+  .prev-next__link:hover {
+    border-color: var(--line-strong);
+    background: var(--surface-sunken);
+  }
+
+  .prev-next__link--prev:hover .prev-next__arrow {
+    translate: 0 -2px;
+  }
+
+  .prev-next__link--next:hover .prev-next__arrow {
+    translate: 0 2px;
   }
 }
 
