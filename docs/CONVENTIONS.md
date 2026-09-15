@@ -622,3 +622,9 @@ reader has favourited and opened.
   files go in the same change.
 - **Content is Markdown plus frontmatter, committed to git.** No authoring UI,
   no database.
+- **Every `:hover` rule sits inside `@media (hover: hover)`.** A touch screen
+  leaves the last thing tapped in `:hover` until something else is tapped, so
+  an ungated hover is a state that sticks to whatever a reader last pressed.
+  The guard asks whether the pointer can hover at all, so a device that cannot
+  never enters the state. Put the rule inside the guard; never write a
+  `:hover` rule outside one.

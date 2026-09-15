@@ -115,8 +115,10 @@ a {
   text-underline-offset: 0.15em;
 }
 
-a:hover {
-  color: var(--accent-strong);
+@media (hover: hover) {
+  a:hover {
+    color: var(--accent-strong);
+  }
 }
 
 button {

@@ -142,9 +142,11 @@
   white-space: nowrap;
 }
 
-.site-nav__link:hover {
-  background: var(--surface-sunken);
-  color: var(--ink);
+@media (hover: hover) {
+  .site-nav__link:hover {
+    background: var(--surface-sunken);
+    color: var(--ink);
+  }
 }
 
 /*
@@ -624,12 +626,14 @@
   position: relative;
 }
 
-.social-link:hover {
-  color: var(--ink);
-}
+@media (hover: hover) {
+  .social-link:hover {
+    color: var(--ink);
+  }
 
-.social-link:hover::before {
-  background: var(--surface-raised);
+  .social-link:hover::before {
+    background: var(--surface-raised);
+  }
 }
 
 .site-footer__links {
@@ -734,10 +738,15 @@
     scrollbar-color: transparent transparent;
   }
 
-  .sidebar:hover,
   .sidebar:focus-within {
     scrollbar-color: var(--line-strong) transparent;
   }
+
+  @media (hover: hover) {
+  .sidebar:hover {
+      scrollbar-color: var(--line-strong) transparent;
+    }
+}
 
   /* The same again for WebKit, which reads none of the two properties above. */
   .sidebar::-webkit-scrollbar {
@@ -754,10 +763,15 @@
     transition: background 140ms ease;
   }
 
-  .sidebar:hover::-webkit-scrollbar-thumb,
   .sidebar:focus-within::-webkit-scrollbar-thumb {
     background: var(--line-strong);
   }
+
+  @media (hover: hover) {
+  .sidebar:hover::-webkit-scrollbar-thumb {
+      background: var(--line-strong);
+    }
+}
 
   .sidebar__block + .sidebar__block {
     margin-top: var(--space-5);
@@ -939,10 +953,12 @@
   stroke-linejoin: round;
 }
 
-.print-button:hover {
-  background: var(--surface-sunken);
-  border-color: var(--line-strong);
-  color: var(--ink);
+@media (hover: hover) {
+  .print-button:hover {
+    background: var(--surface-sunken);
+    border-color: var(--line-strong);
+    color: var(--ink);
+  }
 }
 
 /* The icon carries it on a phone; the word is what makes it obvious on a desk. */

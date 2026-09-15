@@ -218,11 +218,18 @@
   text-underline-offset: 0.2em;
 }
 
-.term-link:hover,
 .term-link:focus-visible {
   background: var(--term-wash);
   color: var(--term);
   text-decoration-style: solid;
+}
+
+@media (hover: hover) {
+  .term-link:hover {
+    background: var(--term-wash);
+    color: var(--term);
+    text-decoration-style: solid;
+  }
 }
 
 .rule-link {
@@ -233,11 +240,18 @@
   text-underline-offset: 0.2em;
 }
 
-.rule-link:hover,
 .rule-link:focus-visible {
   background: var(--rule-wash);
   color: var(--rule);
   text-decoration-style: solid;
+}
+
+@media (hover: hover) {
+  .rule-link:hover {
+    background: var(--rule-wash);
+    color: var(--rule);
+    text-decoration-style: solid;
+  }
 }
 
 /* ================================================== my reference */
@@ -306,9 +320,11 @@
   text-decoration: none;
 }
 
-.reference-source a:hover {
-  color: var(--accent-strong);
-  text-decoration: underline;
+@media (hover: hover) {
+  .reference-source a:hover {
+    color: var(--accent-strong);
+    text-decoration: underline;
+  }
 }
 
 .reference-section .section-heading {
@@ -393,9 +409,11 @@
   font-size: var(--text-sm);
 }
 
-.reference-tools__button:hover {
-  border-color: var(--accent);
-  color: var(--ink);
+@media (hover: hover) {
+  .reference-tools__button:hover {
+    border-color: var(--accent);
+    color: var(--ink);
+  }
 }
 
 .reference-tools__button[aria-pressed="true"] {
@@ -424,9 +442,11 @@
   cursor: pointer;
 }
 
-.reference-move:hover {
-  border-color: var(--accent);
-  color: var(--ink);
+@media (hover: hover) {
+  .reference-move:hover {
+    border-color: var(--accent);
+    color: var(--ink);
+  }
 }
 
 .reference-move--down svg {
