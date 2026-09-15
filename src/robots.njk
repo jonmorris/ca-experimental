@@ -1,0 +1,24 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+layout: null
+---
+{#-
+  Everything is open to crawlers. What a reader can reach, a search engine can
+  index — the pages are the point of the site, and there is nothing here behind
+  a door.
+
+  The pages that should not turn up in results say so on their own, with a
+  `noindex` tag written from the same `noIndex` flag that keeps them out of the
+  sitemap. That is the mechanism that actually works: a `Disallow` here asks a
+  crawler not to *fetch* a page, which leaves it free to list the URL anyway
+  from a link somewhere else, and forbidding the fetch is what stops it ever
+  reading the `noindex` that would have kept it out.
+
+  The sitemap is named absolutely, which the spec asks for and several crawlers
+  require.
+-#}
+User-agent: *
+Allow: /
+
+Sitemap: {{ site.url }}{{ "/sitemap.xml" | basePath }}

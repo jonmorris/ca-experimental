@@ -122,6 +122,21 @@ export default {
       return `/games/${parsed.gameSlug}/${prefix}${parsed.fileSlug}/`;
     },
 
+    /*
+     * An unlisted game is kept off the shelf but keeps working URLs, so that a
+     * game which is finished and not yet announced can be shared with someone.
+     * Announcing it to a crawler is the one way that promise breaks by itself:
+     * the pages would be in the sitemap, indexed, and findable by everyone the
+     * unlisting was meant to hold them back from. So the same flag that keeps
+     * a page out of the sitemap and writes its `noindex` tag is set here from
+     * the game's own visibility.
+     */
+    noIndex: (data) => {
+      const slug = parsePath(data.page?.inputPath)?.gameSlug;
+      const game = slug && data.games?.[slug];
+      return game ? game.visibility !== "listed" : false;
+    },
+
     eleventyExcludeFromCollections: (data) => {
       const parsed = parsePath(data.page?.inputPath);
       return Boolean(parsed?.isPrivate) || !data.games?.[parsed?.gameSlug];

@@ -22,6 +22,7 @@ import { join, relative, resolve, dirname } from "node:path";
 
 import { buildGames } from "../lib/registry.js";
 import { basePath } from "../lib/base-path.js";
+import site from "../src/_data/site.json" with { type: "json" };
 
 const SITE_DIR = join(process.cwd(), "_site");
 
@@ -51,6 +52,7 @@ const URL_PATTERNS = [
   { name: "expansion content type", re: /^\/games\/[a-z0-9-]+\/[a-z0-9-]+\/[a-z0-9-]+\/$/ },
 ];
 
+let sitemapCount = 0;
 const problems = [];
 const fail = (message) => problems.push(message);
 
@@ -171,7 +173,11 @@ function main() {
       fail(`${url} — duplicate id "#${id}"; an anchor must identify exactly one place`);
     }
 
-    pages.set(url, { ids: new Set(ids), links: linksIn(html) });
+    pages.set(url, {
+      ids: new Set(ids),
+      links: linksIn(html),
+      noIndex: /<meta[^>]+name="robots"[^>]+noindex/i.test(html),
+    });
     for (const paletteUrl of paletteUrlsIn(html)) paletteUrls.add(paletteUrl);
   }
 
@@ -269,11 +275,50 @@ function main() {
     }
   }
 
+  // --- the sitemap --------------------------------------------------------
+  /*
+   * A sitemap is a list of promises to a crawler, and every one of them is an
+   * absolute URL that nothing else on the site links to — so a page that moved
+   * or stopped being built leaves an entry here that no other check in this
+   * script would ever look at. Both directions are worth failing on: an entry
+   * for a page that does not exist advertises a 404, and a page marked
+   * `noindex` that is listed anyway is the unlisting quietly undone.
+   */
+  const sitemapPath = join(SITE_DIR, "sitemap.xml");
+  if (!existsSync(sitemapPath)) {
+    fail("sitemap.xml — not built");
+  } else {
+    const xml = readFileSync(sitemapPath, "utf8");
+    const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+
+    if (!locs.length) fail("sitemap.xml — lists no pages at all");
+
+    const seen = new Set();
+    for (const loc of locs) {
+      if (!loc.startsWith(site.url)) {
+        fail(`sitemap.xml — ${loc} is not under ${site.url}`);
+        continue;
+      }
+      if (seen.has(loc)) fail(`sitemap.xml — ${loc} is listed twice`);
+      seen.add(loc);
+
+      const url = stripPrefix(loc.slice(site.url.length)) || "/";
+      const page = pages.get(url);
+      if (!page) {
+        fail(`sitemap.xml — ${url} is listed but was not built`);
+      } else if (page.noIndex) {
+        fail(`sitemap.xml — ${url} is listed but carries a noindex tag`);
+      }
+    }
+    sitemapCount = seen.size;
+  }
+
   const pageCount = pages.size;
   const linkCount = [...pages.values()].reduce((n, page) => n + page.links.length, 0);
   console.log(
     `Checked ${linkCount} links across ${pageCount} pages, ` +
-      `${paletteUrls.size} command-palette targets and ${assetCount} stylesheet assets.`,
+      `${paletteUrls.size} command-palette targets, ${assetCount} stylesheet assets ` +
+      `and ${sitemapCount} sitemap entries.`,
   );
 
   if (problems.length) {

@@ -1,0 +1,66 @@
+{#
+  What a link to this page looks like when somebody shares it.
+
+  Open Graph is read by everything that draws a card — Discord, Facebook,
+  WhatsApp, Signal, Slack, iMessage — and X reads its own `twitter:` names
+  first, falling back to the same Open Graph tags for anything it does not
+  find. So the pair below is not a duplicate: it is one set of facts, with the
+  three X insists on stated in its dialect.
+
+  Every URL here is absolute, because a card is fetched by a machine that has
+  no page to resolve a relative path against. That makes `site.url` load-
+  bearing: get it wrong and every card on the site points at a host that is not
+  serving it.
+#}
+{%- set pageUrl = site.url + (page.url | basePath) -%}
+{%- set cardImage = site.url + (gameSlug | socialCard) -%}
+{%- set cardDescription = pageDescription or subhead or (game.meta.description if game) or site.description -%}
+
+{#
+  The page's own name, without the site's.
+
+  The <title> ends in "· Cardboard Appendix" because a browser tab is a row of
+  unlabelled strips and the reader needs to know which site they are looking
+  at. A card already says so on its own line, from `og:site_name`, so repeating
+  it here would spend the headline on it twice.
+#}
+{%- set cardTitle -%}
+  {%- if not title -%}
+    {{ site.title }}
+  {%- elif game and contentTypeSlug != "landing" -%}
+    {{ title }} · {{ game.title }}
+  {%- else -%}
+    {{ title }}
+  {%- endif -%}
+{%- endset -%}
+
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}">
+<meta property="og:url" content="{{ pageUrl }}">
+<meta property="og:title" content="{{ cardTitle | trim }}">
+<meta property="og:description" content="{{ cardDescription }}">
+<meta property="og:locale" content="{{ site.lang }}">
+
+<meta property="og:image" content="{{ cardImage }}">
+{#
+  Stated rather than left to be inferred: several platforms lay the card out
+  before the image has finished arriving, and without these the text jumps when
+  it lands. They are the card's own proportions, which `lib/og-cards.js` draws
+  every image to.
+#}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{% if game %}Box art for {{ game.title }}{% else %}{{ site.title }}{% endif %}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ cardTitle | trim }}">
+<meta name="twitter:description" content="{{ cardDescription }}">
+<meta name="twitter:image" content="{{ cardImage }}">
+{% if noIndex %}
+  {#
+    A page that is nobody's but this reader's, or that is not ready to be
+    found. `noindex` keeps it out of results; it is not a lock, and the page is
+    still served to anyone with the URL — which is the point of `unlisted`.
+  #}
+  <meta name="robots" content="noindex, follow">
+{% endif %}

@@ -1,0 +1,58 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+layout: null
+---
+{#-
+  Every page worth finding, for the crawlers that ask.
+
+  Two lists, because the site builds its pages two ways and neither one knows
+  about the other:
+
+  - `collections.all` is every template the build rendered, so a new game, a
+    new content type or a new page is in here the moment the file exists.
+  - the glossary term pages are paginated out of `glossaryTerms` and set
+    `eleventyExcludeFromCollections`, which is what keeps forty of them out of
+    every collection the nav and the palette read. That flag is about
+    collections, not about being findable, so they are added here from the same
+    data their pages are generated from — `term.url` is the permalink, not a
+    second guess at it.
+
+  What is left out:
+
+  - anything marked `noIndex`, which is the same flag that writes the page's
+    own `noindex` tag: My Reference, which holds nothing until a reader's
+    browser fills it in, the accounts page, and every page of an unlisted game.
+  - 404 and the viewport probe, which set `eleventyExcludeFromCollections` in
+    their own frontmatter and so never arrive in the first list.
+  - hidden games, which `buildGames` drops before anything downstream knows
+    they exist.
+
+  An unlisted game's glossary terms need saying twice, because the second list
+  does not carry the `noIndex` the first one does — the visibility is read from
+  the registry instead.
+
+  The two lists overlap by exactly one page, and `unique` is what settles it:
+  Eleventy puts the first page of a paginated template into `collections.all`
+  whatever its computed `eleventyExcludeFromCollections` says, so the first
+  glossary term in the first game arrives down both paths. Sorted as well as
+  deduplicated, so the file is stable between builds and a diff of it is worth
+  reading.
+
+  No `lastmod`. The honest value is when a page's content last changed, and the
+  build knows only when it last ran; stamping today on all of it every deploy
+  claims everything changed, which is worth less than saying nothing.
+-#}
+<?xml version="1.0" encoding="UTF-8"?>
+{% set urls = [] -%}
+{%- for item in collections.all -%}
+  {%- if not item.data.noIndex -%}{%- set _ = urls.push(item.url) -%}{%- endif -%}
+{%- endfor -%}
+{%- for term in glossaryTerms -%}
+  {%- if games[term.gameSlug].visibility == "listed" -%}{%- set _ = urls.push(term.url) -%}{%- endif -%}
+{%- endfor -%}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for url in urls | unique | sort %}
+  <url><loc>{{ site.url }}{{ url | basePath }}</loc></url>
+{%- endfor %}
+</urlset>

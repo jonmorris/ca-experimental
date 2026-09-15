@@ -179,6 +179,8 @@ nothing in them is ever parsed as a template.
 | `/games/{slug}/glossary/{term-slug}/` | One term |
 | `/games/{slug}/index/` | Book index |
 | `/games/{slug}/{expansion}/{type}/` | Expansion content, same shape |
+| `/sitemap.xml` | Every indexable page, `src/sitemap.njk` |
+| `/robots.txt` | Crawler policy and the sitemap's address, `src/robots.njk` |
 
 Permalinks are computed from the file's own path in
 `src/games/games.11tydata.js` — never left to Eleventy's default routing, and
@@ -186,6 +188,30 @@ never restated per file. There is one place where a URL is decided.
 
 **URLs are stable forever.** `npm run verify:links` enforces the contract and
 checks that every internal link and fragment resolves.
+
+**Absolute URLs are built from `site.url`, and it is load-bearing.** The
+canonical tag, the social card tags and every entry in the sitemap are absolute,
+because each is read by a machine with no page to resolve a relative path
+against. That makes `src/_data/site.json`'s `url` the one place the site's
+address is written down — change it there and the whole set follows. Each of
+those also carries the deploy prefix through the `basePath` filter: `site.url`
+is the host, `page.url` is the path without the prefix, and the two are not the
+same thing.
+
+**What is indexable is decided once, by `noIndex`.** The flag writes the page's
+`noindex` meta tag and keeps it out of the sitemap, so the two can never
+disagree. It is set by hand on pages that are nobody's business but the
+reader's — My Reference, the accounts page — and computed for every page of an
+unlisted game, which is what stops an unlisting being undone by a crawler
+reading the sitemap. `robots.txt` disallows nothing: a `Disallow` stops a
+crawler fetching a page, which leaves it free to list the URL from a link
+elsewhere and stops it ever reading the `noindex` that would have kept it out.
+
+**Social cards are drawn at build time from box art**, by `lib/og-cards.js`,
+into `_site/assets/og/{slug}.jpg` at 1200×630 — one per game plus a default.
+They are output, never committed, and never passed through: which games have
+one is decided by `cardSlugs()` before the templates render, because the images
+themselves are composited after the build has written the pages that name them.
 
 **A game's `site_visibility` decides how much of the site it reaches.**
 

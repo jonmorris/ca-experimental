@@ -1,9 +1,12 @@
+import { join } from "node:path";
+
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 import { slugify } from "./lib/slugify.js";
 import { basePath, withBasePath } from "./lib/base-path.js";
 import { buildGames } from "./lib/registry.js";
+import { buildOgCards, cardSlugs } from "./lib/og-cards.js";
 import { cleanHeadingText, explicitHeadingId } from "./lib/headings.js";
 import { enhanceHeadings, bookmarkButton } from "./lib/heading-tools.js";
 import { markExternalLinks } from "./lib/external-links.js";
@@ -93,6 +96,28 @@ export default function (eleventyConfig) {
     sizes: "(max-width: 46rem) 92vw, 38rem",
   });
 
+  /*
+   * The cards a shared link unfurls into, drawn after the build has written
+   * everything else.
+   *
+   * Not passthrough and not committed: they are derived from box art the same
+   * way the page's own <img> sizes are, and a generated file in the source
+   * tree is one somebody eventually edits by hand. Each is skipped when it is
+   * newer than the art it was drawn from, so a rebuild redraws only what
+   * changed.
+   *
+   * Which games get one is decided before any of this, by `cardSlugs`, since
+   * the templates naming the cards have already rendered by the time this
+   * runs.
+   */
+  eleventyConfig.on("eleventy.after", async ({ dir }) => {
+    await buildOgCards({
+      games: getFallbackGames(),
+      outDir: join(dir.output, "assets", "og"),
+      markPath: join("src", "assets", "favicon.svg"),
+    });
+  });
+
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // Exposed to templates and, via a body attribute, to the client modules that
@@ -106,6 +131,15 @@ export default function (eleventyConfig) {
    */
   eleventyConfig.addGlobalData("buildYear", String(new Date().getFullYear()));
   eleventyConfig.addFilter("basePath", (url) => withBasePath(url, prefix));
+
+  /*
+   * The card for a page: the game's own where there is one, the site's mark
+   * everywhere else. Takes the game slug, which every in-game page carries.
+   */
+  const cards = cardSlugs(getFallbackGames());
+  eleventyConfig.addFilter("socialCard", (slug) =>
+    withBasePath(`/assets/og/${slug && cards.has(slug) ? slug : "default"}.jpg`, prefix),
+  );
 
   // Raw source material and working drafts are never read as templates and
   // never published.
@@ -140,6 +174,9 @@ export default function (eleventyConfig) {
   });
 
   // ---------------------------------------------------------------- filters
+
+  /** Drops repeats, keeping the first of each. */
+  eleventyConfig.addFilter("unique", (list) => [...new Set(list || [])]);
 
   eleventyConfig.addFilter("slug", slugify);
 

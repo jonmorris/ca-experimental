@@ -31,7 +31,15 @@
       {%- endif -%}
     </title>
     <meta name="description" content="{{ pageDescription or subhead or (game.meta.description if game) or site.description }}">
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    {#
+      The canonical carries the deploy prefix like every other URL on the page.
+      `HtmlBasePlugin` rewrites root-absolute hrefs and leaves absolute ones
+      alone, and this one is absolute — so on a host that serves the site from
+      a subpath it pointed at the prefix-less URL, which is nowhere.
+    #}
+    <link rel="canonical" href="{{ site.url }}{{ page.url | basePath }}">
+
+    {% include "partials/social-meta.njk" %}
 
     {#
       Reading preferences are applied before first paint. This has to be inline
