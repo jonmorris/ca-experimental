@@ -589,17 +589,46 @@
  * decoration on it.
  */
 .social-link {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
   color: var(--ink-muted);
-  border-radius: var(--radius);
+}
+
+/*
+ * What lights up is not the whole target.
+ *
+ * The 44px box is how big the thing is to press, which is a fact about thumbs
+ * and not something to draw: filled, it put a tile the size of a button behind
+ * a 20px glyph, and the footer grew a panel every time a cursor crossed it.
+ * This is a disc a little larger than the mark, centred in the target — the
+ * target keeps its size and the feedback is the size of the thing being
+ * touched.
+ *
+ * The focus ring is left on the link itself. It is the one case where the
+ * whole target is worth outlining, because it is answering "where would a
+ * press go" rather than acknowledging one.
+ */
+.social-link::before {
+  content: "";
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+}
+
+.social-link svg {
+  position: relative;
 }
 
 .social-link:hover {
   color: var(--ink);
+}
+
+.social-link:hover::before {
   background: var(--surface-raised);
 }
 
