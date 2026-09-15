@@ -1,6 +1,7 @@
 import { preferences, PREFERENCES } from "./preferences.js";
 import { createOverlay } from "./overlay.js";
 import { bookmarkStore } from "./bookmark-store.js";
+import { referenceOrderStore } from "./reference-order.js";
 import { historyStore } from "./reading-history.js";
 import { searchHistory } from "./search-history.js";
 import { favoriteStore } from "./favorites.js";
@@ -77,11 +78,30 @@ function buildGroup(key, spec, current, onChange) {
  * One list drives the four clear buttons and the composite behind Clear
  * everything, so a fifth store is one entry here rather than several edits.
  */
+/*
+ * Bookmarks, and the orders built out of them.
+ *
+ * A reference order is a list of section keys, so an order whose sections are
+ * all gone is nothing — but it is nothing that would come back the moment those
+ * sections were bookmarked again, which is not what "Clear bookmarks" says. It
+ * goes with them. It has no button of its own: an order is something a page
+ * has rather than something the reader collects, and a row counting them would
+ * be a row about the site's bookkeeping.
+ */
+const bookmarksAndTheirOrders = {
+  list: (...args) => bookmarkStore.list(...args),
+  clear: () => {
+    bookmarkStore.clear();
+    referenceOrderStore.clear();
+  },
+  subscribe: (listener) => bookmarkStore.subscribe(listener),
+};
+
 const STORES = [
   { store: favoriteStore, clear: "[data-clear-favorites]", label: "Clear favorites" },
   { store: historyStore, clear: "[data-clear-history]", label: "Clear history" },
   { store: searchHistory, clear: "[data-clear-searches]", label: "Clear searches" },
-  { store: bookmarkStore, clear: "[data-clear-bookmarks]", label: "Clear bookmarks" },
+  { store: bookmarksAndTheirOrders, clear: "[data-clear-bookmarks]", label: "Clear bookmarks" },
 ];
 
 /**

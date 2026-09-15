@@ -253,16 +253,16 @@ scope and prefix questions below.
 
 ---
 
-## Reordering My Reference, and managing bookmarks in bulk
+## Managing bookmarks in bulk
 
-Dragging the sections of My Reference into an order of the reader's choosing,
-and a place to clear out bookmarks a game at a time.
+**Partly built.** Reordering My Reference shipped — see `DECISIONS.md`. It was
+held here for three reasons and two of them turned out to be the same one: the
+drag affordance and its keyboard equivalent are both answered by a pair of
+buttons on each row, which work by thumb on the first try, and the place to
+persist it was already described in this entry. A pointer drag is still not
+built and is additive when it is.
 
-**Why deferred:** My Reference shipped in rules order, which is the order that
-needs no interface and is right until someone says otherwise. Reordering needs
-a drag affordance that works by thumb as well as mouse, a keyboard equivalent
-for it, and somewhere to persist the order — three problems for a preference
-nobody has asked for yet.
+What is left is a place to clear out bookmarks a game at a time.
 
 Bulk removal is the same story from the other side: removing one bookmark is a
 tap, and there is now an undo on it. Whether anyone ever removes enough of them
@@ -272,8 +272,9 @@ at once to want a management page is a thing to find out rather than to assume.
 carries its own source label as an eyebrow instead. That was chosen partly
 because grouping and ordering are the same decision, and a page whose sections
 are individually self-describing can be put in any order without anything
-becoming ambiguous. So the order becomes an array of section keys in the store,
-and nothing else moves.
+becoming ambiguous. That is what let the ordering half ship as an array of
+section keys in a store with nothing else moving, and it is the same reason a
+bulk-removal surface can list sections in any grouping it likes.
 
 Also worth testing before either is built: whether removing a bookmark wants a
 confirmation step in general, not only on this page. Adding one should stay a
@@ -291,7 +292,7 @@ with a clear for each type beside its own count, and the download and restore
 that today sit under all four.
 
 **Why deferred:** neither half is big enough yet to need the room. There are
-four reading settings and four stores, and one panel with a rule across it
+four reading settings and five stores, and one panel with a rule across it
 holds both without anyone having to scroll to find anything. Splitting now
 would mean a second entry point in a header that carries four controls and is
 deliberately thin.
@@ -323,7 +324,8 @@ go today except a panel titled Reading, where they do not belong.
   `buildExport` and `applyImport` know nothing about where they are called
   from, so moving the two buttons is moving two event listeners.
 - The export envelope is keyed by store name (`bookmarks`, `favorites`,
-  `history`, `searches`, `preferences`), so a new store is a new key and an
+  `history`, `searches`, `referenceOrder`, `preferences`), so a new store is a
+  new key and an
   older file missing that key already imports cleanly — which is what lets the
   data panel grow a row at a time.
 - `overlays.njk` already renders each panel as its own `<dialog>` wired by
@@ -447,8 +449,9 @@ if it can no longer do anything with it.
 
 - **Text-highlight annotations** — see that entry for why the anchoring problem
   is the hard part, and note that it is hard whether or not anyone pays.
-- **Reordering My Reference** — see *Reordering My Reference, and managing
-  bookmarks in bulk*.
+- **Reordering My Reference** — now built, and free. Whether it stays free is
+  a question for when there is a complete set of features to weigh, not for
+  the commit that shipped it.
 
 Both are additive to a reading experience that is complete without them, which
 is the right shape for this. A gate on something the site needs in order to be

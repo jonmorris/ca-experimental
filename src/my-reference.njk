@@ -66,5 +66,23 @@ title: My Reference
     </p>
   </div>
 
+  {#
+    Reordering.
+
+    Shipped hidden and revealed by `my-reference.js`, like every other control
+    that cannot work without a script — and only when there are two sections,
+    since one is an order already.
+
+    The status line is for screen readers alone: sighted readers watch the
+    section move, which is the same information delivered by the page itself.
+  #}
+  <div class="reference-tools" data-reference-tools hidden>
+    <button type="button" class="reference-tools__button" data-reorder-toggle
+            aria-pressed="false">Reorder</button>
+    <button type="button" class="reference-tools__button reference-tools__button--quiet"
+            data-reorder-reset hidden>Reset to rules order</button>
+    <p class="visually-hidden" role="status" data-reorder-status></p>
+  </div>
+
   <div class="reference-body" data-reference-body hidden></div>
 </div>

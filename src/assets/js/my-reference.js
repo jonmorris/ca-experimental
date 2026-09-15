@@ -1,4 +1,5 @@
 import { bookmarkStore } from "./bookmark-store.js";
+import { referenceOrderStore } from "./reference-order.js";
 import { refreshSections } from "./section-tracker.js";
 
 /**
@@ -32,6 +33,11 @@ import { refreshSections } from "./section-tracker.js";
 const SOURCE_ICON = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false">
   <path d="M6 3h7v7M13 3 6.5 9.5M11 9.5V13H3V5h3.5"
         fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
+const MOVE_ICON = `<svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false">
+  <path d="M8 13V3M4 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.7"
         stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 
@@ -83,11 +89,41 @@ function plan(order, bookmarks) {
       const bookmark = wanted.get(key);
       if (!bookmark) continue;
       wanted.delete(key);
-      entries.push({ doc, anchor, title: bookmark.title, bookmark });
+      entries.push({ key, doc, anchor, title: bookmark.title, bookmark });
     }
   }
 
   return { entries, orphans: [...wanted.values()] };
+}
+
+/**
+ * The reader's own order, laid over the rules'.
+ *
+ * Sparse on purpose, in both directions. A stored key whose section is no
+ * longer bookmarked is skipped rather than treated as a gap, and a bookmark
+ * made since the ordering goes on the end — where the reader can see it arrive,
+ * rather than slotted into the rules position it would have had, which is a
+ * place nobody watching the page would think to look.
+ *
+ * So removing a bookmark and adding it again puts it at the end. That is the
+ * honest reading of "new bookmarks go last", and the alternative — remembering
+ * a position for a section that is not here — is a rule that only makes sense
+ * from inside the code.
+ */
+function applyStoredOrder(entries, keys) {
+  if (!keys?.length) return entries;
+
+  const byKey = new Map(entries.map((entry) => [entry.key, entry]));
+  const ordered = [];
+  for (const key of keys) {
+    const entry = byKey.get(key);
+    if (!entry) continue;
+    byKey.delete(key);
+    ordered.push(entry);
+  }
+
+  // Whatever the stored order has never seen, in rules order, at the end.
+  return [...ordered, ...byKey.values()];
 }
 
 function buildSection(entry) {
@@ -120,6 +156,25 @@ function buildSection(entry) {
 
   const tools = document.createElement("span");
   tools.className = "heading-tools";
+
+  /*
+   * Up and down rather than a drag handle.
+   *
+   * A drag is the obvious affordance and the wrong one to build first: it is
+   * most of the work, it is the part that fails by thumb, and it needs a
+   * keyboard equivalent written anyway — which is this. Two buttons work on a
+   * phone on the first try, need no library, and are announced properly. A
+   * drag can be layered onto these rows later without touching the store.
+   */
+  for (const direction of ["up", "down"]) {
+    const move = document.createElement("button");
+    move.type = "button";
+    move.className = `reference-move reference-move--${direction}`;
+    move.dataset.referenceMove = direction;
+    move.innerHTML = MOVE_ICON;
+    tools.append(move);
+  }
+
   const remove = document.createElement("button");
   remove.type = "button";
   remove.className = "bookmark-toggle is-on";
@@ -210,6 +265,115 @@ export function initReferenceCount() {
   bookmarkStore.subscribe(render);
 }
 
+/**
+ * Reorder mode.
+ *
+ * The page collapses to its own headings, which is the table of contents this
+ * page would otherwise need a second copy of: what you move is the section, in
+ * the list it is actually in, and the thing you are arranging is the thing you
+ * are looking at. Nothing is fetched to apply a move — every section is already
+ * in the document with its body filled, so an order is `append` called a few
+ * times, and one `refreshSections()` hands the new sequence to the sidebar, the
+ * jump sheet and the pager.
+ *
+ * Removal is deliberately not available here. Reordering and deleting are two
+ * different intentions and a row carrying both invites the wrong one; removal
+ * already has its own tap, and an undo on it.
+ */
+function initReorder({ root, body, gameSlug, rulesOrder }) {
+  const tools = root.querySelector("[data-reference-tools]");
+  const toggle = tools?.querySelector("[data-reorder-toggle]");
+  const reset = tools?.querySelector("[data-reorder-reset]");
+  const status = tools?.querySelector("[data-reorder-status]");
+  if (!tools || !toggle) return;
+
+  const movable = () => [...body.querySelectorAll(".reference-section[data-ref-key]")];
+
+  // One section is an order already. Two is the first that can be wrong.
+  if (movable().length < 2) return;
+  tools.hidden = false;
+
+  function say(message) {
+    if (status) status.textContent = message;
+  }
+
+  /* The page's own order, as the page currently has it. */
+  function persist() {
+    referenceOrderStore.set(gameSlug, movable().map((section) => section.dataset.refKey));
+    if (reset) reset.hidden = false;
+  }
+
+  function setReordering(on) {
+    root.dataset.reordering = on ? "on" : "off";
+    toggle.setAttribute("aria-pressed", String(on));
+    toggle.textContent = on ? "Done" : "Reorder";
+    if (reset) reset.hidden = !on || !referenceOrderStore.has(gameSlug);
+    say(on ? "Reordering. Move each section with the arrows beside its name." : "");
+  }
+
+  body.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-reference-move]");
+    if (!button) return;
+
+    const section = button.closest(".reference-section");
+    const sections = movable();
+    const index = sections.indexOf(section);
+    const next = button.dataset.referenceMove === "up" ? index - 1 : index + 1;
+    if (index < 0 || next < 0 || next >= sections.length) return;
+
+    /*
+     * `before` and `after` rather than a swap: a swap of two adjacent nodes is
+     * the same move written twice, and this reads as what the reader asked for.
+     */
+    if (next < index) sections[next].before(section);
+    else sections[next].after(section);
+
+    persist();
+    // The lists that navigate this page are built from its headings.
+    refreshSections();
+
+    // The node moved, and focus went with it — but a button that has just been
+    // pressed four times in a row should still be under the finger.
+    button.focus();
+    say(`${section.querySelector("h2")?.textContent.trim()}, ${next + 1} of ${sections.length}`);
+  });
+
+  toggle.addEventListener("click", () => {
+    setReordering(toggle.getAttribute("aria-pressed") !== "true");
+  });
+
+  reset?.addEventListener("click", () => {
+    referenceOrderStore.reset(gameSlug);
+
+    /*
+     * Back to the build's order, which is the order `plan()` produced before
+     * anything stored was laid over it. Re-appending in that sequence leaves
+     * anything it does not name — an orphan — where it already was, at the end.
+     */
+    const byKey = new Map(movable().map((section) => [section.dataset.refKey, section]));
+    for (const key of rulesOrder) {
+      const section = byKey.get(key);
+      if (section) body.append(section);
+    }
+
+    /*
+     * And the orphans back behind them. Appending every section in turn walks
+     * the whole list to the end of the page, so a bookmark whose section the
+     * rules no longer have — which is never in `rulesOrder` — would otherwise
+     * be left in front of the reference rather than after it.
+     */
+    for (const missing of body.querySelectorAll(".reference-section--missing")) {
+      body.append(missing);
+    }
+
+    refreshSections();
+    reset.hidden = true;
+    say("Back in rules order.");
+  });
+
+  setReordering(false);
+}
+
 export function initMyReference() {
   const root = document.querySelector("[data-my-reference]");
   const body = root?.querySelector("[data-reference-body]");
@@ -218,7 +382,9 @@ export function initMyReference() {
   if (!root || !body || !empty || !gameSlug) return;
 
   const order = readOrder();
-  const { entries, orphans } = plan(order, bookmarkStore.list({ gameSlug }));
+  const planned = plan(order, bookmarkStore.list({ gameSlug }));
+  const orphans = planned.orphans;
+  const entries = applyStoredOrder(planned.entries, referenceOrderStore.get(gameSlug));
 
   if (!entries.length && !orphans.length) return; // the empty state is already right
 
@@ -234,6 +400,11 @@ export function initMyReference() {
     body.append(section);
   }
   for (const orphan of orphans) body.append(buildOrphan(orphan));
+
+  /* The rules' own order, kept so "Reset to rules order" has somewhere to go. */
+  const rulesOrder = planned.entries.map((entry) => entry.key);
+
+  initReorder({ root, body, gameSlug, rulesOrder });
 
   /*
    * The headings exist now, so the rest of the site can see them.

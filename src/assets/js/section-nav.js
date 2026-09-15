@@ -55,6 +55,31 @@ function fillJumpList(list, sections) {
   );
 }
 
+/**
+ * Fills a jump list when what it is showing is not what the document says.
+ *
+ * It used to fill only an empty list, which was right while the only page whose
+ * sections arrived late was one that started with none. My Reference can now be
+ * reordered, and then the list has children and the wrong ones: same sections,
+ * different sequence, and a contents list that disagrees with the page it
+ * belongs to is worse than one that is missing.
+ *
+ * Compared against the list's own anchors rather than against a flag, so a
+ * server-rendered list on a rulebook is left exactly as the build wrote it —
+ * the comparison says "already correct" and nothing is touched.
+ */
+function syncJumpList(list, sections) {
+  if (!list) return;
+
+  const wanted = sections.map((section) => section.id).join("|");
+  const showing = [...list.querySelectorAll("[data-jump-anchor]")]
+    .map((link) => link.dataset.jumpAnchor)
+    .join("|");
+  if (showing === wanted) return;
+
+  fillJumpList(list, sections);
+}
+
 /** Marks the entry for the current section in one list. */
 function markCurrent(root, current, onCurrent) {
   for (const link of root.querySelectorAll("[data-jump-anchor]")) {
@@ -94,7 +119,7 @@ function initStickyBar() {
     bar.hidden = sections.length < 2;
     if (bar.hidden) return;
 
-    if (list && !list.children.length) fillJumpList(list, sections);
+    syncJumpList(list, sections);
 
     if (label && current) label.textContent = current.title;
     if (position) position.textContent = `${index + 1} / ${sections.length}`;
@@ -120,7 +145,7 @@ function initSidebar() {
     sidebar.hidden = sections.length === 0;
     if (sidebar.hidden) return;
 
-    if (list && !list.children.length) fillJumpList(list, sections);
+    syncJumpList(list, sections);
     if (!current) return;
 
     markCurrent(sidebar, current, (link) => {

@@ -2,6 +2,7 @@ import { bookmarkStore } from "./bookmark-store.js";
 import { favoriteStore } from "./favorites.js";
 import { historyStore } from "./reading-history.js";
 import { searchHistory } from "./search-history.js";
+import { referenceOrderStore } from "./reference-order.js";
 import { preferences, PREFERENCES } from "./preferences.js";
 
 /**
@@ -43,6 +44,7 @@ export function buildExport() {
     favorites: favoriteStore.snapshot(),
     history: historyStore.snapshot(),
     searches: searchHistory.snapshot(),
+    referenceOrder: referenceOrderStore.snapshot(),
     preferences: preferences.all(),
   };
 }
@@ -109,6 +111,7 @@ export function applyImport(text) {
     favorites: favoriteStore.merge(parsed.favorites),
     history: historyStore.merge(parsed.history),
     searches: searchHistory.merge(parsed.searches),
+    referenceOrder: referenceOrderStore.merge(parsed.referenceOrder),
   };
 
   /*
@@ -146,6 +149,10 @@ export function describeImport(result) {
   }
   if (result.added.searches) {
     parts.push(`${result.added.searches} search${result.added.searches === 1 ? "" : "es"}`);
+  }
+  if (result.added.referenceOrder) {
+    const count = result.added.referenceOrder;
+    parts.push(`the order of ${count} reference${count === 1 ? "" : "s"}`);
   }
   if (result.settings) parts.push("your reading settings");
 

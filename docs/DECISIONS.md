@@ -181,3 +181,64 @@ read as missing.
 A tag filter is the next control, and it is blocked on the same thing the
 related-games row is: a tagging vocabulary that covers the whole shelf. Held
 in `DEFERRED.md` → *Cross-game similarity and recommendations*.
+
+---
+
+## Reordering My Reference
+
+**Shipped.** `src/assets/js/reference-order.js`, the reorder mode in
+`src/assets/js/my-reference.js`, `syncJumpList` in
+`src/assets/js/section-nav.js`.
+
+**How it works.** A reader can put the sections of their own reference in any
+order they like. *Reorder* collapses the page to its headings — every section
+is still there with its body filled, the body is only hidden — and each row
+grows an up and a down button. A move is `before`/`after` on the section node,
+then a write to the store, then `refreshSections()`, which is what hands the new
+sequence to the sidebar list, the jump sheet and the prev/next pager. Nothing is
+fetched and nothing is rebuilt.
+
+The order is a list of section keys per game, in its own store. Absent means
+rules order, which is what every reader starts with; *Reset to rules order*
+deletes the entry rather than writing a different one, so there is no such thing
+as a stored order that means "the default". A stored key whose section is no
+longer bookmarked is skipped, and a bookmark made since goes on the end.
+
+**Why it is shaped this way.**
+
+- **Buttons, not a drag.** A drag is the obvious affordance and the wrong one to
+  build first: it is most of the work, it is the part that fails by thumb, and
+  it needs a keyboard equivalent written anyway — which is a pair of buttons. A
+  pointer drag can be layered onto the same rows later without touching the
+  store or the mode.
+- **A mode on this page, not an editable table of contents.** The sidebar list
+  and the jump sheet are shared with every rulebook; giving them an edit state
+  would put a page-specific intention into site-wide navigation, and on mobile
+  it would mean dragging inside a dialog to reorder the page behind it.
+  Collapsed to headings, this page *is* a contents list, and the thing you move
+  is the thing you are arranging.
+- **New bookmarks last.** The alternative is slotting a new section into the
+  rules position it would have had, which is a place nobody watching the page
+  would think to look. The cost is that removing a bookmark and adding it again
+  sends it to the end, which is the honest reading of the rule.
+- **A list per game rather than an index per bookmark.** An index on each record
+  means reordering one section rewrites every record, and a bare index is
+  meaningless if it arrives in an import without its siblings.
+
+**Known wrinkles.**
+
+- The jump lists used to be filled only when empty, which was right while the
+  only late-arriving sections were on a page that started with none. A reorder
+  leaves them full and wrong, so `syncJumpList` now compares what a list is
+  showing against what the document says. A server-rendered list on a rulebook
+  compares equal and is left exactly as the build wrote it.
+- Merging an imported order takes a game whole from whichever side touched it
+  last. Every other store merges sets — two devices' bookmarks are one reader's
+  bookmarks — but half of one order and half of another is an arrangement
+  neither reader made.
+- Clearing bookmarks clears the orders with them. An order over no bookmarks is
+  inert, but it would come back the moment those sections were bookmarked
+  again, which is not what the button says.
+
+**Where it goes next.** A pointer drag on the same rows. Bulk management of
+bookmarks is still deferred — see `DEFERRED.md`.
