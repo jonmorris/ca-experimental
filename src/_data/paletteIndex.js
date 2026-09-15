@@ -28,7 +28,14 @@ export default function () {
     });
 
     for (const type of game.allContentTypes) {
-      const expansion = game.expansions.find((e) => e.slug === type.expansionSlug);
+      /*
+       * Named only when it is not already the document's name. An expansion of
+       * one document hands that document its name, so "The Blighted Reach: The
+       * Blighted Reach" is what the plain lookup gives here.
+       */
+      const expansion = game.expansions.find(
+        (e) => e.slug === type.expansionSlug && !e.single,
+      );
       entries.push({
         label: expansion ? `${expansion.title}: ${type.label}` : type.label,
         detail: type.subhead || "",

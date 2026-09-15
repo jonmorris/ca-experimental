@@ -48,10 +48,19 @@ function labelFor(title, slug) {
   return title;
 }
 
+/*
+ * "Rulebook", or "The Blighted Reach · Rulebook" for an expansion's document.
+ *
+ * Unless the two are the same word, which is what an expansion of a single
+ * document now gives: it hands that document its own name. Compared rather
+ * than looked up, because a bookmark saved before that change still carries
+ * "The Blighted Reach" and "Rulebook" and is still correctly described by
+ * both — the test is what the record says, not what the site does today.
+ */
 function documentTitle(bookmark) {
   const rule = labelFor(bookmark.ruleTitle, bookmark.ruleSlug);
   const expansion = labelFor(bookmark.expansionTitle, bookmark.expansionSlug);
-  return expansion ? `${expansion} · ${rule}` : rule;
+  return expansion && expansion !== rule ? `${expansion} · ${rule}` : rule;
 }
 
 function groupByDocument(bookmarks) {
