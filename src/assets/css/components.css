@@ -1529,24 +1529,6 @@ button.palette__link {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
 }
 
-/* Where the reader was, and the way straight back to it. */
-.game-tile__place {
-  color: var(--ink-faint);
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  line-height: var(--leading-snug);
-}
-
-.game-tile__place a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.game-tile__place a:hover {
-  color: var(--ink-muted);
-  text-decoration: underline;
-}
-
 .game-tile__meta {
   color: var(--ink-faint);
   font-family: var(--font-ui);
