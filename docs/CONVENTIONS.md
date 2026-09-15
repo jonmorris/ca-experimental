@@ -436,7 +436,7 @@ hard to read is not a small button, it is a bad one.
 
 **Everything that is a sentence stays too**: the note about where your data
 lives, the footer's rights statement, a search result's snippet, a callout's
-title, the About page's captions, the place line on a recent-games tile.
+title, the About page's captions, the description under a shelf tile's name.
 
 Three were judged genuinely borderline and left for now: the note under a
 download's title, the "Searching Arcs" line and its "All games" toggle in the
