@@ -155,6 +155,25 @@ equivalent.
 > site under 1GB. A dozen 20MB rulebooks is fine; the whole shelf at that size
 > is not. Link out with `url` where the publisher hosts a copy worth linking.
 
+### Content state
+
+Every content file carries its own readiness in its frontmatter: a lifecycle
+`stage`, and four axes scored separately (`text`, `images`, `links`, `rights`).
+The frontmatter is the only record of it.
+
+```yaml
+stage: audit
+text: T1
+images: I0
+links: L0
+rights: requested
+```
+
+`CONTENT-STATES.md` at the repo root is the authority on what each level means,
+what the gate for `stage: live` is, and which scores an external change knocks
+down. Read it before scoring a file, and never raise a score to make a page
+publishable.
+
 ### Source and working files
 
 - `_source/` — raw source material, OCR dumps, copied draft text. **Read-only.**
