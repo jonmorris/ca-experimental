@@ -31,9 +31,20 @@ import { decodeShare, encodeShare, shareUrl } from "./reference-share.js";
  *    both open with an `introduction`.
  */
 
-const SOURCE_ICON = `<svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false">
-  <path d="M6 3h7v7M13 3 6.5 9.5M11 9.5V13H3V5h3.5"
-        fill="none" stroke="currentColor" stroke-width="1.6"
+/*
+ * An arrow, and not the box-with-an-arrow that marks a link leaving a site.
+ *
+ * That icon is two shapes — a frame and an arrow escaping it — and this is the
+ * smallest place on the site anything is drawn. At twelve pixels the frame
+ * closed up into a blob with a nick out of one corner and the arrow inside it
+ * had nowhere to go: the same drawing at eighteen, in the downloads list, is
+ * perfectly clear. Fewer strokes is the fix that survives the size rather than
+ * arguing with it, and an arrow leaving towards the top right says "it lives
+ * over there" without the frame's help.
+ */
+const SOURCE_ICON = `<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" focusable="false">
+  <path d="M5 11 11 5M6.5 5H11v4.5"
+        fill="none" stroke="currentColor" stroke-width="1.75"
         stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 
