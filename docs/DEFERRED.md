@@ -427,6 +427,15 @@ export button already makes.
 there is something to charge for. It is written down because it constrains what
 gets built between now and then, not because any of it is scheduled.
 
+**There is now a page of it**, at `/accounts/` — free beside paid, as two
+cards, with the promises below them. It is unlinked and unindexed: a pricing
+page for something nobody can buy is a broken promise if a reader finds it by
+accident, so it is reachable only by its URL until there is something behind
+it. Written before the payment machinery on purpose, because a tier list
+written afterwards is a rationalisation of whatever turned out to be easy to
+gate. The price on it — $25 a year, or $3 a month — is a placeholder in that
+page's frontmatter, not a decision.
+
 **The constraint it puts on everything built before it.** Anything gated has to
 degrade without destroying. A reader who stops paying keeps every bookmark,
 highlight and ordering they made; the feature stops, the data does not. Which

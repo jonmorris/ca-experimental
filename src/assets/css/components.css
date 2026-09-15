@@ -3710,3 +3710,152 @@ a.home-update:hover .home-update__go {
 .debug-probe b {
   text-align: right;
 }
+
+/* ================================================== plans */
+
+/*
+ * Free beside paid.
+ *
+ * Two cards and not a table with ticks down both columns: the free side is a
+ * complete list of what the site does and the paid side is four lines added to
+ * it, so a grid of matching rows would be mostly empty on one side and read as
+ * a list of things the free tier lacks. It does not lack them; it is the
+ * product, and the account is a service on top of it.
+ */
+/*
+ * The page runs wider than the measure, because two tiers beside each other is
+ * the comparison — stacked, the reader is remembering the first card while
+ * reading the second. Everything on it that is prose keeps the measure and
+ * centres in the extra room.
+ */
+.accounts__column {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+.plan-grid {
+  max-width: 54rem;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: var(--space-4);
+  margin-block: var(--space-6) var(--space-7);
+  padding: 0;
+  list-style: none;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+/*
+ * The paid card is marked by a rule along its top rather than by a shadow, a
+ * tint or a "most popular" flag. There are two cards and one of them costs
+ * money; anything louder than a line is the page leaning on the reader.
+ */
+.plan--paid {
+  border-top: 3px solid var(--accent);
+}
+
+.plan__head {
+  display: grid;
+  gap: var(--space-2);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.plan__name {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.plan__price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.plan__amount {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  line-height: var(--leading-flat);
+}
+
+.plan__period,
+.plan__line {
+  color: var(--ink-muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+.plan__line {
+  margin: 0;
+}
+
+.plan__inherits {
+  margin: 0;
+  color: var(--ink-muted);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+/* A card whose list runs short still ends its note against the card's foot. */
+.plan__list {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan__list li {
+  display: flex;
+  align-items: start;
+  gap: var(--space-3);
+  font-size: var(--text-base);
+  line-height: var(--leading-snug);
+}
+
+/*
+ * The tick holds its column and sits on the first line's cap height, so a
+ * two-line item keeps its text in one block rather than wrapping under the
+ * mark.
+ */
+.plan__tick {
+  flex: 0 0 auto;
+  margin-top: 0.2em;
+  color: var(--accent);
+}
+
+.plan__note {
+  margin: auto 0 0;
+  color: var(--ink-faint);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+/*
+ * The standing notice at the top of a page that describes something which does
+ * not exist. Marked as a passage rather than as an alert: it is the first
+ * paragraph of the page and it is telling the truth, not warning of a fault.
+ */
+.notice {
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface-sunken);
+  border-inline-start: 3px solid var(--marker);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}

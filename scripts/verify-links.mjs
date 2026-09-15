@@ -42,7 +42,7 @@ function stripPrefix(url) {
  */
 const URL_PATTERNS = [
   { name: "homepage", re: /^\/$/ },
-  { name: "site page", re: /^\/(about)\/$/ },
+  { name: "site page", re: /^\/(about|accounts)\/$/ },
   // Temporary: the iOS bottom-bar diagnostic. Goes with src/viewport-probe.njk.
   { name: "viewport probe", re: /^\/viewport-probe\/$/ },
   { name: "game landing", re: /^\/games\/[a-z0-9-]+\/$/ },

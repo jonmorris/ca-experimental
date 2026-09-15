@@ -1,0 +1,153 @@
+---
+layout: layouts/page.njk
+permalink: /accounts/
+title: Accounts
+noIndex: true
+plan:
+  amount: "$25"
+  period: "a year"
+  alternative: "or $3 a month"
+---
+{#
+  What an account would be for.
+
+  A working page rather than a live one: nothing here is for sale, and the
+  notice at the top says so in the first thing anybody reads. It exists to
+  settle what falls on each side of the line before there is any machinery to
+  enforce it — which is the order that matters, because a tier list written
+  after the payment code is a rationalisation of whatever was easy to gate.
+
+  Deliberately unlinked and unindexed. A pricing page for something that cannot
+  be bought is a broken promise if a reader finds it by accident, so it is
+  reachable only by its URL until there is something behind it. See
+  `docs/DEFERRED.md`, "Accounts, and what a paid one is for", for the reasoning
+  this page renders.
+#}
+{% macro tick() %}
+  <svg class="plan__tick" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+    <path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+{% endmacro %}
+
+{#
+  The page is as wide as the cards need; everything that is prose keeps the
+  measure and centres inside it. Two tiers side by side is the whole point of
+  the layout, and the measure is 38rem — one card's worth.
+#}
+<div class="accounts">
+  <div class="accounts__column">
+    <header class="page-header">
+    <h1 class="page-title">Accounts</h1>
+    <p class="page-subhead">What is free, what an account would add, and what it would never touch.</p>
+  </header>
+
+  <div class="prose">
+    <p class="notice">
+      <strong>Nothing here is for sale.</strong> There are no accounts on this
+      site and no way to pay for one. This page is where the line between free
+      and paid is being worked out, written down before there is any machinery
+      to enforce it.
+    </p>
+
+    <p>
+      The rules are never behind a login. Every rulebook, summary, glossary and
+      index on this site is readable by anybody, with no account, and that does
+      not change. What an account would sell is durability and portability —
+      your bookmarks surviving a cleared cache and following you to the phone
+      you have at the table — and nothing else.
+    </p>
+    </div>
+  </div>
+
+  <ul class="plan-grid">
+    <li class="plan">
+      <div class="plan__head">
+        <h2 class="plan__name">Free</h2>
+        <p class="plan__price"><span class="plan__amount">$0</span></p>
+        <p class="plan__line">No account, no card, no expiry. The whole site.</p>
+      </div>
+
+      <ul class="plan__list">
+        <li>{{ tick() }}<span>Every page of every game — rulebooks, summaries, glossaries, indexes, expansions</span></li>
+        <li>{{ tick() }}<span>Search one game or all of them, and jump to any section, term or rule</span></li>
+        <li>{{ tick() }}<span>Bookmark any section; My Reference gathers them onto one page in rules order</span></li>
+        <li>{{ tick() }}<span>Favourite the games you play, and pick up where you left off</span></li>
+        <li>{{ tick() }}<span>Reading settings — theme, text size, typeface, line spacing, Just read</span></li>
+        <li>{{ tick() }}<span>Print any page, or your own reference, laid out for paper</span></li>
+        <li>{{ tick() }}<span>Download a copy of everything you have made, and restore it from that file</span></li>
+      </ul>
+
+      <p class="plan__note">
+        Kept in this browser only. Nothing is uploaded and nobody else sees it —
+        which also means it goes when you clear your browsing data, and Safari
+        deletes it after about a week away.
+      </p>
+    </li>
+
+    <li class="plan plan--paid">
+      <div class="plan__head">
+        <h2 class="plan__name">Account</h2>
+        <p class="plan__price">
+          <span class="plan__amount">{{ plan.amount }}</span>
+          <span class="plan__period">{{ plan.period }}</span>
+        </p>
+        <p class="plan__line">{{ plan.alternative }}. The paragraph above, fixed.</p>
+      </div>
+
+      <p class="plan__inherits">Everything in Free, and:</p>
+
+      <ul class="plan__list">
+        <li>{{ tick() }}<span>Bookmarks, favourites and history on every device you read on</span></li>
+        <li>{{ tick() }}<span>Nothing lost when you clear your browsing data, or when Safari clears it for you</span></li>
+        <li>{{ tick() }}<span>Learn a game on a laptop, look it up on the phone in your hand at the table</span></li>
+        <li>{{ tick() }}<span>Your reference back after a new phone, a reinstall, or a browser you have never used before</span></li>
+      </ul>
+
+      <p class="plan__note">
+        One tier. There is no version of this site with more rules in it.
+      </p>
+    </li>
+  </ul>
+
+  <div class="accounts__column">
+    <div class="prose">
+    <h2 id="promises">What an account will never do</h2>
+
+    <p>
+      These are the reasons the tier above is so short, and they are worth more
+      than any feature that could be added to it.
+    </p>
+
+    <ul>
+      <li>
+        <strong>It will never hold the rules.</strong> Nothing anybody needs in
+        order to read a game is behind it. A gate on something the site needs
+        in order to be worth using would be a different product.
+      </li>
+      <li>
+        <strong>It will never hold your data hostage.</strong> Stop paying and
+        you keep every bookmark, favourite and reference you made. The syncing
+        stops; the data does not, and the export button keeps working whether
+        or not you have ever paid.
+      </li>
+      <li>
+        <strong>It will never be the only way out.</strong> Download a copy and
+        restore from a file are free, now and permanently, so leaving is always
+        a file rather than a negotiation.
+      </li>
+    </ul>
+
+    <h2 id="later">Not built, and not promised</h2>
+
+    <p>
+      Two things have been named as candidates for the paid side later —
+      highlighting passages, and putting My Reference in an order of your own.
+      Neither exists, neither is scheduled, and if either ever ships it will be
+      additive to a reading experience that is complete without it. They are
+      listed here so this page stays honest about what it is: the current
+      answer to a question, not a roadmap.
+    </p>
+    </div>
+  </div>
+</div>
