@@ -3,6 +3,11 @@ title: 'Rulebook'
 official: true
 navOrder: 10
 subhead: 'The core rules of exoglobalization, for 1 to 5 players.'
+stage: audit
+text: T1
+images: I2
+links: L2
+rights: requested
 ---
 
 A game of exoglobalization for 1 to 5 players. Updated Feb, 2021.

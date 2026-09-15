@@ -4,6 +4,11 @@ official: true
 subhead: >-
   A quick-reference sheet for common actions, turn order, and key rules during
   play.
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 ## The Clockwork Prince {: #the-clockwork-prince}

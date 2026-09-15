@@ -1,6 +1,11 @@
 ---
 title: Summary
 subhead: The whole game in one pass, for players who have read the rulebook once.
+stage: audit
+text: T2
+images: I0
+links: L2
+rights: n/a
 ---
 
 ## Overview {: #overview}

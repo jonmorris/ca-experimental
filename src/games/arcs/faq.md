@@ -4,6 +4,11 @@ official: true
 navLabel: FAQ
 navOrder: 25
 subhead: Answers to the questions and edge cases that come up most often in play.
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 This FAQ answers rule questions related to the Arcs rulebook. For FAQs on specific cards, refer to the [BGS Card LIbrary](https://cards.buriedgiant.com/).

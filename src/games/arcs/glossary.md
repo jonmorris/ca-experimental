@@ -1,6 +1,11 @@
 ---
 title: Glossary
 subhead: Every keyword the Arcs rulebook defines, in one place.
+stage: audit
+text: T2
+images: I0
+links: L0
+rights: n/a
 terms:
   - term: "Adjacent"
     slug: adjacent

@@ -4,6 +4,11 @@ official: true
 navLabel: 'FAQ'
 navOrder: 25
 subhead: 'Answers to the questions and edge cases that come up most often in play, including Embers of a Forsaken Star.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 # Xia: Legends of a Drift System Official FAQ

@@ -3,6 +3,11 @@ title: 'Players Guide'
 official: true
 navOrder: 20
 subhead: 'A guided playthrough, turn by turn.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 ## M. Beginner’s Playthrough {: #m-beginners-playthrough}

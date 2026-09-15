@@ -3,6 +3,11 @@ title: 'Space Diamonds'
 official: true
 navOrder: 20
 subhead: 'The introductory scenario, and a first game of High Frontier.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 ## iA. Introduction {: #ia-introduction}

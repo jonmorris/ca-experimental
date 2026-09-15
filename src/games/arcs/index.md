@@ -1,6 +1,11 @@
 ---
 title: Index
 subhead: Where to find each topic in the rulebook.
+stage: audit
+text: T2
+images: I0
+links: L0
+rights: n/a
 entries:
   - term: "Actions"
     refs:

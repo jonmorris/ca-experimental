@@ -32,7 +32,7 @@ truthfully for what the file actually contains:
 - Omit `audited`. An absent date means never audited, which is true of anything
   a generator has just written.
 
-`CONTENT-STATES.md` at the repo root is the authority on every level, on the
+`docs/CONTENT-STATES.md` is the authority on every level, on the
 gate a file must clear to be `live`, and on what an external change knocks down.
 
 ## Prose

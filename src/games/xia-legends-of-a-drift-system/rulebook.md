@@ -2,6 +2,11 @@
 title: 'Rulebook'
 official: true
 subhead: 'The complete published rules for the base game.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 ## Setup {: #setup}

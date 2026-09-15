@@ -3,6 +3,11 @@ title: 'Module 4 Exodus'
 official: true
 navOrder: 34
 subhead: 'Exodus: module 4, for 1 to 6 players.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 - High Frontier 4: Module 4 - Exodus, for 1 to 6 players. Updated Sept 6, 2021.

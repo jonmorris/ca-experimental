@@ -20,6 +20,7 @@
     "verify:links": "node scripts/verify-links.mjs",
     "hash:assets": "node scripts/hash-assets.mjs",
     "sync:content": "node scripts/sync-content.mjs",
+    "state:backfill": "node scripts/content-state.mjs",
     "sync:links": "node scripts/strip-dead-links.mjs",
     "sync": "npm run sync:content && npm run build && npm run sync:links && npm run build"
   },

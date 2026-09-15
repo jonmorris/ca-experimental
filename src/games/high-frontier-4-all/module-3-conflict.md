@@ -3,6 +3,11 @@ title: 'Module 3 Conflict'
 official: true
 navOrder: 32
 subhead: 'Conflict: module 3, for 1 to 6 players.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 High Frontier 4 module for 1 to 6 players. Updated Mar 11, 2021.

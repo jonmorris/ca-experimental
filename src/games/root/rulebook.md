@@ -2,6 +2,11 @@
 title: 'Rulebook'
 official: true
 subhead: 'The complete and official rules of Root.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 # Root: The Law of Root

@@ -3,6 +3,11 @@ title: 'Rulebook'
 official: true
 navOrder: 10
 subhead: 'The complete second-edition rules.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 ## A. Summary {: #a-summary}

@@ -3,6 +3,11 @@ title: 'Module 3 Conflict Strategy'
 official: true
 navOrder: 33
 subhead: 'Strategy notes for the Conflict module.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 ### 3H1. The Glory Rush

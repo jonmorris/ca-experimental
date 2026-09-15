@@ -3,6 +3,11 @@ title: 'Module 2 Colonization'
 official: true
 navOrder: 31
 subhead: 'Colonization: module 2, for 1 to 5 players.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 High Frontier 4 Module for 1 to 5 players. Updated Feb, 2021.

@@ -3,6 +3,11 @@ title: 'Race For Glory'
 official: true
 navOrder: 40
 subhead: 'A standalone game of exoglobalization, for 2 to 5 players.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 A game of exoglobalization for 2 to 5 players Updated Dec 10, 2020.

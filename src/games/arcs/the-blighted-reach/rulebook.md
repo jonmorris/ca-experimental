@@ -3,6 +3,11 @@ title: 'Rulebook'
 official: true
 navLabel: 'Rulebook'
 subhead: 'The complete published rules for the campaign expansion.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 ## Introduction {: #introduction}

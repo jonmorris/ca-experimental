@@ -2,6 +2,11 @@
 title: 'Rulebook'
 official: true
 subhead: 'The complete published rules, section by section.'
+stage: audit
+text: T2
+images: I2
+links: L2
+rights: requested
 anchorAliases:
 ---
 

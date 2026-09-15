@@ -2,6 +2,11 @@
 title: 'Rulebook'
 official: true
 subhead: 'The complete official rules for the game, exactly as published.'
+stage: audit
+text: T1
+images: I2
+links: L1
+rights: requested
 ---
 
 ## Food Chain Magnate {: #food-chain-magnate}

@@ -169,7 +169,7 @@ links: L0
 rights: requested
 ```
 
-`CONTENT-STATES.md` at the repo root is the authority on what each level means,
+`docs/CONTENT-STATES.md` is the authority on what each level means,
 what the gate for `stage: live` is, and which scores an external change knocks
 down. Read it before scoring a file, and never raise a score to make a page
 publishable.

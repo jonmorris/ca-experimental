@@ -2,6 +2,11 @@
 title: 'Aid Booklet'
 official: true
 subhead: 'The complete official rules for the game, exactly as published.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 ## Playing a Chapter {: #playing-a-chapter}

@@ -3,6 +3,11 @@ title: 'Read Me First'
 official: true
 navOrder: 5
 subhead: 'Start here: what High Frontier is, and how to come at it.'
+stage: audit
+text: T1
+images: I0
+links: L1
+rights: requested
 ---
 
 ## Don't Panic <sup><sup>**1**</sup></sup> {: #dont-panic-sup-sup-1-designer-note-1-sup-sup}
