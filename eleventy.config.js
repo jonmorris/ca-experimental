@@ -222,7 +222,16 @@ export default function (eleventyConfig) {
          */
         expansionLabel: expansionLabelFor(game, type.expansionSlug),
         url: withBasePath(type.url, prefix),
-        sections: type.sections.map((section) => section.slug),
+        /*
+         * Slugs and titles, not slugs alone. The reader's own bookmarks carry
+         * the title of every section they saved, so the page never needed one
+         * from here — a shared reference carries no titles at all, by design,
+         * and takes every word it shows from the build instead.
+         */
+        sections: type.sections.map((section) => ({
+          slug: section.slug,
+          title: section.title,
+        })),
       })),
   );
 

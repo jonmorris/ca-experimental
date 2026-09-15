@@ -76,11 +76,34 @@ title: My Reference
     The status line is for screen readers alone: sighted readers watch the
     section move, which is the same information delivered by the page itself.
   #}
+  {#
+    Somebody else's reference, arrived as a link.
+
+    Shown instead of the reader's own and saved only if they ask: a link is a
+    navigation, and a navigation that quietly edits what somebody has saved is
+    the kind of surprise that makes a site untrustworthy.
+  #}
+  <div class="shared-banner" data-shared-banner hidden>
+    <p class="shared-banner__lead">
+      <strong>A shared reference.</strong>
+      <span data-shared-count></span> chosen by whoever sent you this link,
+      in the order they put them in.<span data-shared-missing hidden></span>
+    </p>
+    <p class="shared-banner__actions">
+      <button type="button" class="reference-tools__button" data-shared-save>
+        Save to my bookmarks
+      </button>
+      <a class="shared-banner__own" href="{{ page.url }}">Show my own reference</a>
+    </p>
+  </div>
+
   <div class="reference-tools" data-reference-tools hidden>
     <button type="button" class="reference-tools__button" data-reorder-toggle
             aria-pressed="false">Reorder</button>
     <button type="button" class="reference-tools__button reference-tools__button--quiet"
             data-reorder-reset hidden>Reset to rules order</button>
+    <button type="button" class="reference-tools__button reference-tools__button--quiet"
+            data-reference-share hidden>Share</button>
     <p class="visually-hidden" role="status" data-reorder-status></p>
   </div>
 

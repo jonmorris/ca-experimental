@@ -242,3 +242,58 @@ longer bookmarked is skipped, and a bookmark made since goes on the end.
 
 **Where it goes next.** A pointer drag on the same rows. Bulk management of
 bookmarks is still deferred — see `DEFERRED.md`.
+
+---
+
+## Sharing a reference
+
+**Shipped.** `src/assets/js/reference-share.js`, the shared branch of
+`src/assets/js/my-reference.js`.
+
+**How it works.** *Share* on My Reference puts a link on the clipboard that
+carries the sections and their order in the URL's fragment:
+
+    /games/arcs/my-reference/#shared=rulebook~setup,faq~errata
+
+Opening it renders those sections, in that order, under a banner saying whose
+they are. Nothing is written by arriving. *Save to my bookmarks* merges them in
+— what the reader already had keeps its position, and everything new lands
+after it in the order the link listed — and then reloads the page as their own.
+
+**Why it is shaped this way.**
+
+- **In the fragment.** A fragment is never sent in the request: it reaches no
+  host, log or referrer. That is what lets a site with no server share
+  something, and it means a shared reference is stored nowhere and carried
+  entirely by the people passing it round.
+- **Slugs, never text.** The link names sections; every word the page then
+  shows comes from the build. The worst a mangled link can do is name sections
+  that do not exist, which are counted and dropped — it cannot put words in the
+  site's mouth.
+- **Readable rather than packed.** Base64 of JSON would be shorter and would
+  make the link an opaque blob nobody can sanity-check before pasting it into a
+  group chat. What is being shared is a list of section names, so the link says
+  so.
+- **Saving carries the order.** Saving the sections without the sequence throws
+  away half of what was shared: somebody who arranged eight sections for their
+  group arranged them for a reason.
+- **Nothing is written by a navigation.** A link that quietly edited what
+  somebody had saved would be the kind of surprise that makes a site
+  untrustworthy, so the page shows, says, and waits to be asked.
+
+**Known wrinkles.**
+
+- The fragment is read at load. Pasting a share link while already on the page
+  changes the fragment without reloading the document, so a `hashchange`
+  listener compares the payload against the one the page was built from and
+  reloads when they differ.
+- A link naming sections a game no longer has says so and offers nothing to
+  save. A link naming some of them shows what survives and counts the rest.
+- A shared reference is read-only: the reorder tools and the per-section
+  bookmark flags are hidden, because both act on the reader's own bookmarks and
+  a flag beside somebody else's section is a claim about the wrong person.
+
+**Where it goes next.** Saving one section at a time rather than all of them,
+if anybody wants it. The link has no room for a title or a note from the sender
+— that would be text in a URL, which is the thing this deliberately does not
+carry.

@@ -319,6 +319,54 @@
   margin-top: var(--space-4);
 }
 
+/* --------------------------------------------------------- shared */
+
+/*
+ * The banner on somebody else's reference. A statement, not a warning: nothing
+ * is wrong, the page simply belongs to whoever sent the link, and the reader
+ * needs to know that before they read down it.
+ */
+.shared-banner {
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--measure);
+  margin-bottom: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface-sunken);
+  border-inline-start: 3px solid var(--marker);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.shared-banner__lead {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.shared-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.shared-banner__own {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+}
+
+/*
+ * A shared reference is read-only. The controls that act on the reader's own
+ * bookmarks have nothing to act on here, and a bookmark flag beside a section
+ * nobody has saved is a claim about the wrong person.
+ */
+[data-shared="on"] .heading-tools,
+[data-shared="on"] .reference-tools {
+  display: none;
+}
+
 /* ------------------------------------------------------ reordering */
 
 /*

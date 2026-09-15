@@ -1,6 +1,7 @@
 import { bookmarkStore } from "./bookmark-store.js";
 import { referenceOrderStore } from "./reference-order.js";
 import { refreshSections } from "./section-tracker.js";
+import { decodeShare, encodeShare, shareUrl } from "./reference-share.js";
 
 /**
  * My Reference: the reader's own page, assembled from their bookmarks.
@@ -84,12 +85,12 @@ function plan(order, bookmarks) {
 
   const entries = [];
   for (const doc of order) {
-    for (const anchor of doc.sections) {
-      const key = `${doc.expansion}::${doc.slug}::${anchor}`;
+    for (const section of doc.sections) {
+      const key = `${doc.expansion}::${doc.slug}::${section.slug}`;
       const bookmark = wanted.get(key);
       if (!bookmark) continue;
       wanted.delete(key);
-      entries.push({ key, doc, anchor, title: bookmark.title, bookmark });
+      entries.push({ key, doc, anchor: section.slug, title: bookmark.title, bookmark });
     }
   }
 
@@ -266,6 +267,186 @@ export function initReferenceCount() {
 }
 
 /**
+ * The sections a link named, in the order it named them.
+ *
+ * Built by looking every key up in the page's own document list, so the link
+ * contributes the choice and the sequence and nothing else — every title and
+ * every URL comes from the build. A key naming a section these rules no longer
+ * have finds nothing and is counted as missing rather than rendered as a gap.
+ */
+function planShared(order, keys) {
+  const byKey = new Map();
+  for (const doc of order) {
+    for (const section of doc.sections) {
+      byKey.set(`${doc.expansion}::${doc.slug}::${section.slug}`, { doc, section });
+    }
+  }
+
+  const entries = [];
+  let missing = 0;
+  for (const key of keys) {
+    const found = byKey.get(key);
+    if (!found) {
+      missing += 1;
+      continue;
+    }
+    entries.push({
+      key,
+      doc: found.doc,
+      anchor: found.section.slug,
+      title: found.section.title,
+      /*
+       * The record this section would be saved as. Built here rather than at
+       * the moment somebody presses Save, so that what the page is showing and
+       * what it would write are the same object.
+       */
+      bookmark: {
+        gameSlug: document.body.dataset.game,
+        gameTitle: document.body.dataset.gameTitle || document.body.dataset.game,
+        expansionSlug: found.doc.expansion || "",
+        expansionTitle: found.doc.expansionLabel || "",
+        ruleSlug: found.doc.slug,
+        ruleTitle: found.doc.label,
+        ruleUrl: found.doc.url,
+        anchor: found.section.slug,
+        title: found.section.title,
+        url: `${found.doc.url}#${found.section.slug}`,
+      },
+    });
+  }
+
+  return { entries, missing };
+}
+
+/**
+ * Somebody else's reference, on this reader's screen.
+ *
+ * Nothing is written by arriving. A link is a navigation, and a navigation that
+ * quietly edits the reader's own saved things is the kind of surprise that
+ * makes a site untrustworthy — so the page shows what was shared, says whose it
+ * is, and waits to be asked.
+ *
+ * Saving merges: the store keeps what it has and adds what it lacks, so a
+ * reader who already had four of these eight keeps their four exactly as they
+ * were. The other four land at the end, in the order the link listed them,
+ * which is the same rule any new bookmark follows.
+ */
+function initSharedBanner({ root, gameSlug, entries, missing, ownKeys }) {
+  const banner = root.querySelector("[data-shared-banner]");
+  if (!banner) return;
+
+  const count = banner.querySelector("[data-shared-count]");
+  const note = banner.querySelector("[data-shared-missing]");
+  const save = banner.querySelector("[data-shared-save]");
+
+  banner.hidden = false;
+
+  /*
+   * A link that names nothing this game still has. Rare, and the one case where
+   * the banner is the whole answer — there is no reference under it to read, so
+   * it says what happened rather than counting to zero.
+   */
+  if (!entries.length) {
+    const lead = banner.querySelector(".shared-banner__lead");
+    if (lead) {
+      lead.innerHTML =
+        "<strong>That shared reference is out of date.</strong> None of the sections in the link are in these rules any more.";
+    }
+    if (save) save.hidden = true;
+    return;
+  }
+
+  if (count) {
+    count.textContent = `${entries.length} section${entries.length === 1 ? "" : "s"}`;
+  }
+  if (note) {
+    note.hidden = missing === 0;
+    note.textContent =
+      missing === 0
+        ? ""
+        : ` ${missing} more ${missing === 1 ? "is" : "are"} no longer in these rules.`;
+  }
+
+  save?.addEventListener("click", () => {
+    for (const entry of entries) bookmarkStore.add(entry.bookmark);
+
+    /*
+     * And the arrangement with them.
+     *
+     * Saving the sections without the sequence would throw away half of what
+     * was shared: somebody who ordered eight sections for their group ordered
+     * them for a reason, and dropping the new ones into rules order loses it.
+     * So what the reader already had keeps its position, and everything new
+     * lands after it in the order the link listed — which is the same rule any
+     * new bookmark follows, applied to four at once.
+     */
+    const keys = [...ownKeys];
+    for (const entry of entries) {
+      if (!keys.includes(entry.key)) keys.push(entry.key);
+    }
+    referenceOrderStore.set(gameSlug, keys);
+
+    /*
+     * And then the page as their own, which is now the same sections plus
+     * whatever they already had. A reload rather than a re-render: this happens
+     * once, and the page that builds a reference from scratch is the one that
+     * has always been right about what a reference is.
+     */
+    window.location.replace(window.location.pathname);
+  });
+}
+
+/**
+ * Handing this reference to somebody else.
+ *
+ * The link is built from the page as it stands — the sections in it and the
+ * order they are in — rather than from the store, because what somebody means
+ * by "share this" is the thing in front of them.
+ */
+function initShare({ root, body }) {
+  const button = root.querySelector("[data-reference-share]");
+  if (!button) return;
+
+  const sections = () => [...body.querySelectorAll(".reference-section[data-ref-key]")];
+  if (!sections().length) return;
+  button.hidden = false;
+
+  const label = button.textContent;
+  let timer;
+
+  button.addEventListener("click", async () => {
+    const url = shareUrl(sections().map((section) => section.dataset.refKey));
+    if (!url) return;
+
+    let copied = false;
+    if (navigator.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(url);
+        copied = true;
+      } catch {
+        copied = false;
+      }
+    }
+
+    /*
+     * No clipboard, no dead end: the link goes in the address bar, which is
+     * somewhere it can be copied by hand. The same fallback the heading
+     * permalinks use, and for the same reason.
+     */
+    if (!copied) {
+      window.location.hash = url.split("#")[1] || "";
+      return;
+    }
+
+    button.textContent = "Link copied";
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      button.textContent = label;
+    }, 2000);
+  });
+}
+
+/**
  * Reorder mode.
  *
  * The page collapses to its own headings, which is the table of contents this
@@ -382,14 +563,46 @@ export function initMyReference() {
   if (!root || !body || !empty || !gameSlug) return;
 
   const order = readOrder();
-  const planned = plan(order, bookmarkStore.list({ gameSlug }));
-  const orphans = planned.orphans;
-  const entries = applyStoredOrder(planned.entries, referenceOrderStore.get(gameSlug));
 
-  if (!entries.length && !orphans.length) return; // the empty state is already right
+  /*
+   * Whose reference this is, decided before anything is drawn.
+   *
+   * A link that names sections is somebody else's curation and is rendered as
+   * such — read-only, labelled, and saved only if the reader asks. Everything
+   * below builds sections the same way either way; what changes is where the
+   * list came from and what the page says about it.
+   */
+  const sharedKeys = decodeShare(window.location.hash);
+  const shared = sharedKeys ? planShared(order, sharedKeys) : null;
+
+  /*
+   * A share that arrives without a navigation still has to be honoured.
+   *
+   * The page reads the fragment once, at load, which covers the ordinary way a
+   * shared link is opened. Pasting one into the address bar while already on
+   * this page changes the fragment without reloading the document, and the
+   * reader would be left looking at their own reference wondering what the link
+   * did. Reloading is the whole answer: the page builds itself from the
+   * fragment, so building it again is building the right one.
+   */
+  const sharedSignature = encodeShare(sharedKeys || []);
+  window.addEventListener("hashchange", () => {
+    if (encodeShare(decodeShare(window.location.hash) || []) !== sharedSignature) {
+      window.location.reload();
+    }
+  });
+
+  const planned = plan(order, bookmarkStore.list({ gameSlug }));
+  const orphans = shared ? [] : planned.orphans;
+  const entries = shared
+    ? shared.entries
+    : applyStoredOrder(planned.entries, referenceOrderStore.get(gameSlug));
+
+  if (!entries.length && !orphans.length && !shared) return; // the empty state is right
 
   empty.hidden = true;
   body.hidden = false;
+  if (shared) root.dataset.shared = "on";
 
   // Pass one: everything the page can know without asking the network.
   const sections = new Map();
@@ -401,10 +614,20 @@ export function initMyReference() {
   }
   for (const orphan of orphans) body.append(buildOrphan(orphan));
 
-  /* The rules' own order, kept so "Reset to rules order" has somewhere to go. */
-  const rulesOrder = planned.entries.map((entry) => entry.key);
+  if (shared) {
+    /* What this reader already has, in the order they already have it. */
+    const ownKeys = applyStoredOrder(
+      planned.entries,
+      referenceOrderStore.get(gameSlug),
+    ).map((entry) => entry.key);
 
-  initReorder({ root, body, gameSlug, rulesOrder });
+    initSharedBanner({ root, gameSlug, entries, missing: shared.missing, ownKeys });
+  } else {
+    /* The rules' own order, kept so "Reset to rules order" has somewhere to go. */
+    const rulesOrder = planned.entries.map((entry) => entry.key);
+    initReorder({ root, body, gameSlug, rulesOrder });
+    initShare({ root, body });
+  }
 
   /*
    * The headings exist now, so the rest of the site can see them.
@@ -431,7 +654,7 @@ export function initMyReference() {
    */
   body.addEventListener("click", (event) => {
     const button = event.target.closest("[data-reference-remove]");
-    if (!button) return;
+    if (!button || shared) return;
 
     const section = button.closest(".reference-section");
     const record = sections.get(section?.dataset.refKey);
