@@ -191,6 +191,73 @@ change to how `{% term %}` renders and nothing else.
 
 ---
 
+## Reading a rulebook aloud
+
+A play button on each section, and one for a whole document end to end.
+
+**Why deferred:** three separate problems, and only one of them is code.
+
+**Rights, which is the same question translation raises.** Rules text here is
+reproduced by permission. A recording is a derivative work in a new medium, and
+permission to publish a rulebook as text is not permission to publish it as
+audio. That applies to anything pre-rendered and served from here. It does not
+obviously apply to the browser speaking text already on the page, which is
+what a screen reader does and nobody asks permission for. The two approaches
+are therefore not the same feature with different quality, they are different
+things legally, and which one this becomes decides whether it needs a
+conversation with a publisher first.
+
+**Rules text reads badly aloud.** It is dense with cross references, tables,
+symbols and terms of art, and a synthesiser given it raw produces "open paren
+see section four point two close paren". Reading well means a spoken form of
+each section: expansions for references, an order for tables, and a decision
+about what to skip. That is authoring work on every document rather than a
+feature that ships once, and it is the part that would decide whether this is
+good or merely present.
+
+**The use case it is for is the one the free option cannot serve.** Somebody
+who wants a page read to them has VoiceOver or TalkBack already, and those are
+better at it than anything built here. The reason to want this is hands free at
+the table, or a rulebook listened to on the way to a game night, and
+`speechSynthesis` stops when the tab goes to the background on iOS. So the
+version that costs nothing is the version that cannot do the thing that makes
+it worth having.
+
+**Where it could start, if it starts anywhere:** the documents written for this
+site. A summary, a glossary and an index carry `rights: n/a`, so the permission
+question does not arise for them, and a summary is already prose written to be
+read in one pass rather than looked up. That is a real slice rather than a
+watered down one, and it would answer the text preparation question on content
+we control before anybody has to ask a publisher anything.
+
+**What already helps:**
+
+- **Every section is already a unit with a boundary.** H2s carry stable anchors,
+  and `section-tracker.js` knows the document's outline and which section the
+  reader is in, so "play from here" and "play to the end" both have something
+  to count in. Highlighting the section being read is the tracker publishing to
+  one more subscriber.
+- **A per section control already has a home.** The heading tools row carries
+  the bookmark and the permalink, attached by `enhanceHeadings`, so a play
+  button is a third control in a row that exists rather than a new surface.
+- **A setting is one entry.** `PREFERENCES` in `src/assets/js/preferences.js` is
+  a table, and the panel, the persistence, the cross tab sync and the no flash
+  boot script all read from it.
+- **A spoken form would be content, not a content model.** Files are Markdown
+  plus frontmatter, so a per section spoken variant is a field beside the text
+  it belongs to. Nothing new has to be invented to hold it.
+- **The state model can carry it.** `docs/CONTENT-STATES.md` scores text,
+  images, links and rights on their own axes, so "this document has been
+  prepared for speech" is an axis if it ever needs one, rather than a flag
+  bolted to `text`.
+
+**Revisit when** either the rights conversation happens for another reason and
+audio can be asked about in the same breath, or somebody wants this badly
+enough on the site's own writing to do the text preparation for one summary and
+find out what it actually takes.
+
+---
+
 ## Offline reading and installing to the home screen
 
 A service worker caching the site so it works with no connection, a
@@ -400,6 +467,9 @@ text.
   empty states). That is the one piece of present code that a language switch
   would force a change to, and it is worth knowing before starting: the count
   is small, under a hundred, but they are everywhere.
+
+**Related:** *Reading a rulebook aloud* has the same rights question in a
+different medium. If a publisher is ever asked about one, ask about both.
 
 **Worth settling first:** whether a language is a property of a game (this
 rulebook exists in German) or of the site (this reader wants German). They lead
