@@ -545,7 +545,7 @@
  */
 .site-footer__title {
   font-family: var(--font-ui);
-  font-size: var(--text-md);
+  font-size: var(--text-lg);
   font-weight: 700;
 }
 
